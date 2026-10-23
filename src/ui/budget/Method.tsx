@@ -17,8 +17,8 @@ export function Method({ data }: { data: BudgetData }) {
         Comment c’est calculé
       </h1>
       <p class="lede">
-        Chaque levier a un effet chiffré par des sources publiques. Le jeu additionne ces effets sur votre appareil, sans IA, et
-        en déduit le déficit 2027.
+        Chaque levier a un effet chiffré par des sources publiques, ou estimé par Isoloir quand aucune ne le chiffre, et dit
+        alors comment. Le jeu additionne ces effets sur votre appareil, sans IA, et en déduit le déficit 2027.
       </p>
       <AiLabel kind="chiffrages" />
 
@@ -59,6 +59,11 @@ export function Method({ data }: { data: BudgetData }) {
           miroir. Pour une ligne de crédits, la plage va de −25&#x202F;% à +25&#x202F;%, ou de −100&#x202F;% à +100&#x202F;% quand une idée du débat propose
           de supprimer cette ligne.
         </li>
+        <li>
+          Au-delà de la plage chiffrée, le curseur va plus loin, jusqu’à une borne justifiée (une limite légale, un taux plancher
+          européen, la ligne entière)&#x202F;: chaque unité en plus a un effet estimé par Isoloir, en fourchette élargie, car une
+          grosse hausse d’impôt rapporte moins que sa règle de trois. La piste du curseur y est hachurée et la fiche le dit.
+        </li>
         <li>Deux leviers qui portent sur la même base (la TVA à tous les taux et la TVA au taux normal) ne s’ajoutent pas&#x202F;: régler l’un remet l’autre au PLF.</li>
         <li>
           Deux leviers qui se recoupent en partie (le point d’indice ou les effectifs, et les crédits d’une mission qui paient des
@@ -86,13 +91,13 @@ export function Method({ data }: { data: BudgetData }) {
         Dans chaque famille, les trois premiers leviers jouent sur les plus grosses lignes du budget, d’après leur montant
         publié&#x202F;: le produit d’un impôt, les crédits d’une mission, une dépense sociale. Un levier sur la même base qu’un levier
         déjà retenu, ou sur la même ligne (la TVA au taux normal après la TVA à tous les taux), laisse la place au suivant. Les
-        leviers dont les sources ne donnent pas le montant de la ligne, seulement un coût par emploi, viennent en dernier,
-        rangés par l’effet qu’ils peuvent atteindre.
+        leviers sans ligne publiée (une mesure qui n’existe pas encore, ou que ses sources ne chiffrent que par emploi)
+        viennent en dernier, rangés par l’effet qu’ils peuvent atteindre.
       </p>
 
       <h2>Ce qui n’est pas dans le jeu</h2>
       <ul class="cpt-list">
-        <li>Les mesures qu’aucune source éligible ne chiffre pour 2027&#x202F;: un dispositif nouveau sans ligne, une gratuité, une procédure ou une sanction.</li>
+        <li>Les mesures qu’on ne peut ni chiffrer ni estimer honnêtement pour 2027&#x202F;: un dispositif dont le contenu n’est pas défini, une procédure ou une sanction.</li>
         <li>Ce qui ne joue qu’après 2027, comme l’effet d’une réforme des retraites à terme&#x202F;: la fiche le dit, hors du total.</li>
         <li>
           Les dotations de l’État aux collectivités et les transferts entre l’État et la Sécurité sociale&#x202F;: un transfert entre
@@ -103,28 +108,69 @@ export function Method({ data }: { data: BudgetData }) {
           la décision sur les ressources propres, adoptés à l’unanimité des États&#x202F;; la France ne peut pas la changer seule.
         </li>
         <li>
-          Des lignes qu’aucune idée du débat ne vise, comme la taxe sur les transactions financières ou l’hébergement
-          d’urgence&#x202F;: elles pourront entrer dans le jeu selon les mêmes règles.
+          Des lignes qu’aucune idée du débat ne vise, comme l’allocation de rentrée scolaire ou les rentes d’accidents
+          du travail&#x202F;: elles pourront entrer dans le jeu selon les mêmes règles.
         </li>
       </ul>
 
-      <h2>Pourquoi le jeu ne part pas de vos réponses</h2>
+      <h2>Les estimations d’Isoloir</h2>
       <p>
-        Le jeu devait d’abord poser votre budget à partir de vos réponses aux questions. Avant de le construire, une mesure
-        de neutralité a comparé, bloc par bloc de la grille des nuances, la part des idées des candidats qu’un levier chiffré
-        pouvait représenter. L’écart entre le bloc le mieux servi et le moins bien servi devait rester sous un seuil fixé
-        d’avance (1,5), avec tous les candidats et sans chacun d’eux. Avec tous, il était de 1,4 pour les idées qui creusent
-        le déficit et de 1,7 pour celles qui le réduisent&#x202F;; sans l’un ou l’autre, jusqu’à 1,6 et 2,0&#x202F;; et le nombre de leviers
-        que chaque bloc pouvait faire bouger dans son sens variait de 1 à 1,6. Le jeu part donc du même point pour tout le
-        monde, le PLF, et ne lit pas vos réponses. Ces mesures portaient sur le menu d’alors et sur l’amorce par les réponses&#x202F;;
-        sans amorce, elles ne sont pas refaites&#x202F;: chaque levier du jeu se règle dans les deux sens, autour du PLF.
+        Quand une mesure débattue n’a aucun chiffrage par une source éligible, Isoloir l’estime&#x202F;: un calcul statique, à partir de
+        chiffres officiels cités (une assiette, un produit, des effectifs), en fourchette large, au moins 25&#x202F;% de part et d’autre
+        du calcul central. Jamais à partir du chiffre d’un candidat ou d’un parti. La fiche porte la mention «&#x202F;estimation&#x202F;» et dit
+        comment le calcul est fait&#x202F;; «&#x202F;Votre budget 2027&#x202F;» dit quelle part de vos réglages repose sur des estimations.
+      </p>
+
+      <h2>Vos réponses et les leviers</h2>
+      <p>
+        Chaque approche des questions qui a un effet sur le budget est reliée au levier qui la représente, et au sens où elle
+        l’emmène&#x202F;: ces liens ont été établis par une IA, puis vérifiés par une autre. Sur votre appareil, sans rien envoyer, le jeu
+        lit vos réponses&#x202F;: chaque fiche reliée dit si vous étiez d’accord, pas d’accord, ou si c’était une ligne rouge. Au départ,
+        vous choisissez de partir de vos réponses ou du PLF&#x202F;; partant de vos réponses, un levier dont vous approuvez une approche
+        part dans son sens, à la taille qu’elle dit (ou d’un cran), jamais au-delà de sa borne. Des réponses qui tirent un levier
+        dans les deux sens, ou une ligne rouge dans le sens approuvé, ne règlent rien&#x202F;: la fiche dit «&#x202F;réponses partagées&#x202F;». Une
+        approche qui ne porte qu’en partie sur ses leviers (une idée large, comme «&#x202F;taxer davantage…&#x202F;») marque chacun d’eux et
+        n’en pré-règle qu’un, d’un cran&#x202F;: celui de la plus grosse ligne&#x202F;; deux leviers sur la même base ne sont jamais pré-réglés
+        ensemble, et une approche sans taille ne règle jamais plus de 10&#x202F;% d’une ligne de crédits.
+      </p>
+      {data.gate ? <Gate gate={data.gate} /> : null}
+      <p>
+        Une première mesure, avant la construction du jeu, avait refusé de poser le budget à partir des réponses&#x202F;: avec tous les
+        candidats, l’écart était de 1,4 pour les idées qui creusent le déficit et de 1,7 pour celles qui le réduisent, et
+        jusqu’à 1,6 et 2,0 sans l’un ou l’autre. Le 18 octobre 2026, après l’avoir essayé, l’éditeur a choisi de relier quand
+        même le jeu aux réponses, avec les marques et le pré-réglage, en publiant ici la mesure refaite sur ce mode.
       </p>
 
       <h2>Les données</h2>
       <p>
-        {n} leviers, version {data.version}. Les réglages restent en mémoire le temps de la page&#x202F;: rien n’est enregistré, rien
+        {n} leviers, version {data.version}. Vos réglages sont gardés sur cet appareil, avec vos réponses, et repris dans le double que vous exportez&#x202F;: rien
         n’est envoyé.
       </p>
     </div>
   )
 }
+
+/** La mesure de neutralité du mode relié, telle que l'a écrite tools/budget-pregate.mjs (budget-gate.json) */
+function Gate({ gate }: { gate: NonNullable<BudgetData['gate']> }) {
+  const f = (x: number | null) => (x === null ? 'non mesurable' : x.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 2 }))
+  return (
+    <p>
+      La mesure de neutralité compare, bloc par bloc de la grille des nuances, la part des idées de ses candidats qu’un levier
+      du jeu représente, à part pour celles qui creusent le déficit et celles qui le réduisent&#x202F;; l’écart entre le bloc le mieux
+      et le moins bien servi devrait rester sous {f(gate.threshold)}. Sur ce mode, avec tous les candidats, il est de {f(gate.creuse)} pour
+      les idées qui creusent le déficit et de {f(gate.reduit)} pour celles qui le réduisent&#x202F;; au pire, sans l’un ou l’autre,{' '}
+      de {f(gate.worstCreuse)} et {f(gate.worstReduit)}. Le nombre de leviers que chaque bloc peut faire bouger dans son sens varie dans un
+      rapport de {f(gate.reach)}. {gate.pass ? 'Cette mesure passe.' : 'Cette mesure ne passe pas\u202f: certains blocs voient moins de leurs idées représentées dans le jeu que d’autres.'}
+      {gate.preset ? (
+        <>
+          {' '}
+          Seules les approches qui se font par un levier le pré-règlent (pas celles qui n’y portent qu’en partie)&#x202F;: comptées ainsi,
+          l’écart est de {f(gate.preset.creuse)} et {f(gate.preset.reduit)} avec tous les candidats, au pire de {f(gate.preset.worstCreuse)} et{' '}
+          {f(gate.preset.worstReduit)}.{' '}
+          {gate.preset.pass ? 'Cette mesure-là passe.' : 'Cette mesure-là ne passe pas\u202f: les réponses de certains blocs pré-règlent moins de leviers que celles des autres.'}
+        </>
+      ) : null}
+    </p>
+  )
+}
+

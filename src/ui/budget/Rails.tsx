@@ -42,13 +42,14 @@ export function unitText(lever: Lever): string {
   return `${lever.unit.label} = ${md(lever.perUnit)}`
 }
 
-export function Tile({ lever, tint, settings, open }: { lever: Lever; tint: number; settings: Settings; open?: boolean }) {
+export function Tile({ lever, tint, settings, open, tags = [] }: { lever: Lever; tint: number; settings: Settings; open?: boolean; tags?: string[] }) {
   const value = settings[lever.id]
   const set = !isBase(lever, value)
   return (
     <li class={['cpt-tile', `tint-${tint}`, set ? 'is-set' : '', open ? 'is-open' : ''].filter(Boolean).join(' ')}>
       <a class="cpt-tile-btn" href={link(`/comptes/${lever.id}`)} aria-current={open ? 'true' : undefined}>
         <span class="cpt-tile-name">{lever.label}</span>
+        {tags.length ? <span class="cpt-tile-tags">{tags.join(' · ')}</span> : null}
         <span class="cpt-tile-unit cpt-num">{unitText(lever)}</span>
         <span class="cpt-tile-state">
           {set ? (
@@ -73,7 +74,7 @@ export function familyTotal(levers: readonly Lever[], settings: Settings, family
   return <span class="cpt-rail-total is-set">{`${md(r, { sign: true })} de ${family === 'impots' ? 'recettes' : 'dépenses'}`}</span>
 }
 
-export function Rails({ levers, settings, open }: { levers: readonly Lever[]; settings: Settings; open?: string }) {
+export function Rails({ levers, settings, open, tagsOf }: { levers: readonly Lever[]; settings: Settings; open?: string; tagsOf: (l: Lever) => string[] }) {
   return (
     <>
       {FAMILIES.map(f => {
@@ -96,7 +97,7 @@ export function Rails({ levers, settings, open }: { levers: readonly Lever[]; se
             </div>
             <ul class="cpt-row">
               {shown.map(l => (
-                <Tile key={l.id} lever={l} tint={tintOf(levers, l)} settings={settings} open={l.id === open} />
+                <Tile key={l.id} lever={l} tint={tintOf(levers, l)} settings={settings} open={l.id === open} tags={tagsOf(l)} />
               ))}
               <li class="cpt-tile cpt-tile-more">
                 <a class="cpt-tile-btn" href={link(`/comptes/${f}`)}>
@@ -113,7 +114,7 @@ export function Rails({ levers, settings, open }: { levers: readonly Lever[]; se
 }
 
 /** Tous les leviers d'une famille, de la plus grosse ligne du budget à la plus petite (familyOrder) */
-export function FamilyGrid({ levers, settings, family }: { levers: readonly Lever[]; settings: Settings; family: Family }) {
+export function FamilyGrid({ levers, settings, family, tagsOf }: { levers: readonly Lever[]; settings: Settings; family: Family; tagsOf: (l: Lever) => string[] }) {
   const all = familyOrder(levers, family)
   return (
     <div class="cpt-family">
@@ -128,7 +129,7 @@ export function FamilyGrid({ levers, settings, family }: { levers: readonly Leve
       <AiLabel kind="chiffrages" class="cpt-rails-ai" />
       <ul class="cpt-grid">
         {all.map(l => (
-          <Tile key={l.id} lever={l} tint={tintOf(levers, l)} settings={settings} />
+          <Tile key={l.id} lever={l} tint={tintOf(levers, l)} settings={settings} tags={tagsOf(l)} />
         ))}
       </ul>
     </div>

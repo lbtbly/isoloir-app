@@ -1,7 +1,7 @@
 // La bande du déficit : collée sous l'en-tête, elle répond à chaque geste. Le chiffre en fourchette, l'axe (le PLF, le
 // drapeau de l'objectif, la fourchette de la personne au bleu bille et son trajet depuis le PLF), puis la phrase.
 import { useEffect, useRef } from 'preact/hooks'
-import { bandSentence, COPY, goalShort, pct, pctOne } from '../../core/budget/copy'
+import { bandSentence, COPY, deficitDecimals, goalShort, pct, pctOne } from '../../core/budget/copy'
 import { deficitRange, goalGap, type Baseline, type Range } from '../../core/budget/ledger'
 
 interface Props {
@@ -10,9 +10,11 @@ interface Props {
   goal: number | null
   /** Leviers réglés : le PLF n'est plus le point montré dès qu'un levier bouge, même si les effets se compensent */
   count: number
+  /** Une part de l'effet repose sur des estimations d'Isoloir : « objectif atteint » ne dit plus « chiffrages publiés » */
+  estimated?: boolean
 }
 
-export function Band({ base, effect, goal, count }: Props) {
+export function Band({ base, effect, goal, count, estimated = false }: Props) {
   const ref = useRef<HTMLElement>(null)
   // Sa hauteur réelle : la fiche ouverte se colle dessous sur grand écran (budget.css, --band-real)
   useEffect(() => {
@@ -39,7 +41,7 @@ export function Band({ base, effect, goal, count }: Props) {
         <div class="cpt-fig-wrap">
           <span class="cpt-label">{COPY.bandLabel}</span>
           <span class="cpt-fig">
-            {moved ? pct(d).replace(/\u202f%$/, '') : pctOne(base.deficitPct).replace(/\u202f%$/, '')}
+            {moved ? pct(d, deficitDecimals(base, effect)).replace(/\u202f%$/, '') : pctOne(base.deficitPct).replace(/\u202f%$/, '')}
             <small>{'\u202f%'}</small>
           </span>
         </div>
@@ -71,7 +73,7 @@ export function Band({ base, effect, goal, count }: Props) {
           ) : null}
         </div>
         <p class="cpt-left">
-          <Sentence {...bandSentence(gap.state, gap.missing, moved, effect)} />
+          <Sentence {...bandSentence(gap.state, gap.missing, moved, effect, estimated)} />
           {/* Au téléphone, la barre du bas n'a pas la place du compte : il est ici (budget.css) */}
           {/* L'espace hors du compte : la ligne se coupe avant le point, jamais dans « 3 leviers réglés » */}{' '}
           <span class="cpt-band-count cpt-num">· {COPY.setCount(count)}</span>

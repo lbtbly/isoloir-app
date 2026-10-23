@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { buildExport, parseImport } from '../src/core/exportData'
 import { currentAnswers, staleQuestions } from '../src/core/revisions'
 import { computeResults } from '../src/core/score'
-import { essentialComplete, freshState, inputsKey, migrateAnswers, sanitizeState } from '../src/core/storage'
+import { essentialComplete, freshState, inputsKey, isBlank, migrateAnswers, sanitizeBudget, sanitizeState, withBudgetKept } from '../src/core/storage'
 import { updateMoves } from '../src/core/resultsCopy'
 import type { ElectionPack } from '../src/core/types'
 import { pack } from './fixture'
@@ -232,5 +232,32 @@ describe('révisions des questions', () => {
       expect(back.state.answers.q1).toEqual(answers.q1)
     }
     expect(sanitizeState(file.state, p)?.answers.q1).toEqual(answers.q1)
+  })
+})
+
+describe('réglages de « Faire les comptes »', () => {
+  it('sont lus avec la feuille : identifiants bien formés, valeurs bornées, objectif connu', () => {
+    expect(sanitizeBudget({ goalId: 'trois', settings: { 'tva-tous-taux': 0.5, 'age-legal-retraite': 'ans-62', 'Mauvais id': 1, x: Infinity, y: 1e9 }, touched: ['tva-tous-taux', 3, 'tva-tous-taux'] })).toEqual({
+      goalId: 'trois',
+      settings: { 'tva-tous-taux': 0.5, 'age-legal-retraite': 'ans-62' },
+      touched: ['tva-tous-taux'],
+    })
+    expect(sanitizeBudget({ goalId: 'inconnu', settings: {}, touched: [] })).toBeNull()
+    expect(sanitizeBudget('n’importe quoi')).toBeNull()
+  })
+
+  it('font une feuille non vierge, passent par le double et reviennent à l’import', () => {
+    const s = { ...freshState(pack.election.id, pack.election.dataVersion), budget: { goalId: 'moitie', settings: { 'tva-tous-taux': -1 }, touched: ['tva-tous-taux'] } }
+    expect(isBlank(s)).toBe(false)
+    const file = buildExport(pack, s, computeResults(pack, s.answers, s.weights, s.seed))
+    const back = parseImport(JSON.stringify(file), pack)
+    expect(back.ok && back.state.budget).toEqual(s.budget)
+  })
+
+  it('un import sans réglages (code de transfert, double ancien) garde ceux de l’appareil', () => {
+    const here = { ...freshState(pack.election.id, pack.election.dataVersion), budget: { goalId: 'trois', settings: {}, touched: [] } }
+    const imported = { ...freshState(pack.election.id, pack.election.dataVersion), budget: null }
+    expect(withBudgetKept(imported, here).budget).toEqual(here.budget)
+    expect(withBudgetKept({ ...imported, budget: { goalId: 'aucun', settings: {}, touched: [] } }, here).budget?.goalId).toBe('aucun')
   })
 })

@@ -5,7 +5,7 @@ import { currentAnswers, freshApproaches, staleQuestions } from './core/revision
 import { seededShuffle } from './core/rng'
 import { computeResults } from './core/score'
 import { parseLocation, resolvePlace, type Resolved, type Route } from './core/routes'
-import { clearAll, essentialComplete, freshState, loadState, saveState, storageKey, type SessionState } from './core/storage'
+import { clearAll, essentialComplete, freshState, isBlank, loadState, saveState, storageKey, withBudgetKept, type SessionState } from './core/storage'
 import { importNotes, MAX_IMPORT_BYTES, parseImport, type ImportResult } from './core/exportData'
 import type { Answer, ElectionPack, Question } from './core/types'
 import { ELECTIONS, RETIRED_PREFIXES, loadElection, loadedElection, type ElectionEntry } from './elections'
@@ -203,11 +203,17 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
     return () => window.removeEventListener('storage', onStorage)
   }, [election.id, pack])
 
+  // Au démarrage, une feuille vierge n'est pas enregistrée : si la lecture avait échoué, l'enregistrer effacerait ce
+  // qui est gardé (saveState retire la clé d'une feuille vierge, pour « Recommencer »)
+  const savedOnce = useRef(false)
   useEffect(() => {
     if (remote.current) {
       remote.current = false
       return
     }
+    const first = !savedOnce.current
+    savedOnce.current = true
+    if (first && isBlank(state)) return
     setSaved(saveState(state))
   }, [state])
 
@@ -245,10 +251,13 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
   )
   // Réponses à revoir (question changée sur le fond) : retirées du calcul en attendant
   const stale = useMemo(() => staleQuestions(pack, state.answers), [pack, state.answers])
-  const results = useMemo(
-    () => computeResults(pack, currentAnswers(pack, state.answers), state.weights, state.seed),
-    [pack, state.answers, state.weights, state.seed],
-  )
+  // Les réponses à jour des révisions : le calcul, et « Faire les comptes » qui relie ses leviers aux approches
+  const current = useMemo(() => currentAnswers(pack, state.answers), [pack, state.answers])
+  const results = useMemo(() => computeResults(pack, current, state.weights, state.seed), [pack, current, state.weights, state.seed])
+  const approachText = useMemo(() => {
+    const texts = new Map(bank.questions.flatMap(q => q.approaches.map(a => [a.id, a.text] as const)))
+    return (id: string) => texts.get(id)
+  }, [bank])
 
   const update = useCallback((patch: Partial<SessionState>) => setState(s => ({ ...s, ...patch })), [])
   const tracking = !!election.revisionTracking
@@ -316,7 +325,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         ok: true,
         notes: importNotes(res, pack),
         take: () => {
-          setState(next)
+          setState(s => withBudgetKept(next, s))
           go('/resultats')
         },
       }
@@ -567,9 +576,17 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('table', tableScreen, 'La table', 'de la table', m => <m.Table pack={pack} Sheet={Sheet} />)
       case 'budget':
         if (noBudget) return null
-        // Le jeu ne reçoit que l'élection : il ne lit pas la feuille de réponses (décision du 17 octobre 2026)
+        // Les réglages du jeu sont gardés avec les réponses (décision du propriétaire du 18 octobre 2026)
         return onDemandScreen('budget', budgetScreen, 'Les pages des comptes', 'des comptes', m => (
-          <m.Budget election={election} arg={route.arg} focusOnArrival={!firstRender.current} />
+          <m.Budget
+            election={election}
+            arg={route.arg}
+            focusOnArrival={!firstRender.current}
+            saved={state.budget ?? null}
+            onSave={budget => update({ budget })}
+            answers={current}
+            approachText={approachText}
+          />
         ))
       default:
         return (

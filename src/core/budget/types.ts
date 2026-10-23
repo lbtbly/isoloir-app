@@ -56,6 +56,23 @@ export interface LeverOption {
   /** Le réglage du PLF : le point de départ, sans effet */
   base?: true
   note?: string
+  /** Un réglage qu'aucune source éligible ne chiffre : estimé par Isoloir, et comment (décision du 18 octobre 2026) */
+  estimate?: string
+}
+
+/**
+ * Au-delà de la plage chiffrée par la source (±max), jusqu'à une borne justifiée (décision du 18 octobre 2026) : l'effet
+ * de chaque unité en plus est une estimation, en fourchette élargie
+ */
+export interface LeverStretch {
+  /** La borne, en unités, des deux côtés : de −max à +max */
+  max: number
+  /** Md€ par unité au-delà de la plage chiffrée */
+  perUnit: { lo: number; hi: number }
+  /** Le même à la baisse, quand il diffère */
+  perUnitDown?: { lo: number; hi: number }
+  /** Pourquoi cette borne, et comment l'effet au-delà est estimé */
+  why: string
 }
 
 export interface Lever {
@@ -74,8 +91,9 @@ export interface Lever {
   perUnit: { lo: number; hi: number }
   /** Md€ par unité à la baisse, quand les sources la chiffrent autrement que la hausse */
   perUnitDown?: { lo: number; hi: number }
-  /** La taille de la ligne du budget sur laquelle joue le levier (Md€), publiée : elle range les « 3 plus gros » */
-  base?: { value: number; label: string; source: LeverSource }
+  /** La taille de la ligne du budget sur laquelle joue le levier (Md€), publiée : elle range les « 3 plus gros » ; de sa
+   *  source, la fiche ne montre que l'éditeur, en lien */
+  base?: { value: number; label: string; source: Pick<LeverSource, 'title' | 'publisher' | 'url'> }
   /** La plage, symétrique autour du PLF : de −max à +max unités, jamais au-delà de ce que chiffre la source */
   max: number
   /** Le pas du curseur, en unités */
@@ -98,6 +116,37 @@ export interface Lever {
   /** Ce que le chiffre ne compte pas */
   limits: string
   sources: LeverSource[]
+  /** Aucune source éligible ne chiffre le levier : l'effet par unité est une estimation d'Isoloir, et sa méthode */
+  estimate?: { method: string }
+  /** Plus loin que la plage chiffrée, en estimation */
+  stretch?: LeverStretch
+}
+
+/**
+ * Une approche d'une question reliée à un levier (research/presidentielle-2027/budget-links.json) : d'accord avec elle,
+ * le levier va dans ce sens (dir), jusqu'au réglage qu'elle dit (un nombre d'unités, un réglage, ou « dir » : le sens
+ * seulement)
+ */
+export interface LeverLink {
+  approach: string
+  question: string
+  lever: string
+  dir: 1 | -1
+  setting: number | string
+  /** exact : l'approche dit la taille ; direction : le sens seulement ; partial : elle ne porte que sur une part */
+  fit: 'exact' | 'direction' | 'partial'
+}
+
+/** « Comprendre » un levier (research/presidentielle-2027/budget-explain.json), chargé à l'ouverture d'une fiche */
+export interface LeverExplainer {
+  what: string
+  who: string
+  up: string
+  down: string
+  argsUp: string[]
+  argsDown: string[]
+  /** Ses sources en plus de celles de la fiche du levier (sans leur chiffre, qui reste dans la recherche) */
+  sources: Omit<LeverSource, 'figure'>[]
 }
 
 export interface BudgetData {
@@ -106,4 +155,38 @@ export interface BudgetData {
   /** Le point de départ : le PLF 2027 tel que déposé */
   baseline: { label: string; deficitPct: number; gdp: number; source: LeverSource }
   levers: Lever[]
+  /** Les approches des questions reliées aux leviers */
+  links?: LeverLink[]
+  /**
+   * La mesure de neutralité du mode relié (tools/budget-pregate.mjs) : l'écart de couverture entre le bloc le mieux et
+   * le moins bien servi, pour les idées qui creusent et celles qui réduisent le déficit, avec tous les candidats et au
+   * pire sans l'un d'eux ; l'écart des leviers que chaque bloc peut faire bouger dans son sens ; le seuil et le verdict
+   */
+  gate?: {
+    threshold: number
+    creuse: number | null
+    reduit: number | null
+    worstCreuse: number | null
+    worstReduit: number | null
+    reach: number | null
+    pass: boolean
+    /** La même mesure sur les seules approches qui pré-règlent un levier (pas les liens partiels) */
+    preset?: { creuse: number | null; reduit: number | null; worstCreuse: number | null; worstReduit: number | null; pass: boolean }
+  }
 }
+
+/**
+ * Les réglages du jeu, gardés sur l'appareil avec les réponses (décision du propriétaire du 18 octobre 2026) et repris
+ * dans le double exporté : l'objectif choisi, la valeur de chaque levier réglé (un nombre d'unités, ou l'identifiant
+ * d'une option) et les leviers touchés, dans l'ordre (le récapitulatif garde barrés ceux ramenés au PLF)
+ */
+export interface BudgetSave {
+  goalId: string | null
+  settings: Record<string, number | string>
+  touched: string[]
+  /** Les leviers pré-réglés d'après les réponses (et pas touchés depuis) ; absent : pas encore proposé */
+  preset?: string[]
+  /** La personne a choisi de partir du PLF plutôt que de ses réponses */
+  fromPlf?: boolean
+}
+

@@ -47,16 +47,17 @@ export default tseslint.config(
     },
   },
   {
-    // « Faire les comptes » : ni stockage ni envoi, et rien de la feuille de réponses (décision du 17 octobre 2026 : le jeu
-    // ne lit pas les réponses ; ses réglages vivent en mémoire le temps de la page)
+    // « Faire les comptes » : ni stockage ni envoi par lui-même. Depuis le 18 octobre 2026 (décision du propriétaire), ses
+    // réglages sont gardés par l'application avec les réponses, et il reçoit les réponses à jour en paramètre (app.tsx) :
+    // il n'importe toujours ni le stockage, ni l'export, ni la lecture des réponses
     files: ['src/ui/budget/**/*.{ts,tsx}', 'src/core/budget/**/*.ts'],
     rules: {
       'no-restricted-globals': [
         'error',
-        { name: 'localStorage', message: 'Le jeu ne garde rien sur l’appareil.' },
-        { name: 'sessionStorage', message: 'Le jeu ne garde rien sur l’appareil.' },
-        { name: 'indexedDB', message: 'Le jeu ne garde rien sur l’appareil.' },
-        { name: 'caches', message: 'Le jeu ne garde rien sur l’appareil.' },
+        { name: 'localStorage', message: 'Le jeu ne garde rien lui-même : l’application garde ses réglages (onSave).' },
+        { name: 'sessionStorage', message: 'Le jeu ne garde rien lui-même : l’application garde ses réglages (onSave).' },
+        { name: 'indexedDB', message: 'Le jeu ne garde rien lui-même : l’application garde ses réglages (onSave).' },
+        { name: 'caches', message: 'Le jeu ne garde rien lui-même : l’application garde ses réglages (onSave).' },
       ],
       'no-restricted-properties': [
         'error',
@@ -66,7 +67,7 @@ export default tseslint.config(
       ],
       'no-restricted-imports': [
         'error',
-        { patterns: [{ group: ['**/core/storage', '**/core/revisions', '**/core/exportData', '**/core/answers'], message: 'Le jeu ne lit pas la feuille de réponses.' }] },
+        { patterns: [{ group: ['**/core/storage', '**/core/revisions', '**/core/exportData', '**/core/answers'], message: 'Le jeu reçoit les réponses de l’application ; il ne lit ni le stockage ni l’export.' }] },
       ],
     },
   },

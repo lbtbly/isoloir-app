@@ -3,8 +3,8 @@
 // ensemble, et des nombres affichés qui contiennent toujours ce qui est calculé.
 
 import { describe, expect, it } from 'vitest'
-import { md, mdPublished, pct, settingLabel } from '../src/core/budget/copy'
-import { applySetting, balanceEffect, clampValue, deficitRange, goalGap, topOfFamily, totals, type Settings } from '../src/core/budget/ledger'
+import { deficitDecimals, md, mdPublished, pct, settingLabel } from '../src/core/budget/copy'
+import { applySetting, balanceEffect, clampValue, deficitRange, estimatedShare, fallSteps, goalGap, topOfFamily, totals, type Settings } from '../src/core/budget/ledger'
 import type { Lever } from '../src/core/budget/types'
 import { mulberry32 } from '../src/core/rng'
 
@@ -148,3 +148,41 @@ describe('écriture des nombres', () => {
     expect(settingLabel(L({ id: 'x', unit: { label: '10 000 emplois', short: 'emplois' } }), -3)).toBe('−30\u202f000 emplois')
   })
 })
+
+describe('cascade et précision', () => {
+  const lever = (id: string, family: 'impots' | 'depenses' | 'sociale', direction: 'recette' | 'depense', lo: number, hi: number) =>
+    ({ id, family, label: id, today: '', kind: 'linear', direction, unit: { label: '1 point', short: 'pt' }, perUnit: { lo, hi }, max: 2, step: 0.1, notches: [-1, 0, 1], baseLabel: 'PLF', exclusiveWith: [], operatorCaveat: false, limits: '', sources: [] }) as unknown as Lever
+  const L = [lever('tva', 'impots', 'recette', 10, 12), lever('ir', 'impots', 'recette', 4, 5), lever('def', 'depenses', 'depense', 3, 3), lever('ret', 'sociale', 'depense', 2, 4)]
+
+  it('range les réglages par famille, ce qui baisse le déficit avant ce qui l’augmente, et retombe sur le total', () => {
+    const settings = { tva: 1, ir: -1, def: 1, ret: -1 }
+    const steps = fallSteps(L, settings)
+    expect(steps.map(s => `${s.family}:${s.lowers ? 'baisse' : 'hausse'}`)).toEqual(['impots:baisse', 'impots:hausse', 'depenses:hausse', 'sociale:baisse'])
+    const sum = steps.reduce((a, s) => ({ lo: a.lo + s.effect.lo, hi: a.hi + s.effect.hi }), { lo: 0, hi: 0 })
+    expect(sum).toEqual(totals(L, settings).all)
+    expect(fallSteps(L, {})).toEqual([])
+  })
+
+  it('montre deux décimales quand les réglages bougent le déficit de moins de 0,1 point', () => {
+    const b = { deficitPct: 5, gdp: 3135 }
+    expect(deficitDecimals(b, { lo: 0, hi: 0 })).toBe(1)
+    expect(deficitDecimals(b, { lo: 0.3, hi: 0.3 })).toBe(2)
+    expect(deficitDecimals(b, { lo: 11.4, hi: 13.7 })).toBe(1)
+  })
+})
+
+describe('part estimée et excédent', () => {
+  it('additionne la taille des parts estimées, sans que des sens contraires s’annulent', () => {
+    const est = (id: string) =>
+      ({ id, family: 'impots', label: id, today: '', kind: 'linear', direction: 'recette', unit: { label: '1', short: '%' }, perUnit: { lo: 1, hi: 2 }, max: 5, step: 1, notches: [-1, 0, 1], baseLabel: 'PLF', exclusiveWith: [], operatorCaveat: false, limits: '', sources: [], estimate: { method: 'x' } }) as unknown as Lever
+    const L = [est('a'), est('b')]
+    // +2 sur a (+2 à +4 de solde), −2 sur b (−4 à −2) : le total s'annule presque, la part estimée non
+    expect(totals(L, { a: 2, b: -2 }).all).toEqual({ lo: -2, hi: 2 })
+    expect(estimatedShare(L, { a: 2, b: -2 })).toEqual({ lo: 4, hi: 8 })
+  })
+
+  it('écrit un excédent avec le vrai signe moins', () => {
+    expect(pct({ lo: -1.04, hi: -0.2 })).toBe('\u22121,1 à \u22120,2\u202f%')
+  })
+})
+

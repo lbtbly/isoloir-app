@@ -1,5 +1,5 @@
 {
- "_note": "Corrections des fiches de leviers décidées après la revue de finition du 18/10/2026 (workflow comptes-finish-review, constats confirmés par un vérificateur indépendant), appliquées champ par champ par tools/build-budget.mjs. Les corrections de fond (sources, montants, plages) passent par la recherche (budget-levers.json) ; ici, seulement ce qui ne change aucun effet chiffré : libellés, recoupements, et tailles de ligne (elles ne servent qu’à l’ordre des rayons et à « La ligne du budget »), reprises d’une autre fiche sur la même ligne ou relues dans la source officielle, citation à l’appui.",
+ "_note": "Corrections des fiches de leviers décidées après la revue de finition du 18/10/2026 (workflow comptes-finish-review, constats confirmés par un vérificateur indépendant), appliquées champ par champ par tools/build-budget.mjs. Les corrections de fond (sources, montants, plages) passent par la recherche (budget-levers.json) ; ici, ce qui ne change aucun effet chiffré, et, depuis la revue finale de la v2 (23/10/2026), les chiffres corrigés pour appliquer une règle écrite (mois comptés, base d’une même année, baisse bornée à la ligne), chacun avec sa raison : libellés, recoupements, et tailles de ligne (elles ne servent qu’à l’ordre des rayons et à « La ligne du budget »), reprises d’une autre fiche sur la même ligne ou relues dans la source officielle, citation à l’appui. Depuis la vérification finale du 23/10/2026, aussi les textes « Comprendre » ({ explain, set }) dont un chiffre ou une phrase contredisait la fiche du levier.",
  "corrections": [
   {
    "id": "ir-indexation-bareme",
@@ -520,6 +520,451 @@
     }
    },
    "why": "Vérification de la seconde passe (18/10) : la source donne une fourchette, 300 à 400 M€ ; la fiche des rayons l'écrit en fourchette au lieu du seul haut (règle : une fourchette quand les sources divergent). Montants inchangés."
+  },
+  {
+   "id": "tva-electricite",
+   "set": {
+    "sources": [
+     {
+      "title": "Bilan énergétique de la France pour 2024, partie 4.6.3 « Consommation finale d'électricité » (p. 119)",
+      "publisher": "Service des données et études statistiques (SDES), ministère de la transition écologique",
+      "kind": "administration",
+      "url": "https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline",
+      "date": "2026-03-04",
+      "accessedAt": "2026-10-18",
+      "figure": "Résidentiel : 158 TWh d'électricité (climat corrigé) et 42,2 Md€ de dépense en 2024",
+      "quote": "La consommation finale d’électricité corrigée du climat du secteur s’élève à 158 TWh en 2024 (figure 4.6.3.2), en hausse de 1,1 TWh par rapport à 2023 (+ 0,7 %). […] sa part dans la dépense globale augmente fortement, passant de 42 % en 2023 à 51 % en 2024 (soit 42,2 Md€ en 2024, + 16 %)."
+     },
+     {
+      "title": "Bilan énergétique de la France pour 2024, figure 1.7.2.2 « Prix moyen de l'électricité par secteur » (p. 38)",
+      "publisher": "Service des données et études statistiques (SDES), ministère de la transition écologique",
+      "kind": "administration",
+      "url": "https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline",
+      "date": "2026-03-04",
+      "accessedAt": "2026-10-18",
+      "figure": "Prix moyen de l'électricité du résidentiel en 2024 : 239 €/MWh hors TVA, 280 €/MWh TTC",
+      "quote": "Résidentiel HTVA 118 125 133 138 140 141 146 152 161 165 177 202 239 Résidentiel TTC 138 147 157 162 165 166 171 178 189 193 207 236 280"
+     },
+     {
+      "title": "Rapport n° 714 (2023-2024) de la commission d'enquête sur la production, la consommation et le prix de l'électricité, tome I",
+      "publisher": "Sénat, commission d'enquête",
+      "kind": "parlement",
+      "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+      "date": "2024-07-02",
+      "accessedAt": "2026-10-18",
+      "figure": "TVA sur les factures d'électricité des ménages : environ 4 Md€ par an en moyenne, selon l'administration fiscale",
+      "quote": "La TVA représente environ 15 % de la facture d'électricité d'un ménage. D'après l'administration fiscale, le rendement moyen de la TVA sur les factures d'électricité des ménages avoisine les 4 milliards d'euros."
+     },
+     {
+      "title": "Rapport n° 714 (2023-2024) de la commission d'enquête sur la production, la consommation et le prix de l'électricité, tome I (repères sur la consommation des ménages)",
+      "publisher": "Sénat, commission d'enquête",
+      "kind": "parlement",
+      "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+      "date": "2024-07-02",
+      "accessedAt": "2026-10-18",
+      "figure": "Consommation électrique annuelle moyenne d'un ménage : 5,7 MWh (RTE)",
+      "quote": "Selon RTE, la consommation électrique annuelle moyenne d'un ménage en France est aujourd'hui de 5,7 MWh."
+     },
+     {
+      "title": "Rapport n° 714 (2023-2024) de la commission d'enquête sur la production, la consommation et le prix de l'électricité, tome I (recommandation de TVA ciblée)",
+      "publisher": "Sénat, commission d'enquête",
+      "kind": "parlement",
+      "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+      "date": "2024-07-02",
+      "accessedAt": "2026-10-18",
+      "figure": "TVA à 5,5 % sous 4,5 MWh par an (6 MWh avec chauffage électrique) : environ 175 € de baisse par an pour un foyer chauffé à l'électricité consommant 6 MWh, au tarif réglementé de 2024",
+      "quote": "Le taux de TVA serait ainsi réduit à 5,5 % pour les volumes de consommation annuels situés sous les seuils de : - 4,5 MWh pour un foyer qui n'est pas chauffé à l'électricité ; - 6 MWh pour un foyer chauffé à l'électricité. […] Dans les conditions actuelles, en prenant pour référence le TRVe en vigueur en 2024, la baisse de sa facture annuelle qui résulterait de cette mesure pour un foyer chauffé à l'électricité consommant 6 MWh d'électricité par an atteindrait environ 175 euros."
+     },
+     {
+      "title": "Rapport n° 714 (2023-2024) de la commission d'enquête sur la production, la consommation et le prix de l'électricité, tome I (coût de la TVA ciblée)",
+      "publisher": "Sénat, commission d'enquête",
+      "kind": "parlement",
+      "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+      "date": "2024-07-02",
+      "accessedAt": "2026-10-18",
+      "figure": "TVA à 5,5 % sur une consommation de base : perte d'environ 1 Md€ en moyenne selon les scénarios, d'après les rendements historiques de la TVA",
+      "quote": "La perte de recette pour l'État occasionnée par cette réduction du taux de TVA, très dépendante de l'évolution des prix de la fourniture d'électricité, d'après les valeurs moyennes historiques du rendement de la TVA sur la consommation d'électricité des ménages, pourrait avoisiner en moyenne le milliard d'euros selon les scénarios."
+     },
+     {
+      "title": "Quel avenir pour la fiscalité de l'énergie ? (rapport, juin 2026), p. 111",
+      "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+      "kind": "organe-independant",
+      "url": "https://www.ccomptes.fr/sites/default/files/2026-06/20260603-Quel-avenir-pour-la-fiscalite-de-l-energie.pdf",
+      "date": "2026-06-03",
+      "accessedAt": "2026-10-18",
+      "figure": "Depuis la loi de finances pour 2025, l'abonnement et la fourniture d'électricité sont au taux normal de 20 % (auparavant 5,5 % sur l'abonnement)",
+      "quote": "D’une part, la France appliquait un taux dual de TVA, avec 5,5 % sur l’abonnement et la fourniture d’électricité et de gaz naturel et 20 % sur leur consommation. […] Cette non-conformité a été corrigée par l’application du taux normal de 20 % à l’abonnement et à la fourniture, tout en compensant cette hausse par des baisses d’accise pour neutraliser l’impact de la réforme pour les ménages."
+     },
+     {
+      "title": "Directive 2006/112/CE du Conseil du 28 novembre 2006 relative au système commun de taxe sur la valeur ajoutée (version consolidée), articles 96 à 98 et annexe III, point 22",
+      "publisher": "Conseil de l'Union européenne (EUR-Lex)",
+      "kind": "texte-juridique (droit de l'Union : cadre des réglages, pas un montant)",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:02006L0112-20250101",
+      "date": "2025-01-01",
+      "accessedAt": "2026-10-18",
+      "figure": "Électricité admise aux taux réduits (annexe III, point 22), qui ne peuvent être inférieurs à 5 % ; deux taux réduits au plus ; un seul taux normal pour tous les biens",
+      "quote": "Article 98 1. Les États membres peuvent appliquer deux taux réduits au maximum. Les taux réduits sont fixés à un pourcentage de la base d’imposition qui n’est pas inférieur à 5 % et ils s’appliquent uniquement aux livraisons de biens et prestations de services énumérées à l’annexe III. […] 22) la livraison d’électricité, de chauffage urbain et de refroidissement urbain"
+     }
+    ],
+    "base": {
+     "value": 4,
+     "label": "Environ 4 Md€ de TVA par an sur les factures d'électricité des ménages, en moyenne selon l'administration fiscale (Sénat, 2024) ; davantage en 2024, année de prix hauts (SDES)",
+     "source": {
+      "title": "Rapport n° 714 (2023-2024) de la commission d'enquête sur la production, la consommation et le prix de l'électricité, tome I",
+      "publisher": "Sénat, commission d'enquête",
+      "kind": "parlement",
+      "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+      "date": "2024-07-02",
+      "accessedAt": "2026-10-18",
+      "figure": "TVA sur les factures d'électricité des ménages : environ 4 Md€ par an en moyenne, selon l'administration fiscale",
+      "quote": "La TVA représente environ 15 % de la facture d'électricité d'un ménage. D'après l'administration fiscale, le rendement moyen de la TVA sur les factures d'électricité des ménages avoisine les 4 milliards d'euros."
+     }
+    }
+   },
+   "why": "Faux positif du contrôle des noms : le titre du rapport du Sénat n° 714 dit « aux horizons 2035 et 2050 » (le mot commun, pas un parti) ; titre raccourci à son objet, la source est inchangée."
+  },
+  {
+   "id": "cotisations-sociales",
+   "set": {
+    "stretch": {
+     "max": 5.2,
+     "step": 0.1,
+     "perUnit": {
+      "lo": 5.4,
+      "hi": 10.92
+     },
+     "perUnitDown": {
+      "lo": 5.4,
+      "hi": 9.18
+     },
+     "why": "Jusqu’à 5,2 points (le plus petit taux employeur, famille, est de 5,25 %) : le plus petit taux employeur (famille) tombe à zéro ; hausse bornée au même écart. Au-delà d’1 point, bas réduit de 29 % (Mésange × 44,2 %). Le haut suppose la baisse sur la maladie ; sur la famille seule, sa ligne (44,3 Md€) plafonne."
+    }
+   },
+   "why": "La borne au-delà de la source (5,25 points) tombait hors du pas du curseur (0,1 point) : ramenée à 5,2, la raison dit le taux exact."
+  },
+  {
+   "id": "isf-retablissement",
+   "set": {
+    "options": [
+     {
+      "id": "suppression-ifi",
+      "label": "Supprimer l'IFI",
+      "lo": -3.081,
+      "hi": -3.081,
+      "base": false,
+      "note": "Tout le produit de l'IFI prévu au PLF 2027 (état A, ligne 1406)."
+     },
+     {
+      "id": "ifi",
+      "label": "IFI (PLF 2027)",
+      "lo": 0,
+      "hi": 0,
+      "base": true,
+      "note": "Le réglage du PLF 2027 : un impôt sur la seule fortune immobilière."
+     },
+     {
+      "id": "isf-2017",
+      "label": "ISF de 2017 à la place de l'IFI",
+      "lo": 4,
+      "hi": 7.5,
+      "base": false,
+      "note": "Même barème que l'IFI (0,5 à 1,5 %), mais sur tout le patrimoine net, placements compris, biens professionnels exonérés, plafonné à 75 % des revenus. Coût du passage à l'IFI en 2022 : 4,5 Md€ (comité d'évaluation, cité par le Sénat), plus de 4 Md€ (CPO).",
+      "estimate": "Bas : perte de recettes de 2022 publiée par le comité d’évaluation des réformes de la fiscalité du capital (4,0 Md€, départs compris ; 4,5 Md€ sans). Haut : le même écart porté à 2027 au rythme de l’IFI, passé de 1,8 Md€ en 2022 à 3,08 Md€ au PLF 2027 (× 1,7) : 7,5 Md€, estimation d’Isoloir, statique."
+     }
+    ],
+    "limits": "Bas : chiffre de 2022 ; haut : porté à 2027 au rythme de l’IFI (estimation). Statique : ni les départs (environ 600 départs nets par an de contribuables à l’ISF de 2011 à 2016, DGFiP). Variantes non chiffrées : biens professionnels taxés, plafond à 85 %."
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : l’ISF (chiffre de 2022) et l’assiette « placements financiers » (portée à 2027) reposaient sur deux années ; le retour à l’ISF est mis sur la base 2027, la part au-delà du chiffre publié marquée comme estimation."
+  },
+  {
+   "id": "credit-impot-recherche-innovation",
+   "set": {
+    "stretch": {
+     "max": 100,
+     "step": 1,
+     "perUnit": {
+      "lo": 0.05,
+      "hi": 0.0773
+     },
+     "why": "Jusqu'à −100 % : la fin des deux crédits, une idée du débat ; la borne est symétrique, d'où +100 % (un doublement, sans dessin). Au-delà de ±25 %, bas abaissé : recherche réduite ou déplacée, effets sur les autres impôts que le calcul statique ignore.",
+     "perUnitDown": {
+      "lo": 0.05,
+      "hi": 0.0708
+     }
+    }
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : au-delà de ±25 %, l’effet par point retombe au coût publié (7,73 Md€ pour 100 %) : supprimer les deux crédits ne peut pas rapporter plus que leur coût."
+  },
+  {
+   "id": "credits-impot-culture",
+   "set": {
+    "stretch": {
+     "max": 100,
+     "step": 1,
+     "perUnit": {
+      "lo": 0.008,
+      "hi": 0.0205
+     },
+     "perUnitDown": {
+      "lo": 0.008,
+      "hi": 0.0133
+     },
+     "why": "Jusqu'à ±100 % : la ligne entière, de la fin des six crédits et de la dépense du CNC à leur doublement. Au-delà de ±25 %, bas abaissé dans les deux sens (tournages perdus ou gagnés, et leurs impôts), haut relevé à la hausse (plus de projets aidés)."
+    }
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à −100 %, la baisse ne dépasse plus la ligne (1,45 Md€)."
+  },
+  {
+   "id": "aide-fiscale-investissement-outre-mer",
+   "set": {
+    "stretch": {
+     "max": 100,
+     "perUnit": {
+      "lo": 0.0026,
+      "hi": 0.005
+     },
+     "perUnitDown": {
+      "lo": 0.0018,
+      "hi": 0.0032
+     },
+     "why": "Jusqu'à ±100 % : la ligne entière, soit la suppression des trois aides (prévues jusqu'en 2029). Au-delà de ±25 %, fourchette élargie : l'investissement outre-mer et l'impôt qu'il produit réagiraient à l'aide, ce que le calcul statique ignore."
+    }
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à −100 %, la baisse ne dépasse plus le crédit d’impôt de 2027 (0,35 Md€)."
+  },
+  {
+   "id": "reduction-impot-mecenat-entreprises",
+   "set": {
+    "stretch": {
+     "max": 100,
+     "perUnit": {
+      "lo": 0.00019,
+      "hi": 0.0012
+     },
+     "why": "Jusqu'à −100 % : la suppression de la réduction (la ligne entière). Au-delà de ±25 %, haut relevé d'un quart : les dons réagiraient (moins de dons, donc moins de réductions, si l'avantage baisse ; plus s'il monte), ce que le calcul statique ignore.",
+     "perUnitDown": {
+      "lo": 0.00019,
+      "hi": 0.00095
+     }
+    }
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à la baisse, l’effet par point reste celui de la plage chiffrée."
+  },
+  {
+   "id": "aides-employeurs-apprentis",
+   "set": {
+    "stretch": {
+     "max": 100,
+     "step": 1,
+     "perUnit": {
+      "lo": 0.020032,
+      "hi": 0.024038
+     },
+     "why": "Jusqu'à ±100 % : la ligne entière (supprimer une large part des aides aux entreprises est une idée du débat) ou son double (en 2023-2024, 6 000 € pour tout contrat). Au-delà de ±25 %, haut relevé d'un cinquième : les embauches d'apprentis réagiraient.",
+     "perUnitDown": {
+      "lo": 0.016,
+      "hi": 0.020032
+     }
+    }
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à −100 %, la baisse ne dépasse plus la ligne (2,0 Md€), comme le disent ses limites."
+  },
+  {
+   "id": "journee-solidarite-csa",
+   "set": {
+    "perUnitDown": {
+     "lo": 1.55,
+     "hi": 2.18
+    }
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : supprimer la journée ne peut pas coûter plus que la CSA qu’elle finance (2,18 Md€ au plus, net des employeurs publics)."
+  },
+  {
+   "id": "non-recours-versement-automatique",
+   "set": {
+    "kind": "options",
+    "unit": {
+     "label": "part des droits non réclamés versée d’office",
+     "short": "réglage"
+    },
+    "perUnit": {
+     "lo": 0,
+     "hi": 0
+    },
+    "range": {
+     "max": 1,
+     "step": 1
+    },
+    "notches": [
+     -1,
+     0,
+     1
+    ],
+    "baseLabel": "PLF",
+    "stretch": null,
+    "estimate": null,
+    "options": [
+     {
+      "id": "plf",
+      "label": "Pas de versement d’office (PLF)",
+      "lo": 0,
+      "hi": 0,
+      "base": true
+     },
+     {
+      "id": "auto-25",
+      "label": "Un quart des droits non réclamés",
+      "lo": 2.08,
+      "hi": 3.75,
+      "estimate": "Droits non versés estimés à partir de la DREES : RSA, 3,0 à 5,9 Md€ par an ; prime d’activité, 5,3 à 9,1 Md€ (8,3 à 15,0 Md€ en tout) ; un quart."
+     },
+     {
+      "id": "auto-50",
+      "label": "La moitié",
+      "lo": 4.15,
+      "hi": 7.5,
+      "estimate": "Mêmes droits non versés (8,3 à 15,0 Md€ par an, DREES) : la moitié."
+     },
+     {
+      "id": "auto-100",
+      "label": "Tous les droits non réclamés",
+      "lo": 7.65,
+      "hi": 15.75,
+      "estimate": "Mêmes droits non versés (8,3 à 15,0 Md€ par an, DREES), bas réduit pour ceux qu’un calcul d’office ne trouverait pas, haut élargi de 5 % pour les nouveaux droits."
+     }
+    ],
+    "limits": "Droits non versés estimés par la DREES (RSA 2018, prime d’activité 2021). Ni coût de gestion, ni baisse des versements à tort qu’un calcul d’office permettrait, ni effet sur l’emploi. Rien ne peut faire monter le non-recours : pas de réglage à la baisse."
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à la baisse, le levier ne correspondait à aucune mesure (doubler le non-recours) ; devenu un levier à réglages d’un seul côté, comme le capital de naissance."
+  },
+  {
+   "link": {
+    "approach": "solidarites-1-f",
+    "lever": "non-recours-versement-automatique"
+   },
+   "set": {
+    "setting": "auto-100"
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : le levier est devenu un levier à réglages : « à toutes les personnes qui y ont droit », c’est le réglage « tous les droits »."
+  },
+  {
+   "id": "tva-electricite",
+   "set": {
+    "exclusiveWith": [
+     "tva-taux-normal",
+     "tva-tous-taux"
+    ],
+    "overlapsWith": [
+     "accise-electricite"
+    ]
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : la TVA sur l’électricité fait partie de la base du taux normal : les régler ensemble compterait deux fois, comme pour les autres taux de TVA d’un secteur."
+  },
+  {
+   "link": {
+    "approach": "industrie_economie-1-a",
+    "lever": "allegements-generaux"
+   },
+   "set": {
+    "fit": "exact"
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : l’approche échange une baisse des aides contre une baisse des impôts de production « d’autant » : les deux côtés sont pré-réglés ensemble, sinon le pré-réglage creusait le déficit seul."
+  },
+  {
+   "id": "minima-sociaux-revalorisation",
+   "set": {
+    "perUnit": {
+     "lo": 0.23,
+     "hi": 0.27
+    },
+    "stretch": {
+     "max": 25,
+     "step": 0.1,
+     "perUnit": {
+      "lo": 0.19,
+      "hi": 0.31
+     },
+     "perUnitDown": {
+      "lo": 0.16,
+      "hi": 0.23
+     },
+     "why": "±25 pts : à +25, l'AAH et le minimum vieillesse (1 042 et 1 044 € par mois en 2026) approchent le seuil de pauvreté de 2024 (1 337 €, Insee) ; −25 en miroir. Au-delà de ±1 pt, 9 mois pour le RSA et l'AAH (avril), effet élargi aux nouveaux ayants droit."
+    },
+    "laterNote": "En année pleine, 0,29 à 0,35 Md€ par point, hors total.",
+    "limits": "Statique. RSA et AAH revalorisés au 1er avril : neuf mois comptent en 2027. Le bas part des dépenses de 2023, plus basses qu’en 2027. Ni le non-recours, ni les effets sur la prime d’activité et les aides au logement. Le RSA est surtout payé par les départements."
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : la Méthode compte les mois de 2027 quand la loi fixe une date : RSA et AAH sont revalorisés au 1er avril, l’année pleine passe en note."
+  },
+  {
+   "id": "prime-activite-revalorisation",
+   "set": {
+    "perUnit": {
+     "lo": 0.14,
+     "hi": 0.17
+    },
+    "stretch": {
+     "max": 4.6,
+     "step": 0.1,
+     "perUnit": {
+      "lo": 0.13,
+      "hi": 0.19
+     },
+     "perUnitDown": {
+      "lo": 0.13,
+      "hi": 0.17
+     },
+     "why": "±4,6 points : la hausse légale de 2,3 % que le gel évite, puis +4,6 % comme en avril 2024 (CNAF) ; à la baisse, le miroir, sans précédent. Au-delà de ±1 point, bas abaissé (montée en charge en cinq mois en 2024), haut relevé à la hausse (foyers entrants)."
+    },
+    "laterNote": "En année pleine, environ 0,23 Md€ par point ; le PLF 2027 chiffre le même gel à 995 M€ en 2028, contre 332 M€ en 2027 : environ 0,43 Md€ par point en 2028, hors total.",
+    "limits": "Bas : PLF, effet en 2027 du gel de 2,3 % au 1er avril ; haut : IPP, ramené aux neuf mois de 2027. En dessous du gel, le chiffre est le miroir de la hausse : aucune source ne chiffre une baisse en euros. Sans réaction des ménages."
+   },
+   "why": "Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : revalorisée au 1er avril : neuf mois comptent en 2027 ; l’année pleine passe en note."
+  },
+  {
+   "explain": "credits-aides-presse",
+   "set": {
+    "down": "−50 % : 0,084 Md€ de moins pour les éditeurs aidés. À −100 %, ces aides disparaissent : les éditeurs paient l’essentiel de la distribution, ou en reportent le coût sur leurs prix."
+   },
+   "why": "Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : « Paient seuls la distribution » allait au-delà de la fiche : à −100 %, les 9,2 M€ compensés pour les vendeurs-colporteurs, hors du levier, restent."
+  },
+  {
+   "explain": "credits-asile",
+   "set": {
+    "down": "−10 % : −0,14 Md€ (2 € par habitant), l’équivalent de plus de 16 000 places de CADA sur un an. Une directive européenne impose l’accueil.",
+    "up": "+10 % : +0,14 Md€ (2 € par habitant), l’équivalent de plus de 16 000 places de CADA sur un an."
+   },
+   "why": "Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : La fiche compte tout l’effet (±0,14 Md€ à ±10 %) et ne retire aucune ADA ; la phrase qui disait l’effet net plus faible contredisait son chiffre."
+  },
+  {
+   "explain": "point-indice",
+   "set": {
+    "down": "−1 % : 2,1 à 2,5 Md€ d’économie par an, soit 31 à 36 € de moins par mois et par agent (calcul) ; un traitement tombé sous le Smic serait complété jusqu’au Smic. −20 € brut sur 2 000 €."
+   },
+   "why": "Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : −1 % est dans la plage chiffrée par la source (le miroir ne joue qu’au-delà) : « estimation, miroir » retiré."
+  },
+  {
+   "explain": "exoneration-hausses-salaire",
+   "set": {
+    "up": "+50 % : 3,5 à 7,0 Md€ de coût, estimé à hausses inchangées. À 100 %, 7,0 à 14,0 Md€ : de 33 à 66 € de cotisations en moins pour 100 € de hausse (calcul). Si la mesure dure, le coût s’ajoute."
+   },
+   "why": "Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : 7,0 à 14,0 Md€ sur 21,3 Md€ de hausses font 33 à 66 € pour 100 €, pas « au moins 40 € »."
+  },
+  {
+   "explain": "exit-tax",
+   "set": {
+    "up": "Effacement à 15 ans : rien en 2027, au plus de l’ordre de 25 M€ par an dès 2029 (estimé). Partir avec 990 000 € de plus-value et vendre 6 ans après : 310 860 € dus (calcul Isoloir, exemple du CPO)."
+   },
+   "why": "Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : La fiche fait de 25 M€ par an un plafond, à partir de 2029 : « au plus », « dès 2029 »."
+  },
+  {
+   "explain": "plus-values-immobilieres-abattement",
+   "set": {
+    "argsUp": [
+     "Le minimum constitutionnel est de déduire l’inflation ; s’y tenir, au taux actuel, rapporterait −0,2 à +1,9 Md€ selon la méthode et l’année.",
+     "L’abattement peut faire garder des biens sous-utilisés (CPO), effet difficile à prouver (Cour) ; taxer sans limite de durée l’éviterait."
+    ]
+   },
+   "why": "Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : L’argument citait 1,9 à 3 Md€, au-dessus de la fiche (−0,2 à +1,9 Md€ pour l’inflation déduite au taux actuel)."
   }
  ]
 }

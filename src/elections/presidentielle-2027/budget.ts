@@ -1,9 +1,9 @@
 // Fichier généré par tools/build-budget.mjs depuis research/presidentielle-2027/budget-levers.json : ne pas modifier à la main.
-// « Faire les comptes » : 76 leviers sourcés, chargés à la demande par l'écran du jeu seulement.
+// « Faire les comptes » : 163 leviers sourcés, chargés à la demande par l'écran du jeu seulement.
 import type { BudgetData } from '../../core/budget/types'
 
 export const budget: BudgetData = {
-  "version": "2026-10-18.2",
+  "version": "2026-10-18.2+2026-10-18.v2",
   "baseline": {
     "label": "PLF 2027 tel que déposé, projet non voté",
     "deficitPct": 5,
@@ -39,10 +39,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Accise sur les carburants, nette : 16 303 020 548 € prévus en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 25,
@@ -55,6 +52,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 45,
+        "perUnit": {
+          "lo": 0.08,
+          "hi": 0.16303
+        },
+        "perUnitDown": {
+          "lo": 0.11,
+          "hi": 0.16303
+        },
+        "why": "Borne : ±45 % du produit de l’État (±23 à ±29 % sur les tarifs, parts affectées aux collectivités inchangées), en deçà du premier minimum européen (GPL, −40 %). Au-delà de ±25 %, estimation : bas abaissé, consommation sensible au prix (−0,21 à −0,40, Insee)."
+      },
       "amount": {
         "value": 16.303,
         "label": "16 303 M€ d’accise sur les carburants revenant à l’État au PLF 2027 (produit net)"
@@ -79,6 +88,10 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Niveaux minima de taxation des carburants : gazole 330 €, essence sans plomb 359 € pour 1 000 litres"
         }
+      ],
+      "overlapsWith": [
+        "accise-gazole-non-routier",
+        "accise-gazole-transport-routier"
       ]
     },
     {
@@ -102,10 +115,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Accise sur l’électricité, nette : 5 115 471 654 € prévus en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 25,
@@ -118,6 +128,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.038,
+          "hi": 0.05115
+        },
+        "perUnitDown": {
+          "lo": 0.047,
+          "hi": 0.05115
+        },
+        "why": "Borne : la ligne entière (−100 % ; hausse symétrique) ; brique ZNI (5,93 €/MWh) et majorations locales restent, au-dessus des minima européens (tarifs réduits au plancher). Au-delà de ±25 %, estimation : bas abaissé, demande sensible au prix (−0,8, Insee)."
+      },
       "amount": {
         "value": 5.115,
         "label": "5 115 M€ d’accise sur l’électricité revenant à l’État au PLF 2027 (produit net)"
@@ -142,6 +164,613 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Niveaux minima de taxation de l’électricité : 0,5 €/MWh (consommation professionnelle), 1,0 €/MWh (non professionnelle)"
         }
+      ],
+      "overlapsWith": [
+        "accise-energie-industrie",
+        "tva-electricite"
+      ]
+    },
+    {
+      "id": "accise-energie-industrie",
+      "family": "impots",
+      "label": "Accises réduites de l’industrie",
+      "today": "Électricité 0,5 à 10 €/MWh (normal 26,35), gaz 1,52 à 1,6 (16,66)",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage des tarifs réduits en 2027",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 1.692,
+        "label": "1 692 M€ : coût prévu en 2027 des tarifs réduits d’accise de l’industrie, électricité 1 087 M€ (PAP Économie, n° 820203, 820201, 820206) et gaz naturel 605 M€ (PAP Écologie, n° 830201, 830202)",
+        "source": {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 820203 (p. 38)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "tarif-normal",
+          "label": "Tarif normal pour tous",
+          "lo": -1.692,
+          "hi": -1.692,
+          "note": "Fin des cinq tarifs réduits : 830 + 230 + 27 + 480 + 125 M€ (PAP 2027), coût statique publié."
+        },
+        {
+          "id": "electricite-normal",
+          "label": "Électricité au tarif normal",
+          "lo": -1.087,
+          "hi": -1.087,
+          "note": "Électro-intensifs, activités exposées et centres de données : 830 + 230 + 27 M€ (PAP Économie)."
+        },
+        {
+          "id": "moitie",
+          "label": "Avantages divisés par 2",
+          "lo": -0.846,
+          "hi": -0.846,
+          "note": "Chaque tarif réduit relevé de la moitié de son écart au tarif normal : la moitié des 1 692 M€."
+        },
+        {
+          "id": "gaz-normal",
+          "label": "Gaz au tarif normal",
+          "lo": -0.605,
+          "hi": -0.605,
+          "note": "Installations soumises aux quotas et très exposées : 480 + 125 M€ (PAP Écologie)."
+        },
+        {
+          "id": "plf",
+          "label": "PLF 2027",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Électricité de 0,5 à 10 €/MWh au lieu de 26,35 ; gaz à 1,52 ou 1,60 €/MWh au lieu de 16,66."
+        },
+        {
+          "id": "minimum-ue",
+          "label": "Au plus bas permis par l’UE",
+          "lo": 0.073,
+          "hi": 0.377,
+          "estimate": "Estimation : volumes déduits des coûts publiés et des écarts au tarif normal (électricité 26,35 €/MWh, gaz 16,66), tarifs ramenés à 0, permis aux grandes consommatrices d’énergie (directive 2003/96/CE, art. 17), centres de données à 0,5. La part de chaque tarif (0,5 à 5,5 €/MWh) n’est pas publiée : 0,10 à 0,30 Md€, élargi de 25 %."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "accise-electricite"
+      ],
+      "operatorCaveat": false,
+      "limits": "Coûts statiques publiés, consommations inchangées : rien sur la production, les délocalisations ni la TVA (déductible). Au-dessus du PLF, estimation : la part des volumes à chaque tarif n’est pas publiée.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 820203 (p. 38)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit d’accise sur l’électricité des entreprises électro-intensives : 722 M€ (2025), 885 M€ (2026), 830 M€ (2027)"
+        },
+        {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 820201 (p. 39)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarifs réduits d’accise sur l’électricité des entreprises les plus exposées à la concurrence internationale : 141 M€ (2025), 224 M€ (2026), 230 M€ (2027)"
+        },
+        {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 820206 (p. 40)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit d’accise sur l’électricité des centres de stockage de données : 41 M€ (2025), 32 M€ (2026), 27 M€ (2027)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 174 : dépense fiscale n° 830201 (p. 334)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit d’accise sur le gaz naturel des installations grandes consommatrices d’énergie soumises aux quotas d’émission : 789 M€ (2025), 470 M€ (2026), 480 M€ (2027)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 174 : dépense fiscale n° 830202 (p. 335)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit d’accise sur le gaz naturel des installations grandes consommatrices d’énergie très exposées à la concurrence internationale : 159 M€ (2025), 124 M€ (2026), 125 M€ (2027)"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, tarifs normaux de l’électricité depuis le 1er août 2025 (p. 13)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif normal de l’accise sur l’électricité des entreprises de plus de 36 kVA : 26,35 €/MWh à compter du 1er août 2026"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, tarifs réduits des électro-intensifs selon la loi de finances pour 2026 (p. 14)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarifs réduits de 2026 : 5,5, 3 et 0,5 €/MWh selon l’électro-intensité ; 0,5 €/MWh, le minimum européen, pour les activités les plus exposées à la concurrence internationale"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, annexe : tarifs réduits de l’électricité des procédés industriels (p. 36)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit des centres de stockage de données : 10 €/MWh"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, gaz naturels à usage combustible (p. 18)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Gaz naturel : tarif normal de 16,66 €/MWh depuis le 1er août 2026 ; tarifs réduits de 1,52 €/MWh (installations soumises aux quotas) et 1,60 €/MWh (risque de fuite de carbone)"
+        },
+        {
+          "title": "Directive 2003/96/CE du Conseil, article 17, paragraphe 2 (entreprises grandes consommatrices d’énergie)",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32003L0096",
+          "date": "2003-10-31",
+          "accessedAt": "2026-10-18",
+          "figure": "Les entreprises grandes consommatrices d’énergie peuvent être taxées jusqu’à zéro (sous accords ou quotas d’émission) ; minimum de 0,5 €/MWh pour l’électricité des autres entreprises"
+        }
+      ]
+    },
+    {
+      "id": "accise-gazole-non-routier",
+      "family": "impots",
+      "label": "Gazole non routier : tarifs réduits",
+      "today": "3,86 €/MWh en agriculture, 42,78 hors agriculture (normal : 60,75)",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage des tarifs réduits en 2027",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 2.117,
+        "label": "2 117 M€ : coût prévu en 2027 des tarifs réduits du gazole non routier, 1 719 M€ en agriculture (PAP Agriculture, n° 800229) et 398 M€ pour les autres usages (PAP Écologie, n° 800201)",
+        "source": {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : dépense fiscale n° 800229 (p. 37)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "tarif-normal",
+          "label": "Tarif normal pour tous",
+          "lo": -2.117,
+          "hi": -2.117,
+          "note": "Fin des deux tarifs réduits : 1 719 + 398 M€ (PAP 2027), coût statique publié."
+        },
+        {
+          "id": "agricole-normal",
+          "label": "Agriculture au tarif normal",
+          "lo": -1.719,
+          "hi": -1.719,
+          "note": "Fin du tarif agricole (gazole, fioul lourd et GPL des travaux agricoles et forestiers) : 1 719 M€ (PAP 2027), coût statique publié."
+        },
+        {
+          "id": "hors-agricole-normal",
+          "label": "Fin du tarif hors agriculture",
+          "lo": -0.398,
+          "hi": -0.398,
+          "note": "La fin prévue en 2030 avancée à 2027 : 398 M€ (PAP 2027)."
+        },
+        {
+          "id": "agricole-15-26",
+          "label": "Agriculture à 15,26 €/MWh",
+          "lo": -0.431,
+          "hi": -0.258,
+          "estimate": "Estimation : le tarif agricole de 2027 prévu par la loi de finances pour 2024, puis annulé, soit 15,26 €/MWh au lieu de 3,86 (11,4 €/MWh de plus). Volume déduit du coût publié : 1 719 M€ pour un écart de 56,89 €/MWh au tarif normal (60,75 − 3,86), soit 30,2 TWh, fioul lourd et GPL de ce coût comptés comme du gazole ; × 11,4 €/MWh = 344 M€, ±25 %, volumes inchangés."
+        },
+        {
+          "id": "plf",
+          "label": "PLF 2027",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "3,86 €/MWh en agriculture, 42,78 €/MWh pour les autres usages ; tarif normal 60,75 €/MWh."
+        },
+        {
+          "id": "agricole-nul",
+          "label": "Agriculture : tarif nul",
+          "lo": 0.087,
+          "hi": 0.146,
+          "estimate": "Estimation : volume déduit du coût publié, 1 719 M€ pour un écart de 56,89 €/MWh au tarif normal (60,75 − 3,86), soit 30,2 TWh (fioul lourd et GPL de ce coût comptés comme du gazole) ; × 3,86 €/MWh = 117 M€, ±25 %. Le droit européen permet un tarif nul en agriculture (directive 2003/96/CE, art. 15)."
+        },
+        {
+          "id": "hors-agricole-2026",
+          "label": "Hors agriculture : tarif 2026",
+          "lo": 0.1,
+          "hi": 0.166,
+          "estimate": "Estimation : volume déduit du coût publié, 398 M€ pour un écart de 17,97 €/MWh au tarif normal (60,75 − 42,78), soit 22,1 TWh ; × 5,99 €/MWh de moins (36,79 au lieu de 42,78) = 133 M€, ±25 %."
+        },
+        {
+          "id": "minimum-ue",
+          "label": "Au minimum général de l’UE",
+          "lo": 0.763,
+          "hi": 1.272,
+          "estimate": "Estimation : agriculture à 0 €/MWh (117 M€, voir ce réglage) et autres usages au minimum général européen de 21 € pour 1 000 litres, soit 2,1 €/MWh : 22,1 TWh (398 M€ pour un écart de 17,97 €/MWh au tarif normal) × (42,78 − 2,1) = 901 M€. Total 1 018 M€, ±25 %. Les exceptions de l’article 17 de la directive (entreprises grandes consommatrices d’énergie, accords) ne sont pas retenues."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "accise-carburants"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Une partie de l’avantage agricole passe encore par un remboursement demandé après coup : en caisse, une part de l’économie de 2027 pourrait n’arriver qu’en 2028. Hors agriculture, le tarif réduit prend déjà fin en 2030 (loi de finances pour 2024).",
+      "limits": "Coûts statiques publiés, volumes inchangés : rien sur la consommation, les prix agricoles ni la fraude. Les estimations partent des volumes déduits de ces coûts, comptés comme du gazole. Le droit européen borne la baisse des tarifs.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : dépense fiscale n° 800229 (p. 37)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit (remboursement ou application dès la facturation) des gazoles, fiouls lourds et GPL des travaux agricoles et forestiers : 2 288 M€ (2025), 1 719 M€ (2026), 1 719 M€ (2027)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 174 : dépense fiscale n° 800201 (p. 334)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit des gazoles non routiers autres qu’agricoles : 646 M€ (2025), 531 M€ (2026), 398 M€ (2027) ; dernière incidence budgétaire en 2030"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, tarifs normaux des carburants (p. 22)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif normal de l’accise sur les gazoles : 60,75 €/MWh depuis le 1er août 2025 (59,40 auparavant)"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, gazole non routier à usage non agricole (p. 23)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif du gazole non routier hors agriculture : 36,79 €/MWh en 2026, 42,78 €/MWh en 2027, puis suppression au 1er janvier 2030 (loi de finances pour 2024, art. 94)"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, gazole des travaux agricoles et forestiers (p. 25)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif réduit du gazole agricole maintenu à 3,86 €/MWh : la hausse annuelle de 2,85 €/MWh votée en 2024 a été annulée par la loi de finances pour 2025"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, trajectoire annulée du gazole agricole (p. 25)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Trajectoire de la loi de finances pour 2024, annulée en 2025 : 15,26 €/MWh en 2027 pour le gazole des travaux agricoles et forestiers"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, annexe 3 : fiscalité comparée en volume et en énergie (p. 37)",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Gazole : 3,6 GJ par hectolitre, 60,75 € par hectolitre = 60,75 €/MWh (1 hectolitre ≈ 1 MWh) : le minimum européen de 21 € pour 1 000 litres vaut 2,1 €/MWh"
+        },
+        {
+          "title": "Directive 2003/96/CE du Conseil restructurant le cadre communautaire de taxation des produits énergétiques et de l’électricité, article 15, paragraphe 3",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32003L0096",
+          "date": "2003-10-31",
+          "accessedAt": "2026-10-18",
+          "figure": "Les États membres peuvent taxer jusqu’à zéro l’énergie des travaux agricoles et forestiers"
+        },
+        {
+          "title": "Directive 2003/96/CE du Conseil, annexe I, tableau B (carburants des usages de l’article 8, paragraphe 2 : moteurs fixes, engins de chantier, véhicules hors route)",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32003L0096",
+          "date": "2003-10-31",
+          "accessedAt": "2026-10-18",
+          "figure": "Minimum général européen du gazole des engins hors route et de chantier : 21 € pour 1 000 litres (l’article 17 permet de descendre plus bas pour certaines entreprises)"
+        }
+      ]
+    },
+    {
+      "id": "accise-gazole-transport-routier",
+      "family": "impots",
+      "label": "Accise réduite des transporteurs",
+      "today": "Poids lourds à 45,19 €/MWh au PLF 2027, tarif normal 60,75 (1 557 M€)",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage des remboursements d’accise sur le gazole professionnel",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 1.557,
+        "label": "1 557 M€ en 2027 : remboursements partiels d’accise sur le gazole des poids lourds (1 306 M€), des cars et bus (185 M€) et sur les carburants des taxis (66 M€), dépenses fiscales n° 800221, 800222 et 800220 (PAP 2027 Écologie, p. 60). Aucune ligne ne publie le total à elle seule.",
+        "source": {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 203 : dépense fiscale n° 800221 (p. 60)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "tarif-normal-tous",
+          "label": "Tarif normal pour tous (60,75 €/MWh)",
+          "lo": -1.557,
+          "hi": -1.557,
+          "note": "Fin des trois remboursements : poids lourds (1 306 M€), cars et bus (185 M€), taxis (66 M€), PAP 2027 Écologie."
+        },
+        {
+          "id": "tarif-normal-poids-lourds",
+          "label": "Tarif normal pour les poids lourds",
+          "lo": -1.306,
+          "hi": -1.306,
+          "note": "L’objectif fixé pour 2030 par la loi climat de 2021, avancé à 2027 ; cars, bus et taxis inchangés."
+        },
+        {
+          "id": "moitie-poids-lourds",
+          "label": "Poids lourds à mi-chemin (52,97 €/MWh)",
+          "lo": -0.653,
+          "hi": -0.653,
+          "note": "La moitié de l’écart de 15,56 €/MWh avec le tarif normal : la moitié de la dépense fiscale 800221, sur la même base statique."
+        },
+        {
+          "id": "plf",
+          "label": "PLF 2027 (poids lourds à 45,19 €/MWh)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "poids-lourds-tarif-cars",
+          "label": "Poids lourds au tarif des cars (39,19 €/MWh)",
+          "lo": 0.378,
+          "hi": 0.63,
+          "note": "Le plus bas proposé : la directive interdit au gazole commercial de descendre sous son niveau national de 2003, et ce tarif des cars n’est pas relevé comme contraire au droit de l’UE (CPO).",
+          "estimate": "Statique, à partir de la dépense fiscale 800221 (PAP 2027 Écologie, p. 60) : 1 306 M€ en 2027 pour l’écart de 15,56 €/MWh entre le tarif normal (60,75) et celui des poids lourds (45,19 ; guide 2026, PLF 2027 art. 24), soit environ 84 TWh remboursés. Descendre à 39,19 €/MWh ajoute 6,00 €/MWh : 84 × 6,00 = 504 M€. Fourchette de ±25 % (378 à 630 M€) : volumes et pleins faits en France plutôt qu’à l’étranger non mesurés."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "accise-carburants"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le tarif réduit est versé comme un remboursement, demandé après l’achat du gazole : en caisse, une partie de l’effet d’un réglage de 2027 n’arriverait qu’en 2028. Pour les poids lourds, la loi climat vise le tarif normal en 2030.",
+      "limits": "Statique : volumes et pleins faits à l’étranger inchangés. Pas sous 39,19 €/MWh : la directive interdit au gazole commercial (camions, cars) de descendre sous son niveau de 2003. Taxis déjà sous le minimum européen (CPO).",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 203 : dépense fiscale n° 800221 (p. 60)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "remboursement partiel d’accise sur le gazole des poids lourds de transport de marchandises (7,5 t et plus) : 1 306 M€ en 2026 et en 2027 (33 271 entreprises, fiabilité bonne)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 203 : dépense fiscale n° 800222 (p. 60)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "remboursement partiel d’accise sur le gazole des bus et cars de transport public de voyageurs : 185 M€ en 2026 et en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 203 : dépense fiscale n° 800220 (p. 60)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "remboursement partiel d’accise sur les carburants des taxis : 66 M€ en 2026 et en 2027"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, p. 22 : tarif normal de l’accise sur les gazoles",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "tarif normal des gazoles : 60,75 €/MWh à compter du 1er août 2025 et du 1er mars 2026"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, p. 24 : tarifs réduits du gazole carburant",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "tarifs réduits du gazole : 45,19 €/MWh (poids lourds), 39,19 €/MWh (cars et bus) et 30,20 €/MWh (taxis)"
+        },
+        {
+          "title": "Guide 2026 sur la fiscalité des énergies, p. 24 : objectif de la loi climat pour les poids lourds",
+          "publisher": "Ministère de la Transition écologique",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies%202026.pdf",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "la loi du 22 août 2021 vise, pour les poids lourds, un niveau équivalent au tarif normal du gazole d’ici le 1er janvier 2030"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 24, p. 80",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "le PLF 2027 garde le tarif réduit du gazole des poids lourds à 45,19 €/MWh (et ajoute l’électricité à 0,5 €/MWh)"
+        },
+        {
+          "title": "Quel avenir pour la fiscalité de l’énergie ? (juin 2026), p. 121",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-06/20260603-Quel-avenir-pour-la-fiscalite-de-l-energie.pdf",
+          "date": "2026-06-03",
+          "accessedAt": "2026-10-18",
+          "figure": "le gazole des poids lourds, à 45,19 €/MWh, reste plus taxé que dans le reste de l’UE (37,91 €/MWh en moyenne en 2024)"
+        },
+        {
+          "title": "Quel avenir pour la fiscalité de l’énergie ? (juin 2026), p. 112, tableau 11",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-06/20260603-Quel-avenir-pour-la-fiscalite-de-l-energie.pdf",
+          "date": "2026-06-03",
+          "accessedAt": "2026-10-18",
+          "figure": "tarif des taxis (30,2 €/MWh) sous le minimum européen (33 €/MWh) : 5,7 M€ de gain attendu d’un réalignement ; les tarifs des poids lourds et des cars ne figurent pas parmi les tarifs non conformes"
+        },
+        {
+          "title": "Directive 2003/96/CE du Conseil du 27 octobre 2003 restructurant le cadre communautaire de taxation des produits énergétiques et de l’électricité, article 7, paragraphe 2, et annexe I",
+          "publisher": "Conseil de l’Union européenne (Journal officiel de l’Union européenne, EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32003L0096",
+          "date": "2003-10-31",
+          "accessedAt": "2026-10-18",
+          "figure": "le gazole commercial (camions de 7,5 t et plus, cars et bus) ne peut être taxé sous le niveau national du 1er janvier 2003, ni sous le minimum de 330 € pour 1 000 litres"
+        }
+      ]
+    },
+    {
+      "id": "aga-stock-options",
+      "family": "impots",
+      "label": "Actions gratuites et stock-options",
+      "today": "1,70 Md€ de contributions prévus en 2027, après la hausse de 2025",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 % du produit (tous les taux de ces contributions relevés ou baissés de 1 %)",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.01699,
+        "hi": 0.01699
+      },
+      "base": {
+        "value": 1.699,
+        "label": "1,70 Md€ : prélèvements sur stock-options et attributions gratuites d’actions prévus en 2027, tous affectataires (rapport à la CCSS d’octobre 2026).",
+        "source": {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes », tableau 2 (p. 61)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0127,
+          "hi": 0.01699
+        },
+        "perUnitDown": {
+          "lo": 0.01699,
+          "hi": 0.01699
+        },
+        "why": "−100 % : la suppression, toute la ligne (à la baisse, le calcul seul) ; +100 % : son miroir, taux doublés. Au-delà de +25 %, jusqu’à un quart de moins (attributions moindres) ; la hausse de taux de 2025 a rapporté 441 M€ dès l’année même, sur 1,10 Md€ en 2024."
+      },
+      "amount": {
+        "value": 1.699,
+        "label": "1 699 M€ de prélèvements sur stock-options et attributions gratuites d’actions prévus en 2027 (CCSS)"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "remunerations-au-dela-1m"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique, proportionnel au produit prévu : ni attributions reportées, réduites ou remplacées par d’autres rémunérations, ni l’impôt et la CSG sur ces gains, ni l’IS (contribution patronale déductible). Taux détaillés non repris.",
+      "sources": [
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes », tableau 2 (p. 61)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Prélèvements sur stock-options et attributions gratuites d’actions : 1 099 M€ (2024), 1 534 (2025), 1 654 (2026 p), 1 699 (2027 p)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes » (p. 58)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La LFSS 2025 a relevé le taux de la contribution sur les attributions gratuites d’actions : +0,4 Md€ (contexte du prolongement)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes », tableau des mesures nouvelles (p. 59)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Mesure sur les attributions gratuites d’actions : 441 M€ en 2025, 31 M€ en 2026, rien de nouveau en 2027"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes » (p. 60)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis 2026, 94 % du produit va à la branche vieillesse (1,6 Md€), le reste à la branche maladie"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.1 « Vue d’ensemble des recettes », note du graphique 2 (p. 45)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La DSS range ces prélèvements parmi ceux assis sur les revenus du capital (contexte du lien aux approches)"
+        }
       ]
     },
     {
@@ -165,10 +794,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "La protection sociale en France et en Europe en 2024 – Résultats des comptes de la protection sociale, édition 2025, fiche 05 « Le risque vieillesse-survie », p. 54-55",
           "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
-          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2026-05/CPS2025%20-%20Fiche%2005%20-%20Le%20risque%20vieillesse-survie.pdf",
-          "date": "2026-05",
-          "accessedAt": "2026-10-18",
-          "figure": "pensions de droit direct versées par les administrations publiques (régime général, régimes spéciaux, Agirc-Arrco, État…) : 352,2 Md€ en 2024 (+6,9 %) ; 359,7 Md€ avec les organismes d’assurance et fonds de pension ; réversions des administrations publiques à part (40,9 Md€)"
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2026-05/CPS2025%20-%20Fiche%2005%20-%20Le%20risque%20vieillesse-survie.pdf"
         }
       },
       "max": 1,
@@ -203,6 +829,21 @@ export const budget: BudgetData = {
           "lo": -0.8,
           "hi": -0.8,
           "note": "Le coût de la suspension en 2027, sur le même champ (CCSS, octobre 2026). Pour tout le système, départs anticipés compris : 1,9 Md€ selon le Gouvernement (2025), hors fourchette."
+        },
+        {
+          "id": "60-ans",
+          "label": "Âge légal ramené à 60 ans dès 2027 (durée requise inchangée)",
+          "lo": 3,
+          "hi": 9,
+          "note": "Même champ que les autres réglages (régimes alignés, 59 % des pensions de base) : sans fonctionnaires, complémentaires ni cotisations perdues, donc en deçà de l’effet sur les APU. Abaisser aussi la durée requise coûterait plus : non chiffré.",
+          "estimate": "Calibrage CCSS (octobre 2026, régimes alignés) : la suspension (0,8 Md€) avance d’environ 0,25 année-génération les pensions de 2027, le retour à 62 ans (1,3 Md€) 0,75, soit 1,7 à 3,2 Md€ par année-génération. 60 ans dès janvier 2027 en avance 2,75 (nés en 1964 à 1967, calendrier CCSS) : 4,8 à 8,8 Md€ si chacun part dès l’âge. Durée requise inchangée (170 à 172 trimestres) : certains attendraient le taux plein, bas abaissé à 3 Md€, haut 9 Md€."
+        },
+        {
+          "id": "65-ans",
+          "label": "Vers 65 ans : reprise dès 2027, puis 3 mois par génération",
+          "lo": -0.8,
+          "hi": -0.8,
+          "note": "En 2027, les mêmes départs que la reprise vers 64 ans, donc le même effet (CCSS) ; l’écart commence en avril 2033 (nés en 1969). À terme, hors total, par rapport à 64 ans : 4,7 Md€ en 2035 et 8,4 Md€ en 2045 pour le système de retraite, 9,4 Md€ en 2035 pour l’ensemble des finances publiques (Cour des comptes)."
         }
       ],
       "exclusiveWith": [],
@@ -261,6 +902,612 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "agences-eau-interventions",
+      "family": "depenses",
+      "label": "Agences de l’eau : aides",
+      "today": "Redevances plafonnées à 2 482,6 M€ en 2027, comme en 2026",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des aides",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.00377,
+        "hi": 0.021255
+      },
+      "base": {
+        "value": 2.48262,
+        "label": "2 482,6 M€ de redevances affectées aux agences de l’eau en 2027 (plafond de l’article 42 du PLF), qui financent leurs aides, la contribution à l’OFB et leur fonctionnement",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 42, tableau des ressources affectées à des tiers (p. 129)",
+          "publisher": "Gouvernement, projet de loi déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "Aides 2027 : 2 482,6 M€ de redevances, moins l’OFB (au plus 464,6 M€) et les dépenses propres (1 225 M€ sur six ans), 1 813,9 M€ ; ou 12 753 M€ d’aides du 12e programme sur six ans, 2 125,5 M€. Paiements de 2024 (1 770,4 M€, jaune 2026) : eau potable, assainissement et pluvial 52 %, lignes mixtes 27 %, connaissance, entreprises et agriculture 20,8 %. Bas : 20,8 % de 1 813,9 M€, 3,8 M€ par point ; haut : 2 125,5 M€, collectivités comprises."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00188,
+          "hi": 0.021255
+        },
+        "why": "Jusqu’à la ligne entière : −100 % arrête les aides, +100 % les double, redevances inchangées. Au-delà de ±25 %, bas réduit de moitié : les aides engagées avant 2027 se paient encore (4,6 Md€ à payer fin 2024) et les projets nouveaux prennent du temps."
+      },
+      "amount": {
+        "value": 2.1255,
+        "lo": 1.8139,
+        "label": "Aides des agences de l’eau en 2027 : 1 813,9 M€ en partant des redevances (contribution à l’OFB à son maximum légal, dépenses propres ôtées) à 2 125,5 M€ au rythme d’engagement du 12e programme (12 753 M€ sur 2025-2030), dont la moitié au moins aux collectivités"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": true,
+      "limits": "La moitié au moins des aides va aux collectivités (eau potable, assainissement, pluvial) : sans baisse ou hausse d’autant de leurs travaux, c’est un transfert sans effet, d’où le bas. OFB et dépenses propres exclues.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 42, tableau des ressources affectées à des tiers (p. 129)",
+          "publisher": "Gouvernement, projet de loi déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Agences de l’eau : rendement prévisionnel 2027 de 2 535 217 044 €, plafond d’affectation 2027 de 2 482 620 000 €"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 113 : taxes affectées plafonnées (p. 171)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Redevances des agences de l’eau plafonnées à 2 482 620 000 € en 2026 et en 2027"
+        },
+        {
+          "title": "PAP 2027, programme 113, opérateur « Agences de l’eau » : financement (p. 195)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafond de recettes maintenu à 2 483 M€ en 2027 ; aucune subvention du budget de l’État"
+        },
+        {
+          "title": "PAP 2027, programme 113, opérateur « Agences de l’eau » : missions (p. 193)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Six établissements publics administratifs de l’État ; 12es programmes d’intervention sur six ans (2025-2030), durée retenue ici"
+        },
+        {
+          "title": "PAP 2027, programme 113, opérateur OFB : contribution des agences de l’eau (p. 204)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contribution des agences de l’eau à l’OFB : 417,89 M€ en 2026, entre 417,6 et 464,6 M€ par an"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026) sur le PLF 2026, tome III, annexe 10, volume 1 « Écologie, développement et mobilité durables »",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-1_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "12e programme d’intervention (2025-2030) : 13 979 M€ d’engagements hors contributions aux autres opérateurs, dont 1 225 M€ de dépenses propres, soit 12 753 M€ d’aides. Le rapport écrit « sur les cinq ans » ; le PAP 2027 dit six ans, durée retenue (sur cinq ans, 2 550,6 M€ par an dépasseraient toutes les redevances)"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 10, volume 1 : montant pluriannuel des dépenses du 12e programme par domaine",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-1_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Domaine 0, dépenses propres des agences : 1 225 M€ sur la période ; domaines 1 à 3 (aides) : 1 139 + 4 875 + 6 739 M€"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), tableau 2 : engagements et paiements des 11es programmes au 31 décembre 2024, domaine 2 (p. 31)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Eau potable et assainissement (domaine 2), services des communes et intercommunalités : 710,87 M€ payés en 2024 sur 1 770,4 M€ d’aides"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), tableau 2 : engagements et paiements des 11es programmes au 31 décembre 2024, ligne 16 (p. 31)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Gestion des eaux pluviales, service des communes : 208,87 M€ payés en 2024"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), tableau 2 : engagements et paiements des 11es programmes au 31 décembre 2024, domaine 3 (p. 31)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Domaine 3 : 907,64 M€ payés en 2024, dont 481,9 M€ de lignes mixtes (gestion quantitative, protection de la ressource, milieux)"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), tableau 2 : engagements et paiements des 11es programmes au 31 décembre 2024, domaine 1 (p. 31)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Connaissance, planification et gouvernance : 151,89 M€ payés en 2024"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), tableau 2 : engagements et paiements des 11es programmes au 31 décembre 2024, ligne 13 (p. 31)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Pollution des activités économiques hors agriculture : 73,69 M€ payés en 2024"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), tableau 2 : engagements et paiements des 11es programmes au 31 décembre 2024, ligne 18 (p. 31)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Pollutions d’origine agricole : 143,14 M€ payés en 2024"
+        },
+        {
+          "title": "Annexe au PLF 2026 « Agences de l’eau » (jaune), soutenabilité budgétaire (p. 25)",
+          "publisher": "Gouvernement, annexe au projet de loi de finances pour 2026 « Agences de l’eau » (article L. 213-9-1 du code de l’environnement), publiée par les agences de l’eau",
+          "url": "https://www.lesagencesdeleau.fr/sites/default/files/medias/documents/1-Jaune2026_Agences_Eau.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Restes à payer des agences : 4,6 Md€ fin 2024"
+        }
+      ]
+    },
+    {
+      "id": "aide-carburant-ciblee",
+      "family": "depenses",
+      "label": "Aide carburant aux ménages modestes",
+      "today": "Aucune aide au PLF 2027 ; aides de 2026 prolongées jusqu’à fin 2026",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.07,
+        "hi": 0.32
+      },
+      "base": {
+        "value": 0.32,
+        "label": "320 M€ ouverts en 2026 pour l’aide aux « grands rouleurs » modestes (programme 174) ; aucune ligne au PLF 2027",
+        "source": {
+          "title": "Communication du rapporteur de la mission flash sur la taxation des carburants et le rendement fiscal de la hausse des prix, commission des finances (15 juillet 2026), tableau des mesures de soutien (p. 9)",
+          "publisher": "Assemblée nationale, commission des finances (d’après les données transmises par le Gouvernement)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/documents/tax%20carbu/l17n929420634_document.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "aucune",
+          "label": "Aucune aide (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "100-2026",
+          "label": "100 € par actif modeste qui roule pour travailler",
+          "lo": 0.07,
+          "hi": 0.32,
+          "note": "Conditions de 2026 : revenu par part d’au plus 16 880 €, 15 km par jour au moins. Bas : recours de 24 % (juin 2026) ; haut : tous les ayants droit."
+        },
+        {
+          "id": "200-2026",
+          "label": "200 €, mêmes conditions",
+          "lo": 0.14,
+          "hi": 0.64,
+          "note": "Environ 20 centimes par litre sur un an au lieu de six mois.",
+          "estimate": "Le coût de 2026 doublé : 2 × 70 à 320 M€ (2,9 millions d’ayants droit, recours de 24 % à 100 %, Assemblée nationale 2026). Environ 20 centimes par litre sur un an à 83 litres par mois, la base de calcul de 2026."
+        },
+        {
+          "id": "300-2026",
+          "label": "300 €, mêmes conditions",
+          "lo": 0.21,
+          "hi": 0.96,
+          "note": "Environ 30 centimes par litre sur un an : la borne retenue.",
+          "estimate": "Le coût de 2026 triplé : 3 × 70 à 320 M€ (2,9 millions d’ayants droit, recours de 24 % à 100 %, Assemblée nationale 2026). Environ 30 centimes par litre sur un an à 83 litres par mois, la base de calcul de 2026."
+        },
+        {
+          "id": "100-2023",
+          "label": "100 € à tous les actifs modestes qui roulent",
+          "lo": 0.24,
+          "hi": 1,
+          "note": "Conditions de 2023, sans seuil de distance : environ 10 millions d’ayants droit.",
+          "estimate": "10 millions d’actifs modestes visés en 2023 (Assemblée nationale, 2026) × 100 € = 1,0 Md€ si tous la demandent (haut) ; bas : 0,24 Md€ au taux de recours de 24 % constaté en juin 2026 pour l’aide suivante."
+        }
+      ],
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "limits": "Une aide versée une fois en 2027, aux conditions et aux prix de 2026. Le coût dépend du recours : 24 % en juin 2026 (bas), tous les ayants droit (haut). Gestion, fraude et aides aux professionnels non comptées.",
+      "sources": [
+        {
+          "title": "Communication du rapporteur de la mission flash sur la taxation des carburants et le rendement fiscal de la hausse des prix, commission des finances (15 juillet 2026), p. 7",
+          "publisher": "Assemblée nationale, commission des finances",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/documents/tax%20carbu/l17n929420634_document.pdf",
+          "date": "2026-07-15",
+          "accessedAt": "2026-10-18",
+          "figure": "Aide de 2026 : 100 € par véhicule et par personne, actifs au revenu fiscal de référence par part d’au plus 16 880 € (50 % les plus modestes) faisant au moins 15 km par jour pour aller travailler ; environ 20 centimes par litre sur six mois à 83 litres par mois"
+        },
+        {
+          "title": "Communication du rapporteur de la mission flash sur la taxation des carburants et le rendement fiscal de la hausse des prix, commission des finances (15 juillet 2026), p. 8",
+          "publisher": "Assemblée nationale, commission des finances",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/documents/tax%20carbu/l17n929420634_document.pdf",
+          "date": "2026-07-15",
+          "accessedAt": "2026-10-18",
+          "figure": "2,9 millions d’ayants droit ; 320 M€ si tous la demandent, 70 à 80 M€ au taux de recours de 24 % constaté en juin 2026 ; 10 millions de travailleurs modestes visés par l’indemnité de 2023"
+        },
+        {
+          "title": "Communication du rapporteur de la mission flash sur la taxation des carburants et le rendement fiscal de la hausse des prix, commission des finances (15 juillet 2026), tableau des mesures de soutien (p. 9)",
+          "publisher": "Assemblée nationale, commission des finances (d’après les données transmises par le Gouvernement)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/documents/tax%20carbu/l17n929420634_document.pdf",
+          "date": "2026-07-15",
+          "accessedAt": "2026-10-18",
+          "figure": "Aide aux « grands rouleurs » modestes : 320 M€ ouverts en 2026 par décret d’avance sur le programme 174"
+        },
+        {
+          "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027 (25 septembre 2026), point 82 (p. 24)",
+          "publisher": "Haut Conseil des finances publiques",
+          "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+          "date": "2026-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Aides aux carburants de 2026 : 0,7 Md€ projetés au lieu de 1,4 Md€, prolongées jusqu’à la fin de 2026 pour 450 M€"
+        }
+      ]
+    },
+    {
+      "id": "aide-fiscale-investissement-outre-mer",
+      "family": "impots",
+      "label": "Investissement productif outre-mer",
+      "today": "1 171 M€ en 2027 : réduction d’IR 800, crédit d’impôt 347, IS 24 M€",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de l’aide fiscale",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0026,
+        "hi": 0.0043
+      },
+      "base": {
+        "value": 1.171,
+        "label": "1 171 M€ en 2027, la somme de trois dépenses fiscales du PAP 2027 Outre-mer : réduction d’impôt sur le revenu (n° 110224, 800 M€), crédit d’impôt (n° 210325, 347 M€) et réduction d’IS (n° 320146, 24 M€) pour l’investissement productif outre-mer",
+        "source": {
+          "title": "PAP 2027, mission Outre-mer, programme 123 : dépense fiscale n° 110224 (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "Crédit d’impôt (n° 210325, 347 M€ en 2027) : restituable, il se compte l’année de l’investissement (Insee, crédits d’investissement dans les DROM). Son coût de 2027, né des investissements de 2026, mesure celui de 2027 à ±25 % : 2,6 à 4,3 M€ par point. Réductions d’impôt sur le revenu (800 M€) et d’IS (24 M€) : non restituables, elles réduisent l’impôt de l’année suivante (comme la réduction SOFICA prorogée, qui coûte dès 2028) : 0 en 2027."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0026,
+          "hi": 0.005
+        },
+        "perUnitDown": {
+          "lo": 0.0018,
+          "hi": 0.0032
+        },
+        "why": "Jusqu’à ±100 % : la ligne entière, soit la suppression des trois aides (prévues jusqu’en 2029). Au-delà de ±25 %, fourchette élargie : l’investissement outre-mer et l’impôt qu’il produit réagiraient à l’aide, ce que le calcul statique ignore."
+      },
+      "amount": {
+        "value": 0.347,
+        "label": "347 M€ comptés en 2027, le crédit d’impôt ; les deux réductions d’impôt (824 M€) jouent en 2028"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "cdhr-taux-plancher",
+        "ir-credits-reductions",
+        "plafonnement-global-niches"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "En 2028 s’ajoutent les deux réductions d’impôt (800 M€ sur le revenu, 24 M€ sur les sociétés), qui jouent sur l’impôt payé l’année après l’investissement : 8,2 M€ par point.",
+      "limits": "En 2027, seul le crédit d’impôt compte : restituable, il se compte l’année de l’investissement. Statique, investissements inchangés. Hors logement social outre-mer (168 M€) et taux d’impôt propres à l’outre-mer.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 123 : dépense fiscale n° 110224 (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt sur le revenu pour les investissements productifs outre-mer (CGI, art. 199 undecies B) : 741 M€ en 2025, 825 M€ en 2026, 800 M€ en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 123 : dépense fiscale n° 210325 (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt pour les investissements productifs dans les départements d’outre-mer (CGI, art. 244 quater W), 3 385 entreprises : 366 M€ en 2025, 347 M€ en 2026 et en 2027 ; 3,5 M€ par point"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 123 : dépense fiscale n° 320146 (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’IS pour les investissements dans les collectivités d’outre-mer et en Nouvelle-Calédonie (CGI, art. 244 quater Y) : 4 M€ en 2025, 24 M€ en 2026 et en 2027"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : l’enregistrement des crédits d’impôt en base 2020 (p. 4)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee), comptes nationaux",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Les crédits d’impôt sur l’IS d’investissement dans les départements d’outre-mer sont comptés comme restituables"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : l’enregistrement des crédits d’impôt en base 2020 (p. 2)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee), comptes nationaux",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Un crédit d’impôt restituable est compté en dépense l’année du fait qui ouvre le droit (production, dépense, investissement), et non l’année où l’administration le constate"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : l’enregistrement des crédits d’impôt en base 2020 (p. 1)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee), comptes nationaux",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Une réduction non restituable (l’exemple donné : les dons aux œuvres) est comptée en moindre recette, l’année où elle réduit l’impôt payé"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 12 « Soutien au secteur culturel », incidences budgétaires (p. 122)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt sur le revenu SOFICA prorogée pour les souscriptions de 2027 à 2029 : premier coût en 2028 (35 M€), l’année après l’opération"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 123 : dépense fiscale n° 320136 (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt pour le logement social outre-mer, une autre ligne (hors levier) : 168 M€ en 2027"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I, tableau 1 « Créance nette des crédits d’impôt entre 2016 et 2023 » (p. 409)",
+          "publisher": "Sénat, commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt outre-mer productif des entreprises à l’IS : 246 M€ de créance nette en 2023 (107 M€ en 2016), contexte"
+        }
+      ]
+    },
+    {
+      "id": "aides-employeurs-apprentis",
+      "family": "depenses",
+      "label": "Aides à l’embauche d’apprentis",
+      "today": "5 000 € au plus (bac ou moins, < 250 salariés) ; 2 003,2 M€ en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.020032,
+        "hi": 0.020032
+      },
+      "base": {
+        "value": 2.003214,
+        "label": "2 003,2 M€ de crédits de paiement des aides aux employeurs d’apprentis au PLF 2027 (programme 103, sous-action 01.02), 2 393,5 M€ d’autorisations d’engagement",
+        "source": {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, crédits par sous-action (p. 113)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.020032,
+          "hi": 0.024038
+        },
+        "perUnitDown": {
+          "lo": 0.016,
+          "hi": 0.020032
+        },
+        "why": "Jusqu’à ±100 % : la ligne entière (supprimer une large part des aides aux entreprises est une idée du débat) ou son double (en 2023-2024, 6 000 € pour tout contrat). Au-delà de ±25 %, haut relevé d’un cinquième : les embauches d’apprentis réagiraient."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "Si le changement ne vaut que pour les contrats signés à partir de 2027, une part des versements de 2027 (contrats de 2026) reste due : l’effet de 2027 serait plus faible, l’effet entier venant en 2028.",
+      "limits": "Aide unique et aide exceptionnelle, versées chaque mois la première année du contrat. Effet statique : le nombre d’apprentis et le coût de leurs exonérations ne bougent pas.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.02 « Aides aux employeurs d’apprentis » (p. 121)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "2 003,2 M€ de crédits de paiement et 2 393,5 M€ d’autorisations d’engagement en 2027 ; transfert aux entreprises"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, crédits par sous-action (p. 113)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Sous-action 01.02 : 2 393 532 969 € d’AE et 2 003 213 733 € de CP en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.02, barème depuis le 8 mars 2026 (p. 121)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Entreprises de moins de 250 salariés : 5 000 € au plus pour un apprenti de niveau bac ou moins (2 000 € au plus pour 250 salariés ou plus) ; barème reconduit en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.02 (p. 121)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aide exceptionnelle reconduite en 2027 avec le même barème"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.02 (p. 121)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "6 000 € au plus pour tout contrat en 2023 et 2024 : repère pour la hausse"
+        }
+      ]
+    },
+    {
+      "id": "aides-logement-etudiants",
+      "family": "sociale",
+      "label": "Aides au logement des étudiants",
+      "today": "2 Md€ par an ; droit d’option des foyers aisés dès septembre 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des aides au logement versées aux étudiants",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0163,
+        "hi": 0.0193
+      },
+      "base": {
+        "value": 2,
+        "label": "2 Md€ par an d’aides personnelles au logement versées aux étudiants, sur les 16,5 Md€ du programme 109 (PLF 2027)",
+        "source": {
+          "title": "PLF 2027, évaluations préalables des articles, article 78 « Droit d’option entre le bénéfice des APL versées aux étudiants et les avantages en matière d’impôt sur le revenu pour les foyers les plus aisés », p. 630",
+          "publisher": "Gouvernement (évaluations préalables des articles, annexées au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0163,
+          "hi": 0.023
+        },
+        "perUnitDown": {
+          "lo": 0.012,
+          "hi": 0.0193
+        },
+        "why": "−100 % : plus aucune aide au logement aux étudiants, la ligne entière ; +100 % : son doublement, en miroir. Au-delà de ±25 %, fourchette élargie : à la hausse, des étudiants qui n’en demandent pas encore ; à la baisse, certains la garderaient à un autre titre."
+      },
+      "amount": {
+        "value": 1.928,
+        "lo": 1.632,
+        "label": "1,63 à 1,93 Md€ en 2027 : 2 Md€ par an (PLF 2027) moins 72 M€ de droit d’option ; bas recalculé des effectifs et montants moyens publiés"
+      },
+      "exclusiveWith": [
+        "aides-logement-revalorisation",
+        "credits-aides-personnelles-logement"
+      ],
+      "overlapsWith": [
+        "condition-residence-prestations"
+      ],
+      "operatorCaveat": false,
+      "limits": "Part des étudiants dans les APL, ALS et ALF (près de 20 % des allocataires). Statique, en année pleine : ni effet sur les loyers, ni nouveaux demandeurs. Le droit d’option du PLF (−72 M€ en 2027) est déjà déduit.",
+      "sources": [
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 78 « Droit d’option entre le bénéfice des APL versées aux étudiants et les avantages en matière d’impôt sur le revenu pour les foyers les plus aisés », p. 630",
+          "publisher": "Gouvernement (évaluations préalables des articles, annexées au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "2 Md€ par an d’aides personnelles au logement versées aux étudiants ; deux tiers à des non-boursiers ; près de 20 % des allocataires"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 78, p. 631",
+          "publisher": "Gouvernement (évaluations préalables des articles, annexées au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aide moyenne : environ 215 € par mois pour un étudiant boursier, 180 € pour un non-boursier"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 78 : incidences budgétaires et méthode, p. 634",
+          "publisher": "Gouvernement (évaluations préalables des articles, annexées au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "494 000 non-boursiers bénéficiaires ; droit d’option du PLF : −72 M€ en 2027 (dès le 1er septembre), −217 M€ en année pleine. Avec 494 000 × 180 € × 12 et 247 000 boursiers × 215 € × 12 : 1,70 Md€ (calcul)"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 109 « Aide à l’accès au logement », présentation stratégique (p. 55)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : APL des étudiants venus hors Union réservées aux boursiers depuis le 1er juillet 2026 ; barème gelé en 2027"
+        }
+      ]
+    },
+    {
       "id": "aides-logement-revalorisation",
       "family": "sociale",
       "label": "Revalorisation des aides au logement",
@@ -281,10 +1528,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet annuel de performances 2027, mission Cohésion des territoires, programme 109, « Charges et ressources du Fnal en 2027 », p. 66",
           "publisher": "Ministère chargé du logement (annexe au projet de loi de finances pour 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Charges prévisionnelles du Fnal et contribution de l’État : 16 511 M€ en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
         }
       },
       "max": 1,
@@ -320,6 +1564,7 @@ export const budget: BudgetData = {
         }
       ],
       "exclusiveWith": [
+        "aides-logement-etudiants",
         "credits-aides-personnelles-logement"
       ],
       "operatorCaveat": false,
@@ -366,6 +1611,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "contexte, hors fourchette : gel de toutes les aides au logement en 2026 (inflation de 1,3 %), 200 M€ en année pleine"
         }
+      ],
+      "overlapsWith": [
+        "condition-residence-prestations"
       ]
     },
     {
@@ -389,10 +1637,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi », tableau 1, p. 67",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Allègements généraux : 72 762 M€ en 2027 (p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -405,6 +1650,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.552,
+          "hi": 0.702
+        },
+        "perUnitDown": {
+          "lo": 0.414,
+          "hi": 0.702
+        },
+        "why": "Borne : la ligne entière (−100 %, suppression ; hausse symétrique). Au-delà de ±25 %, estimation : 20 % repris par l’impôt sur les sociétés (LFSS 2025) ; en baisse, bas abaissé de 25 % de plus pour l’emploi (un million d’emplois en moins à terme, Mesange)."
+      },
       "amount": {
         "value": 69.062,
         "label": "69,1 Md€ d’allègements généraux en 2027 : 72,8 Md€ prévus (CCSS) moins 3,7 Md€ de mesure du PLFSS"
@@ -461,6 +1718,588 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Gel des allègements : 2,9 Md€ de plus en 2027, suite en année pleine du gel de 2026 (fiche 1.6 de la CCSS : −5,6 Md€ en 2027), donc déjà dans les 72 762 M€ et pas retiré une seconde fois"
         }
+      ],
+      "overlapsWith": [
+        "exoneration-hausses-salaire",
+        "exonerations-jeunes-entreprises",
+        "exonerations-outre-mer",
+        "exonerations-saisonniers-agricoles",
+        "journee-solidarite-csa",
+        "smic-coup-de-pouce",
+        "zones-aidees-entreprises"
+      ]
+    },
+    {
+      "id": "allocation-alimentaire",
+      "family": "sociale",
+      "label": "Allocation alimentaire par habitant",
+      "today": "Aucune allocation alimentaire versée à chaque habitant",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "aucune",
+      "options": [
+        {
+          "id": "aucune",
+          "label": "Aucune allocation (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "25-euros",
+          "label": "25 € par mois et par habitant",
+          "lo": 15.6,
+          "hi": 26,
+          "note": "Estimation Isoloir, en année pleine dès janvier 2027.",
+          "estimate": "69,3 millions d’habitants en 2027 (Insee) x 25 € x 12 mois = 20,8 Md€, fourchette de ±25 % (recours, frais de gestion)"
+        },
+        {
+          "id": "50-euros",
+          "label": "50 € par mois et par habitant",
+          "lo": 31.2,
+          "hi": 52,
+          "note": "Estimation Isoloir, en année pleine dès janvier 2027.",
+          "estimate": "69,3 millions d’habitants en 2027 (Insee) x 50 € x 12 mois = 41,6 Md€, fourchette de ±25 % (recours, frais de gestion)"
+        },
+        {
+          "id": "100-euros",
+          "label": "100 € par mois et par habitant",
+          "lo": 62.4,
+          "hi": 104,
+          "note": "Estimation Isoloir, en année pleine dès janvier 2027.",
+          "estimate": "69,3 millions d’habitants en 2027 (Insee) x 100 € x 12 mois = 83,2 Md€, fourchette de ±25 % (recours, frais de gestion)"
+        },
+        {
+          "id": "150-euros",
+          "label": "150 € par mois et par habitant",
+          "lo": 93.6,
+          "hi": 156,
+          "note": "Estimation Isoloir, en année pleine dès janvier 2027.",
+          "estimate": "69,3 millions d’habitants en 2027 (Insee) x 150 € x 12 mois = 124,8 Md€, fourchette de ±25 % (recours, frais de gestion)"
+        }
+      ],
+      "estimate": {
+        "method": "69 082 milliers d’habitants au 1er janvier 2026 (Insee), +0,25 % par an (Insee) : environ 69,3 millions en moyenne en 2027. Un euro par mois et par habitant coûte 69,3 millions x 12 = 0,83 Md€ par an ; 50 € par mois, 41,6 Md€. Fourchette de ±25 % : en bas, une partie des habitants ne la demande pas ; en haut, frais de gestion, de conventionnement et de contrôle des commerces, inconnus. Versée dès janvier 2027, sans effet sur les prix."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "limits": "Calcul mécanique : habitants x montant x 12 mois, en année pleine. Frais de gestion et de conventionnement des commerces inconnus ; effets sur les prix et les autres aides non comptés ; le financement se règle sur les leviers de recettes.",
+      "sources": [
+        {
+          "title": "Bilan démographique 2025, Insee Première n° 2087",
+          "publisher": "Institut national de la statistique et des études économiques (Insee)",
+          "url": "https://www.insee.fr/fr/statistiques/8719824",
+          "date": "2026-01-13",
+          "accessedAt": "2026-10-18",
+          "figure": "69,1 millions d’habitants au 1er janvier 2026 (69 082 milliers, provisoire), +0,25 % sur un an"
+        },
+        {
+          "title": "Bilan démographique 2025, Insee Première n° 2087, figure 1 « Évolution de la population au 1er janvier, de 2020 à 2026, par composante »",
+          "publisher": "Institut national de la statistique et des études économiques (Insee)",
+          "url": "https://www.insee.fr/fr/statistiques/8719824",
+          "date": "2026-01-13",
+          "accessedAt": "2026-10-18",
+          "figure": "Population au 1er janvier 2026 : 69 082 milliers (provisoire)"
+        }
+      ]
+    },
+    {
+      "id": "allocation-autonomie-etudiants",
+      "family": "depenses",
+      "label": "Allocation d’autonomie étudiante",
+      "today": "Aucune ; 2 279 M€ de bourses sur critères sociaux au PLF 2027",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "montant mensuel versé à chaque étudiant",
+        "short": "€ par mois"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 0.5,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "plf",
+          "label": "Pas d’allocation (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Les bourses sur critères sociaux (2 279 M€) restent la principale aide directe."
+        },
+        {
+          "id": "m100",
+          "label": "100 € par mois",
+          "lo": 2.26,
+          "hi": 4.11,
+          "estimate": "100 € × 2,26 à 3,12 millions d’étudiants × 10 à 12 mois, haut relevé de 10 % pour de nouvelles inscriptions : 2,26 à 4,11 Md€ (voir la méthode)."
+        },
+        {
+          "id": "m300",
+          "label": "300 € par mois",
+          "lo": 6.8,
+          "hi": 12.3,
+          "estimate": "Trois fois la tranche de 100 € par mois : 6,8 à 12,3 Md€, même méthode, haut relevé de 10 % compris."
+        },
+        {
+          "id": "m634",
+          "label": "634 € par mois, la plus haute bourse",
+          "lo": 14.3,
+          "hi": 26.1,
+          "note": "Le montant de l’échelon 7 des bourses (6 335 € par an), versé sur 10 mois.",
+          "estimate": "6,34 fois la tranche de 100 € par mois : 14,3 à 26,1 Md€, même méthode, haut relevé de 10 % compris."
+        },
+        {
+          "id": "m1000",
+          "label": "1 000 € par mois",
+          "lo": 22.6,
+          "hi": 41.1,
+          "note": "Borne haute retenue : un peu plus d’une fois et demie la plus haute bourse.",
+          "estimate": "Dix fois la tranche de 100 € par mois : 22,6 à 41,1 Md€, même méthode, haut relevé de 10 % compris."
+        }
+      ],
+      "estimate": {
+        "method": "1) Inscrits dans le supérieur à la rentrée 2025 : 3 049 600 (RERS 2026) ; +1,1 % par an jusqu’en 2027 : 3,12 millions au haut. 2) Bas : sans les apprentis comptés dans ce total (7 sur 10 des 628 400, déjà salariés) ni les 352 800 étudiants étrangers en mobilité : 2,26 millions. 3) Bas versé 10 mois, comme les bourses ; haut 12 mois et +10 % pour de nouvelles inscriptions : 2,26 à 4,11 Md€ par tranche de 100 € par mois. Statique."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "credits-aides-directes-etudiants"
+      ],
+      "operatorCaveat": false,
+      "limits": "Versée à chaque inscrit du supérieur, sans condition de ressources (bas : sans apprentis ni étudiants étrangers en mobilité), année pleine. Bourses maintenues : leur levier les retire. Impôt des parents et aides au logement non comptés.",
+      "sources": [
+        {
+          "title": "Repères et références statistiques 2026, fiche 7.01 « Les effectifs du supérieur : évolution », p. 238",
+          "publisher": "Ministère de l’Éducation nationale, DEPP, avec le SIES du ministère de l’enseignement supérieur (Repères et références statistiques 2026)",
+          "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+          "date": "2026-08",
+          "accessedAt": "2026-10-18",
+          "figure": "3 049 600 inscrits dans l’enseignement supérieur à la rentrée 2025, +1,1 % sur un an"
+        },
+        {
+          "title": "Repères et références statistiques 2026, fiche 1.02 « La population scolaire et de l’enseignement supérieur : synthèse », tableau et note 4, p. 15",
+          "publisher": "Ministère de l’Éducation nationale, DEPP, avec le SIES du ministère de l’enseignement supérieur (Repères et références statistiques 2026)",
+          "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+          "date": "2026-08",
+          "accessedAt": "2026-10-18",
+          "figure": "628 400 apprentis du supérieur en 2025 ; environ sept sur dix comptés dans le total de l’enseignement supérieur (estimation de 2023), soit environ 440 000 (calcul)"
+        },
+        {
+          "title": "Repères et références statistiques 2026, fiche 7.17 « Les étudiants étrangers en mobilité internationale dans l’enseignement supérieur », p. 270",
+          "publisher": "Ministère de l’Éducation nationale, DEPP, avec le SIES du ministère de l’enseignement supérieur (Repères et références statistiques 2026)",
+          "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+          "date": "2026-08",
+          "accessedAt": "2026-10-18",
+          "figure": "352 800 étudiants étrangers en mobilité internationale en 2025-2026, 12 % des inscrits"
+        },
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 231 « Vie étudiante », action 01 : bourses sur critères sociaux (p. 145)",
+          "publisher": "Ministère de l’enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "2 279,0 M€ de bourses sur critères sociaux en 2027 ; de 1 454 € (échelon 0 bis) à 6 335 € par an (échelon 7) depuis la rentrée 2026"
+        }
+      ]
+    },
+    {
+      "id": "allocation-proche-aidant",
+      "family": "sociale",
+      "label": "Allocation du proche aidant",
+      "today": "22 M€ prévus en 2027 (18 M€ en 2026) ; 66 jours par proche aidé",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de la dépense",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.00022,
+        "hi": 0.00022
+      },
+      "base": {
+        "value": 0.022,
+        "label": "22 M€ d’allocation journalière du proche aidant prévus en 2027 (CCSS, octobre 2026), après 18 M€ en 2026 ; le PLFSS 2027 ne prévoit pas de mesure sur cette ligne.",
+        "source": {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.4 « Les prestations maladie, AT-MP et autonomie hors ONDAM » (p. 106 ; p. 108 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00022,
+          "hi": 0.00022
+        },
+        "perUnitDown": {
+          "lo": 0.000165,
+          "hi": 0.00022
+        },
+        "why": "−100 % : toute la ligne, l’allocation supprimée ; +100 % : la dépense doublée, par exemple le montant journalier doublé à recours égal. Au-delà de ±25 %, le même 1 % ; à la baisse, bas réduit d’un quart (reports vers d’autres congés indemnisés)."
+      },
+      "amount": {
+        "value": 0.022,
+        "label": "22 M€ d’allocation journalière du proche aidant prévus en 2027 (CCSS, octobre 2026), aucune mesure du PLFSS 2027 sur cette ligne"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "Dépense en montée en charge (13 M€ en 2024, 22 M€ en 2027) : un congé plus long ou mieux payé coûterait davantage les années suivantes, à mesure que le recours progresse.",
+      "limits": "Effet statique : 1 % de la dépense prévue, versée par la Caf ou la MSA pour la branche autonomie. Ne compte ni l’évolution du recours, ni l’assurance vieillesse des aidants, ni les soins à domicile (levier ONDAM).",
+      "sources": [
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.4 « Les prestations maladie, AT-MP et autonomie hors ONDAM » (p. 106 ; p. 108 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Dépenses d’allocation journalière du proche aidant (AJPA), financée par la CNSA : 22 M€ en 2027 (paragraphe « En 2027 ») ; 1 % = 0,22 M€"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.4 « Les prestations maladie, AT-MP et autonomie hors ONDAM » (p. 106 ; p. 108 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "AJPA en montée en charge : 13 M€ en 2024, 15 M€ en 2025"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, synthèse, tableau 14 « Charges, produits et solde de la branche autonomie (2024-2027) » (p. 37 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aide aux aidants (branche autonomie) : 13 M€ (2024), 15 M€ (2025), 18 M€ (2026), 22 M€ (2027), avant les mesures de la loi de financement"
+        },
+        {
+          "title": "Congé de proche aidant, rubrique « Indemnisation » (vérifié le 15 juin 2026)",
+          "publisher": "Service-public.gouv.fr (Direction de l’information légale et administrative)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F16920",
+          "date": "2026-06-15",
+          "accessedAt": "2026-10-18",
+          "figure": "AJPA : 66 jours par personne aidée, 4 personnes au plus sur la carrière (264 jours), 66,64 € par journée. Sert à dire ce que serait un doublement du montant journalier (borne du prolongement)"
+        }
+      ]
+    },
+    {
+      "id": "apport-cession-report",
+      "family": "impots",
+      "label": "Apport-cession : report d’imposition",
+      "today": "Report si 70 % réinvestis ; fin à la transmission (PLF, art. 5)",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "retrait-article-5",
+          "label": "Retirer l’article 5 : l’impôt reporté s’efface à nouveau à la transmission",
+          "lo": -0.5,
+          "hi": -0.5,
+          "note": "Le rendement de l’article 5 en 2027 (transmissions depuis le 1er octobre 2026), ordre de grandeur, étalement sur cinq ans compris (évaluation préalable du PLF 2027)."
+        },
+        {
+          "id": "plf",
+          "label": "Article 5 du PLF : l’impôt reporté est dû à la transmission",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : à la donation ou au décès, l’impôt sur la plus-value d’apport devient dû, payable sur cinq ans."
+        },
+        {
+          "id": "reinvestissement-100",
+          "label": "Report seulement si tout le produit de cession est réinvesti",
+          "lo": 0,
+          "hi": 0,
+          "note": "Presque rien en 2027 ; à terme, 0,25 à 1,4 Md€ par an (estimation).",
+          "estimate": "En 2027, presque rien : si la holding ne réinvestit pas tout, le report ne tombe qu’à la fin du délai de trois ans, vers 2030. À terme : 16 Md€ mis en report par an (DGFiP, 2021, avant le durcissement de 2026 et l’article 5) × 50 à 80 % cédés par la holding dans les trois ans × 10 à 30 % qui préfèrent payer plutôt que tout réinvestir (deux hypothèses) × 31,4 à 35,4 % (PFU, avec la CEHR) = 0,25 à 1,4 Md€ par an."
+        },
+        {
+          "id": "fin-du-report",
+          "label": "Imposer la plus-value dès l’apport, paiement sur cinq ans",
+          "lo": 0.2,
+          "hi": 0.68,
+          "note": "Estimation large ; le paiement sur cinq ans est une hypothèse. Le CPO relève que la directive européenne « Fusions » encadre l’imposition des échanges de titres.",
+          "estimate": "Base : 16 Md€ en report en 2021 (DGFiP), pas les 34 Md€ de 2023, gonflés par l’effacement à la transmission que l’article 5 supprime. Sans report, 20 à 60 % des opérations auraient lieu et seraient imposées (hypothèse ; selon le CPO, pas toutes). Taux : 31,4 % (PFU) à 35,4 % (CEHR) ; impôt annuel : 16 × 20 % × 31,4 % = 1,0 à 16 × 60 % × 35,4 % = 3,4 Md€. Paiement sur cinq ans (hypothèse, comme l’article 5) : un cinquième en 2027, 0,2 à 0,7 Md€."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "cehr-taux",
+        "exit-tax",
+        "pfu-taux-ir"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "À terme (estimation) : imposer dès l’apport rapporterait 1,0 à 3,4 Md€ par an une fois les cinq annuités cumulées ; le réinvestissement intégral, 0,25 à 1,4 Md€ par an à partir de 2030.",
+      "limits": "Retrait de l’article 5 : chiffre de l’État, ordre de grandeur. Autres réglages estimés sur les apports de 2021, avant le durcissement de 2026 et l’article 5 qui les réduisent : haut généreux. Année pleine ; une date d’effet décale à 2028.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027, évaluations préalables des articles, article 5 « Recentrage du dispositif de l’apport-cession » (p. 46)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "500 M€ en 2027, première année (200 M€ d’impôt sur le revenu, 300 M€ de prélèvements sociaux), étalement sur cinq ans compris, ordre de grandeur : le réglage « retirer l’article 5 »"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027, évaluations préalables des articles, article 5 (p. 43)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plus de 16 Md€ de plus-values mises en report en 2021 : base des estimations des réglages « tout réinvestir » et « dès l’apport »"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027, évaluations préalables des articles, article 5 (p. 43)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : 18 Md€ mis en report en 2022, 34 Md€ en 2023 (données déclaratives), avant l’article 5 ; non retenus comme base"
+        },
+        {
+          "title": "Note du CPO n° 14 : analyse de mesures nouvelles en recettes des projets de lois financières pour 2027 (octobre 2026), § 2 (p. 3)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-10/20261015-note-CPO-Analyse-mesures-PLF-2027.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le report est maintenu dès que 70 % du produit est réinvesti en trois ans (seuil du réglage « tout réinvestir ») ; PFU de 31,4 %, dont 18,6 % de prélèvements sociaux"
+        },
+        {
+          "title": "Note du CPO n° 14 : analyse de mesures nouvelles en recettes des projets de lois financières pour 2027 (octobre 2026), § 2 (p. 4)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-10/20261015-note-CPO-Analyse-mesures-PLF-2027.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Article 5 du PLF 2027 : 0,5 Md€ en 2027, repris par le CPO"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 93",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte, pas une ligne du budget : plus de 4 Md€ d’impôt par an en jeu (près de 13 Md€ mis en report en 2021 par le dernier dix-millième des revenus, au PFU et à la CEHR), « pas une évaluation du coût budgétaire au sens strict »"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), note 161 (p. 93)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le chiffre de 4 Md€ suppose que les opérations auraient lieu sans le report, ce que le CPO écarte : d’où le bas abaissé des estimations"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 191",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : la directive « Fusions » encadre l’imposition des échanges de titres ; le CPO propose de la clarifier"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 160-161",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : 84 foyers concentrent environ 23,5 Md€ des 34 Md€ mis en report en 2023 ; seuil de réinvestissement porté de 60 à 70 % par la loi de finances pour 2026"
+        }
+      ]
+    },
+    {
+      "id": "assurance-vie-transmission",
+      "family": "impots",
+      "label": "Assurance-vie transmise au décès",
+      "today": "Abattement de 152 500 € par bénéficiaire, puis 20 % et 31,25 %",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de l’imposition des capitaux versés au décès",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.2,
+        "hi": 5
+      },
+      "base": {
+        "value": 5,
+        "label": "5 Md€ : coût statique en 2024 du régime de l’assurance-vie au décès, comparé aux droits de succession ordinaires (DG Trésor pour le CPO) ; le CAE trouvait 4 à 5 Md€ sur 2017-2018.",
+        "source": {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 151",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "abattement-200000",
+          "label": "Abattement porté à 200 000 € par bénéficiaire",
+          "lo": -0.44,
+          "hi": -0.2,
+          "note": "Pour les primes versées avant 70 ans. Seuls les bénéficiaires recevant plus de 152 500 €, environ 5 % d’entre eux, y gagnent ; les conjoints sont déjà exonérés.",
+          "estimate": "Ficovie 2018 (CAE, repris par la Cour des comptes) : 44 965 bénéficiaires de 152 500 à 852 500 €, 1 750 au-delà. 47 500 € d’abattement en plus rendent 9 500 € (20 %) à ceux au-dessus de 200 000 €, la moitié à ceux entre 152 500 et 200 000 € (supposés 45 % de la tranche), 14 844 € (31,25 %) aux 1 750 : 0,36 Md€. ×0,75 pour les conjoints, exonérés (hypothèse de la DG Trésor au PLF 2027) : 0,27. Hausse de 0 à 30 % depuis 2018 : 0,27 à 0,35, élargis à 0,2-0,44 Md€."
+        },
+        {
+          "id": "plf",
+          "label": "Régime actuel (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027, qui réserve déjà ce régime aux contrats qui respectent les règles du code des assurances (article 6 : +25 M€ en 2027, 50 M€ ensuite)."
+        },
+        {
+          "id": "bareme-ligne-directe",
+          "label": "Au-delà de la tranche à 20 % : 30 %, 40 % puis 45 %",
+          "lo": 1.25,
+          "hi": 1.25,
+          "note": "Recommandation n° 6 du CPO : après abattement, 20 % jusqu’à 552 324 €, puis le barème des héritages en ligne directe. Environ 2 000 défunts et 3 500 héritiers concernés (DG Trésor, à comportement inchangé)."
+        },
+        {
+          "id": "droit-commun",
+          "label": "Droits de succession ordinaires, selon la parenté",
+          "lo": 3.5,
+          "hi": 5,
+          "note": "Les capitaux suivent les droits de succession, avec leurs abattements et leurs taux selon le lien de parenté : c’est le coût statique du régime actuel, 3,5 Md€ (CAE, cité par la Cour), 4 à 5 Md€ (CAE), environ 5 Md€ en 2024 (DG Trésor pour le CPO). Les épargnants réagiraient sûrement (non compté)."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "dmtg-abattement-ligne-directe",
+        "dmtg-ensemble",
+        "dmtg-ligne-indirecte-taux",
+        "dmtg-tranche-20",
+        "dmtg-tranche-45",
+        "grandes-transmissions-plancher"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le CPO parle d’un rendement « à terme » : seuls les décès après l’entrée en vigueur sont concernés, et le prélèvement suit le versement du capital, si bien qu’une part des décès de fin 2027 ne paie qu’en 2028.",
+      "limits": "Statique : une hausse déplacerait l’épargne vers d’autres placements, une baisse l’attirerait. La DG Trésor suppose toutes les primes versées après 1998 et avant 70 ans (CPO) : ses chiffres sont plutôt hauts. Primes après 70 ans inchangées.",
+      "sources": [
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), recommandation n° 6 et tableau n° 9 (p. 150-151)",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "barème en ligne directe au-delà de la tranche à 20 % (30 %, 40 %, 45 %) : +1,25 Md€, rendement théorique à terme, à comportement inchangé, environ 2 000 défunts"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 151",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "coût statique du régime de l’assurance-vie au décès : environ 5 Md€ en 2024 (haut du réglage « droits ordinaires »)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 150",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "la microsimulation suppose toutes les primes versées après 1998 et avant 70 ans (raison pour laquelle les chiffres de la DG Trésor sont plutôt hauts ; contexte, hors fourchette)"
+        },
+        {
+          "title": "Les droits de succession (septembre 2024), p. 30",
+          "publisher": "Cour des comptes",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "coût du régime de l’assurance-vie au décès évalué par le CAE à 3,5 Md€ sur les données 2017-2018 (bas du réglage « droits ordinaires »)"
+        },
+        {
+          "title": "Repenser l’héritage, Les notes du conseil d’analyse économique n° 69 (décembre 2021), p. 7",
+          "publisher": "Conseil d’analyse économique",
+          "url": "https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf",
+          "date": "2021-12",
+          "accessedAt": "2026-10-18",
+          "figure": "coût du régime de l’assurance-vie au décès par rapport au barème ordinaire, bénéficiaires d’au moins 152 500 € : 4 à 5 Md€"
+        },
+        {
+          "title": "Les droits de succession (septembre 2024), tableau n° 17 (p. 68)",
+          "publisher": "Cour des comptes, d’après le CAE (fichier Ficovie)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "transmissions par assurance-vie en 2018 : 44 965 bénéficiaires de 152 500 à 852 500 € (12 Md€), 1 750 au-delà (4 Md€, 2,02 M€ en moyenne), tous bénéficiaires, conjoints compris ; base de l’estimation du réglage « 200 000 € »"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 6 « Protection du modèle de l’assurance-vie » (p. 50)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "le régime au décès (CGI art. 990 I) : abattement de 152 500 €, puis 20 % jusqu’à 700 000 € et 31,25 % au-delà ; le PLF le réserve aux contrats, français ou étrangers, qui respectent trois règles du code des assurances (contexte, hors fourchette)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 6, incidences budgétaires et méthode (p. 53-54)",
+          "publisher": "Gouvernement (annexe au PLF 2027, d’après la DG Trésor)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "article 6 : +25 M€ en 2027, +50 M€ ensuite, déjà dans la base ; hypothèse de la DG Trésor : 75 % des sommes transmises hors conjoints (utilisée pour l’estimation du réglage « 200 000 € »)"
+        }
       ]
     },
     {
@@ -484,10 +2323,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes », tableau 2, p. 61",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Produit brut de la C3S : 5 466 M€ en 2027 (p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -500,6 +2336,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "0,16 %",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.033,
+          "hi": 0.05466
+        },
+        "perUnitDown": {
+          "lo": 0.044,
+          "hi": 0.05466
+        },
+        "why": "Borne : taux nul, la suppression (−100 %), que le CPO chiffre à 4,4 Md€ net de l’impôt sur les sociétés : en baisse, même fourchette qu’en deçà. En hausse, jusqu’à 0,32 %, estimation : bas abaissé de 25 % (taxe en cascade, comportements)."
+      },
       "amount": {
         "value": 5.466,
         "label": "5 466 M€ de C3S prévus en 2027 (CCSS)"
@@ -535,6 +2383,1191 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "cannabis-legal-taxe",
+      "family": "impots",
+      "label": "Cannabis légal et taxé",
+      "today": "Vente interdite : aucune recette fiscale",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "interdit",
+      "options": [
+        {
+          "id": "interdiction",
+          "label": "Vente interdite (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "legalisation-2027",
+          "label": "Vente légale, encadrée et taxée, au 1er janvier 2027",
+          "lo": 0.1,
+          "hi": 1.4,
+          "note": "Estimation Isoloir sur les chiffres du Conseil d’analyse économique (2019), en euros de 2019.",
+          "estimate": "5 à 50 % du rendement complet chiffré par le CAE (2 à 2,8 Md€ par an) : la part légale du marché était d’environ 5 % en Uruguay fin 2017 et de la moitié dans l’État de Washington des années après la légalisation. Le haut suppose une offre légale prête dès janvier."
+        }
+      ],
+      "estimate": {
+        "method": "Le Conseil d’analyse économique (CAE, 2019) chiffre le rendement d’une vente légale à 2 Md€ par an : 500 tonnes à 9 € le gramme, dont 4 € de taxes (accise de 50 % et TVA de 20 % sur 5 € hors taxes) ; 2,8 Md€ pour 700 tonnes. La première année, la vente légale ne prend qu’une part du marché : environ 5 % en Uruguay fin 2017 (2 tonnes agréées pour 35 à 40), la moitié dans l’État de Washington des années après (CAE). D’où 5 à 50 % : 0,1 à 1,4 Md€."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "À terme, hors total : 2 à 2,8 Md€ de recettes fiscales par an pour 500 à 700 tonnes vendues 9 € le gramme, plus 0,25 à 0,74 Md€ de cotisations sur les emplois de la filière (CAE, 2019).",
+      "limits": "Première année supposée : 5 à 50 % du rendement complet ; le haut suppose une offre légale prête dès janvier. Ni économies de police et de justice, ni coût de la régulation et de la prévention, ni achats taxés que le cannabis remplacerait.",
+      "sources": [
+        {
+          "title": "Les notes du Conseil d’analyse économique n° 52, « Cannabis : comment reprendre le contrôle ? », p. 12",
+          "publisher": "Conseil d’analyse économique (E. Auriol et P.-Y. Geoffard)",
+          "url": "https://cae-eco.fr/static/pdf/cae-note052.pdf",
+          "date": "2019-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Vente légale à 9 € le gramme (accise de 50 % et TVA de 20 % sur 5 € hors taxes) : 2 Md€ de recettes fiscales par an pour 500 tonnes"
+        },
+        {
+          "title": "Les notes du Conseil d’analyse économique n° 52, « Cannabis : comment reprendre le contrôle ? », p. 12",
+          "publisher": "Conseil d’analyse économique (E. Auriol et P.-Y. Geoffard)",
+          "url": "https://cae-eco.fr/static/pdf/cae-note052.pdf",
+          "date": "2019-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Pour 700 tonnes : 2,8 Md€ de recettes fiscales et 0,36 à 0,74 Md€ de cotisations sociales"
+        },
+        {
+          "title": "Les notes du Conseil d’analyse économique n° 52, « Cannabis : comment reprendre le contrôle ? », p. 12",
+          "publisher": "Conseil d’analyse économique (E. Auriol et P.-Y. Geoffard)",
+          "url": "https://cae-eco.fr/static/pdf/cae-note052.pdf",
+          "date": "2019-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Pour 500 tonnes : 250 à 530 M€ de cotisations sociales, les emplois de la filière étant payés 1,2 Smic"
+        },
+        {
+          "title": "Les notes du Conseil d’analyse économique n° 52, « Cannabis : comment reprendre le contrôle ? », encadré 2 (p. 7)",
+          "publisher": "Conseil d’analyse économique (E. Auriol et P.-Y. Geoffard)",
+          "url": "https://cae-eco.fr/static/pdf/cae-note052.pdf",
+          "date": "2019-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Dans l’État de Washington, le marché illégal représente encore environ 50 % du cannabis vendu, malgré un recul assez rapide"
+        },
+        {
+          "title": "Les notes du Conseil d’analyse économique n° 52, « Cannabis : comment reprendre le contrôle ? », encadré 2 (p. 7)",
+          "publisher": "Conseil d’analyse économique (E. Auriol et P.-Y. Geoffard)",
+          "url": "https://cae-eco.fr/static/pdf/cae-note052.pdf",
+          "date": "2019-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Uruguay, fin 2017 : deux producteurs agréés pour une tonne chacun, face à un marché de 35 à 40 tonnes (environ 5 %, calcul)"
+        },
+        {
+          "title": "Les notes du Conseil d’analyse économique n° 52, « Cannabis : comment reprendre le contrôle ? », p. 3",
+          "publisher": "Conseil d’analyse économique (E. Auriol et P.-Y. Geoffard)",
+          "url": "https://cae-eco.fr/static/pdf/cae-note052.pdf",
+          "date": "2019-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Dépense publique contre le cannabis : 568 M€, à 70 % pour la police et à 20 % pour la justice (non comptée en économie)"
+        }
+      ]
+    },
+    {
+      "id": "capital-naissance",
+      "family": "sociale",
+      "label": "Capital public à la naissance",
+      "today": "Aucun capital versé à la naissance au PLF 2027",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "montant versé par enfant né en 2027",
+        "short": "€"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "Aucun",
+      "options": [
+        {
+          "id": "aucun",
+          "label": "Aucun (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Pas de capital versé à la naissance."
+        },
+        {
+          "id": "500-euros",
+          "label": "500 € par enfant",
+          "lo": 0.236,
+          "hi": 0.394,
+          "note": "Versé sur le compte de chaque enfant né en 2027 et bloqué jusqu’à sa retraite.",
+          "estimate": "Environ 630 000 naissances × 500 €, soit 0,32 Md€, fourchette de ±25 % (estimation)"
+        },
+        {
+          "id": "1000-euros",
+          "label": "1 000 € par enfant",
+          "lo": 0.473,
+          "hi": 0.787,
+          "note": "Versé sur le compte de chaque enfant né en 2027 et bloqué jusqu’à sa retraite.",
+          "estimate": "Environ 630 000 naissances × 1 000 €, soit 0,63 Md€, fourchette de ±25 % (estimation)"
+        },
+        {
+          "id": "2000-euros",
+          "label": "2 000 € par enfant",
+          "lo": 0.945,
+          "hi": 1.575,
+          "note": "Versé sur le compte de chaque enfant né en 2027 et bloqué jusqu’à sa retraite.",
+          "estimate": "Environ 630 000 naissances × 2 000 €, soit 1,26 Md€, fourchette de ±25 % (estimation)"
+        },
+        {
+          "id": "5000-euros",
+          "label": "5 000 € par enfant",
+          "lo": 2.362,
+          "hi": 3.938,
+          "note": "Versé sur le compte de chaque enfant né en 2027 et bloqué jusqu’à sa retraite.",
+          "estimate": "Environ 630 000 naissances × 5 000 €, soit 3,15 Md€, fourchette de ±25 % (estimation)"
+        }
+      ],
+      "estimate": {
+        "method": "Effectif officiel × montant choisi. Naissances : 645 000 en 2025 (Insee), en baisse de 2,1 % sur un an ; on retient environ 630 000 en 2027 (entre la tendance, 618 000, et le niveau de 2025). Coût = 630 000 × montant, versé l’année de la naissance, fourchette de ±25 %. Le capital doit appartenir à l’enfant (un transfert aux ménages) : placé dans un fonds public qui reste aux administrations, il serait sans effet sur le déficit."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "Le coût revient chaque année, avec chaque nouvelle génération de naissances. Hors total.",
+      "limits": "Estimation : naissances × montant. Compté comme un versement à l’enfant : logé dans un fonds public qui reste aux administrations, il ne pèserait pas sur le déficit. Ni frais de gestion, ni effet sur les naissances.",
+      "sources": [
+        {
+          "title": "Bilan démographique 2025 (Insee Première n° 2087)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/8719824",
+          "date": "2026-01-13",
+          "accessedAt": "2026-10-18",
+          "figure": "Naissances en France : 645 000 en 2025, en baisse de 2,1 % par rapport à 2024"
+        }
+      ]
+    },
+    {
+      "id": "cdhr-taux-plancher",
+      "family": "impots",
+      "label": "Hauts revenus : taux plancher (CDHR)",
+      "today": "20 % d’impôt au minimum au-delà de 250 000 € (500 000 € en couple)",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.6,
+        "hi": 0.6
+      },
+      "base": {
+        "value": 0.6,
+        "label": "0,6 Md€ de contribution différentielle sur les hauts revenus prévus au PLF 2027 (état A, ligne 1440).",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1440 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "20 %",
+      "options": [
+        {
+          "id": "retrait",
+          "label": "Retrait dès 2027",
+          "lo": -0.6,
+          "hi": -0.6,
+          "note": "La ligne entière du PLF 2027 (état A, ligne 1440)."
+        },
+        {
+          "id": "plancher-20",
+          "label": "20 % (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : 0,6 Md€ attendus en 2027."
+        },
+        {
+          "id": "sans-lissage",
+          "label": "20 %, revenus exceptionnels compris",
+          "lo": 0.05,
+          "hi": 0.23,
+          "note": "Supprime l’abattement qui lisse les revenus exceptionnels dans le calcul.",
+          "estimate": "Haut : la simulation de la DGFiP sans cet abattement, +172 M€ sur les revenus de 2023 et +230 M€ sur ceux de 2024, en statique (Sénat). Bas : ce gain réduit dans le rapport entre le rendement attendu au titre de 2025 (388 M€) et la simulation pour 2024 (1 403 M€), environ 28 % : 0,05 Md€."
+        },
+        {
+          "id": "plancher-25",
+          "label": "Plancher à 25 %",
+          "lo": 0.4,
+          "hi": 1.6,
+          "estimate": "Chaque point au-dessus de 20 % rapporte 1 % des revenus des redevables. Bas : les 7 117 redevables de 2025 (1,57 M€ en moyenne, Sénat), 11 Md€, ramenés à 8 Md€ pour de nouveaux reports : 0,08 Md€ par point, 0,4 pour 5 points. Haut : la base statique de l’IPP (1,2 Md€ pour 4,7 points de taux moyen, 25,5 Md€), plus un quart pour les foyers qui entrent entre 20 et 25 % : 1,6."
+        },
+        {
+          "id": "plancher-30",
+          "label": "Plancher à 30 %",
+          "lo": 0.8,
+          "hi": 3.8,
+          "estimate": "Même calcul sur 10 points. Bas : 0,08 Md€ par point, 0,8. Haut : 0,255 Md€ par point (IPP), plus la moitié pour les foyers qui entrent entre 20 et 30 % (les foyers au-dessus des seuils non redevables sont imposés à 32,3 % en moyenne, IPP) : 3,8."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "aide-fiscale-investissement-outre-mer",
+        "cehr-taux",
+        "contribution-differentielle-patrimoine",
+        "impot-plancher-tres-hauts-patrimoines",
+        "pfu-taux-ir",
+        "plafonnement-global-niches"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Sans changement de loi, la CDHR s’arrête après l’année où le déficit de l’État repasse sous 3 % du PIB.",
+      "limits": "Au titre de 2025, la CDHR n’a rapporté qu’environ un tiers des simulations : reports de revenus et montages pèsent. Les hauts sont statiques. Relever la CEHR ou le taux forfaitaire réduit la CDHR due, et l’inverse.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1440 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Contribution différentielle sur les hauts revenus : 600 000 000 € prévus en 2027, la ligne entière (borne du retrait)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines (p. 174-175)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Dessin : 20 % du revenu fiscal de référence moins l’impôt sur le revenu, la CEHR et les prélèvements libératoires ; prorogée tant que le déficit de l’État dépasse 3 % du PIB"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines (p. 177)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "388 M€ attendus au titre des revenus de 2025 (2 Md€ annoncés en 2024, sans réactions des contribuables)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, encadré « Quel est le profil des redevables de la CDHR ? » (p. 179)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "7 117 foyers ont versé l’acompte de CDHR fin 2025 (10 871 déclarants), 54 000 € en moyenne"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines (p. 181, note de la DGFiP du 20 mai 2026)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "1,57 M€ de revenus annuels moyens en 2025 pour les foyers déclarants de la CDHR (1,13 M€ en 2023, 1,62 M€ en 2024)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, tableau de la DGFiP (p. 181)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Simulation statique de la DGFiP : 957 M€ (revenus 2023) et 1 403 M€ (revenus 2024) ; sans l’abattement pour revenus exceptionnels, 1 129 et 1 633 M€, soit +172 et +230 M€"
+        },
+        {
+          "title": "Perspectives budgétaires (juin 2025), chapitre 2 : Effets budgétaires et redistributifs des mesures socio-fiscales, résultats clés (p. 31) et p. 35",
+          "publisher": "Institut des politiques publiques (IPP)",
+          "url": "https://www.ipp.eu/wp-content/uploads/2026/04/chapitre_2_fiscalite_web.pdf",
+          "date": "2025-06",
+          "accessedAt": "2026-10-18",
+          "figure": "CDHR : 1,2 Md€ en statique (TAXIPP), taux moyen des redevables porté de 14,2 % à 18,9 % ; base des redevables 1,2 / 4,7 % = 25,5 Md€, d’où 0,255 Md€ par point de plancher, le haut"
+        },
+        {
+          "title": "Perspectives budgétaires (juin 2025), chapitre 2 : Effets budgétaires et redistributifs des mesures socio-fiscales, p. 36",
+          "publisher": "Institut des politiques publiques (IPP)",
+          "url": "https://www.ipp.eu/wp-content/uploads/2026/04/chapitre_2_fiscalite_web.pdf",
+          "date": "2025-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Les autres foyers au-dessus des seuils sont imposés à 32,3 % en moyenne : un plancher plus haut fait entrer une partie d’entre eux (part non publiée)"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome 1 : recettes, annexe au PLF 2026, ligne 1440 (p. 24)",
+          "publisher": "Gouvernement, direction du Budget (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : 1,4 Md€ prévus pour 2025 et 1,7 Md€ pour 2026 au PLF 2026, avant que le rendement constaté ne tombe à 388 M€"
+        }
+      ]
+    },
+    {
+      "id": "cehr-taux",
+      "family": "impots",
+      "label": "Contribution sur les hauts revenus",
+      "today": "3 % dès 250 000 € de revenu, 4 % dès 500 000 € (le double en couple)",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 point sur les deux taux (3 % et 4 %)",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.25,
+        "hi": 0.45
+      },
+      "base": {
+        "value": 1.5,
+        "label": "1,5 Md€ de contribution exceptionnelle sur les hauts revenus en 2025, dernier chiffre publié (Sénat). Elle est comptée dans la ligne de l’impôt sur le revenu du PLF 2027, qui ne la détaille pas.",
+        "source": {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines (p. 178)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf"
+        }
+      },
+      "max": 1,
+      "step": 0.1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "3 et 4 %",
+      "estimate": {
+        "method": "Rendement 2025 : 1,5 Md€ (Sénat) = 3 % des revenus entre les seuils (B1) + 4 % au-delà (B2). Un point : 1 % de B1 + B2 = 0,375 + B1/400 Md€. Environ 65 600 foyers dépassent les seuils (IPP), chacun au plus 250 000 € (500 000 € en couple) dans B1 : B1 au plus 16 à 33 Md€, d’où 0,375 à 0,46. La CDHR en reprend 0,08 (7 117 payeurs ; 1,57 M€ de revenus moyens chez les déclarants) : 0,29 à 0,38. Retenu : 0,25 (reports) à 0,45 (sans la CDHR)."
+      },
+      "stretch": {
+        "max": 3,
+        "perUnit": {
+          "lo": 0.2,
+          "hi": 0.45
+        },
+        "perUnitDown": {
+          "lo": 0.2,
+          "hi": 0.4
+        },
+        "why": "À +3 points (6 et 7 %), le taux marginal maximal, CSG déductible comptée, va d’environ 56 à 59 % (salaires) et de 63 à 65,7 % (revenus fonciers) : sous les deux tiers (Conseil d’État). À −3, reste 1 % au-delà du second seuil. Au-delà de ±1, fourchette élargie."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "apport-cession-report",
+        "cdhr-taux-plancher",
+        "contribution-differentielle-patrimoine",
+        "impot-plancher-tres-hauts-patrimoines"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "La CEHR, créée en 2012 comme temporaire, dure jusqu’à l’année où le déficit public est nul.",
+      "limits": "Rendement de 2025, non porté à 2027. Bas : reports de revenus, et CDHR qui baisse d’autant chez ses payeurs (et l’inverse). Votée en loi de finances pour 2027 (fin 2026), elle porte sur les revenus de 2026. Borne sans hausse du barème.",
+      "sources": [
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, encadré sur la CEHR (p. 175)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "CEHR : 3 % puis 4 % au-delà des seuils ; 1,5 Md€ de rendement en 2025"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, encadré sur la CEHR (p. 174)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Assiette : le revenu fiscal de référence au-delà de 250 000 € (personne seule) ou 500 000 € (couple), revenus au prélèvement forfaitaire compris ; contribution prévue jusqu’à un déficit public nul"
+        },
+        {
+          "title": "Perspectives budgétaires (juin 2025), chapitre 2 : Effets budgétaires et redistributifs des mesures socio-fiscales, p. 34",
+          "publisher": "Institut des politiques publiques (IPP)",
+          "url": "https://www.ipp.eu/wp-content/uploads/2026/04/chapitre_2_fiscalite_web.pdf",
+          "date": "2025-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Environ 65 600 foyers dépassent les seuils de 250 000 € (seul) ou 500 000 € (couple) de revenu fiscal de référence ajusté (critère de la CDHR, modèle TAXIPP, 2025) : borne haute de la part des revenus dans la tranche à 3 % (B1 au plus 16 à 33 Md€)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, encadré « Quel est le profil des redevables de la CDHR ? » (p. 179)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "7 117 foyers ont versé l’acompte de CDHR fin 2025 (10 871 déclarants), 54 000 € en moyenne : la CDHR reprend environ 0,08 Md€ par point de CEHR"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines (p. 181, note de la DGFiP du 20 mai 2026)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "1,57 M€ de revenus annuels moyens en 2025 chez les foyers déclarants de la CDHR (et non chez les seuls payeurs) ; 1,13 M€ en 2023, 1,62 M€ en 2024"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 27",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux marginal maximal sur les revenus d’activité : plus de 56 % ; seuil de risque de censure retenu par le Conseil d’État (avis du 21 mars 2013) : deux tiers, 66 %. À +3 points de CEHR, environ +2,8 points (assiette nette de la CSG déductible) : environ 59 %"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), note 35 (p. 27)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "IR et CEHR : taux marginal de 49 % appliqué sur une assiette minorée des charges et de la CSG déductible, soit 45,3 % effectifs : un point de CEHR ajoute environ 0,92 point au taux marginal"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 110",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Cadre du Conseil constitutionnel : taux marginal au plus 72 % ; Conseil d’État : risque de censure au-delà des deux tiers. Borne de +3 points : revenus fonciers à 65,7 % CSG déductible comptée (69,2 % en sommant les taux), sous les deux cadres"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), note 175 (p. 110)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Revenus du patrimoine au barème : 45 % + 17,2 % = 62,2 % avant la CEHR ; avec la CEHR à 4 %, 66,2 % en sommant les taux, environ 63 % CSG déductible comptée"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines (p. 48)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "6,8 points de CSG déductibles sur les revenus du patrimoine au barème : l’impôt et la CEHR portent sur 93,2 % du revenu foncier"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.5 : les prélèvements sociaux sur les revenus du capital (p. 64)",
+          "publisher": "Commission des comptes de la Sécurité sociale (direction de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La CSG à 10,6 % depuis 2026 exclut les revenus fonciers : leurs prélèvements sociaux restent à 17,2 %"
+        },
+        {
+          "title": "Décision n° 2012-662 DC du 29 décembre 2012 (loi de finances pour 2013), considérant 81",
+          "publisher": "Conseil constitutionnel",
+          "url": "https://www.conseil-constitutionnel.fr/decision/2012/2012662DC.htm",
+          "date": "2012-12-29",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte, pas un chiffrage : des taux marginaux de 68,2 % à 77 % sur certains gains (options, actions gratuites) jugés comme une charge excessive"
+        }
+      ]
+    },
+    {
+      "id": "compensation-carbone",
+      "family": "depenses",
+      "label": "Compensation carbone de l’industrie",
+      "today": "814,1 M€ au PLF 2027 : 75 % des coûts indirects du carbone de 2026",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage de l’aide versée en 2027",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.8141,
+        "label": "814,1 M€ de crédits de paiement pour la compensation des coûts indirects du carbone au PLF 2027 (programme 134, action 23)",
+        "source": {
+          "title": "PAP 2027, mission Économie, programme 134, action 23 : dépenses d’intervention (p. 64)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "75 %",
+      "options": [
+        {
+          "id": "suppression",
+          "label": "Suppression",
+          "lo": -0.8141,
+          "hi": -0.8141,
+          "note": "La ligne entière : 814,1 M€ (PAP 2027)."
+        },
+        {
+          "id": "moitie",
+          "label": "Aide divisée par 2",
+          "lo": -0.4071,
+          "hi": -0.4071,
+          "note": "37,5 % des coûts indirects au lieu de 75 % : la moitié des 814,1 M€."
+        },
+        {
+          "id": "quart",
+          "label": "Un quart en moins",
+          "lo": -0.2035,
+          "hi": -0.2035,
+          "note": "56 % des coûts indirects au lieu de 75 % : un quart des 814,1 M€."
+        },
+        {
+          "id": "plf",
+          "label": "PLF 2027 (75 %)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "75 % des coûts indirects de 2026, le taux maximal du régime d’aide européen ; celui-ci prévoit seulement un complément quand 25 % de ces coûts dépassent 1,5 % de la valeur ajoutée brute de l’entreprise : pas de réglage plus haut."
+        }
+      ],
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "L’aide de 2027 paie les coûts du carbone supportés en 2026 : la réduire dès 2027 touche des coûts déjà engagés par les entreprises. Le régime européen court jusqu’en 2030.",
+      "limits": "Statique : rien sur la production ni les délocalisations. Pas de hausse : 75 % est le taux maximal du régime européen, plus un complément prévu pour les entreprises les plus touchées. Des crédits reportés de 2026 peuvent aussi payer.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Économie, programme 134, action 23 : dépenses d’intervention (p. 64)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Compensation des coûts indirects du carbone : 814,1 M€ en autorisations d’engagement et en crédits de paiement en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Économie, programme 134, action 23 : dépenses d’intervention (p. 64)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "L’aide versée en 2027 compense 75 % des coûts indirects de 2026, le taux limite du régime d’aide européen (lignes directrices 2021-2030) ; un complément est possible quand 25 % de ces coûts dépassent 1,5 % de la valeur ajoutée brute de l’entreprise"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 67, exposé des motifs (p. 181)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Report de crédits majoré pour le programme 134 au titre du versement de la compensation carbone : des crédits de 2026 non consommés peuvent payer des aides en 2027"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I (p. 185)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "La compensation carbone figure parmi les principales subventions budgétaires aux entreprises retenues par la commission d’enquête (contexte, pas un montant)"
+        }
+      ]
+    },
+    {
+      "id": "condition-residence-prestations",
+      "family": "sociale",
+      "label": "Étrangers : durée de séjour exigée",
+      "today": "Un an de séjour régulier au 1er juillet 2027 (PLFSS, article 37)",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 16.511,
+        "label": "16,5 Md€ de charges du Fnal en 2027 (aides personnelles au logement APL, ALS, ALF, dont 165 M€ de frais de gestion), financées par l’État (programme 109), sur lesquelles porte l’essentiel de l’effet ; les prestations familiales n’en prennent que 0,9 M€",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 109, « Charges et ressources du Fnal en 2027 » (p. 66)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "1 an",
+      "options": [
+        {
+          "id": "aucune-duree",
+          "label": "Aucune durée exigée pour ces aides (droit de 2026)",
+          "lo": 0.0309,
+          "hi": 0.0309,
+          "note": "Le coût du retrait de l’article 37 en 2027 : 30 M€ d’aides au logement et 0,9 M€ de prestations familiales (PLFSS). Seulement ces aides : le RSA et la prime d’activité gardent leurs cinq ans, l’ASPA ses dix ans."
+        },
+        {
+          "id": "un-an",
+          "label": "Un an de séjour régulier (PLFSS 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLFSS 2027, au plus tard le 1er juillet 2027 : six mois comptent en 2027."
+        },
+        {
+          "id": "deux-ans",
+          "label": "Deux ans de séjour régulier",
+          "lo": -0.023,
+          "hi": -0.003,
+          "note": "Estimation Isoloir. Option écartée par le Gouvernement ; cinq ans ont été jugés contraires à la Constitution (Conseil constitutionnel, 2024). Prestations familiales (moins de 1 M€) non comptées.",
+          "estimate": "PLFSS : la condition d’un an écarte de l’aide au logement 25 000 ménages (40 % des 82 000 premières demandes, moins les exceptions), 30 M€ de juillet à décembre 2027. Deux ans écarteraient aussi ceux qui ont un document de séjour depuis un à deux ans, supposés 5 à 25 % des premières demandes (hypothèse Isoloir) : 12,5 à 62,5 % de ménages en plus, 3,75 à 18,75 M€, soit 3 à 23 M€ à ±25 %. Seconde année d’attente : surtout dès 2028, non comptée."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "aides-logement-etudiants",
+        "aides-logement-revalorisation",
+        "credits-aides-personnelles-logement",
+        "depense-allocations-familiales",
+        "prestations-familiales-revalorisation"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "En année pleine (2028), hors total : un an économise 61,8 M€ (60 M€ d’aides au logement, 1,8 M€ de prestations familiales) ; deux ans, environ 0,05 à 0,12 Md€ de plus (estimation : une seconde année d’attente pour les 25 000 ménages, 60 M€, plus 7,5 à 37,5 M€ pour ceux qui ont un document de séjour depuis un à deux ans, le tout à ±25 %). Des conventions renégociées ajouteraient par exemple 25 M€ en 2027 (50 M€ en année pleine) pour 10 000 personnes de plus (PLFSS, non compté).",
+      "limits": "Étrangers hors Union. Logement : séjour de moins d’un an, réfugiés surtout exceptés. Prestations familiales : sans titre autorisant à travailler ni convention d’égalité (environ 400 personnes). RSA, prime d’activité, ASPA inchangés.",
+      "sources": [
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aides au logement : 25 000 ménages concernés, 60 M€ d’économie en année pleine, 30 M€ en 2027 (au 1er juillet)"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "82 000 premières demandes d’APL de ménages hors Union en 2025, dont 40 % (32 000) par des ménages ayant un document de séjour depuis moins d’un an ; beaucoup des autres sont en France depuis plus d’un an"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aides au logement : 25 % de ces 32 000 ménages relèvent d’exceptions, surtout les réfugiés"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », tableau d’impact financier, p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Économie en 2027 : 0,9 M€ (branche famille) et 30 M€ (État, aides au logement) ; 1,8 et 60 M€ à partir de 2028"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Prestations familiales : environ 400 personnes concernées"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Prestations familiales : 1,8 M€ d’économie en année pleine, à contexte juridique constant"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 303 (p. 304 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Conventions renégociées : par exemple 10 000 personnes de plus en 2027 ajouteraient 25 M€ d’économie en 2027 (50 M€ en année pleine), non comptés"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », p. 300 (p. 301 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les exceptions prévues pour les prestations familiales ne valent pas pour les aides au logement"
+        },
+        {
+          "title": "PLFSS 2027, annexe 9 (évaluations préalables), article 37 « Restreindre l’accès aux prestations familiales pour les étrangers extra-UE », « Autres options possibles », p. 300 (p. 301 du PDF)",
+          "publisher": "Gouvernement (annexe au projet de loi de financement de la sécurité sociale pour 2027)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/annexe-9.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Deux ans ou plus : option écartée par le Gouvernement pour la proportionnalité"
+        },
+        {
+          "title": "Décision n° 2024-6 RIP du 11 avril 2024, Proposition de loi visant à réformer l’accès aux prestations sociales des étrangers, paragraphe 13",
+          "publisher": "Conseil constitutionnel",
+          "url": "https://www.conseil-constitutionnel.fr/decision/2024/20246RIP.htm",
+          "date": "2024-04-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Cinq ans de résidence ou trente mois d’activité : atteinte disproportionnée, contraire à la Constitution"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 109 « Aide à l’accès au logement », présentation stratégique (p. 55)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La carence d’un an pour les étrangers hors Union réduit la dépense d’aides au logement du programme 109 en 2027"
+        }
+      ]
+    },
+    {
+      "id": "conge-second-parent",
+      "family": "sociale",
+      "label": "Congé du second parent",
+      "today": "25 jours indemnisés dont 4 obligatoires, plus 3 jours de naissance",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage de la durée du congé de paternité et d’accueil de l’enfant",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.7,
+        "label": "700 M€ de congé de paternité et d’accueil de l’enfant prévus en 2027, tous régimes, pris en charge par la branche famille (CCSS d’octobre 2026)",
+        "source": {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6, tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "25 jours",
+      "options": [
+        {
+          "id": "11-jours",
+          "label": "11 jours, comme avant juillet 2021",
+          "lo": -0.49,
+          "hi": -0.29,
+          "note": "Le miroir de l’allongement : la durée d’avant la loi de financement pour 2021 ; aucune source ne chiffre ce cas.",
+          "estimate": "Miroir : le congé coûte 700 M€ en 2027 (CCSS) pour 25 jours ; revenir à 11 jours en retire 14 sur 25, soit 392 M€ (calcul statique, recours inchangé), fourchette de ±25 % : 0,29 à 0,49 Md€ d’économies. Aucune source ne chiffre ce cas."
+        },
+        {
+          "id": "25-jours",
+          "label": "25 jours (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : 25 jours, dont 4 obligatoires, après les 3 jours de naissance payés par l’employeur."
+        },
+        {
+          "id": "aligne-maternite",
+          "label": "Aligné sur le congé de la mère",
+          "lo": 1.3,
+          "hi": 1.72,
+          "note": "La durée du congé postnatal de la mère (10 semaines aux rangs 1 et 2), en partie obligatoire. Bas : 10 semaines dont 6 obligatoires (CAE, 2024) ; haut : majorant de l’Assemblée nationale, 1,6 Md€ au régime général et 0,12 Md€ au régime agricole (dépenses de 2024)."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "depense-conge-naissance"
+      ],
+      "operatorCaveat": false,
+      "limits": "Ni le traitement maintenu des agents publics, ni les retours de CSG et d’impôt, ni un moindre recours au congé de naissance ou à la garde. Haut : majorant sur les dépenses de 2024, tous les pères prenant tout le congé.",
+      "sources": [
+        {
+          "title": "Rapport d’information n° 1971 en conclusion des travaux de la mission d’information sur les congés parentaux (p. 134)",
+          "publisher": "Assemblée nationale, commission des affaires sociales",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf",
+          "date": "2025-10-16",
+          "accessedAt": "2026-10-18",
+          "figure": "Congé de paternité de la durée du congé postnatal des mères, au régime général : 2,3 Md€ bruts, 1,6 Md€ de plus que les dépenses de 2024, un majorant"
+        },
+        {
+          "title": "Rapport d’information n° 1971 en conclusion des travaux de la mission d’information sur les congés parentaux (p. 134-135)",
+          "publisher": "Assemblée nationale, commission des affaires sociales",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf",
+          "date": "2025-10-16",
+          "accessedAt": "2026-10-18",
+          "figure": "Le même alignement au régime agricole : 123 M€ (80 M€ pour les salariés, 43 M€ pour les non-salariés), selon la MSA"
+        },
+        {
+          "title": "Rapport d’information n° 1971 en conclusion des travaux de la mission d’information sur les congés parentaux (p. 134)",
+          "publisher": "Assemblée nationale, commission des affaires sociales",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf",
+          "date": "2025-10-16",
+          "accessedAt": "2026-10-18",
+          "figure": "Dix semaines, dont six obligatoires : 1,3 Md€ selon le Conseil d’analyse économique (note n° 83, novembre 2024), le bas"
+        },
+        {
+          "title": "Rapport d’information n° 1971 en conclusion des travaux de la mission d’information sur les congés parentaux (p. 134)",
+          "publisher": "Assemblée nationale, commission des affaires sociales",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf",
+          "date": "2025-10-16",
+          "accessedAt": "2026-10-18",
+          "figure": "En 2022, 24 jours pris en moyenne par les pères, 80 jours de congé postnatal par les mères"
+        },
+        {
+          "title": "Rapport d’information n° 1971 en conclusion des travaux de la mission d’information sur les congés parentaux (p. 35)",
+          "publisher": "Assemblée nationale, commission des affaires sociales",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf",
+          "date": "2025-10-16",
+          "accessedAt": "2026-10-18",
+          "figure": "Durée portée de 11 à 25 jours, dont 4 obligatoires, par la loi de financement pour 2021 (le réglage du PLF ; 11 jours, le miroir)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6, tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Congé paternité, tous régimes : 700 M€ prévus en 2027, base du miroir (calcul : 700 × 14 / 25 = 392 M€)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.4 « Les prestations maladie, AT-MP et autonomie hors ONDAM » (p. 106 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le congé de naissance, ouvert aux deux parents depuis le 1er juillet 2026, recoupe en partie un congé de paternité plus long (dit dans les limites)"
+        }
+      ]
+    },
+    {
+      "id": "contribution-benefices-exceptionnels",
+      "family": "impots",
+      "label": "Taxe sur les bénéfices exceptionnels",
+      "today": "Aucune ; la contribution sur la rente de l’électricité est à 0 €",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage d’une contribution sur la part des bénéfices 2027 au-delà de la moyenne 2017-2019",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 5.2,
+        "label": "5,2 Md€ : la contribution exceptionnelle sur les bénéfices des mêmes grands groupes au PLF 2027 (état A, ligne 1441) ; la contribution sur la rente inframarginale de l’électricité (ligne 1752) est à 0",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "plf",
+          "label": "Pas de contribution (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "La contribution sur la rente de l’électricité a pris fin en 2025. La contribution exceptionnelle sur l’impôt sur les sociétés (5,2 Md€) est un autre levier : les deux s’additionnent."
+        },
+        {
+          "id": "taux-25",
+          "label": "25 % de la part au-delà de la moyenne",
+          "lo": 1.5,
+          "hi": 7.2,
+          "note": "Groupes d’au moins 1,5 Md€ de chiffre d’affaires, exercice 2027, moyenne 2017-2019 corrigée des prix.",
+          "estimate": "Excédent de 9,1 à 31,5 Md€ (central 19,2) × 25 % × 0,91 payé en 2027 ; bas réduit d’un quart pour les résultats décalés ou provisionnés. Central : 4,4 Md€."
+        },
+        {
+          "id": "taux-33",
+          "label": "33 % de la part au-delà de la moyenne",
+          "lo": 2,
+          "hi": 9.5,
+          "note": "33 % : le taux plancher de la contribution de solidarité de l’Union européenne sur l’énergie (2022-2023).",
+          "estimate": "Même excédent de 9,1 à 31,5 Md€ × 33 % × 0,91 payé en 2027 ; bas réduit d’un quart pour les résultats décalés ou provisionnés. Central : 5,8 Md€."
+        }
+      ],
+      "estimate": {
+        "method": "1) Bénéfice des groupes d’au moins 1,5 Md€ : 5,5 Md€ de contribution pour 15,7 % ou 31,4 % de leur impôt (60 à 90 % de l’assiette au taux double), soit 18 à 22 Md€ d’impôt et 70 à 90 Md€ de bénéfice à 25 %. 2) Part au-delà de la moyenne 2017-2019 corrigée des prix (+22 % en 2027, Insee puis PLF) : 26 % du bénéfice fiscal de 2022, 14 % de l’EBE de 2025 ; retenu 13 à 35 %, entreprise par entreprise : 9,1 à 31,5 Md€. 3) × taux × 0,91 payé en 2027."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "contribution-exceptionnelle-grandes-entreprises",
+        "impot-societes",
+        "taxe-tonnage"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Les exercices qui ne se closent pas au 31 décembre paient en 2028 (environ un dixième, comme pour la contribution actuelle), hors du total. Pour un seul exercice.",
+      "limits": "Estimation fruste : bénéfice des groupes déduit de la contribution actuelle, part au-delà de la moyenne 2017-2019 tirée de séries d’ensemble de l’Insee, pas des seuls grands groupes. Non déductible. Bas : résultats décalés ou provisionnés.",
+      "sources": [
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15 « Mise à contribution des grandes entreprises », p. 156",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Assiette de la contribution actuelle : la moyenne de l’impôt sur les sociétés dû pour l’exercice et le précédent, avant crédits d’impôt"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15 « Mise à contribution des grandes entreprises », p. 157",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 15,7 % (première tranche) et 31,4 % (seconde) de l’impôt sur les sociétés, pour un chiffre d’affaires d’au moins 1,5 Md€"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15 « Mise à contribution des grandes entreprises », p. 160",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "5 Md€ d’acomptes en 2027 et 500 M€ en 2028 (exercices décalés), soit 5,5 Md€ pour l’exercice ; 91 % payés en 2027"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome II, fascicule 1, sur le projet de loi de finances pour 2026, p. 115",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-21/l25-139-211.pdf",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "450 entreprises redevables de la contribution de 2025, dont 157 au taux majoré (chiffre d’affaires de plus de 3 Md€) : d’où l’hypothèse que 60 à 90 % de l’assiette relève du taux double"
+        },
+        {
+          "title": "Documents de travail n° 2025-18, « La réforme du taux statutaire de l’impôt sur les sociétés », tableau 17 « Passage de l’ENE au BFI », p. 97",
+          "publisher": "Insee et DGFiP",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09-02",
+          "accessedAt": "2026-10-18",
+          "figure": "Bénéfice fiscal, plus-values comprises (tableau 17) : 144,9 Md€ (2017), 150,1 (2018), 163,8 (2019), soit 152,9 en moyenne, et 223,7 en 2022 ; en prix de 2022, l’excédent sur la moyenne fait 26 % du bénéfice de 2022"
+        },
+        {
+          "title": "Les comptes de la Nation en 2025, tableau 1.103 « Indices de prix du produit intérieur brut et de ses composantes » (base 100 en 2020)",
+          "publisher": "Insee, comptes nationaux annuels (base 2020)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/8988797/T_1101_1103_fr.xlsx",
+          "date": "2026-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Prix du PIB : 94,889 (2017), 95,947 (2018), 97,108 (2019), 104,277 (2022), 113,009 (2025), soit +17,7 % de la moyenne 2017-2019 à 2025"
+        },
+        {
+          "title": "Les comptes de la Nation en 2025, tableau 7.101 « Compte des sociétés non financières (S11) »",
+          "publisher": "Insee, comptes nationaux annuels (base 2020)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/8988829/T_7101_fr.xlsx",
+          "date": "2026-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Excédent brut d’exploitation des sociétés non financières : 365,0 Md€ en moyenne 2017-2019, 497,5 Md€ en 2025 ; en prix de 2025, l’excédent sur la moyenne fait 14 % de celui de 2025"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), exposé général des motifs, environnement macroéconomique, p. 11",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Inflation de +2,1 % en 2026 et +1,8 % en 2027 : avec les prix du PIB de l’Insee (+17,7 % jusqu’à 2025), des prix de 2027 supérieurs d’environ 22 % à la moyenne 2017-2019"
+        },
+        {
+          "title": "Règlement (UE) 2022/1854 du Conseil du 6 octobre 2022 sur une intervention d’urgence pour faire face aux prix élevés de l’énergie, articles 15 et 16",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32022R1854",
+          "date": "2022-10-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte, pas un montant : la contribution de solidarité de 2022-2023 taxait à 33 % au moins les bénéfices du pétrole, du gaz, du charbon et du raffinage au-delà de 120 % de leur moyenne 2018-2021"
+        },
+        {
+          "title": "PLF 2026, Évaluation des voies et moyens, tome I : recettes, contribution sur la rente infra-marginale de la production d’électricité (ligne 1752), p. 34-35",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : la contribution sur la rente de l’électricité a rapporté 1 130 M€ en 2024 et devait rapporter 677 M€ en 2025 (p. 34) ; ayant pris fin en 2025, elle ne rapporte plus rien en 2026 (p. 35)"
+        }
+      ]
+    },
+    {
+      "id": "contribution-differentielle-patrimoine",
+      "family": "impots",
+      "label": "Impôt différentiel sur le patrimoine",
+      "today": "Pas d’impôt différentiel sur le patrimoine au PLF 2027",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage (seuil et taux)",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "Aucun",
+      "options": [
+        {
+          "id": "aucune",
+          "label": "Pas de contribution (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "seuil-10m-05",
+          "label": "0,5 % des patrimoines de plus de 10 M€",
+          "lo": 0.8,
+          "hi": 1.4,
+          "note": "Seuil simulé par la DGFiP sans chiffre publié : estimation d’Isoloir.",
+          "estimate": "Prolongement des chiffres DGFiP : quand le seuil passe de 2 à 3 puis 5 M€, le rendement baisse d’environ 0,37 % par 1 % de seuil en plus (2,1 puis 1,8 puis 1,5 Md€). Même pente jusqu’à 10 M€ : 1,5 × 2^-0,37 = 1,16 Md€. Fourchette de 0,8 à 1,4 Md€ (−30 % à +20 %, sous le chiffre à 5 M€), statique, avant départs et sous-évaluations."
+        },
+        {
+          "id": "seuil-5m-05",
+          "label": "0,5 % des patrimoines de plus de 5 M€",
+          "lo": 1.4,
+          "hi": 1.5,
+          "note": "41 000 redevables. Bas : CPO (IFI seul déduit, 1,4 Md€) ; haut : DGFiP (1,5 Md€)."
+        },
+        {
+          "id": "seuil-3m-05",
+          "label": "0,5 % des patrimoines de plus de 3 M€",
+          "lo": 1.8,
+          "hi": 1.8,
+          "note": "80 000 redevables (DGFiP, données 2023 vieillies)."
+        },
+        {
+          "id": "seuil-2m-05",
+          "label": "0,5 % des patrimoines de plus de 2 M€",
+          "lo": 2.1,
+          "hi": 2.1,
+          "note": "Le projet étudié par Bercy en 2025 : 133 000 redevables (DGFiP, données 2023 vieillies)."
+        },
+        {
+          "id": "seuil-10m-1",
+          "label": "1 % des patrimoines de plus de 10 M€",
+          "lo": 1.3,
+          "hi": 4.9,
+          "note": "Au-delà du taux chiffré : estimation. Un plafonnement sur les revenus pourrait être exigé.",
+          "estimate": "Même méthode qu’à 5 M€ : 2,1 à 3,5 fois l’estimation à 0,5 % au-delà de 10 M€ (0,8 à 1,4 Md€), bas réduit de 25 % pour les départs, la sous-évaluation et un plafonnement possible : 1,3 à 4,9 Md€."
+        },
+        {
+          "id": "seuil-5m-1",
+          "label": "1 % des patrimoines de plus de 5 M€",
+          "lo": 2.2,
+          "hi": 5.2,
+          "note": "Au-delà du taux chiffré : estimation. Un plafonnement sur les revenus pourrait être exigé.",
+          "estimate": "Doubler le taux fait au moins doubler un impôt différentiel : chaque redevable doit 1 % de son patrimoine moins les mêmes impôts déduits, et d’autres foyers deviennent redevables. Sur 1,4 à 1,5 Md€ à 0,5 % (DGFiP, CPO) : 2,1 à 3,5 fois selon que les impôts déjà payés valent 10 % ou 60 % de 0,5 % du patrimoine, soit 3 à 5,2 Md€ ; bas réduit de 25 % (départs, sous-évaluation, plafonnement possible) : 2,2 à 5,2 Md€."
+        }
+      ],
+      "exclusiveWith": [
+        "impot-plancher-tres-hauts-patrimoines",
+        "isf-retablissement"
+      ],
+      "overlapsWith": [
+        "cdhr-taux-plancher",
+        "cehr-taux",
+        "ifi-assiette",
+        "ifi-bareme",
+        "taxe-holdings-patrimoniales"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Suppose une première échéance en 2027, comme l’IFI (patrimoine au 1er janvier, paiement à l’automne) ; votée trop tard, la contribution glisserait en 2028.",
+      "limits": "Chiffres DGFiP sur données 2023 vieillies, statiques, avant départs et sous-évaluations ; exonérations envisagées non déduites. Au-delà de 0,5 %, un plafonnement pourrait être exigé (CPO : 0,5 à 1,8 % selon le seuil).",
+      "sources": [
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 195",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Simulation DGFiP de la contribution différentielle à 0,5 %, données 2023 vieillies : 133 000 redevables et 2,1 Md€ au-delà de 2 M€ ; 80 000 et 1,8 Md€ au-delà de 3 M€ ; 41 000 et 1,5 Md€ au-delà de 5 M€"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 194",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Projet de Bercy (2025) : 0,5 % du patrimoine net hors biens professionnels, moins l’IR, la CEHR, la CDHR, les prélèvements sociaux et l’IFI payés, sans plafonnement"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 203",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Impôt différentiel à 0,5 % sur les patrimoines non professionnels de plus de 5 M€ (IFI seul déduit) : 1,4 Md€ avant effets de comportement"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 114",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux possible sans plafonnement : 0,5 % et peut-être au-delà selon le seuil ; plafonnement requis au plus tard à 1,8 % pour un seuil de 17 M€ (borne des réglages à 1 %)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 191",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Le Conseil d’État a jugé contraire à la Constitution un projet à 3 % au-delà de 10 M€ sans plafonnement (borne : les réglages s’arrêtent à 1 %)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 195",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Deux exonérations nouvelles envisagées pouvaient réduire le rendement de plusieurs centaines de millions d’euros (contexte, hors fourchette)"
+        }
+      ]
+    },
+    {
       "id": "contribution-exceptionnelle-grandes-entreprises",
       "family": "impots",
       "label": "Contribution exceptionnelle sur l’IS",
@@ -555,10 +3588,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Ligne 1441 : 5 200 000 000 € prévus en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 4.9,
@@ -571,6 +3601,18 @@ export const budget: BudgetData = {
         4.9
       ],
       "baseLabel": "15,7 %",
+      "stretch": {
+        "max": 15.7,
+        "perUnit": {
+          "lo": 0.239,
+          "hi": 0.34
+        },
+        "perUnitDown": {
+          "lo": 0.318,
+          "hi": 0.327
+        },
+        "why": "Borne : taux nul, la suppression (−15,7 points) : 5 à 5,2 Md€ en moins (PLF 2027). En hausse, jusqu’à 31,4 % et 62,8 %, au-delà des taux appliqués en 2025-2026 : estimation, bas abaissé de 25 % pour l’optimisation des bénéfices."
+      },
       "exclusiveWith": [],
       "operatorCaveat": false,
       "laterNote": "Les entreprises dont l’exercice ne se clôt pas au 31 décembre paient en 2028 : 500 M€ au taux du PLF, hors du total. La contribution ne vaut que pour cet exercice.",
@@ -640,6 +3682,10 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Ligne 1441 : 5 200 000 000 € de recettes prévues en 2027 pour la contribution"
         }
+      ],
+      "overlapsWith": [
+        "contribution-benefices-exceptionnels",
+        "taxe-tonnage"
       ]
     },
     {
@@ -663,10 +3709,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.9 « Régime des exploitants agricoles », tableau 2 (risque vieillesse du régime de base), p. 189",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Cotisations sociales brutes du risque vieillesse de base des exploitants : 1 181 M€ en 2027 (p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -679,6 +3722,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0089,
+          "hi": 0.01181
+        },
+        "why": "Borne : la ligne entière (−100 %, plus de cotisation retraite de base ; hausse symétrique). Au-delà de ±25 %, estimation : bas abaissé de 25 % pour l’impôt sur le revenu des exploitants (cotisations déductibles) et les revenus déclarés."
+      },
       "amount": {
         "value": 1.181,
         "label": "1 181 M€ de cotisations retraite de base des exploitants agricoles prévues en 2027 (CCSS)"
@@ -722,10 +3773,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.5 « Les comptes de la CNAV », tableau 1, p. 175",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Cotisations sociales brutes de la CNAV : 114 872 M€ en 2027 (p), dernière colonne"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -738,6 +3786,18 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 6.9,
+        "perUnit": {
+          "lo": 3.4,
+          "hi": 7.6
+        },
+        "perUnitDown": {
+          "lo": 3.4,
+          "hi": 6.2
+        },
+        "why": "Jusqu’à 6,9 points : la part salariale sous plafond (6,90 %) tombe à zéro ; hausse bornée au même écart. Au-delà d’1 point, effet extrapolé, bas réduit de 29 % : perte d’activité de l’année suivante (Mésange, Cour des comptes) × 44,2 % de prélèvements."
+      },
       "exclusiveWith": [],
       "operatorCaveat": false,
       "laterNote": "Selon la Cour des comptes (modèle Mésange), 7 Md€ de cotisations en plus réduiraient l’année suivante le PIB de 0,13 point et l’emploi de 57 000 côté employeurs, de 0,17 point et 32 000 côté salariés. Hors du total.",
@@ -863,6 +3923,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "7 Md€ de cotisations salariales : −0,17 point de PIB et −32 000 emplois l’année suivante (note hors du total)"
         }
+      ],
+      "overlapsWith": [
+        "exoneration-hausses-salaire"
       ]
     },
     {
@@ -890,10 +3953,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, synthèse, tableau 10 « Charges, produits et solde de la branche maladie (2024-2027) » (p. 25)",
           "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "110 905 M€ de cotisations sociales brutes de la branche maladie en 2027 (p), avant les mesures de la loi de financement"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -906,6 +3966,18 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 5.2,
+        "perUnit": {
+          "lo": 5.4,
+          "hi": 10.92
+        },
+        "perUnitDown": {
+          "lo": 5.4,
+          "hi": 9.18
+        },
+        "why": "Jusqu’à 5,2 points (le plus petit taux employeur, famille, est de 5,25 %) : le plus petit taux employeur (famille) tombe à zéro ; hausse bornée au même écart. Au-delà d’1 point, bas réduit de 29 % (Mésange × 44,2 %). Le haut suppose la baisse sur la maladie ; sur la famille seule, sa ligne (44,3 Md€) plafonne."
+      },
       "exclusiveWith": [],
       "operatorCaveat": false,
       "laterNote": "Selon le modèle macroéconomique de l’Insee et de la DG Trésor, cité par Fipeco, des cotisations en plus égales à 1 point de PIB réduiraient au bout de cinq ans le PIB de 1,0 % et l’emploi de 320 000 côté employeurs, de 0,8 % et 260 000 côté salariés. Hors du total.",
@@ -983,6 +4055,112 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Modèle de l’Insee et de la DG Trésor, hausse de cotisations de 1 point de PIB, au bout de cinq ans : −1,0 % de PIB et −320 000 emplois (employeurs) ; −0,8 % et −260 000 (salariés). Note hors du total"
         }
+      ],
+      "overlapsWith": [
+        "exoneration-hausses-salaire"
+      ]
+    },
+    {
+      "id": "credit-impot-recherche-innovation",
+      "family": "impots",
+      "label": "Crédit d’impôt recherche, innovation",
+      "today": "7 382 M€ (recherche) et 350 M€ (innovation) de coût prévu en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits d’impôt recherche et innovation nés des dépenses de 2027",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.058,
+        "hi": 0.097
+      },
+      "base": {
+        "value": 7.732,
+        "label": "7 732 M€ de coût prévu en 2027 : crédit d’impôt recherche (dépense fiscale 200302, 7 382 M€, p. 184) et crédit d’impôt innovation (200310, 350 M€, p. 334), PAP 2027 Recherche et enseignement supérieur",
+        "source": {
+          "title": "Projet annuel de performances 2027, mission Recherche et enseignement supérieur, programme 172, dépenses fiscales, p. 184",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "Le déficit (comptes nationaux, base 2020) compte un crédit d’impôt restituable en dépense l’année où naît le droit, ici l’année des dépenses de recherche (Insee) : un changement voté pour les dépenses de 2027 joue sur 2027, même si la caisse ne bouge qu’en 2028. Créance de 2027 approchée par le coût publié pour 2027 : 7 382 + 350 = 7 732 M€ (PAP 2027 ; créance de recherche de 2022 : 7,4 Md€, Insee). 1 % = 77 M€, ±25 %."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.05,
+          "hi": 0.0773
+        },
+        "perUnitDown": {
+          "lo": 0.05,
+          "hi": 0.0708
+        },
+        "why": "Jusqu’à −100 % : la fin des deux crédits, une idée du débat ; la borne est symétrique, d’où +100 % (un doublement, sans dessin). Au-delà de ±25 %, bas abaissé : recherche réduite ou déplacée, effets sur les autres impôts que le calcul statique ignore."
+      },
+      "amount": {
+        "value": 7.732,
+        "label": "7 732 M€ en 2027 : 7 382 M€ de crédit d’impôt recherche et 350 M€ de crédit d’impôt innovation"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "impot-societes"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le crédit est imputé sur l’impôt ou remboursé en 2028 et après ; le déficit le compte dès 2027, l’année des dépenses de recherche (Insee, base 2020). Le crédit d’impôt innovation prend fin avec les dépenses de 2027.",
+      "limits": "Statique : dépenses de recherche inchangées. La créance née en 2027 est approchée par le coût publié pour 2027, ±25 %. Au-dessus de 0, une extension de même coût, sans dessin précis.",
+      "sources": [
+        {
+          "title": "Projet annuel de performances 2027, mission Recherche et enseignement supérieur, programme 172, dépenses fiscales, p. 184",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt recherche (200302) : 7 273 M€ (2025), 7 067 M€ (2026), 7 382 M€ (2027), fiabilité très bonne"
+        },
+        {
+          "title": "Projet annuel de performances 2027, mission Recherche et enseignement supérieur, programme 192, dépenses fiscales, p. 334",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt innovation (200310) : 417 M€ (2025), 340 M€ (2026), 350 M€ (2027) ; fin du fait générateur en 2027"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : L’enregistrement des crédits d’impôt en base 2020, p. 1",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Dans les comptes nationaux (base 2020), un crédit d’impôt restituable est une dépense des administrations publiques, enregistrée au fait générateur et non quand l’administration constate la somme due"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : L’enregistrement des crédits d’impôt en base 2020, p. 2",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Le crédit d’impôt recherche est une aide à l’investissement (D.9) ; la dépense avance d’un an, à l’année de la dépense qui ouvre le droit"
+        },
+        {
+          "title": "Documents de travail n° 2025-18, « La réforme du taux statutaire de l’impôt sur les sociétés », p. 11",
+          "publisher": "Insee et DGFiP",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09-02",
+          "accessedAt": "2026-10-18",
+          "figure": "Créances de crédit d’impôt recherche nées en 2022 : 7,4 Md€ (6,3 Md€ en 2016), proches du coût publié"
+        }
       ]
     },
     {
@@ -1006,10 +4184,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Justice, programme 107 : éléments de synthèse du programme (p. 104)",
           "publisher": "Ministère de la justice (projet annuel de performances annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "5 790 230 570 € de CP en 2027 pour le programme 107"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf"
         }
       },
       "max": 25,
@@ -1022,6 +4197,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.02524,
+          "hi": 0.042756
+        },
+        "perUnitDown": {
+          "lo": 0.025099,
+          "hi": 0.042756
+        },
+        "why": "De la suppression au doublement de la ligne. Au-delà de 25 %, estimation. Baisse : bas plafonné à 69 % (31 % des CP 2027 paient des engagements signés), la paie supposée ajustable dans l’année. Hausse : bas à 59 %, part d’un engagement nouveau payée en 2027."
+      },
       "amount": {
         "value": 4.2756,
         "label": "4 275,6 M€ comptés sur les 5 790,2 M€ de crédits du PLF 2027, hors cotisations employeurs"
@@ -1029,6 +4216,7 @@ export const budget: BudgetData = {
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -1073,10 +4261,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Aide publique au développement : récapitulation des crédits par programme et action, ligne « Totaux » (p. 13)",
           "publisher": "Ministère de l’économie et ministère de l’Europe et des affaires étrangères (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "3 170 780 421 € de CP au PLF 2027 pour l’ensemble de la mission"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf"
         }
       },
       "max": 25,
@@ -1089,6 +4274,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.01224,
+          "hi": 0.02605457
+        },
+        "perUnitDown": {
+          "lo": 0.003782,
+          "hi": 0.02605457
+        },
+        "why": "De la suppression au doublement de la ligne. Au-delà de 25 %, estimation. Baisse : bas plafonné à 36 % (64 % des CP 2027 paient des engagements antérieurs). Hausse : bas à 47 %, part d’un engagement nouveau payée en 2027 (ratios des trois programmes)."
+      },
       "amount": {
         "value": 2.605457,
         "label": "2 605,5 M€ comptés sur les 3 055,8 M€ de crédits du PLF 2027 (programmes 110, 209 et 384), hors participations, collectivités, FED et lignes Ukraine"
@@ -1200,10 +4397,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, programme 110 : justification au premier euro, Fonds de soutien aux infrastructures civiles ukrainiennes (p. 47)",
           "publisher": "Ministère de l’économie (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "28 M€ de CP en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf"
         }
       },
       "max": 100,
@@ -1267,10 +4461,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Cohésion des territoires, programme 135 : justification de l’action 01 « Construction locative et amélioration du parc » (p. 102)",
           "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "112 810 000 € de CP en 2027 (8 250 000 € d’AE ; fonds de concours attendus : 352 773 586 € en CP)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
         }
       },
       "max": 25,
@@ -1283,6 +4474,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00022,
+          "hi": 0.0010981
+        },
+        "perUnitDown": {
+          "lo": 0,
+          "hi": 0.0010981
+        },
+        "why": "De la suppression au doublement de la ligne. Au-delà de 25 %, estimation. Baisse : bas nul au-delà, seuls 5,25 M€ étant engagés en 2027 ; le haut suppose annulables des paiements dus sur des opérations déjà engagées. Hausse : bas à 20 %, clé du programme 135."
+      },
       "amount": {
         "value": 0.10981,
         "label": "109,8 M€ comptés sur les 112,8 M€ de crédits de l’action 01 du programme 135 au PLF 2027, hors gens du voyage"
@@ -1335,6 +4538,158 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "credits-aides-agriculture",
+      "family": "depenses",
+      "label": "Aides nationales à l’agriculture",
+      "today": "843,3 M€ d’aides du programme 149 au PLF 2027, hors TO-DE",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.00843311,
+        "hi": 0.00999197
+      },
+      "base": {
+        "value": 2.111239,
+        "label": "2 111,2 M€ de crédits de paiement du programme 149 « Compétitivité et durabilité de l’agriculture et de l’agroalimentaire » au PLF 2027, dont 843,3 M€ d’aides dans le levier ; les aides européennes de la PAC ne sont pas une dépense des APU françaises",
+        "source": {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : évolution depuis le PLF 2026 (p. 20)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.005492,
+          "hi": 0.00999197
+        },
+        "perUnitDown": {
+          "lo": 0.001687,
+          "hi": 0.00999197
+        },
+        "why": "Jusqu’à −100 % : la ligne entière ; +100 % : son doublement. Au-delà de ±25 %, en hausse, bas à 65 %, part des engagements nouveaux payée en 2027 ; en baisse, bas à 20 % : 37 % des crédits 2027 du programme paient des engagements passés, sans doute plus ici."
+      },
+      "amount": {
+        "value": 0.843311,
+        "label": "843,3 M€ d’aides du programme 149 au PLF 2027 (actions 21 à 24 et 29), dont 52,75 M€ d’ouvrages hydrauliques de l’État ; hors prêts au fonds des calamités, exonération TO-DE et moyens des opérateurs"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": true,
+      "limits": "Bas : 843,3 M€ ; haut : plus 155,9 M€ d’indemnités de calamités prêtées au FNGRA. Hors exonération TO-DE, corrections de la PAC (140 M€) et moyens des opérateurs. Baisser une aide cofinancée (ICHN) fait perdre l’aide européenne.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : évolution depuis le PLF 2026 (p. 20)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Programme 149 : 2 111 239 345 € de CP au PLF 2027 (2 188 026 962 € en LFI 2026)"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : éléments de synthèse du programme, actions 21 et 22 (p. 42)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "CP 2027 : action 21 (filières) 221 937 662 € ; action 22 (crises et aléas) 157 186 256 €"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : éléments de synthèse du programme, actions 23 à 29 (p. 42)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "CP 2027 : action 23 5 460 272 € ; action 24 546 664 732 € ; action 25 (TO-DE) 593 878 483 € ; action 27 (moyens) 517 263 702 € ; action 29 68 848 238 €. Levier : 21 + 22 + 23 + 24 + 29, moins 155 886 256 € de prêts au FNGRA et 900 000 € versés aux régions = 843 310 904 € (calculé). Actions 25 et 27 : AE = CP, des versements de l’année"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 21 : transferts aux collectivités (p. 47)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les 6 664 300 € de l’action 21 classés en transferts aux collectivités vont au centre technique de la canne à sucre et à des actions gérées par FranceAgriMer, pas à des collectivités : gardés dans le levier"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 22 : opérations financières (p. 48)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Indemnités de calamités : 155 886 256 € inscrits en prêts et avances au FNGRA, hors bas, comptés dans le haut (999 197 160 €, calculé)"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 24 : hydraulique agricole (p. 52)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Dont 52,75 M€ de CP pour les ouvrages hydrauliques dont l’État est propriétaire et le fonds hydraulique agricole"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 24 : mesures agroenvironnementales et aides à l’agriculture biologique (p. 53)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Engagements pluriannuels : 45 M€ d’AE nouvelles et 79,6 M€ de CP en 2027, l’écart payant des engagements passés"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 24 : transferts aux collectivités (p. 54)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "900 000 € versés aux régions (transfert entre administrations publiques), retirés"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 25 : exonérations TO-DE (p. 55)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "593 478 483 € de compensation à la MSA et à l’Unédic de l’exonération des travailleurs occasionnels, retirés"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 27 : provision pour apurement communautaire (p. 56)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "140 M€ de corrections financières de la PAC dues à l’Union, retirés avec le reste de l’action 27 (moyens des opérateurs)"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : échéancier des crédits de paiement (p. 44)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "772 090 980 € des CP 2027 (sur 2 112 239 345 €, soit 37 %) paient des engagements d’avant 2027 ; l’échéancier n’est pas détaillé par action"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149 : clés d’ouverture des crédits de paiement sur AE 2027 (p. 44)",
+          "publisher": "Ministère de l’agriculture (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "65,12 % des engagements nouveaux de 2027 payés en 2027 : le bas au-delà de +25 %"
+        }
+      ]
+    },
+    {
       "id": "credits-aides-directes-etudiants",
       "family": "depenses",
       "label": "Bourses et aides aux étudiants",
@@ -1355,10 +4710,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 231 « Vie étudiante » : justification de l’action 01 « Aides directes » (p. 144)",
           "publisher": "Ministère de l’enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "2 458 711 067 € de CP en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf"
         }
       },
       "max": 25,
@@ -1371,6 +4723,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.01844,
+          "hi": 0.024587
+        },
+        "why": "De la suppression au doublement de la ligne. Au-delà de 25 %, estimation, bas réduit de 25 % : dépense de guichet, qui suit le barème et le nombre de boursiers, fixés par année universitaire (rentrée de septembre)."
+      },
       "exclusiveWith": [],
       "operatorCaveat": true,
       "limits": "1 % des crédits de l’action 01 (dont bourses sur critères sociaux 2 279,0 M€ et 39,3 M€ versés aux Crous). Effet statique en année pleine : l’évolution du nombre de boursiers n’est pas comptée.",
@@ -1383,6 +4743,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "2 458 711 067 € de CP, dont 2 419 103 194 € de transferts aux ménages et 39 301 282 € de subventions aux Crous"
         }
+      ],
+      "overlapsWith": [
+        "allocation-autonomie-etudiants"
       ]
     },
     {
@@ -1406,10 +4769,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 231 « Vie étudiante » : justification de l’action 02 « Aides indirectes » (p. 147)",
           "publisher": "Ministère de l’enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "635 237 368 € de CP en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf"
         }
       },
       "max": 25,
@@ -1422,9 +4782,22 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.004764,
+          "hi": 0.006352
+        },
+        "perUnitDown": {
+          "lo": 0.004183,
+          "hi": 0.006352
+        },
+        "why": "De la suppression au doublement de la ligne. Au-delà de 25 %, estimation, si les Crous ajustent d’autant leur dépense : bas réduit de 25 % ; en baisse, aussi des 12 % de CP 2027 dus sur des chantiers déjà engagés (bas à 66 %)."
+      },
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -1461,10 +4834,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Cohésion des territoires : récapitulation des crédits par programme et action (p. 19)",
           "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "16 520 517 313 € de CP au PLF 2027 pour le programme 109"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
         }
       },
       "max": 25,
@@ -1477,11 +4847,24 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.163554,
+          "hi": 0.204443
+        },
+        "perUnitDown": {
+          "lo": 0.081777,
+          "hi": 0.163554
+        },
+        "why": "Borne : la ligne entière (−100 % supprime les aides). Au-delà de ±25 %, à la hausse 100 à 125 % du coût statique (un barème relevé ouvre le droit à plus de ménages) ; à la baisse, jusqu’à la moitié de l’économie revient en RSA et prime d’activité."
+      },
       "amount": {
         "value": 16.3554,
         "label": "16 355 M€ comptés sur les 16 520,5 M€ de crédits du PLF 2027, hors frais de gestion versés aux caisses"
       },
       "exclusiveWith": [
+        "aides-logement-etudiants",
         "aides-logement-revalorisation"
       ],
       "operatorCaveat": false,
@@ -1503,6 +4886,10 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "APL 7 482 M€, ALS 5 582 M€, ALF 3 282 M€, frais de gestion 165 M€ en 2027"
         }
+      ],
+      "overlapsWith": [
+        "condition-residence-prestations",
+        "pensions-alimentaires-defiscalisation"
       ]
     },
     {
@@ -1526,10 +4913,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 180 : éléments de synthèse du programme (p. 35)",
           "publisher": "Ministère de la culture (PAP annexé au PLF 2027, Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Action 02 : 176 012 845 € de CP 2027 (AE : 176 995 757 €)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf"
         }
       },
       "max": 100,
@@ -1585,10 +4969,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Santé, programme 183 : justification de l’action 02 « Aide médicale de l’État » (p. 83 ; soins urgents p. 83 et 89)",
           "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128269/file/PAP%202027%20-%20Sant%C3%A9.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "1 208 300 000 € de CP 2027, tous en transferts aux ménages ; dont 70 M€ de dotation forfaitaire de l’État pour les soins urgents (p. 89 : « La dotation versée par le programme 183 reste stable à 70 M€. »), retirés du levier"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128269/file/PAP%202027%20-%20Sant%C3%A9.pdf"
         }
       },
       "max": 100,
@@ -1648,10 +5029,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Cohésion des territoires, programme 135 : récapitulation des crédits alloués aux opérateurs (p. 124)",
           "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Anah : 1 232 923 834 € de CP au PLF 2027 (LFI 2026 : 1 535 325 022 €)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
         }
       },
       "max": 25,
@@ -1664,6 +5042,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.002466,
+          "hi": 0.012329
+        },
+        "why": "Borne : la subvention entière. Au-delà de ±25 %, l’Anah paie surtout des aides déjà accordées (6,1 Md€ de restes à payer fin 2025) et 20 % seulement d’un engagement de 2027 est payé en 2027 : effet de 20 % à 100 % du chiffre statique."
+      },
       "amount": {
         "value": 1.2329,
         "label": "1 232,9 M€ de crédits au PLF 2027 (subvention de l’État à l’Anah)"
@@ -1704,6 +5090,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Hors levier : 600 M€ de recettes des quotas carbone affectées à l’Anah en 2027 (plafond 600 000 000 €)"
         }
+      ],
+      "overlapsWith": [
+        "operateurs-fonctions-support"
       ]
     },
     {
@@ -1727,10 +5116,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Immigration, asile et intégration, programme 303 : éléments de synthèse du programme (p. 37)",
           "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Action 02 : 1 314 956 817 € de CP 2027, aucun crédit de titre 2"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf"
         }
       },
       "max": 25,
@@ -1743,6 +5129,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 40,
+        "perUnit": {
+          "lo": 0.008679,
+          "hi": 0.01315
+        },
+        "perUnitDown": {
+          "lo": 0.006575,
+          "hi": 0.01315
+        },
+        "why": "Borne ±40 % : l’OFPRA, l’allocation des demandeurs d’asile et son complément, plus les contrats d’hébergement signés avant 2027 (≈ 300 M€, estimé), font ≈ 60 % de la ligne. Au-delà de ±25 %, effet de 50 % (baisse, report supposé) ou 66 % (hausse) à 100 %."
+      },
       "amount": {
         "value": 1.315,
         "label": "1 315,0 M€ de crédits au PLF 2027 (programme 303, action 02)"
@@ -1750,6 +5148,7 @@ export const budget: BudgetData = {
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -1802,10 +5201,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, compte de concours financiers « Avances à l’audiovisuel public » : récapitulation des crédits par programme (p. 13)",
           "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128306/file/PAP%202027%20-%20Avances%20%C3%A0%20l%27audiovisuel%20public.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Totaux : 3 816 514 211 € en 2027 (LFI 2026 : 3 863 312 945 €, -1,21 %)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128306/file/PAP%202027%20-%20Avances%20%C3%A0%20l%27audiovisuel%20public.pdf"
         }
       },
       "max": 100,
@@ -1865,10 +5261,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Culture : récapitulation des crédits par programme et action (p. 16)",
           "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128219/file/PAP%202027%20-%20Culture.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Mission Culture : 3 649 196 894 € de CP 2027 (LFI 2026 : 3 744 547 181 €, -2,55 %)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128219/file/PAP%202027%20-%20Culture.pdf"
         }
       },
       "max": 25,
@@ -1881,6 +5274,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 50,
+        "perUnit": {
+          "lo": 0.022921,
+          "hi": 0.030562
+        },
+        "why": "Borne ±50 % : en 2027, la paie du ministère (467 M€), les engagements antérieurs (496 M€) et une grande part des subventions aux opérateurs (1 151 M€, surtout de la paie) ne peuvent guère baisser. Au-delà de ±25 %, effet de 75 % à 100 % du statique."
+      },
       "amount": {
         "value": 3.0562,
         "label": "3 056,2 M€ comptés sur les 3 649,2 M€ de crédits du PLF 2027, hors collectivités, fonds propres et cotisations employeurs"
@@ -1888,6 +5289,7 @@ export const budget: BudgetData = {
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -1944,6 +5346,121 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "credits-dissuasion",
+      "family": "depenses",
+      "label": "Dissuasion nucléaire : crédits",
+      "today": "7,92 Md€ de CP au PLF 2027 (programmes 146, 178, 144 et 212)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0792144,
+        "hi": 0.0792144
+      },
+      "base": {
+        "value": 7.92144,
+        "label": "7,92 Md€ de crédits de paiement pour la dissuasion nucléaire au PLF 2027 : programme 146, action 06 (6 662,8 M€), et opérations stratégiques « Dissuasion » des programmes 178 (1 017,8 M€), 144 (236,3 M€) et 212 (4,5 M€) ; somme calculée, aucune ligne ne publie le total",
+        "source": {
+          "title": "PAP 2027, mission Défense, programme 146 « Équipement des forces » : éléments de synthèse du programme, action 06 « Dissuasion » (p. 327)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0277,
+          "hi": 0.0594
+        },
+        "perUnitDown": {
+          "lo": 0.0095,
+          "hi": 0.0189
+        },
+        "why": "−100 % : la ligne entière (l’abandon) ; +100 % par symétrie. Estimé : 59 % des paiements de 2027 soldent des engagements antérieurs (PAP) ; au plus 43 % de la ligne s’économise en 2027 : une baisse épargne 12 à 24 % du cran, une hausse se paie à 35 à 75 %."
+      },
+      "amount": {
+        "value": 7.92144,
+        "label": "7,92 Md€ de crédits de la dissuasion au PLF 2027 : programme 146, action 06, et opérations stratégiques « Dissuasion » des programmes 178, 144 et 212"
+      },
+      "exclusiveWith": [
+        "defense"
+      ],
+      "operatorCaveat": true,
+      "laterNote": "Un abandon ouvrirait des dépenses de démantèlement (armes, sous-marins, sites du CEA) sur plusieurs années : non chiffrées, hors du total.",
+      "limits": "Hors personnel des forces nucléaires (titre 2), non isolé au PAP. Une part va au CEA. Un contrat déjà signé reste dû : au-delà de ±25 %, estimation. Emploi et industrie non comptés.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Défense, programme 146 « Équipement des forces » : éléments de synthèse du programme, action 06 « Dissuasion » (p. 327)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Action 06 « Dissuasion » : 6 662 803 107 € de CP 2027 (6 085 477 394 € d’AE), aucun crédit de titre 2"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 178 « Préparation et emploi des forces » : répartition des crédits par opération stratégique, CP 2027 (p. 119)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Opération stratégique « Dissuasion » du programme 178 : 1 017,78 M€ de CP en 2027 (555,07 M€ d’AE, p. 118)"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 144 « Environnement et prospective de la politique de défense » : répartition des crédits par opération stratégique, CP 2027 (p. 44)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Opération stratégique « Dissuasion » du programme 144 : 236,33 M€ de CP en 2027 (études amont 230,0 M€, p. 65 ; EOTO 6,3 M€, p. 59)"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 212, opération stratégique « Dissuasion » (p. 287)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Subvention au CEA pour l’expertise nucléaire de défense : 4,5 M€ en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 146 : échéancier des paiements associés aux engagements, opération stratégique DIS (p. 331)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Paiements 2027 de la dissuasion (programme 146) : 2 446,01 M€ sur les engagements restant à payer fin 2025 et 1 213,76 M€ sur ceux de 2026, contre 3 122,19 M€ sur ceux de 2027 (48,8 % des 6 402,61 M€ engagés en 2027) : 54 % des paiements soldent des engagements d’avant 2027 (calcul)"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 178 : échéancier des paiements associés aux engagements par opération stratégique, DIS (p. 120)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Paiements 2027 de la dissuasion (programme 178) : 804,38 M€ sur les engagements restant à payer fin 2025 et 120,96 M€ sur ceux de 2026, contre 93,97 M€ sur les 555,88 M€ engagés en 2027 : 91 % des paiements soldent des engagements d’avant 2027. Avec le programme 146 : 59 % ; en comptant libres les programmes 144 et 212, au plus 43 % de la ligne (3,40 Md€) peut être économisé en 2027 (calcul)"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 146, sous-action 06.18 « Simulation » (p. 339)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Une partie des crédits est versée au CEA (direction des applications militaires), organisme public"
+        }
+      ]
+    },
+    {
       "id": "credits-egalite-femmes-hommes",
       "family": "depenses",
       "label": "Égalité entre femmes et hommes",
@@ -1964,10 +5481,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Solidarité, insertion et égalité des chances : récapitulation des crédits par programme (p. 16)",
           "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Programme 137 : 106 279 485 € de CP 2027 (LFI 2026 : 98 647 590 €, +7,74 %)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf"
         }
       },
       "max": 25,
@@ -1980,6 +5494,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.000797,
+          "hi": 0.001063
+        },
+        "why": "Borne : la ligne entière (−100 % supprime aussi l’aide universelle d’urgence de la loi de 2023). Au-delà de ±25 %, 1 % des crédits par cran, fourchette élargie de 25 % vers le bas (report vers l’hébergement d’urgence, montée en charge)."
+      },
       "amount": {
         "value": 0.1063,
         "label": "106,3 M€ de crédits au PLF 2027 (programme 137)"
@@ -1995,6 +5517,107 @@ export const budget: BudgetData = {
           "date": "2026-10",
           "accessedAt": "2026-10-18",
           "figure": "Programme 137 : 106 279 485 € de CP 2027 (LFI 2026 : 98 647 590 €)"
+        }
+      ]
+    },
+    {
+      "id": "credits-ferroviaires",
+      "family": "depenses",
+      "label": "Ferroviaire : crédits de l’État",
+      "today": "3 803,7 M€ de crédits au PLF 2027 (3 685,7 M€ en LFI 2026)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.03803746,
+        "hi": 0.03803746
+      },
+      "base": {
+        "value": 3.803746,
+        "label": "3 803,7 M€ de crédits de paiement des actions 30 « Infrastructure ferroviaire » et 31 « Services ferroviaires » du programme 203 au PLF 2027 (3 685,7 M€ en LFI 2026)",
+        "source": {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 203 « Infrastructures et services de transports » : éléments de synthèse du programme (p. 63)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.019,
+          "hi": 0.03803746
+        },
+        "why": "Jusqu’à la ligne entière : −100 % la supprime, +100 % la double. Au-delà de ±25 %, même calcul, bas réduit de moitié : SNCF Réseau, qui en reçoit l’essentiel, n’ajuste pas autant sa dépense en un an (chantiers programmés)."
+      },
+      "amount": {
+        "value": 3.803746,
+        "label": "3 803,7 M€ de crédits de paiement des actions 30 et 31 du programme 203 au PLF 2027"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": true,
+      "laterNote": "Hors total : le projet de contrat de performance de SNCF Réseau prévoit 1,5 Md€ de plus par an pour régénérer et moderniser le réseau à partir de 2028.",
+      "limits": "Surtout les redevances d’accès des TER et Intercités versées à SNCF Réseau, administration publique : l’effet suppose qu’il ajuste d’autant sa dépense. Fonds de concours (AFITF, dividendes de la SNCF, 1 884,7 M€) non compris.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 203 « Infrastructures et services de transports » : éléments de synthèse du programme (p. 63)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédits de paiement 2027 : action 30 « Infrastructure ferroviaire » 3 101 785 198 €, action 31 « Services ferroviaires » 701 960 338 €, soit 3 803 745 536 €"
+        },
+        {
+          "title": "PAP 2027, programme 203 : éléments de synthèse, action 31 (p. 63)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Action 31 « Services ferroviaires » : 701 960 338 € de crédits de paiement en 2027 (compensation fret, aides au fret, tarifs sociaux, trains d’équilibre du territoire)"
+        },
+        {
+          "title": "PAP 2027, programme 203, action 30 : redevances d’accès TER et TET (p. 84)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les crédits de l’action 30 paient les redevances d’accès à SNCF Réseau : 2 318,7 M€ pour les TER, 783,1 M€ pour les Intercités"
+        },
+        {
+          "title": "PAP 2027, programme 203, action 30 : crédits et fonds de concours attendus (p. 82)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Hors levier : 1 884 696 154 € de fonds de concours attendus en crédits de paiement (AFITF, dividendes de la SNCF)"
+        },
+        {
+          "title": "Fiche méthodologique base 2020 n° 6 : modification du périmètre des administrations publiques, SNCF Réseau (p. 2)",
+          "publisher": "Insee",
+          "url": "https://insee.fr/fr/metadonnees/source/fichier/fichemethodo6_B2020_perimetre_apu.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "SNCF Réseau est classé parmi les administrations publiques (ODAC) ; les transferts de l’État qu’il reçoit sont consolidés"
+        },
+        {
+          "title": "PAP 2027, programme 203, sous-action 30-06 : projet de contrat de performance de SNCF Réseau (p. 84)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "1,5 Md€ (de 2028) de plus par an pour régénérer et moderniser le réseau à partir de 2028"
         }
       ]
     },
@@ -2019,10 +5642,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Investir pour la France de 2030 : récapitulation des crédits par programme et action (p. 15)",
           "publisher": "Secrétariat général pour l’investissement, PAP annexé au PLF 2027 (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128240/file/PAP%202027%20-%20Investir%20pour%20la%20France%20de%202030.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "CP 2027 de la mission : 3 999 870 000 € (LFI 2026 : 4 397 829 332 €, -9,05 %) ; AE 2027 : 0"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128240/file/PAP%202027%20-%20Investir%20pour%20la%20France%20de%202030.pdf"
         }
       },
       "max": 25,
@@ -2035,6 +5655,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.008881,
+          "hi": 0.03837277
+        },
+        "why": "Jusqu’à ±100 % : la ligne entière ; une hausse ne paierait que des engagements pris (23,6 Md€ restant à payer fin 2026). Au-delà de ±25 %, bas réduit au quart : les organismes, qui avaient 5 Md€ de trésorerie fin 2025, paient aussi sur celle-ci (Sénat)."
+      },
       "amount": {
         "value": 3.837277,
         "label": "3 837,3 M€ comptés sur les 3 999,9 M€ de crédits du PLF 2027, hors fonds propres et prêts"
@@ -2087,6 +5715,248 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "credits-hebergement-urgence",
+      "family": "depenses",
+      "label": "Hébergement et logement adapté",
+      "today": "3 261,4 M€ de CP au PLF 2027 (programme 177)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0326144,
+        "hi": 0.0326144
+      },
+      "base": {
+        "value": 3.261443,
+        "label": "3 261,4 M€ de crédits de paiement du programme 177 « Hébergement, parcours vers le logement et insertion des personnes vulnérables » au PLF 2027, dont 3 213,0 M€ pour l’hébergement et le logement adapté (action 12)",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177 : éléments de synthèse du programme (p. 39)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0163072,
+          "hi": 0.0326144
+        },
+        "why": "Jusqu’à ±100 % : la ligne entière ; une forte baisse supposerait de changer la loi (accueil sans condition, CASF L. 345-2-2). Au-delà de ±25 %, estimé à 50 à 100 % du cran : places longues à ouvrir, ou reports vers d’autres dépenses publiques."
+      },
+      "amount": {
+        "value": 3.261443,
+        "label": "3 261,4 M€ de crédits du programme 177 au PLF 2027, versés surtout aux associations gestionnaires"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "limits": "Programme 177 : hébergement d’urgence, CHRS, logement adapté, veille sociale, pour 203 000 places. Comprend environ 11 600 places pour les femmes victimes de violences. Hors demandeurs d’asile et aides au logement.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177 : éléments de synthèse du programme (p. 39)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Programme 177 : 3 261 443 368 € de CP 2027 (3 255 255 007 € d’AE), aucun crédit de titre 2"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177 : éléments de synthèse du programme, action 12 (p. 39)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Action 12 « Hébergement et logement adapté » : 3 213 009 535 € de CP 2027"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177, action 12 : crédits par titre et catégorie (p. 44)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Action 12 versée en totalité à d’autres collectivités (associations gestionnaires), rien aux collectivités territoriales"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177 : présentation stratégique (p. 28)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Parc maintenu à 203 000 places d’hébergement en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177, action 12 : hébergement d’urgence (p. 46)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Hébergement d’urgence : 1 446,5 M€ de CP 2027 ; CHRS 846,4 M€, logement adapté 647,2 M€, veille sociale 272,9 M€ (p. 46-47)"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177, action 12 : hébergement d’urgence (p. 46)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "L’accueil sans condition est fixé par la loi (CASF, art. L. 345-2-2 et L. 345-2-3) : une forte baisse supposerait de la changer"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 177, action 12 : places pour les femmes victimes de violences (p. 47)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Environ 11 600 places dédiées aux femmes victimes de violences (5 397 en hébergement d’urgence, 3 798 en CHRS, 2 391 en ALT1), comprises dans le levier sans être isolées"
+        }
+      ]
+    },
+    {
+      "id": "credits-impot-culture",
+      "family": "depenses",
+      "label": "Aides au cinéma et à la création",
+      "today": "607 M€ de crédits d’impôt et 847 M€ de taxes du CNC prévus en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits d’impôt et de la dépense du CNC",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0109,
+        "hi": 0.0182
+      },
+      "base": {
+        "value": 1.454,
+        "label": "1 454 M€ en 2027, la somme de sept lignes des PAP 2027 : six crédits d’impôt (audiovisuel 169, cinéma 145, tournages étrangers 149, jeux vidéo 53, spectacle vivant 57, musique enregistrée 34 M€) et les 847 M€ de taxes qui financent le CNC. Aucune ligne ne publie le total à elle seule.",
+        "source": {
+          "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 334, opérateur CNC (p. 86)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "(a) Six crédits d’impôt restituables, 607 M€ en 2027 (PAP 2027 : 169 + 145 + 149 + 53 + 57 + 34), comptés en dépense l’année des dépenses aidées (Insee) : leur coût de 2027 approche la créance de 2027, 6,1 M€ par point, ±25 %. (b) CNC : sa dépense de 2027 approchée par ses 847 M€ de taxes (PAP), 8,5 M€ par point, ±25 % (aides accordées avant 2027 payées en 2027 ; 92 M€ de ressources propres en 2025, jaune Opérateurs). Total : 10,9 à 18,2 M€."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.008,
+          "hi": 0.0205
+        },
+        "perUnitDown": {
+          "lo": 0.008,
+          "hi": 0.0133
+        },
+        "why": "Jusqu’à ±100 % : la ligne entière, de la fin des six crédits et de la dépense du CNC à leur doublement. Au-delà de ±25 %, bas abaissé dans les deux sens (tournages perdus ou gagnés, et leurs impôts), haut relevé à la hausse (plus de projets aidés)."
+      },
+      "amount": {
+        "value": 1.454,
+        "label": "1 454 M€ en 2027 : 607 M€ de six crédits d’impôt et 847 M€ de taxes affectées au CNC"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "effectifs-publics"
+      ],
+      "operatorCaveat": true,
+      "limits": "Statique : tournages et projets inchangés. Taxes du CNC inchangées : l’effet suppose qu’il baisse ou hausse d’autant sa dépense en 2027. Hors mission Culture (levier à part), SOFICA et métiers d’art. Quotas de diffusion : sans effet.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 334 : dépenses fiscales n° 320129, 320140 et 320121 (p. 64)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "En 2027 : production audiovisuelle 169 M€ (320129), production exécutive d’œuvres étrangères 149 M€ (320140), cinéma 145 M€ (320121)"
+        },
+        {
+          "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 334 : dépense fiscale n° 320128 (p. 64)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Production phonographique : 34 M€ en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Culture : dépense fiscale n° 320142 (p. 125)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128219/file/PAP%202027%20-%20Culture.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Spectacle vivant : 57 M€ en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Économie : dépense fiscale n° 320135 (p. 39)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Jeux vidéo : 53 M€ en 2027 (79 M€ en 2026)"
+        },
+        {
+          "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 334, opérateur CNC (p. 86)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "CNC financé entièrement par neuf taxes affectées, 847 M€ prévus en 2027, sans crédit du budget général : 1 % = 8,5 M€, base approchée de sa dépense de 2027"
+        },
+        {
+          "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 334 : taxes affectées (p. 61)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les taxes du CNC sont des ressources affectées non plafonnées (pas d’écrêtement au profit de l’État) : l’économie suppose que le CNC réduise sa dépense"
+        },
+        {
+          "title": "Ressources propres 2023/2025 des opérateurs de l’État (pp. 146-147)",
+          "publisher": "Gouvernement, annexe « Opérateurs de l’État » au PLF 2027 (Assemblée nationale)",
+          "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF_2027/22-Jaune-2027-Operateurs.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Ressources propres du CNC, en plus de ses taxes : 105,7 M€ en 2023, 17,6 M€ en 2024, 92,3 M€ en 2025 (exécution, en milliers d’euros dans le tableau) : sa dépense peut dépasser ses 847 M€ de taxes, d’où le haut de la fourchette"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : l’enregistrement des crédits d’impôt en base 2020 (p. 1)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee), comptes nationaux",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Un crédit d’impôt restituable est compté comme une dépense des administrations publiques, et non comme une moindre recette : d’où la famille « dépenses »"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : l’enregistrement des crédits d’impôt en base 2020 (p. 2)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee), comptes nationaux",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Un crédit d’impôt restituable est compté en dépense l’année du fait qui ouvre le droit (production, dépense, investissement), et non l’année où l’administration le constate"
+        }
+      ]
+    },
+    {
       "id": "credits-integration",
       "family": "depenses",
       "label": "Intégration, accès à la nationalité",
@@ -2107,10 +5977,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Immigration, asile et intégration : programme 104, éléments de synthèse du programme (p. 74)",
           "publisher": "Ministère de l’intérieur, PAP annexé au PLF 2027",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Programme 104, total des CP 2027 : 363 889 193 € (dernière valeur de la ligne ; les trois premières sont les AE)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf"
         }
       },
       "max": 25,
@@ -2123,6 +5990,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00350589,
+          "hi": 0.00350589
+        },
+        "perUnitDown": {
+          "lo": 0.002104,
+          "hi": 0.00350589
+        },
+        "why": "Jusqu’à ±100 % : le programme entier. Passé environ −26 %, une baisse atteint l’OFII, qui doit assurer le contrat d’intégration prévu par la loi (CESEDA, L. 413-1) : sans changer la loi, il pourrait ne pas baisser d’autant sa dépense, d’où un bas à 60 %."
+      },
       "amount": {
         "value": 0.350589,
         "label": "350,6 M€ comptés sur les 363,9 M€ de crédits du PLF 2027, hors collectivités"
@@ -2130,6 +6009,7 @@ export const budget: BudgetData = {
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -2198,10 +6078,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Justice : programme 166, éléments de synthèse du programme (p. 54)",
           "publisher": "Ministère de la justice, PAP annexé au PLF 2027",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Programme 166, total des CP 2027 : 4 813 406 204 € (dont 3 311 159 651 € de titre 2)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf"
         }
       },
       "max": 25,
@@ -2214,6 +6091,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 40,
+        "perUnit": {
+          "lo": 0.026631,
+          "hi": 0.03550799
+        },
+        "perUnitDown": {
+          "lo": 0.017754,
+          "hi": 0.03550799
+        },
+        "why": "Jusqu’à ±40 % : l’écart entre la France et la médiane européenne (0,20 % et 0,28 % du PIB) ; −40 % ≈ tout le hors-paie. Au-delà de ±25 %, bas réduit de moitié en baisse (frais de justice dus, paie de titulaires), d’un quart en hausse (juges formés en 31 mois)."
+      },
       "amount": {
         "value": 3.550799,
         "label": "3 550,8 M€ comptés sur les 4 813,4 M€ de crédits du PLF 2027, hors cotisations employeurs"
@@ -2221,6 +6110,7 @@ export const budget: BudgetData = {
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -2273,10 +6163,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Immigration, asile et intégration : programme 303, éléments de synthèse du programme (p. 37)",
           "publisher": "Ministère de l’intérieur, PAP annexé au PLF 2027",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Action 03 du programme 303, CP 2027 : 314 459 351 € (dernière valeur de la ligne)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf"
         }
       },
       "max": 100,
@@ -2344,10 +6231,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Justice : programme 182, éléments de synthèse du programme (p. 154)",
           "publisher": "Ministère de la justice, PAP annexé au PLF 2027",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Programme 182, total des CP 2027 : 1 173 355 630 € (dont 728 284 568 € de titre 2)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf"
         }
       },
       "max": 25,
@@ -2360,6 +6244,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 50,
+        "perUnit": {
+          "lo": 0.006271,
+          "hi": 0.008958
+        },
+        "perUnitDown": {
+          "lo": 0.004479,
+          "hi": 0.008958
+        },
+        "why": "Jusqu’à ±50 % : −50 % égale tout le hors-paie (445 M€, dont 288,8 M€ de mesures ordonnées par les juges, dues même sans crédits) ; la justice des mineurs est un principe constitutionnel. Au-delà de ±25 %, bas à 50 % en baisse, 70 % en hausse (CSG, retenue)."
+      },
       "amount": {
         "value": 0.8958,
         "label": "895,8 M€ comptés sur les 1 173,4 M€ de crédits du PLF 2027, hors cotisations employeurs"
@@ -2419,10 +6315,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Cohésion des territoires : programme 147, éléments de synthèse du programme (p. 195)",
           "publisher": "Ministère chargé de la ville, PAP annexé au PLF 2027",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Programme 147, total des CP 2027 : 619 066 960 € (dernière valeur de la ligne)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
         }
       },
       "max": 25,
@@ -2435,6 +6328,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.003192,
+          "hi": 0.00456042
+        },
+        "why": "Jusqu’à ±100 % : le programme entier. Au-delà de ±25 %, bas réduit à 70 % : l’ANRU paie au rythme de ses chantiers, avec Action Logement et les bailleurs, et les collectivités qui emploient des adultes-relais ou cofinancent peuvent compenser une baisse."
+      },
       "amount": {
         "value": 0.456042,
         "label": "456,0 M€ comptés sur les 619,1 M€ de crédits du PLF 2027, hors collectivités et cotisations employeurs"
@@ -2442,6 +6343,7 @@ export const budget: BudgetData = {
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics",
+        "operateurs-fonctions-support",
         "point-indice"
       ],
       "operatorCaveat": true,
@@ -2510,10 +6412,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Solidarité, insertion et égalité des chances : programme 304, éléments de synthèse du programme (p. 38)",
           "publisher": "Ministère chargé des solidarités (annexe au projet de loi de finances pour 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Action 11 du programme 304, CP 2027 : 12 972 591 939 € (dernière valeur de la ligne), dont 10,7 Md€ de prime d’activité"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf"
         }
       },
       "max": 25,
@@ -2526,6 +6425,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 86,
+        "perUnit": {
+          "lo": 0.129726,
+          "hi": 0.168644
+        },
+        "perUnitDown": {
+          "lo": 0.097295,
+          "hi": 0.129726
+        },
+        "why": "Jusqu’à ±86 % : −86 % retire la prime d’activité et celle de fin d’année ; reste le RSA payé par l’État (1,8 Md€), revenu minimum garanti par le Préambule de 1946. Au-delà de ±25 %, haut d’une hausse +30 % (plus de demandeurs), bas d’une baisse −25 % (emploi)."
+      },
       "amount": {
         "value": 12.9726,
         "label": "12 972,6 M€ de crédits au PLF 2027 (programme 304, action 11)"
@@ -2553,6 +6464,12 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "prime d’activité 10,7 Md€ en 2027, non revalorisée ; prime de fin d’année 460,0 M€ ; RSA jeunes 4,5 M€ ; RSA recentralisé 1 805 M€"
         }
+      ],
+      "overlapsWith": [
+        "emplois-garantis",
+        "non-recours-versement-automatique",
+        "pensions-alimentaires-defiscalisation",
+        "rsa-18-24-ans"
       ]
     },
     {
@@ -2576,10 +6493,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Enseignement scolaire : présentation des crédits par titre et catégorie des programmes 140 (p. 46), 141 (p. 93), 230 (p. 131), 139 (p. 186), 214 (p. 238) et 143 (p. 306)",
           "publisher": "Ministère de l’éducation nationale et ministère de l’agriculture (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128234/file/PAP%202027%20-%20Enseignement%20scolaire.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Catégorie 21 au PLF 2027 (seconde valeur de chaque ligne ; la première est la LFI 2026) : P140 15 443 841 590 € + P141 22 562 301 548 € + P139 5 814 576 148 € + P143 724 651 385 € + P230 3 949 496 793 € + P214 1 358 491 528 € = 49 853 358 992 € ; la citation est la ligne du programme 141, la plus grosse"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128234/file/PAP%202027%20-%20Enseignement%20scolaire.pdf"
         }
       },
       "max": 25,
@@ -2592,6 +6506,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 50,
+        "perUnit": {
+          "lo": 0.3739,
+          "hi": 0.498534
+        },
+        "perUnitDown": {
+          "lo": 0.324047,
+          "hi": 0.498534
+        },
+        "why": "Jusqu’à ±50 % : à −50 %, environ la moitié des professeurs des écoles à temps complet (moyenne 2 950 € nets) passe sous le Smic net (1 478 €), plancher légal. Au-delà de ±25 %, bas à 75 % (CSG, retenue, impôt), 65 % en baisse (contractuels au Smic vers −30 %)."
+      },
       "amount": {
         "value": 49.8534,
         "label": "49 853,4 M€ de rémunérations d’activité de la mission Enseignement scolaire au PLF 2027"
@@ -2655,6 +6581,130 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "credits-service-civique",
+      "family": "depenses",
+      "label": "Service civique : volontaires",
+      "today": "484,7 M€ au PLF 2027, jusqu’à 135 000 missions",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des crédits des missions",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.002667,
+        "hi": 0.004506
+      },
+      "base": {
+        "value": 0.4847,
+        "label": "484,7 M€ de crédits de l’action 04 « Développement du service civique » (programme 163) au PLF 2027 : 450,6 M€ pour les missions (le levier) et 34,2 M€ pour le fonctionnement de l’Agence du service civique",
+        "source": {
+          "title": "PAP 2027, mission Sport, jeunesse et vie associative, programme 163 : justification de l’action 04 « Développement du service civique » (p. 102)",
+          "publisher": "Ministère chargé de la jeunesse (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128279/file/PAP%202027%20-%20Sport%20jeunesse%20et%20vie%20associative.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.002667,
+          "hi": 0.005633
+        },
+        "perUnitDown": {
+          "lo": 0.002667,
+          "hi": 0.004506
+        },
+        "why": "−100 % : la fin des missions (la ligne entière) ; +100 % : environ 270 000 missions, près du double du plus haut atteint (149 878 en 2024, Sénat). En hausse au-delà de +25 %, haut relevé d’un quart : plus de structures d’accueil à trouver et à suivre."
+      },
+      "amount": {
+        "value": 0.4506,
+        "label": "450,6 M€ comptés : les crédits des missions de l’action 04 du programme 163 au PLF 2027, hors fonctionnement de l’Agence (34,2 M€)"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": true,
+      "laterNote": "Un service civique obligatoire pour toute une classe d’âge (800 000 à 850 000 jeunes, Sénat) coûterait à l’État environ 2,7 à 4,4 Md€ par an (3 300 à 5 200 € par jeune), soit 2,2 à 4,0 Md€ de plus qu’au PLF : hors du total, sa mise en place prendrait des années.",
+      "limits": "Bas : la seule indemnité versée au volontaire (512 € des 865 € par mois pour l’État) ; le reste paie notamment sa protection sociale, un flux interne aux administrations. Haut : tout le crédit. Hors fonctionnement de l’Agence (34,2 M€).",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Sport, jeunesse et vie associative, programme 163 : justification de l’action 04 « Développement du service civique » (p. 102)",
+          "publisher": "Ministère chargé de la jeunesse (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128279/file/PAP%202027%20-%20Sport%20jeunesse%20et%20vie%20associative.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "484 737 958 € de CP en 2027 : 34 165 565 € de subvention de fonctionnement à l’Agence du service civique et 450 572 393 € de transferts aux ménages (les missions)"
+        },
+        {
+          "title": "PAP 2027, programme 163 : justification de l’action 04 (p. 103)",
+          "publisher": "Ministère chargé de la jeunesse (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128279/file/PAP%202027%20-%20Sport%20jeunesse%20et%20vie%20associative.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût moyen pour l’État : 865 € par mois et par volontaire, dont 504,98 € d’indemnité et une majoration de 114,95 € pour 6,1 % des jeunes (soit 512 €) ; le reste couvre notamment un régime de protection sociale complet"
+        },
+        {
+          "title": "PAP 2027, programme 163 : justification de l’action 04 (p. 103)",
+          "publisher": "Ministère chargé de la jeunesse (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128279/file/PAP%202027%20-%20Sport%20jeunesse%20et%20vie%20associative.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Jusqu’à 135 000 missions en 2027 (450,6 M€ / 135 000 ≈ 3 300 € par mission, calcul)"
+        },
+        {
+          "title": "PAP 2027, programme 163 : récapitulation des crédits alloués aux opérateurs, Agence du service civique (p. 104)",
+          "publisher": "Ministère chargé de la jeunesse (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128279/file/PAP%202027%20-%20Sport%20jeunesse%20et%20vie%20associative.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les crédits des missions passent par l’Agence du service civique, opérateur de l’État (GIP)"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026) sur le projet de loi de finances pour 2026, tome III, annexe 30 « Sport, jeunesse et vie associative »",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-330/l25-139-330_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Volontaires en service civique : 149 000 en 2023, 149 878 en 2024, le plus haut atteint ; 579,4 M€ en LFI 2025"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026) sur le projet de loi de finances pour 2026, tome III, annexe 30 « Sport, jeunesse et vie associative »",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-330/l25-139-330_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Une mission dure au moins six mois : 865 € × 6 = 5 190 € par jeune au moins (calcul)"
+        },
+        {
+          "title": "Rapport n° 666 (2025-2026) sur le projet de loi actualisant la programmation militaire pour les années 2024 à 2030",
+          "publisher": "Sénat, commission des affaires étrangères, de la défense et des forces armées",
+          "url": "https://www.senat.fr/rap/l25-666/l25-666_mono.html",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "La journée défense et citoyenneté accueille près de 800 000 jeunes par an (bas de la fourchette d’une classe d’âge)"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026) sur le projet de loi de finances pour 2026, tome III, annexe 30 « Sport, jeunesse et vie associative »",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-330/l25-139-330_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Une classe d’âge : 850 000 jeunes (haut de la fourchette)"
+        }
+      ],
+      "overlapsWith": [
+        "operateurs-fonctions-support"
+      ]
+    },
+    {
       "id": "credits-universites-recherche",
       "family": "depenses",
       "label": "Universités et recherche (150, 172)",
@@ -2675,10 +6725,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Recherche et enseignement supérieur : programme 150, éléments de synthèse (p. 69) ; programme 172, éléments de synthèse (p. 185)",
           "publisher": "Ministère de l’enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "CP 2027 : programme 150, 15 786 054 527 € (dernière valeur de la ligne « Total » p. 69 ; les trois premières sont les AE) ; programme 172, 8 431 090 298 € (« 8 556 290 955 € en autorisations d’engagement (AE) et 8 431 090 298 € en crédits de paiement (CP) », p. 185) ; total 24 217 144 825 € ; la citation est la ligne du programme 150, le plus gros"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf"
         }
       },
       "max": 25,
@@ -2691,6 +6738,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.14,
+          "hi": 0.234567
+        },
+        "why": "−100 % : plus aucun crédit (la ligne entière) ; +100 % : doublement. Au-delà de 25 %, bas abaissé d’environ 40 % : la paie fait 91 % des subventions et ses cotisations d’employeur (39 %) reviennent aux administrations, plus une marge pour cette méthode fruste."
+      },
       "amount": {
         "value": 23.4567,
         "label": "23 456,7 M€ comptés sur les 24 217,1 M€ de crédits du PLF 2027 (programmes 150 et 172), hors cotisations employeurs, collectivités et contributions internationales"
@@ -2790,10 +6845,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
           "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "111 880 M€ en 2027 (colonne « 2027 (p) », en millions d’euros)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -2806,6 +6858,14 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "9,2 %",
+      "stretch": {
+        "max": 9.2,
+        "perUnit": {
+          "lo": 7.2,
+          "hi": 12
+        },
+        "why": "Borne : le taux de 9,2 % tombe à 0 (symétrique : 18,4 %). Au-delà d’1 point : haut 12 Md€ par point, le haut chiffré ; bas 7,2 Md€ : net de l’impôt sur le revenu (16 %) et d’une faible réaction des salaires, puis élargi à ±25 % comme toute estimation."
+      },
       "exclusiveWith": [
         "csg-ensemble"
       ],
@@ -2859,10 +6919,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
           "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "19 171 M€ en 2027 (colonne « 2027 (p) »), dont 7 602 M€ sur le patrimoine et 11 569 M€ sur les placements"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -2875,6 +6932,14 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 9.2,
+        "perUnit": {
+          "lo": 1,
+          "hi": 1.9
+        },
+        "why": "Borne : les revenus taxés à 9,2 % (fonciers, assurance-vie, épargne logement) tombent à 0 ; symétrique en hausse. Au-delà d’1 point, bas abaissé à 1 Md€ par point : les dividendes réagissent fortement à leur taxation (−40 % après sa hausse de 2013, IPP)."
+      },
       "exclusiveWith": [
         "csg-ensemble"
       ],
@@ -2905,6 +6970,10 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Contexte, pas une borne : taux de 10,6 % en 2026 et 2027, sauf revenus fonciers, plus-values immobilières, assurance-vie, PEL, CEL et PEP (9,2 %)"
         }
+      ],
+      "overlapsWith": [
+        "pfu-taux-ir",
+        "plus-values-immobilieres-abattement"
       ]
     },
     {
@@ -2928,10 +6997,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
           "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "162 329 M€ de CSG brute en 2027 (colonne « 2027 (p) »), jeux compris (724 M€)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -2944,6 +7010,14 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 3.8,
+        "perUnit": {
+          "lo": 10.7,
+          "hi": 18
+        },
+        "why": "Borne : −3,8 points met à 0 le taux réduit de 3,8 % (pensions, chômage) ; plus bas, un point ne vaudrait plus pareil partout. Au-delà d’1 point : haut 18 Md€, le haut chiffré ; bas 10,7 Md€, somme des bas au-delà sur l’activité, le remplacement et le capital."
+      },
       "exclusiveWith": [
         "csg-activite",
         "csg-capital",
@@ -3008,10 +7082,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
           "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "30 555 M€ en 2027 (colonne « 2027 (p) »)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 0.9,
@@ -3024,6 +7095,14 @@ export const budget: BudgetData = {
         0.9
       ],
       "baseLabel": "8,3 %",
+      "stretch": {
+        "max": 1.7,
+        "perUnit": {
+          "lo": 1.2,
+          "hi": 2
+        },
+        "why": "−1,7 point ramène le taux plein au taux médian de 6,6 % (plus bas, l’échelle s’inverserait) ; +1,7, symétrique, est la hausse de 2018. Au-delà de 0,9 point : haut 2 Md€ par point ; bas 1,67 (net d’impôt) abaissé à 1,2, soit ±25 % comme toute estimation."
+      },
       "exclusiveWith": [
         "csg-ensemble",
         "csg-remplacement"
@@ -3078,10 +7157,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
           "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "30 555 M€ en 2027 (colonne « 2027 (p) »)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -3094,6 +7170,14 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 3.8,
+        "perUnit": {
+          "lo": 2.4,
+          "hi": 4
+        },
+        "why": "Borne : −3,8 points met à 0 le taux réduit de 3,8 % ; symétrique en hausse. Au-delà d’1 point : haut 4 Md€ (le haut chiffré) ; bas 2,4 Md€, net de l’impôt sur le revenu et élargi à ±25 % : la CSG ne peut pas baisser une allocation chômage sous le Smic."
+      },
       "exclusiveWith": [
         "csg-ensemble",
         "csg-pensions-taux-plein"
@@ -3198,10 +7282,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Ligne 1497 : 4 110 000 000 € évalués pour 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 25,
@@ -3214,6 +7295,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.024,
+          "hi": 0.0411
+        },
+        "perUnitDown": {
+          "lo": 0.03,
+          "hi": 0.0411
+        },
+        "why": "−100 % : suppression (prévue de 2028 à 2030), chiffrée pour 2027 de 3 à 4,11 Md€ ; +100 % : taux maximal de 0,56 %, sous les 0,75 % de 2021. En hausse, bas abaissé à 24 M€ par 1 % : le plafond de la CET à 1,531 % de la valeur ajoutée en absorbe une part."
+      },
       "amount": {
         "value": 4.11,
         "label": "4 110 M€ de CVAE au PLF 2027 (produit brut)"
@@ -3277,10 +7370,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Défense : présentation stratégique de la mission (p. 10)",
           "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "63,4 Md€ de CP hors pensions en 2027 (78,7 Md€ en AE)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf"
         }
       },
       "max": 3,
@@ -3293,7 +7383,17 @@ export const budget: BudgetData = {
         3
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 10,
+        "perUnit": {
+          "lo": 1.25,
+          "hi": 3.135
+        },
+        "why": "±1 point : +1 point porte l’effort national de défense (pensions comprises) vers 3,4 % du PIB, près de l’objectif 2035 ; −1 point ramène la mission à 32 Md€, son niveau de 2017. Au-delà de ±0,3 : 40 à 100 % de l’effet (équipement compté à la livraison)."
+      },
       "exclusiveWith": [
+        "credits-dissuasion",
+        "opex-surcouts",
         "service-national-appeles"
       ],
       "overlapsWith": [
@@ -3323,6 +7423,224 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "demembrement-propriete",
+      "family": "impots",
+      "label": "Valeur taxée de la nue-propriété",
+      "today": "Nue-propriété taxée sur 10 à 90 % de la valeur, selon l’âge",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 point de nue-propriété à chaque âge du barème (CGI, art. 669)",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.02,
+        "hi": 0.08
+      },
+      "base": {
+        "value": 5.009,
+        "label": "5,0 Md€ de droits sur les donations prévus en 2027 (état A, ligne 1705), où porte l’effet chiffré ; le barème joue aussi sur les successions (17,0 Md€, ligne 1706)",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1705 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 10,
+      "step": 1,
+      "notches": [
+        -10,
+        -5,
+        0,
+        5,
+        10
+      ],
+      "baseLabel": "Barème",
+      "estimate": {
+        "method": "1) Nue-propriété donnée : 60 % de la pleine valeur en moyenne (CAE, enquête DGFiP de 2006), soit 40 points d’écart. 2) Coût : 2 à 3 Md€ par an face à une donation en pleine propriété (CAE) ; 0,9 à 3,2 Md€ de 2013 à 2020, immobilier seul, selon le contrefactuel (CPO). 3) Bas : 0,9 / 40 = 0,02 Md€ par point, un plancher ; haut : 3,2 / 40 = 0,08, le plus haut chiffre publié, gardé : successions et autres biens n’y sont pas. Statique."
+      },
+      "stretch": {
+        "max": 40,
+        "perUnit": {
+          "lo": 0.015,
+          "hi": 0.08
+        },
+        "perUnitDown": {
+          "lo": 0.02,
+          "hi": 0.09
+        },
+        "why": "+40 points : la pleine valeur en moyenne (écart de 40 points, CAE), plafond de 100 % ; −40 en miroir, plancher de 0 %. Au-delà de ±10 : en hausse, bas abaissé (plafond aux âges élevés, moins de démembrements) ; en baisse, haut relevé (plus de démembrements)."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "dmtg-ensemble",
+        "dmtg-tranche-20",
+        "dmtg-tranche-45",
+        "dutreil-exoneration",
+        "grandes-transmissions-plancher"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "À terme, hors total : taxer aussi la réunion de l’usufruit au décès (piste du CAE ; le CPO recommande d’y réfléchir) ne jouerait que pour les donations faites après la réforme, donc rien en 2027 ; l’avantage du démembrement est estimé à 2 à 3 Md€ par an (CAE).",
+      "limits": "Données anciennes (CAE : 2006 ; CPO : immobilier, 2013-2020). Seules les donations sont chiffrées : les successions où le conjoint garde l’usufruit paieraient aussi plus (non compté). La nue-propriété déjà donnée ne change pas.",
+      "sources": [
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 13 « barème de la valeur de la nue-propriété » (p. 184)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Barème de l’article 669 du CGI depuis 2003 : nue-propriété de 10 % de la valeur (usufruitier de moins de 20 ans) à 90 % (plus de 90 ans), 50 % entre 51 et 60 ans : borné à 0 et 100 %"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.2.2 (p. 186)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût du démembrement de propriété immobilière : 0,9 à 3,2 Md€ par an en moyenne de 2013 à 2020 selon le contrefactuel ; le coût total est « certainement supérieur » (bas : 0,9 Md€, un plancher ; haut : 3,2 Md€)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.2.2, note 341 (p. 186)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Les quatre contrefactuels du chiffrage de 0,9 à 3,2 Md€ : le premier (donation en pleine propriété) est celui d’un changement de barème ; les trois autres comparent à une taxation au décès, hausse de valeur comprise, que le barème n’atteint pas"
+        },
+        {
+          "title": "Repenser l’héritage, Les notes du CAE n° 69 (décembre 2021), « Le démembrement de propriété » (p. 7)",
+          "publisher": "Conseil d’analyse économique",
+          "url": "https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf",
+          "date": "2021-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Nue-propriété estimée à 60 % en moyenne de la pleine valeur (biens donnés en nue-propriété : 18 Md€ en 2006, 45 % des donations), soit un écart moyen de 40 points ; coût de 2 à 3 Md€ face à une donation en pleine propriété"
+        },
+        {
+          "title": "Les droits de succession (juin 2024), synthèse (p. 9)",
+          "publisher": "Cour des comptes (communication à la commission des finances de l’Assemblée nationale)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût du démembrement non évalué par l’administration ; 2 à 3 Md€ selon le CAE (2021), sur des données de 2006"
+        },
+        {
+          "title": "Les droits de succession (juin 2024), § C « Le démembrement de propriété » (p. 31)",
+          "publisher": "Cour des comptes (communication à la commission des finances de l’Assemblée nationale)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Le démembrement naît aussi des successions : le conjoint survivant peut recueillir l’usufruit, les enfants la nue-propriété, taxée selon le même barème (successions non comptées dans l’estimation)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), recommandation n° 14 (p. 188)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Le CPO recommande d’engager une réflexion sur les donations en nue-propriété, réforme jugée complexe (contexte, sans chiffre)"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1705 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Droits sur les donations : 5 009 335 142 € prévus en 2027 ; droits sur les successions (ligne 1706) : 17 019 928 378 €"
+        }
+      ]
+    },
+    {
+      "id": "depense-aide-sociale-enfance",
+      "family": "sociale",
+      "label": "Aide sociale à l’enfance",
+      "today": "11,7 Md€ bruts en 2024 ; 12,8 à 14,2 Md€ estimés en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de la dépense d’aide sociale à l’enfance",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.101,
+        "hi": 0.169
+      },
+      "base": {
+        "value": 11.7,
+        "label": "11,7 Md€ de dépenses brutes d’aide sociale à l’enfance des départements en 2024 (DREES), dernière année publiée",
+        "source": {
+          "title": "L’augmentation des dépenses d’aide sociale des départements se poursuit en 2024 (jeu de données, 17 avril 2026)",
+          "publisher": "DREES (ministères sociaux)",
+          "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/jeux-de-donnees/laugmentation-des-depenses-daide-sociale-des"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1) Dépense brute d’aide sociale à l’enfance des départements, assistants familiaux compris : 11,7 Md€ en 2024, +6,7 % en un an (DREES). 2) 2027 : +3 % à +6,7 % par an sur trois ans, soit 12,8 à 14,2 Md€ (centre 13,5). 3) 1 % = 0,135 Md€ au centre, fourchette élargie à ±25 % (0,101 à 0,169) : recouvrements (4 % en 2022), départements qui ne dépenseraient ou n’économiseraient pas d’autant."
+      },
+      "stretch": {
+        "max": 35,
+        "perUnit": {
+          "lo": 0.07,
+          "hi": 0.169
+        },
+        "why": "±35 % : plus bas, il faudrait réduire la dépense des placements décidés par le juge (environ 63 % : 80 % de la dépense va à l’accueil, dont 79 % des mesures sont judiciaires, DREES 2026) ; +35 % en miroir. Au-delà de ±25 %, bas abaissé à 0,07 Md€ par point."
+      },
+      "amount": {
+        "value": 14.2,
+        "lo": 12.8,
+        "label": "12,8 à 14,2 Md€ estimés pour 2027 (11,7 Md€ bruts en 2024, DREES)"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "point-indice"
+      ],
+      "operatorCaveat": false,
+      "limits": "Dépense des départements, assistants familiaux compris, hors autres frais de personnel. Suppose qu’ils dépensent ou économisent d’autant : un concours de l’État aux départements est un transfert sans effet propre sur le solde. Année pleine.",
+      "sources": [
+        {
+          "title": "L’augmentation des dépenses d’aide sociale des départements se poursuit en 2024 (jeu de données, 17 avril 2026)",
+          "publisher": "DREES (ministères sociaux)",
+          "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/jeux-de-donnees/laugmentation-des-depenses-daide-sociale-des",
+          "date": "2026-04-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Dépenses brutes d’aide sociale à l’enfance des départements : 11,7 Md€ en 2024, +6,7 % sur un an"
+        },
+        {
+          "title": "L’aide sociale à l’enfance. Bénéficiaires, mesures et dépenses départementales associées, édition 2026 (Les Dossiers de la DREES n° 138), chapitre 2, p. 12",
+          "publisher": "DREES (ministères sociaux)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-06/DD138_ASE_2026.pdf",
+          "date": "2026-06-30",
+          "accessedAt": "2026-10-18",
+          "figure": "ASE 2024 : 11,7 Md€ de dépenses brutes, assistants familiaux compris, hors autres frais de personnel ; 80 % pour l’accueil (80,4 %)"
+        },
+        {
+          "title": "L’aide sociale à l’enfance. Bénéficiaires, mesures et dépenses départementales associées, édition 2026 (Les Dossiers de la DREES n° 138), synthèse",
+          "publisher": "DREES (ministères sociaux)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-06/DD138_ASE_2026.pdf",
+          "date": "2026-06-30",
+          "accessedAt": "2026-10-18",
+          "figure": "80 % de la dépense pour l’accueil ; 79 % des mesures d’accueil décidées par le juge fin 2024, soit environ 63 % de la dépense pour des placements judiciaires (0,80 × 0,79, calcul)"
+        },
+        {
+          "title": "L’aide sociale départementale, édition 2024 (Les Dossiers de la DREES n° 124), tableau 4 « Dépenses et charges nettes d’aide sociale des départements, en 2022 », p. 16",
+          "publisher": "DREES (ministères sociaux)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2024-11/DD124.pdf",
+          "date": "2024-11",
+          "accessedAt": "2026-10-18",
+          "figure": "ASE 2022 : 9 885 M€ bruts, 9 486 M€ nets des récupérations et recouvrements (96 %) ; aucune compensation de l’État dédiée"
+        }
+      ]
+    },
+    {
       "id": "depense-allocation-soutien-familial",
       "family": "sociale",
       "label": "Allocation de soutien familial",
@@ -3343,10 +7661,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Allocation de soutien familial : 3 439 M€ (2025), 3 577 M€ (2026 p), 3 709 M€ (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -3359,6 +7674,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 50,
+        "perUnit": {
+          "lo": 0.0182,
+          "hi": 0.0456
+        },
+        "perUnitDown": {
+          "lo": 0.0182,
+          "hi": 0.03646
+        },
+        "why": "+50 % : une hausse de la taille de celle de 2022 (+49,8 %) ; −33 % ramènerait au montant d’avant, −50 % va au-delà, par symétrie. Au-delà de ±25 % : 50 à 125 % de l’effet en hausse, 50 à 100 % en baisse, le RSA et la prime d’activité compensant en partie."
+      },
       "amount": {
         "value": 3.646,
         "label": "3 646 M€ d’allocation de soutien familial en 2027 avec le gel, calculés sur 3 709 M€ prévus avant (CCSS)"
@@ -3432,10 +7759,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Allocations familiales : 13 909 M€ (2025), 13 711 M€ (2026 p), 13 407 M€ (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -3448,6 +7772,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 30,
+        "perUnit": {
+          "lo": 0.079,
+          "hi": 0.1318
+        },
+        "why": "±30 % : les hausses débattues et chiffrées par la DSS (dès le premier enfant, 2,8 Md€ brut, et fin de la modulation, 1 Md€ environ : +28 %), de même en baisse. Au-delà de ±25 % : 60 à 100 % de l’effet, le RSA et la prime d’activité compensant en partie."
+      },
       "amount": {
         "value": 13.1797,
         "label": "13 180 M€ d’allocations familiales en 2027 avec le gel, calculés sur 13 407 M€ prévus avant (CCSS)"
@@ -3498,6 +7830,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "gel des prestations familiales en 2027 : 0,5 Md€"
         }
+      ],
+      "overlapsWith": [
+        "condition-residence-prestations"
       ]
     },
     {
@@ -3521,10 +7856,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Situation financière de l’Assurance chômage à horizon 2028 (prévisions financières, 17 juin 2026), p. 10",
           "publisher": "Unédic",
-          "url": "https://www.unedic.org/storage/uploads/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf",
-          "date": "2026-06-17",
-          "accessedAt": "2026-10-18",
-          "figure": "dépenses d’allocations et d’aides : près de 38,7 Md€ en 2027 (37,2 Md€ en 2025)"
+          "url": "https://www.unedic.org/storage/uploads/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf"
         }
       },
       "max": 25,
@@ -3601,6 +7933,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "contexte, hors fourchette : prestations emploi (champ plus large que l’Unédic) stables en 2027 dans le scénario du PLF (−0,3 %)"
         }
+      ],
+      "overlapsWith": [
+        "emplois-garantis"
       ]
     },
     {
@@ -3624,10 +7959,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Complément mode de garde : 7 372 M€ (2025), 7 546 M€ (2026 p), 7 690 M€ (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -3640,6 +7972,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 50,
+        "perUnit": {
+          "lo": 0.0572,
+          "hi": 0.0953
+        },
+        "perUnitDown": {
+          "lo": 0.0572,
+          "hi": 0.07622
+        },
+        "why": "±50 % : à peu près la part des cotisations prises en charge (3 682 M€ sur 7 690 M€). Au-delà de ±25 % : 75 à 125 % de l’effet en hausse, 75 à 100 % en baisse ; reports vers les crèches ou d’autres modes de garde non mesurés."
+      },
       "amount": {
         "value": 7.622,
         "label": "7 622 M€ de complément de mode de garde en 2027 avec le gel, calculés sur 7 690 M€ prévus avant (CCSS)"
@@ -3730,10 +8074,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.3 « Les comptes de la CNAM – Maladie », tableau 2 « Charges et produits nets de la CNAM-Maladie », produits (p. 173 du PDF)",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "transfert de la CNAF au titre du congé de naissance : 300 M€ (2026 p), 400 M€ (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -3746,6 +8087,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00225,
+          "hi": 0.005
+        },
+        "perUnitDown": {
+          "lo": 0.00225,
+          "hi": 0.004
+        },
+        "why": "±100 % : de la fin du congé créé en 2026 (la ligne entière) au doublement de la dépense (congé plus long ou mieux payé). Au-delà de ±25 % : 75 à 125 % de l’effet en hausse, 75 à 100 % en baisse ; le recours réagit et n’est pas mesuré."
+      },
       "amount": {
         "value": 0.4,
         "lo": 0.3,
@@ -3779,6 +8132,121 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "0,3 Md€ en 2026, puis +0,1 Md€ de montée en charge en 2027"
         }
+      ],
+      "overlapsWith": [
+        "conge-second-parent"
+      ]
+    },
+    {
+      "id": "depense-fiscale-eco-ptz",
+      "family": "impots",
+      "label": "Éco-prêt à taux zéro (rénovation)",
+      "today": "354 M€ payés en 2027 ; éco-prêts possibles jusqu’à fin 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de l’avantage des éco-prêts émis en 2027",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0034,
+        "hi": 0.0068
+      },
+      "base": {
+        "value": 0.354,
+        "label": "354 M€ : coût payé en 2027 du crédit d’impôt « éco-prêt à taux zéro » (dépense fiscale n° 210321, PAP 2027 Cohésion des territoires, p. 93, fiabilité très bonne), qui paie des prêts émis avant 2027",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 210321 (p. 93)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1) Coût payé : 102 M€ en 2024 (Cour des comptes) ; 178, 256, 354 en 2025-2027 (PAP). 2) Avec le profil du PTZ (15 %, 4 × 20 %, 5 % sur six ans, hypothèse), un avantage de 100 M€ par an d’éco-prêts jusqu’en 2023 puis 560 M€ redonne ces coûts ; +38 % par an : 650 M€ en 2026. 3) Éco-prêts de 2027 : 600 M€, de 450 (−25 %) à 900 (650 et +38 %). 4) Règle Insee lue par Isoloir : compté au versement, 75 % dans l’année (taux du PTZ) ; 1 % = 3,4 à 6,8 M€."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0034,
+          "hi": 0.0085
+        },
+        "perUnitDown": {
+          "lo": 0.0026,
+          "hi": 0.0068
+        },
+        "why": "−100 % : aucun éco-prêt émis en 2027 (la ligne entière) ; +100 % : un doublement, par exemple pour remplacer des subventions, sans dessin. Au-delà de ±25 %, fourchette élargie : la demande suit les aides à la rénovation et les taux, ce que le calcul ignore."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "L’État verse ce crédit aux banques de 2028 à 2033 : les 354 M€ payés en 2027 retracent les prêts d’avant. Le dispositif s’arrête fin 2027 : le prolonger coûterait ensuite chaque année, hors du total. À régler avec la subvention à l’Anah quand des prêts remplacent des aides.",
+      "limits": "Estimation fruste, tirée du coût payé de 2024 à 2027. L’État ne paie rien avant 2028, mais selon la règle Insee des crédits d’impôt, appliquée par Isoloir, le déficit compte l’avantage des éco-prêts au versement. Aides de l’Anah à part.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 210321 (p. 93)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt « éco-prêt à taux zéro » : 178 M€ (2025), 256 M€ (2026), 354 M€ (2027), fiabilité très bonne ; même dernière incidence (2033) et même fin du fait générateur (2027) que le PTZ"
+        },
+        {
+          "title": "Note d’exécution budgétaire 2025, mission Cohésion des territoires, tableau n° 22 (p. 71)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-04/NEB-2026-Cohesion-territoires.pdf",
+          "date": "2026-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt « éco-PTZ » : 102 M€ payés en 2024 et 178 M€ en 2025 (+76 M€), du fait de la hausse du nombre de ménages bénéficiaires"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7, méthode d’évaluation (p. 62)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Pour le PTZ : 75 % des prêts émis dans l’année sont versés (mis en force) la même année, 25 % l’année suivante ; le crédit d’impôt est versé aux banques dans les cinq années qui suivent (repris ici par hypothèse pour l’éco-prêt)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7, méthode d’évaluation (p. 63)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Profil de paiement des PTZ émis en 2025 (1 605 M€) : 0 en 2025, 241 M€ en 2026, 321 M€ par an de 2027 à 2030, 80 M€ en 2031 (soit 0, 15 %, 4 × 20 %, 5 %)"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : L’enregistrement des crédits d’impôt en base 2020 (p. 1)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "En base 2020, les dépenses de crédits d’impôt sont enregistrées au fait générateur, et non quand l’administration constate la somme due"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : L’enregistrement des crédits d’impôt en base 2020 (p. 2)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "En base 2020, la dépense est comptée l’année où naît le droit au crédit d’impôt ; pour une subvention sur la production, l’année des transactions qui ouvrent ce droit"
+        },
+        {
+          "title": "Les comptes nationaux passent en base 2010, annexe 6 « Le nouveau traitement des crédits d’impôts restituables en base 2010 » (p. 51)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/2832834/comptes-nationaux-base-2010.pdf",
+          "date": "2015-01-22",
+          "accessedAt": "2026-10-18",
+          "figure": "Les prêts et éco-prêts à taux zéro figurent parmi les crédits d’impôt restituables enregistrés en dépenses des administrations publiques"
+        }
       ]
     },
     {
@@ -3802,10 +8270,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : sous-action 05-02 « Exonérations TEPA » (p. 18 du PDF) ; dépense fiscale n° 120146 (p. 111)",
           "publisher": "Gouvernement (annexe au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Exonérations TEPA (cotisations) : 3 416 813 623 € en 2027 ; plus l’exonération d’impôt sur le revenu : 2 273 M€ en 2027 ; total 5,69 Md€ (calcul)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf"
         }
       },
       "max": 25,
@@ -3818,6 +8283,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0427,
+          "hi": 0.0711
+        },
+        "perUnitDown": {
+          "lo": 0.0427,
+          "hi": 0.0569
+        },
+        "why": "±100 % : de la fin des deux exonérations (la ligne entière) à leur doublement (plafond relevé, cotisations patronales). Au-delà de ±25 % : 75 à 125 % de l’effet en hausse, 75 à 100 % en baisse ; les heures déclarées suivent le régime (constat de 2011)."
+      },
       "amount": {
         "value": 5.69,
         "label": "5,69 Md€ de coût au PLF 2027 : 2,27 Md€ d’impôt sur le revenu et 3,42 Md€ de cotisations compensées"
@@ -3845,6 +8322,150 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "depense-fiscale-ptz",
+      "family": "impots",
+      "label": "Prêt à taux zéro (accession)",
+      "today": "1 165 M€ payés en 2027 ; avantage des prêts de 2027 : environ 2,4 Md€",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de l’avantage des prêts émis en 2027",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0109,
+        "hi": 0.0227
+      },
+      "base": {
+        "value": 1.165,
+        "label": "1 165 M€ : coût payé en 2027 des crédits d’impôt « prêt à taux zéro » et « PTZ+ » (dépense fiscale n° 210313, PAP 2027 Cohésion des territoires, p. 92, fiabilité très bonne), qui paie des prêts émis avant 2027",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 210313 (p. 92)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1) Avantage (crédits d’impôt) des PTZ émis en 2026, règles constantes : 1,95 Md€ (PLF) ; plus le PTZ « parentalité » : 466 M€ ; pour 2027 ≈ 2,42 Md€. 2) Lecture d’Isoloir de la règle Insee (base 2020) : crédit compté l’année où naît le droit, ici au versement ; 75 % versés l’année de l’offre (PLF). 3) 0,75 × 2,42 = 1,81 Md€, 1 % = 18 M€ ; bas −40 % (2025 : 1,60 Md€ ; moment d’enregistrement), haut +25 % (plafond de 2,1 Md€ peut-être dépassé)."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0109,
+          "hi": 0.0283
+        },
+        "perUnitDown": {
+          "lo": 0.0082,
+          "hi": 0.0227
+        },
+        "why": "−100 % : aucun PTZ émis en 2027 (la ligne entière) ; +100 % : un doublement, sans dessin (l’extension de 2025 a porté les émissions de 44 466 à près de 73 000). Au-delà de ±25 %, fourchette élargie : emprunteurs et ventes de logements neufs réagissent."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "L’État verse ce crédit aux banques de 2028 à 2033 (profil du PLF 2027) : les 1 165 M€ payés en 2027 retracent les prêts d’avant. Les 25 % de prêts de 2027 versés en 2028 comptent en 2028, hors du total.",
+      "limits": "Prêts de 2027 : ceux de 2026 plus le PTZ « parentalité ». L’État ne paie rien avant 2028, mais selon la règle Insee des crédits d’impôt, appliquée par Isoloir, le déficit compte le crédit au versement. Effet sur la construction non compté.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 210313 (p. 92)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédits d’impôt « prêt à taux zéro » et « PTZ+ » : 697 M€ (2025), 869 M€ (2026), 1 165 M€ (2027), fiabilité très bonne ; dernière incidence budgétaire 2033, fin du fait générateur 2027"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, avertissement (p. 92)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les chiffrages de 2027 ne comptent que les mesures votées avant le dépôt du PLF 2027 (le PTZ « parentalité » proposé par le PLF n’y est pas)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7 « Réorienter les soutiens publics vers le logement familial et de longue durée » (p. 56)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût générationnel (crédits d’impôt de tous les PTZ émis dans l’année) : 1,60 Md€ pour 2025, 1,95 Md€ prévus pour 2026 à périmètre constant"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7, problème à résoudre (p. 58)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "À paramètres constants, le coût des PTZ d’une année pourrait dépasser en 2027 le plafond légal de dépense fiscale (2,1 Md€)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7, incidences budgétaires (p. 62)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "PTZ « parentalité » proposé par le PLF 2027 : 466 M€ de coût générationnel, payés de l’année n+1 à n+6 (69,9 M€ la première année)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7, méthode d’évaluation (p. 62)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "75 % des prêts émis dans l’année sont versés (mis en force) la même année, 25 % l’année suivante ; le crédit d’impôt est versé aux banques dans les cinq années qui suivent"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 7, méthode d’évaluation (p. 63)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Profil de paiement des PTZ émis en 2025 (1 605 M€) : 0 en 2025, 241 M€ en 2026, 321 M€ par an de 2027 à 2030, 80 M€ en 2031 (soit 0, 15 %, 4 × 20 %, 5 %)"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 7, exposé des motifs (p. 46)",
+          "publisher": "Gouvernement, Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Le PLF crée le PTZ « parentalité » et supprime le plafond annuel de 2,1 Md€ ; les émissions de PTZ sont passées de 44 466 (2024) à près de 73 000 (2025)"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : L’enregistrement des crédits d’impôt en base 2020 (p. 1)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "En base 2020, les dépenses de crédits d’impôt sont enregistrées au fait générateur, et non quand l’administration constate la somme due"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : L’enregistrement des crédits d’impôt en base 2020 (p. 2)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "En base 2020, la dépense est comptée l’année où naît le droit au crédit d’impôt ; pour une subvention sur la production, l’année des transactions qui ouvrent ce droit"
+        },
+        {
+          "title": "Les comptes nationaux passent en base 2010, annexe 6 « Le nouveau traitement des crédits d’impôts restituables en base 2010 » (p. 51)",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/2832834/comptes-nationaux-base-2010.pdf",
+          "date": "2015-01-22",
+          "accessedAt": "2026-10-18",
+          "figure": "Les prêts et éco-prêts à taux zéro figurent parmi les crédits d’impôt restituables enregistrés en dépenses des administrations publiques"
+        }
+      ]
+    },
+    {
       "id": "depense-prepare",
       "family": "sociale",
       "label": "Congé parental indemnisé (PreParE)",
@@ -3865,10 +8486,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
           "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Allocations versées pendant le congé parental (CLCA, PreParE) : 687 M€ (2025), 659 M€ (2026 p), 652 M€ (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -3881,6 +8499,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0048,
+          "hi": 0.008
+        },
+        "perUnitDown": {
+          "lo": 0.0048,
+          "hi": 0.006409
+        },
+        "why": "±100 % : de la fin de l’allocation (la ligne entière) à son doublement. Au-delà de ±25 % : 75 à 125 % de l’effet en hausse, 75 à 100 % en baisse ; le recours au congé et le report vers d’autres modes de garde ne sont pas mesurés."
+      },
       "amount": {
         "value": 0.6409,
         "label": "641 M€ d’allocations de congé parental (CLCA, PreParE) en 2027 avec le gel, calculés sur 652 M€ prévus avant (CCSS)"
@@ -3926,6 +8556,323 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "dmtg-abattement-ligne-directe",
+      "family": "impots",
+      "label": "Abattement entre parent et enfant",
+      "today": "100 000 € par parent et par enfant tous les 15 ans, fixe depuis 2012",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 000 € d’abattement par parent et par enfant (successions et donations)",
+        "short": "k€"
+      },
+      "perUnit": {
+        "lo": 0.03,
+        "hi": 0.07
+      },
+      "perUnitDown": {
+        "lo": 0.04,
+        "hi": 0.1
+      },
+      "base": {
+        "value": 22.029,
+        "label": "22,0 Md€ de droits de mutation à titre gratuit au PLF 2027 : 5,0 Md€ de donations et 17,0 Md€ de successions, tous liens de parenté confondus (état A, lignes 1705 et 1706). L’abattement joue sur la ligne directe.",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 et 1706 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 50,
+      "step": 1,
+      "notches": [
+        -50,
+        -20,
+        0,
+        20,
+        50
+      ],
+      "baseLabel": "100 000",
+      "estimate": {
+        "method": "Ancre : en 2012, l’État chiffre l’abattement abaissé de 159 325 à 100 000 € à +1 325 M€ par an (895 M€ de successions, 430 M€ de donations), soit 15,1 et 7,2 M€ par 1 000 €. Successions : 7,0 Md€ en 2011, 17,0 en 2027 (×2,4) ; donations : 1,4 Md€ en 2012, 5,0 en 2027 (×3,6), réformes comprises ; au plus bas ×1,6. Soit 36 à 62 M€, élargis à 30-70 M€ par 1 000 € (méthode fruste). En baisse, plus d’héritiers paient : ×1,3 à ×1,5, soit 40 à 100 M€."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.02,
+          "hi": 0.06
+        },
+        "perUnitDown": {
+          "lo": 0.05,
+          "hi": 0.2
+        },
+        "why": "De 0 € (plus d’abattement) à 200 000 €, le double, montant débattu. Au-delà de ±50 000 €, extrapolé : en hausse, moins d’héritiers restent au-dessus du seuil (0,02 à 0,06 Md€ par 1 000 €) ; en baisse, bien plus d’héritages deviennent imposables (0,05 à 0,2)."
+      },
+      "exclusiveWith": [
+        "dmtg-ensemble"
+      ],
+      "overlapsWith": [
+        "assurance-vie-transmission",
+        "dmtg-tranche-20",
+        "grandes-transmissions-plancher"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Les droits de succession se paient dans les six mois du décès : en 2027, une partie seulement des successions de l’année paierait au nouveau montant (année pleine comptée, comme pour les autres leviers des droits de succession).",
+      "limits": "Statique : donations avancées ou retardées non comptées, ni le régime temporaire des dons de janvier à juin 2027 (PLF, article 4, non chiffré). Le cran +20 rattrape à peu près l’inflation de 2012 à 2024 (CPO). Rappel de 15 ans inchangé.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances rectificative pour 2012 (n° 71), évaluation préalable de l’article 4 (p. 172)",
+          "publisher": "Gouvernement (Assemblée nationale, XIVe législature)",
+          "url": "https://www.assemblee-nationale.fr/14/pdf/projets/pl0071.pdf",
+          "date": "2012-07-04",
+          "accessedAt": "2026-10-18",
+          "figure": "abattement en ligne directe abaissé de 159 325 € à 100 000 € : +895 M€ de droits de succession et +430 M€ de droits de donation par an à partir de 2014, soit 15,1 et 7,2 M€ par 1 000 € (ancre de l’estimation)"
+        },
+        {
+          "title": "Les droits de succession (septembre 2024), p. 17",
+          "publisher": "Cour des comptes",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "droits de succession : 7,0 Md€ en 2011, 16,6 Md€ en 2023 (mise à l’échelle de la part « successions » de l’ancre)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 63",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "droits sur les donations : 1,4 Md€ en 2012, 4,3 Md€ en 2023 (mise à l’échelle de la part « donations » de l’ancre)"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 et 1706 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "donations prévues en 2027 : 5,0 Md€ ; successions : 17,0 Md€ (mise à l’échelle de l’ancre)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 4 (p. 37)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "abattement de 100 000 € en ligne directe sur les donations et les successions, renouvelable tous les quinze ans (le réglage du PLF 2027)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 4, dispositif (p. 37)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "du 1er janvier au 30 juin 2027, dons d’argent aux descendants de 18 à 49 ans taxés au taux unique de 6 % jusqu’à 100 000 €, hors rappel de 15 ans ; limite de l’article 790 G portée à 50 000 € (contexte, hors fourchette)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 4, incidences budgétaires (p. 41)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "le régime temporaire des dons de 2027 n’est pas chiffré par le Gouvernement (contexte, hors fourchette)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 65",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "fixé en 2012, l’abattement de 100 000 € ne vaut plus que 82 290 € de 2012 (euros de 2024) : environ 121 500 € pour rattraper l’inflation jusqu’en 2024 (contexte du cran +20)"
+        }
+      ]
+    },
+    {
+      "id": "dmtg-ensemble",
+      "family": "impots",
+      "label": "Droits de succession et de donation",
+      "today": "22,0 Md€ au PLF 2027 : 17,0 de successions, 5,0 de donations",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 % du produit des droits de succession et de donation (tous les taux relevés ou baissés de 1 %)",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.2203,
+        "hi": 0.2203
+      },
+      "base": {
+        "value": 22.029,
+        "label": "22,0 Md€ de droits de mutation à titre gratuit prévus en 2027 : 5,0 Md€ sur les donations et 17,0 Md€ sur les successions (état A, lignes 1705 et 1706)",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 et 1706 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.1,
+          "hi": 0.2203
+        },
+        "perUnitDown": {
+          "lo": 0.2203,
+          "hi": 0.2203
+        },
+        "why": "−100 % : toute la recette (exact). +100 % en miroir ; au-delà de +50 %, taux de 70 à 100 % : risque de taux confiscatoire. Haut statique, exact jusqu’à +67 % (plafond de 100 % au-delà). Bas divisé par deux : assurance-vie, Dutreil, démembrement, dons avancés."
+      },
+      "amount": {
+        "value": 22.03,
+        "label": "22,0 Md€ de droits de succession et de donation prévus au PLF 2027"
+      },
+      "exclusiveWith": [
+        "dmtg-abattement-ligne-directe",
+        "dmtg-ligne-indirecte-taux",
+        "dmtg-tranche-20",
+        "dmtg-tranche-45"
+      ],
+      "overlapsWith": [
+        "assurance-vie-transmission",
+        "demembrement-propriete",
+        "dutreil-exoneration",
+        "grandes-transmissions-plancher"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique, proportionnel au produit prévu. Supprimer les droits ôterait aussi l’intérêt fiscal de l’assurance-vie, du pacte Dutreil et du démembrement (non compté). Année pleine : une part des droits de 2027 vient de décès de 2026.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 et 1706 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Droits de donation : 5 009 335 142 € ; droits de succession : 17 019 928 378 € prévus en 2027, soit 22,03 Md€ (0,22 Md€ par pour cent)"
+        },
+        {
+          "title": "Les droits de succession (juin 2024), annexe n° 7, modèle de microsimulation de la DG Trésor pour 2018 (p. 92)",
+          "publisher": "Cour des comptes (communication à la commission des finances de l’Assemblée nationale)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Droits de succession de 2018 : 13,4 Md€, dont 7,1 Md€ payés par les enfants et 3,7 Md€ par les neveux et nièces, autres parents et non-parents, taxés à 55 ou 60 % : le plafond de 100 % joue au-delà de +67 % (60 %) et de +82 % (55 %) et retire 1,1 à 1,4 Md€ à +100 % (parts de 2018 ramenées aux 17,0 Md€ de 2027)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 1.4 (p. 106)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Les successions laissent une large place à l’optimisation (donation du vivant, actifs exonérés, assurance-vie, démembrement) : bas divisé par deux au-delà de +25 % (estimation Isoloir)"
+        },
+        {
+          "title": "Les droits de succession (juin 2024), synthèse (p. 7)",
+          "publisher": "Cour des comptes (communication à la commission des finances de l’Assemblée nationale)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Les propositions vont dans les deux sens : relever les droits en resserrant les exonérations, ou les baisser, « voire les supprimer totalement » (contexte des bornes −100 % et +100 %)"
+        }
+      ]
+    },
+    {
+      "id": "dmtg-ligne-indirecte-taux",
+      "family": "impots",
+      "label": "Droits hors ligne directe : taux",
+      "today": "35 et 45 % entre frères et sœurs, 55 % jusqu’au 4e degré, 60 % au-delà",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 point sur chacun des taux hors ligne directe (35, 45, 55 et 60 %)",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.07,
+        "hi": 0.12
+      },
+      "base": {
+        "value": 6,
+        "label": "6,0 Md€ de droits de succession payés hors ligne directe en 2018 : frères et sœurs 2,3, neveux et nièces 1,1, autres parents 1,2, non-parents 1,4 (microsimulation de la DG Trésor). Le CPO compte 35 % du produit des droits de succession en 2022.",
+        "source": {
+          "title": "Les droits de succession (septembre 2024), annexe n° 7 (p. 92)",
+          "publisher": "Cour des comptes, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf"
+        }
+      },
+      "max": 5,
+      "step": 0.1,
+      "notches": [
+        -5,
+        -2,
+        0,
+        2,
+        5
+      ],
+      "baseLabel": "35-60 %",
+      "stretch": {
+        "max": 15,
+        "perUnit": {
+          "lo": 0.05,
+          "hi": 0.12
+        },
+        "why": "À la baisse, 60 % rejoint 45 %, le plus haut taux en ligne directe ; autant à la hausse, par symétrie (75 % en haut). Au-delà de ±5 points, bas à 0,05 Md€ par point : assurance-vie et donations aident à éviter ces taux, surtout quand ils montent."
+      },
+      "exclusiveWith": [
+        "dmtg-ensemble"
+      ],
+      "overlapsWith": [
+        "assurance-vie-transmission",
+        "grandes-transmissions-plancher"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Les droits de succession se paient dans les six mois du décès : en 2027, une partie seulement des successions de l’année paierait au nouveau taux (année pleine comptée, comme pour les autres leviers des droits de succession).",
+      "limits": "Microsimulation de la DG Trésor, tarif 2025, comportements inchangés ; hausse en miroir de la baisse. Coûts publiés arrondis au dixième de milliard, d’où la fourchette. Ces taux font 35 % des droits de succession pour 13 % des montants.",
+      "sources": [
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 11, frères et sœurs (p. 179)",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "frères et sœurs : de 35 % à 25 % jusqu’à 24 430 €, 0,1 Md€ ; de 45 % à 40 % au-delà, 0,3 Md€ (le sous-total « frères et sœurs » du tableau omet cette ligne, le total général la compte)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 11, autres parents et non-parents (p. 179)",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "jusqu’au 4e degré : de 55 % à 50 %, 0,1 Md€ ; au-delà et non-parents : de 60 % à 55 %, 0,03 Md€ ; total des deux scénarios 0,2 et 0,5 Md€. Par point sur les quatre taux, arrondis compris : 0,07 à 0,12 Md€"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 179",
+          "publisher": "Conseil des prélèvements obligatoires, d’après la microsimulation de la DG Trésor",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "baisse de 5 à 10 points selon les tranches : 0,2 Md€ (scénario 1), 0,5 Md€ (scénario 2)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 64",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "transmissions hors ligne directe : 35 % du produit des droits de succession pour 13 % des montants en 2022 (contexte, hors fourchette)"
+        }
+      ]
+    },
+    {
       "id": "dmtg-tranche-20",
       "family": "impots",
       "label": "Droits de succession : taux de 20 %",
@@ -3946,10 +8893,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 « Mutations à titre gratuit entre vifs (donations) » et 1706 « Mutations à titre gratuit par décès » (p. 231)",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Donations : 5 009 335 142 € ; successions : 17 019 928 378 € prévus en 2027, soit 22,0 Md€"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 5,
@@ -3962,7 +8906,17 @@ export const budget: BudgetData = {
         5
       ],
       "baseLabel": "20 %",
-      "exclusiveWith": [],
+      "stretch": {
+        "max": 20,
+        "perUnit": {
+          "lo": 0.15,
+          "hi": 0.24
+        },
+        "why": "De 0 % (un taux ne descend pas plus bas) à 40 %, un taux qui existe déjà au barème en ligne directe. Au-delà de ±5 points, bas à 0,15 Md€ par point : donations, assurance-vie ou démembrement permettent d’optimiser (CPO) ; haut à l’effet chiffré."
+      },
+      "exclusiveWith": [
+        "dmtg-ensemble"
+      ],
       "operatorCaveat": false,
       "limits": "Microsimulation sur le tarif 2025, comportements inchangés ; la hausse est le miroir de la baisse. Le PLF 2027 (art. 4) taxe à 6 % des dons d’argent du 1er semestre 2027, non chiffré : la base 2027 peut baisser.",
       "sources": [
@@ -3982,6 +8936,11 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "dons de sommes d’argent du 1er janvier au 30 juin 2027 à un descendant de 18 à 49 ans : taux unique de 6 % jusqu’à 100 000 €, coût non chiffrable en 2027 (contexte, hors fourchette)"
         }
+      ],
+      "overlapsWith": [
+        "assurance-vie-transmission",
+        "demembrement-propriete",
+        "dmtg-abattement-ligne-directe"
       ]
     },
     {
@@ -4005,10 +8964,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 « Mutations à titre gratuit entre vifs (donations) » et 1706 « Mutations à titre gratuit par décès » (p. 231)",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Donations : 5 009 335 142 € ; successions : 17 019 928 378 € prévus en 2027, soit 22,0 Md€"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 10,
@@ -4021,7 +8977,17 @@ export const budget: BudgetData = {
         10
       ],
       "baseLabel": "45 %",
-      "exclusiveWith": [],
+      "stretch": {
+        "max": 15,
+        "perUnit": {
+          "lo": 0.01,
+          "hi": 0.02
+        },
+        "why": "Jusqu’à 60 %, le plus haut taux des droits de succession (personnes non parentes) ; à la baisse, 30 % par symétrie, sous les 40 % de la tranche d’en dessous. Au-delà de ±10 points, bas divisé par deux : les plus hauts patrimoines optimisent le plus (CPO)."
+      },
+      "exclusiveWith": [
+        "dmtg-ensemble"
+      ],
       "operatorCaveat": false,
       "limits": "Microsimulation sur le tarif 2025, chiffres arrondis au dixième de milliard, sans changement de comportement. Seule la baisse est chiffrée : la hausse en est le miroir. Les effets se croisent avec le pacte Dutreil.",
       "sources": [
@@ -4032,6 +8998,107 @@ export const budget: BudgetData = {
           "date": "2025-12",
           "accessedAt": "2026-10-18",
           "figure": "fraction de part nette taxable au-delà de 1 805 677 € : de 45 % à 40 %, 0,1 Md€ ; de 45 % à 35 %, 0,2 Md€"
+        }
+      ],
+      "overlapsWith": [
+        "assurance-vie-transmission",
+        "demembrement-propriete",
+        "grandes-transmissions-plancher"
+      ]
+    },
+    {
+      "id": "droits-inscription-etudiants-etrangers",
+      "family": "impots",
+      "label": "Droits d’inscription hors UE",
+      "today": "Licence 2 902 €, master 3 950 € ; exonérations plafonnées à 25 %",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "100 € de droits de plus par an et par étudiant payant, en licence et en master",
+        "short": "€"
+      },
+      "perUnit": {
+        "lo": 0.0082,
+        "hi": 0.0149
+      },
+      "max": 10,
+      "step": 1,
+      "notches": [
+        -10,
+        -5,
+        0,
+        5,
+        10
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1) Étudiants venus hors Union, en licence et master à l’université, hors échanges : 164 000 à la rentrée 2025 (RERS 2026), 174 000 avec les établissements expérimentaux. 2) En 2027-2028 : 5 à 15 % exonérés de droit ; bas : 25 % exonérés, plus un tiers de la licence (exonérés de 2025-2026, jusqu’à la fin du cycle), soit 82 000 payants ; haut : 10 % exonérés, 149 000. 3) × 100 € = 8,2 à 14,9 M€. Statique, comme l’article 54 du PLF."
+      },
+      "stretch": {
+        "max": 27,
+        "perUnit": {
+          "lo": 0.0049,
+          "hi": 0.0149
+        },
+        "why": "−2 700 € : à peu près les droits des autres étudiants en licence (178 €) ; +2 700 € en miroir, sous le coût moyen d’un étudiant (12 500 €), mais les droits doivent rester « modiques ». Au-delà de ±1 000 €, arrivées ou départs : bas abaissé de 40 %."
+      },
+      "amount": {
+        "value": 0.51,
+        "lo": 0.29,
+        "label": "0,29 à 0,51 Md€ payés en 2027-2028 (estimation : 82 000 à 149 000 étudiants payants, aux droits de 2026-2027)"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "Après 2027-2028, plafond à 20 % et fin des exonérations accordées en 2025-2026 : un peu plus d’étudiants paieraient, hors du total.",
+      "limits": "Droits payés aux universités, pas un impôt : ils ne réduisent le déficit que si elles ne les dépensent pas ou si l’État baisse d’autant leur subvention. Année 2027-2028 pleine. Doctorants exonérés ; écoles hors université non comptées.",
+      "sources": [
+        {
+          "title": "Université : certains étudiants étrangers non-européens vont payer plus cher à partir de la rentrée 2026 (actualité du 26 mai 2026, mise à jour le 20 août 2026)",
+          "publisher": "Direction de l’information légale et administrative (Service-Public.gouv.fr)",
+          "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18927",
+          "date": "2026-08-20",
+          "accessedAt": "2026-10-18",
+          "figure": "Droits différenciés 2026-2027 : 2 902 € par an en licence, 3 950 € en master (178 € et 255 € pour les autres) ; exonérations plafonnées à 30 % des étudiants étrangers d’une université en 2026-2027, 25 % en 2027-2028 (décret n° 2026-385 du 19 mai 2026)"
+        },
+        {
+          "title": "Université : certains étudiants étrangers non-européens vont payer plus cher à partir de la rentrée 2026 (actualité du 26 mai 2026, mise à jour le 20 août 2026), dispositions transitoires",
+          "publisher": "Direction de l’information légale et administrative (Service-Public.gouv.fr)",
+          "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18927",
+          "date": "2026-08-20",
+          "accessedAt": "2026-10-18",
+          "figure": "Exonérés de 2025-2026 : exonération gardée jusqu’à la fin du cycle (licence ou master) dans le même établissement ; de même pour les exonérations de 2026-2027 accordées avant le 21 mai 2026"
+        },
+        {
+          "title": "Repères et références statistiques 2026, fiche 7.17, tableau « Répartition des étudiants étrangers en mobilité internationale dans les universités par cursus et pays d’origine en 2025-2026 », p. 271",
+          "publisher": "Ministère de l’Éducation nationale, DEPP, avec le SIES du ministère de l’enseignement supérieur (Repères et références statistiques 2026)",
+          "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+          "date": "2026-08",
+          "accessedAt": "2026-10-18",
+          "figure": "Universités : 99 940 étudiants en mobilité en licence (14 348 de l’Union) et 102 546 en master (13 414), avec la part de diplômants par origine ; venus hors Union et hors échanges : 79 600 en licence, 84 500 en master (calcul)"
+        },
+        {
+          "title": "Repères et références statistiques 2026, fiche 7.17 « Les étudiants étrangers en mobilité internationale dans l’enseignement supérieur », p. 270",
+          "publisher": "Ministère de l’Éducation nationale, DEPP, avec le SIES du ministère de l’enseignement supérieur (Repères et références statistiques 2026)",
+          "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+          "date": "2026-08",
+          "accessedAt": "2026-10-18",
+          "figure": "221 400 étudiants en mobilité à l’université et 13 700 de plus dans les établissements expérimentaux (rentrée 2025)"
+        },
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur : indicateur 1.3 sur les étudiants étrangers (p. 16) et objectif sur les doctorants étrangers (p. 55)",
+          "publisher": "Ministère de l’enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : application « beaucoup plus large » des droits différenciés, qui peut freiner les arrivées ; doctorants non soumis"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 54 « Instauration de droits d’inscription en CPGE et en STS », p. 535, 536 et 539",
+          "publisher": "Gouvernement (évaluations préalables des articles, annexées au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût moyen d’un étudiant à l’université : 12 500 € ; des droits « modiques » exigés (Conseil constitutionnel, 2019) ; rendement chiffré en statique, payants × droits"
         }
       ]
     },
@@ -4056,10 +9123,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Économie : dépense fiscale n° 520110 (p. 38)",
           "publisher": "Gouvernement (annexe au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "3 800 M€ en 2025, en 2026 et en 2027 (fiabilité : ordre de grandeur)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf"
         }
       },
       "max": 25,
@@ -4072,7 +9136,9 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "75 %",
-      "exclusiveWith": [],
+      "exclusiveWith": [
+        "grandes-transmissions-plancher"
+      ],
       "operatorCaveat": false,
       "limits": "Bas : PAP 2027 (3,8 Md€, ordre de grandeur). Haut : CPO (75 % → 50 % : 1,3 Md€, sur les 4 Md€ du PLF 2026). Sénat, d’après la Cour des comptes : 5,5 Md€ en 2024, avant le resserrement de 2026 (hors fourchette).",
       "sources": [
@@ -4100,6 +9166,10 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "coût 2024 d’après les données de la Cour des comptes : 5,5 Md€, « borne basse », avant le resserrement de la loi de finances pour 2026 (contexte, hors fourchette)"
         }
+      ],
+      "overlapsWith": [
+        "demembrement-propriete",
+        "dmtg-ensemble"
       ]
     },
     {
@@ -4123,10 +9193,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Administrations publiques en 2025 (comptes nationaux annuels, base 2020), tableau 7.301 « Compte des administrations publiques (S13) »",
           "publisher": "Insee",
-          "url": "https://www.insee.fr/fr/statistiques/8988833",
-          "date": "2026-08-28",
-          "accessedAt": "2026-10-18",
-          "figure": "Salaires et traitements bruts (D11) des APU : 245,586 Md€ en 2024, 247,557 Md€ en 2025. Rémunération des salariés (D1) : 370,012 Md€ en 2025, dont cotisations sociales à la charge des employeurs (D12) : 122,455 Md€"
+          "url": "https://www.insee.fr/fr/statistiques/8988833"
         }
       },
       "max": 1,
@@ -4139,12 +9206,25 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 14,
+        "perUnit": {
+          "lo": 0.25,
+          "hi": 0.43
+        },
+        "perUnitDown": {
+          "lo": 0.24,
+          "hi": 0.406
+        },
+        "why": "±140 000 emplois : environ une année de départs en retraite (144 000 en 2025, DGAFP), effet plein en 2028. Effet par emploi stable à grande échelle (RGPP, Cour), ±25 % ; baisse : bas réduit (heures supplémentaires, contractuels, achats), haut au salaire moyen."
+      },
       "exclusiveWith": [],
       "overlapsWith": [
         "credits-administration-penitentiaire",
         "credits-aides-indirectes-etudiants",
         "credits-asile",
         "credits-culture",
+        "credits-impot-culture",
         "credits-integration",
         "credits-justice-judiciaire",
         "credits-pjj",
@@ -4155,7 +9235,9 @@ export const budget: BudgetData = {
         "defense",
         "france-services-espaces",
         "ondam",
+        "operateurs-fonctions-support",
         "places-creche",
+        "polices-municipales",
         "service-national-appeles"
       ],
       "operatorCaveat": false,
@@ -4197,6 +9279,1054 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "emplois-garantis",
+      "family": "depenses",
+      "label": "Emplois garantis (chômage durable)",
+      "today": "4 322 salariés en avril 2026 ; 63,06 M€ de l’État au PLF 2027",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.06306,
+        "label": "63,06 M€ : participation de l’État à l’expérimentation « Territoires zéro chômeur de longue durée » au PLF 2027 (programme 102, sous-action 03.05), sans la part des départements",
+        "source": {
+          "title": "Projet annuel de performances 2027, mission Travail, emploi et administration des ministères sociaux : programme 102, sous-action 03.05, expérimentation territoriale contre le chômage de longue durée (p. 71)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "fin-experimentation",
+          "label": "Fin de l’expérimentation (4 322 emplois)",
+          "lo": -0.037,
+          "hi": -0.009,
+          "note": "Économie : 63,06 M€ de l’État, la part des départements et la prime d’activité qui n’est plus versée, moins les cotisations perdues et les allocations chômage des salariés licenciés.",
+          "estimate": "Économies : 63,06 M€ de l’État, 9,5 à 12,6 M€ des départements (15 à 20 %), 0 à 9,6 M€ de prime d’activité (4 322 salariés × 0 à 2 230 €). Coûts, pour 2 600 à 2 960 ETP (63,06 M€ / 21 280 € au plus, moins l’amorçage et le fonctionnement) : 12,1 à 17,1 M€ de cotisations (4 670 à 5 790 € par ETP) et 36,1 à 46,4 M€ d’allocations chômage (62 à 70 % du salaire au Smic, tous indemnisés). Net : 9 à 37 M€."
+        },
+        {
+          "id": "plf",
+          "label": "Expérimentation poursuivie (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : 63,06 M€ de l’État. L’expérimentation, prolongée jusqu’au 31 décembre 2026, est en voie de pérennisation au Parlement."
+        },
+        {
+          "id": "plus-10000",
+          "label": "10 000 emplois de plus",
+          "lo": 0.12,
+          "hi": 0.3,
+          "estimate": "10 000 emplois à temps plein × 12 000 à 30 000 € nets par emploi (méthode de la fiche)."
+        },
+        {
+          "id": "plus-50000",
+          "label": "50 000 emplois de plus",
+          "lo": 0.6,
+          "hi": 1.5,
+          "estimate": "50 000 emplois à temps plein × 12 000 à 30 000 € nets par emploi (méthode de la fiche)."
+        },
+        {
+          "id": "plus-100000",
+          "label": "100 000 emplois de plus",
+          "lo": 1.2,
+          "hi": 3,
+          "estimate": "100 000 emplois à temps plein × 12 000 à 30 000 € nets par emploi (méthode de la fiche)."
+        },
+        {
+          "id": "garantie-longue-duree",
+          "label": "Un emploi pour 566 000 chômeurs de longue durée",
+          "lo": 6.8,
+          "hi": 17,
+          "note": "Borne : les 566 000 chômeurs depuis au moins un an (Insee, 2025), en année pleine ; ni le halo du chômage, ni les autres chômeurs.",
+          "estimate": "566 000 emplois (23,1 % de 2 451 000 chômeurs, Insee 2025) × 12 000 à 30 000 € nets par emploi."
+        }
+      ],
+      "estimate": {
+        "method": "Par emploi à temps plein en 2027, au taux de 2026 supposé reconduit (95 % du Smic, fixé chaque année entre 53 et 102 %) : État 21 280 € ; départements 15 à 20 %, 3 190 à 4 260 € ; dotation d’amorçage l’année de création, 0 à 6 720 €. Moins 4 670 à 5 790 € de cotisations (Smic brut moins net, plus 5 % patronal) et 0 à 6 600 € de RSA évité (549 € par mois) ; plus 0 à 2 230 € de prime d’activité (moyenne par foyer) : 12 000 à 30 000 € nets."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "credits-prime-activite-rsa",
+        "depense-assurance-chomage-allocations"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "La dotation d’amorçage n’est due que l’année de création : ensuite, le coût net par emploi baisse de 6 700 € au plus. Recruter autant de personnes prendrait plusieurs années. En cas de fin, l’économie grandit à partir de 2028, quand les droits au chômage des salariés licenciés s’épuisent.",
+      "limits": "Estimation statique, en année pleine : ni effet d’éviction sur d’autres emplois, ni complément d’équilibre des entreprises en déficit, ni recettes de leurs ventes, ni volet formation. Fin : tous les salariés licenciés et indemnisés.",
+      "sources": [
+        {
+          "title": "Projet annuel de performances 2027, mission Travail, emploi et administration des ministères sociaux : programme 102, sous-action 03.05, expérimentation territoriale contre le chômage de longue durée (p. 71)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "participation de l’État à l’expérimentation : 63,06 M€ en 2027 ; contribution au développement de l’emploi fixée à 95 % du Smic brut horaire par emploi ; départements, au moins 15 % du financement de l’État"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : sous-action 03.05, contribution au développement de l’emploi (p. 71)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "contribution de l’État : 95 % du Smic brut horaire par équivalent temps plein, taux fixé par arrêté pour 2026 (entre 53 % et 102 % du Smic selon l’année)"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : sous-action 03.05, financement de l’expérimentation (p. 71)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "départements : au moins 15 % du financement versé par l’État (décret du 30 juin 2021, art. 24) ; 20 % retenu en haut faute de chiffre publié sur les versements réels"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : sous-action 03.05, durée de l’expérimentation (p. 71)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "expérimentation prolongée par la loi de finances pour 2026 jusqu’au 31 décembre 2026 ; le PLF 2027 la finance en 2027 (63,06 M€)"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : sous-action 03.05, dotation d’amorçage (p. 72)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "dotation d’amorçage : au plus 30 % du Smic brut par emploi nouvellement créé, l’année de sa création"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : programme 102, présentation (p. 29)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "4 322 salariés en entreprise à but d’emploi en avril 2026, dans 85 territoires"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : programme 102, présentation (p. 29)",
+          "publisher": "Ministère chargé du travail et de l’emploi (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "pérennisation de l’expérimentation engagée au Parlement (réglage du PLF : expérimentation poursuivie)"
+        },
+        {
+          "title": "Revalorisation annuelle du SMIC au 1er juin 2026",
+          "publisher": "DREETS Normandie (ministère du Travail et des Solidarités)",
+          "url": "https://normandie.dreets.gouv.fr/Revalorisation-annuelle-du-SMIC-au-1er-juin-2026",
+          "date": "2026-05-22",
+          "accessedAt": "2026-10-18",
+          "figure": "Smic : 12,31 € brut de l’heure depuis le 1er juin 2026, 1 867,02 € brut par mois (22 404 € par an)"
+        },
+        {
+          "title": "Revalorisation annuelle du SMIC au 1er juin 2026",
+          "publisher": "DREETS Normandie (ministère du Travail et des Solidarités)",
+          "url": "https://normandie.dreets.gouv.fr/Revalorisation-annuelle-du-SMIC-au-1er-juin-2026",
+          "date": "2026-05-22",
+          "accessedAt": "2026-10-18",
+          "figure": "Smic net : 1 477,93 € par mois, soit 389,09 € de cotisations et contributions salariales par mois (1 867,02 − 1 477,93), 4 670 € par an et par temps plein"
+        },
+        {
+          "title": "Salaire minimum interprofessionnel de croissance : rapport du Groupe d’experts (25 novembre 2025), chapitre 4, graphique IV.6 (p. 143)",
+          "publisher": "Groupe d’experts sur le Smic (rapport publié par la Direction générale du Trésor)",
+          "url": "https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "au niveau du Smic (2025) : 378 € de cotisations salariales pour 1 801 € brut (21 %) et 92 € de cotisations patronales effectives, environ 5 % du brut après les allègements généraux (1 120 € par an et par temps plein en 2026)"
+        },
+        {
+          "title": "Allocation chômage d’aide au retour à l’emploi (ARE) d’un salarié du secteur privé dont la fin de contrat de travail intervient à compter du 1er avril 2025 : montant brut",
+          "publisher": "Direction de l’information légale et administrative (Premier ministre), Service-Public.gouv.fr",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F38881",
+          "date": "2026-07-23",
+          "accessedAt": "2026-10-18",
+          "figure": "allocation brute par jour : 13,18 € plus 40,4 % du salaire journalier de référence, entre 57 % et 70 % de ce salaire ; au Smic à temps plein (61,38 € par jour), 37,98 €, soit 62 % ; jusqu’à 70 % à temps partiel"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 07 « Les dépenses d’allocations » (p. 78)",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d%27allocations.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "RSA versé en moyenne : 549 € par mois et par allocataire en 2023, soit 6 600 € par an (allocation évitée au plus)"
+        },
+        {
+          "title": "PAP 2027, mission Solidarité, insertion et égalité des chances : programme 304, action 11, prime d’activité (p. 40)",
+          "publisher": "Ministère chargé des solidarités (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "prime d’activité : 10,7 Md€ au PLF 2027 ; pour 4,8 millions de foyers (DREES), environ 2 230 € par foyer et par an"
+        },
+        {
+          "title": "Non-recours à la prime d’activité : la moitié des foyers éligibles ne la perçoivent pas fin 2021 (Études et résultats n° 1379, p. 1)",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2026-07/ER1379_Non-recours_PA.pdf",
+          "date": "2026-07",
+          "accessedAt": "2026-10-18",
+          "figure": "4,8 millions de foyers bénéficiaires de la prime d’activité fin 2024 (10,7 Md€ / 4,8 millions : environ 2 230 € par foyer et par an)"
+        },
+        {
+          "title": "Une photographie du marché du travail en 2025 (Insee Première n° 2096)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee)",
+          "url": "https://www.insee.fr/fr/statistiques/8901327",
+          "date": "2026-03-25",
+          "accessedAt": "2026-10-18",
+          "figure": "chômage de longue durée : 1,8 % des actifs et 23,1 % des chômeurs en 2025"
+        },
+        {
+          "title": "Chômage selon le sexe et l’âge : nombre de chômeurs en 2025 (en milliers)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee)",
+          "url": "https://www.insee.fr/fr/statistiques/2489498",
+          "date": "2026-03-25",
+          "accessedAt": "2026-10-18",
+          "figure": "2 451 000 chômeurs au sens du BIT en 2025 ; à 23,1 %, environ 566 000 chômeurs de longue durée"
+        }
+      ]
+    },
+    {
+      "id": "epargne-retraite-per",
+      "family": "impots",
+      "label": "Épargne retraite : avantages fiscaux",
+      "today": "Versements déduits du revenu, dans un plafond ; sorties taxées",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût de ces avantages",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0255,
+        "hi": 0.0425
+      },
+      "base": {
+        "value": 1.784,
+        "label": "Au moins 1,78 Md€ en 2022 selon la Cour des comptes, dont 0,73 Md€ pour la déduction des versements individuels comptée sur la durée (report de l’impôt, taux plus bas à la retraite). Sur la seule année, l’ensemble de ces avantages coûte davantage : environ 3,4 Md€ en 2027 (estimation).",
+        "source": {
+          "title": "L’épargne retraite (rapport public thématique), tableau n° 8 (p. 55)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf"
+        }
+      },
+      "max": 50,
+      "step": 1,
+      "notches": [
+        -50,
+        -25,
+        0,
+        25,
+        50
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "Coût de 2027, statique. 1) Versements individuels déduits : 5,9 Md€ (revenus 2021, Cour) × 1,15 à 1,35 pour 2026 (cotisations : 9,3 Md€ en 2021, 11,6 en 2024, DREES) × un taux marginal moyen de 25 à 33 % : 1,7 à 2,6 Md€. 2) Épargne salariale en plans collectifs : 0,59 (2022) à 0,75 Md€ (2,89 Md€ × 18,6 % en 2026, plus les revenus). 3) Sorties en capital : 0,25 à 0,4 Md€. 4) Cotisations : 0,2 à 0,25 Md€. Total 2,7 à 4,0, centre 3,4 Md€, ±25 %."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0255,
+          "hi": 0.051
+        },
+        "perUnitDown": {
+          "lo": 0.016,
+          "hi": 0.0425
+        },
+        "why": "Jusqu’à ±100 % : la suppression de ces avantages, ou leur doublement. Au-delà de ±50 %, bas réduit d’un tiers à la baisse (une part de l’épargne irait vers l’assurance-vie ou le PEA), haut relevé d’un cinquième à la hausse (plus d’épargnants verseraient)."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "forfait-social-taux",
+        "pfu-taux-ir"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Moins de déduction à l’entrée, c’est aussi moins d’impôt à la sortie, des années plus tard : à long terme, l’effet est plus faible qu’en 2027. Hors total.",
+      "limits": "Compté en 2027 comme une dépense fiscale (impôt de 2027 sur les revenus de 2026) ; limité aux versements de 2027, il joue en 2028. Sans la déduction des versements des indépendants et des contrats obligatoires d’entreprise, non chiffrée.",
+      "sources": [
+        {
+          "title": "L’épargne retraite (rapport public thématique), tableau n° 11 : déclarations à l’impôt sur le revenu (p. 76)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf",
+          "date": "2024-11-07",
+          "accessedAt": "2026-10-18",
+          "figure": "Versements d’épargne retraite individuelle déduits du revenu (hors indépendants) : 5 895 M€ sur les revenus de 2021, par 1,6 million de foyers ; 9 279 M€ versés selon la DREES"
+        },
+        {
+          "title": "L’épargne retraite (rapport public thématique), taux marginaux des épargnants (p. 71)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf",
+          "date": "2024-11-07",
+          "accessedAt": "2026-10-18",
+          "figure": "Près de 45 % des déclarants des nouveaux plans imposés à 30 %, 7 % non imposables : un taux marginal moyen de 25 à 33 % (calcul)"
+        },
+        {
+          "title": "L’épargne retraite (rapport public thématique), versements moyens par taux marginal (p. 72)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf",
+          "date": "2024-11-07",
+          "accessedAt": "2026-10-18",
+          "figure": "Versement moyen de 25 937 € pour les épargnants imposés à 45 %, de 3 016 € pour ceux imposés à 11 %"
+        },
+        {
+          "title": "L’épargne retraite (rapport public thématique), tableau n° 8 : dépenses fiscales et sociales associées à l’épargne retraite en 2022 (p. 55)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf",
+          "date": "2024-11-07",
+          "accessedAt": "2026-10-18",
+          "figure": "Épargne salariale placée en plans collectifs : 585 M€ d’impôt (montant bas) ; exemptions de cotisations : 226 M€"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome II (dépenses fiscales), PLF 2026 : dépense fiscale n° 120508 (p. 80)",
+          "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Imposition à taux forfaitaire des sorties en capital (12,8 % pour les plans d’épargne retraite, 7,5 % pour les autres) : 379 M€ prévus en 2026, dont une part hors des plans (d’où un bas de 0,25 Md€)"
+        },
+        {
+          "title": "L’épargne retraite (rapport public thématique), synthèse (p. 11)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf",
+          "date": "2024-11-07",
+          "accessedAt": "2026-10-18",
+          "figure": "La déduction des versements n’est plus une dépense fiscale depuis 2011 : aucune ligne des Voies et moyens ne la chiffre"
+        },
+        {
+          "title": "Les Plans épargne retraite représentent 77 % des cotisations de retraite supplémentaire en 2024",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/jeux-de-donnees/les-plans-epargne-retraite-cotisation",
+          "date": "2026-02-03",
+          "accessedAt": "2026-10-18",
+          "figure": "PER individuels : 10,1 Md€ de cotisations en 2024, 87 % des versements individuels hors cadre professionnel, soit environ 11,6 Md€ (calcul), contre 9,3 Md€ en 2021 (Cour, tableau n° 11) : × 1,25"
+        },
+        {
+          "title": "L’épargne retraite (rapport public thématique), dépense fiscale de l’épargne salariale placée en épargne retraite (p. 49)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241105-Epargne-retraite.pdf",
+          "date": "2024-11-07",
+          "accessedAt": "2026-10-18",
+          "figure": "Part de l’épargne retraite dans les flux d’épargne salariale : 18,6 % ; dans les encours : 15,7 % ; 585 M€ en 2022"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome II (dépenses fiscales), PLF 2026 : dépenses fiscales du programme 145 « Épargne » (p. 220)",
+          "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Exonération de l’épargne salariale versée sur les plans (n° 120108) : 2 890 M€ en 2026 ; × 18,6 % pour la part retraite (Cour) : 0,54 Md€ (calcul), avant les revenus des plans"
+        }
+      ]
+    },
+    {
+      "id": "exit-tax",
+      "family": "impots",
+      "label": "Exit tax (départ à l’étranger)",
+      "today": "Impôt calculé au départ, dû à la revente, effacé après 2 ou 5 ans",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.025,
+        "label": "Un peu moins de 25 M€ par an d’exit tax encaissés en moyenne depuis 2011 (impôt sur le revenu et prélèvements sociaux, CPO 2025)",
+        "source": {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.2.3 (p. 130)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "suppression",
+          "label": "Supprimer l’exit tax",
+          "lo": -0.005,
+          "hi": 0,
+          "note": "Presque rien en 2027, les sursis en cours gardant leurs règles ; à terme, environ 25 M€ par an perdus (estimation).",
+          "estimate": "Comme pour le délai de 15 ans, la règle vaut pour les nouveaux départs (ceux de 2026, déclarés en 2027, en année pleine) ; les sursis en cours gardent leurs règles. En 2027 ne sont perdus que l’impôt payé sans sursis (5 % des cas, CPO) et celui des reventes de l’année : au plus un cinquième de la recette moyenne de 25 M€ par an (345,7 M€ de 2011 à mars 2025, CPO), soit 0 à 5 M€, hypothèse fruste. L’effet dissuasif n’est pas compté."
+        },
+        {
+          "id": "plf",
+          "label": "Régime actuel : effacement après 2 ou 5 ans",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027, qui fait tomber le sursis en cas de donation ou de succession des titres d’apport (article 5)."
+        },
+        {
+          "id": "delai-15-ans",
+          "label": "Effacement après 15 ans au lieu de 2 ou 5",
+          "lo": 0,
+          "hi": 0,
+          "note": "Rien en 2027 ; à terme, au plus de l’ordre de 25 M€ par an (estimation).",
+          "estimate": "En 2027, rien : la règle vaut pour les nouveaux départs, et l’impôt en sursis n’est dû qu’à la revente des titres ; un délai plus long ne joue que sur les reventes faites plus de deux ans après le départ, déclarées à partir de 2029. À terme, au plus de l’ordre de la recette moyenne en plus (25 M€ par an, CPO), hypothèse fruste. L’effet dissuasif sur les départs n’est pas compté."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "apport-cession-report"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "À terme (estimation) : la suppression ferait perdre environ 25 M€ par an ; un délai de 15 ans rapporterait au plus de l’ordre de 25 M€ par an, à partir de 2029.",
+      "limits": "Recette moyenne depuis 2011 (CPO), aucune année récente publiée. Les deux réglages visent les nouveaux départs ; l’impôt n’étant dû qu’à la revente, presque rien ne joue en 2027. L’effet dissuasif sur les départs n’est pas chiffré.",
+      "sources": [
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.2.3 (p. 130)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "162,8 M€ d’impôt sur le revenu et 182,9 M€ de prélèvements sociaux encaissés de 2011 à mars 2025, un peu moins de 25 M€ par an"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.2.3 (p. 130)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Sursis de paiement accordé dans 95 % des cas, puis dégrèvement à l’issue d’une période"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.2.3 (p. 130)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "« Plus une arme de dissuasion qu’un impôt de rendement », dont l’impact reste peu évalué (3 362 dossiers en cours en mai 2025)"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 133",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis la loi de finances pour 2019, sursis automatique et effacement complet après 2 à 5 ans"
+        }
+      ]
+    },
+    {
+      "id": "exoneration-hausses-salaire",
+      "family": "impots",
+      "label": "Exonération des hausses de salaire",
+      "today": "Aucune exonération des hausses de salaire au PLFSS 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des hausses de salaire de 2027 exonérées",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.07,
+        "hi": 0.14
+      },
+      "perUnitDown": {
+        "lo": 0.03,
+        "hi": 0.105
+      },
+      "base": {
+        "value": 83.3,
+        "label": "83,3 Md€ d’exonérations de cotisations en faveur de l’emploi prévues en 2027 (régimes de base, Unédic, Agirc-Arrco, Fnal), dont 72,8 Md€ d’allègements généraux : la ligne à laquelle s’ajouterait l’exonération des hausses (rapport à la CCSS d’octobre 2026)",
+        "source": {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi » (p. 66)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
+        }
+      },
+      "max": 100,
+      "step": 1,
+      "notches": [
+        -100,
+        -50,
+        0,
+        50,
+        100
+      ],
+      "baseLabel": "PLFSS",
+      "estimate": {
+        "method": "Hausses de 2027 : 759 Md€ de masse salariale privée (1 point = 7,59 Md€, CCSS) × 2,8 % de salaire moyen en plus (PLFSS) = 21,3 Md€. Bas : la hausse sort de l’assiette, la RGDU reste calculée sur toute la paie : taux patronal plein, au moins 40 points (DSS), 8,5 Md€. Haut : la RGDU reste celle d’avant la hausse ; elle recule de 1,6 % par point de hausse à Smic donné (CCSS : −1,0 % au lieu de +1,1 %), +3,1 Md€ sur 69 : 11,6 Md€. Élargi : 7 à 14."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux",
+        "cotisations-retraite",
+        "cotisations-sociales"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Si l’exonération des hausses de 2027 dure, son coût demeure les années suivantes et s’ajoute à celui des hausses suivantes : hors du total.",
+      "limits": "Estimation statique, secteur privé, année pleine, hausses mesurées par le salaire moyen. Sous 0, le miroir : une cotisation en plus sur les hausses, qui les freinerait (3 à 10,5 Md€ à −100 %). Impôt sur les sociétés, emploi non comptés.",
+      "sources": [
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, synthèse, tableau 1 « Principales hypothèses macroéconomiques du PLFSS pour 2027 » (p. 7)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Salaire moyen du secteur privé : +2,8 % en 2027 ; masse salariale soumise à cotisations : +2,4 % (emploi −0,4 %)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.2 « Les cotisations » (p. 48) et encadré 2 « Valeurs de point de cotisation » (p. 51)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "1 point de cotisation déplafonnée sur les employeurs du secteur privé du régime général : 7 590 M€ en 2026, soit une masse salariale de 759 Md€ (calcul)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.2 « Les cotisations » (p. 48)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "En 2027, le salaire moyen (+2,8 %) progresserait plus vite que le Smic (+1,5 %) : la RGDU recule quand les salaires montent au-dessus du Smic"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi » (p. 66) : le passage à la réduction générale dégressive unique",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis le 1er janvier 2026, plus de taux réduits de cotisations patronales maladie et famille dans le privé : une hausse de salaire supporte le taux patronal plein, l’allègement passant tout entier par la RGDU"
+        },
+        {
+          "title": "REPSS Financement, indicateur 1.5.2 « Salaire superbrut en fonction du niveau de rémunération des salariés »",
+          "publisher": "Direction de la sécurité sociale (REPSS Financement, evaluation.securite-sociale.fr)",
+          "url": "https://evaluation.securite-sociale.fr/home/financement/1-5-2-salaire-superbrut-en-fonct.html",
+          "date": "2026",
+          "accessedAt": "2026-10-18",
+          "figure": "Au niveau du Smic, les allègements couvrent environ 40 points de cotisations patronales, qui ne laissent plus de prélèvement patronal de sécurité sociale : le taux patronal plein est d’au moins 40 points"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi » (p. 66) : évolution de la RGDU en 2027",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "RGDU 2027 : −1,0 % spontanément ; avec des salaires suivant le Smic (+1,5 %) et l’emploi (−0,4 %), elle aurait crû d’environ 1,1 % : un recul d’environ 1,6 % par point de salaire au-dessus du Smic (calcul : −2,1 / 1,3)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 1 « Synthèse par branche de sécurité sociale et hors régimes de sécurité sociale » (p. 67)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Allègements généraux : 72 762 M€ en 2027 (p), tous attributaires, avant le PLFSS 2027"
+        },
+        {
+          "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour 2027, tableau 7 « Mesures nouvelles en prélèvements obligatoires pour 2027 »",
+          "publisher": "Haut Conseil des finances publiques",
+          "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+          "date": "2026-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "3,7 Md€ d’allègements en moins en 2027 par le PLFSS : 72,8 − 3,7 = 69,1 Md€ d’allègements généraux, la base du recul de la RGDU (calcul)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi » (p. 66)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Exonérations en faveur de l’emploi : 83,3 Md€ en 2027 (régimes de base, Unédic, Agirc-Arrco, Fnal), la ligne à laquelle s’ajouterait la mesure"
+        }
+      ]
+    },
+    {
+      "id": "exonerations-apprentis",
+      "family": "impots",
+      "label": "Apprentis : cotisations exonérées",
+      "today": "Salariales exonérées jusqu’à 50 % du Smic ; 1 228,7 M€ en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût de l’exonération",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.01094,
+        "hi": 0.01143
+      },
+      "base": {
+        "value": 1.22871,
+        "label": "1 228,7 M€ de compensation des exonérations liées à l’apprentissage au PLF 2027 (programme 103, sous-action 01.03) : cotisations salariales des apprentis et patronales des employeurs publics",
+        "source": {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.03 « Exonérations liées à l’apprentissage » (p. 122)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0093,
+          "hi": 0.01143
+        },
+        "why": "Jusqu’à −100 % : la suppression, proposée au PLFSS 2026 pour les nouveaux contrats (Sénat) ; +100 % est le miroir, sans mesure précise (revenir au plafond de 79 % du Smic : environ +29 %). Au-delà de ±25 %, bas réduit de 15 % : le nombre d’apprentis réagirait."
+      },
+      "amount": {
+        "value": 1.143,
+        "lo": 1.094,
+        "label": "1,09 à 1,14 Md€ comptés : les 1 228,7 M€ compensés par l’État, moins la part des employeurs publics (flux interne aux administrations)"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "Une mesure limitée aux nouveaux contrats, comme la suppression proposée au PLFSS 2026, n’atteint son plein effet qu’en deux à trois ans, quand les contrats en cours sont finis.",
+      "limits": "Compte les cotisations salariales des apprentis (jusqu’à 50 % du Smic), pas les patronales des employeurs publics : flux interne aux administrations publiques. CSG-CRDS, impôt sur le revenu et nombre d’apprentis non comptés.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.03 « Exonérations liées à l’apprentissage » (p. 122)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "1 228,71 M€ en 2027 (AE = CP) : cotisations salariales des apprentis, toutes caisses (retraite complémentaire comprise), et patronales des employeurs publics ; moins la part de ces derniers, 7 à 11 % (calcul d’Isoloir) : 1 094 à 1 143 M€ comptés"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 (exonérations ciblées), p. 69",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contrat d’apprentissage : 1 071 M€ en 2025, 832 M€ en 2027 (p), sur les seuls régimes de base : recoupement (environ 68 % des 1 228,7 M€, la part des régimes de base dans les cotisations exonérées), pas une borne ; la baisse vient surtout du plafond de 50 % du Smic"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi »",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La baisse du coût de 1 071 M€ (2025) à 832 M€ (2027) vient surtout du plafond de 50 % du Smic : revenir au plafond de 79 % coûterait de l’ordre de +29 % (calculé)"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.03 (p. 122)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Exonération salariale plafonnée à 50 % du Smic pour les contrats conclus depuis le 1er mars 2025 (79 % avant)"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.03, employeurs publics (p. 122)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Employeurs publics : toutes les cotisations patronales sauf AT-MP, sur tout le salaire ; flux interne aux administrations publiques, sans effet sur le déficit, retiré du coût compté"
+        },
+        {
+          "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux, programme 103, sous-action 01.02 (p. 121)",
+          "publisher": "Ministère du travail, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "847 000 entrées en apprentissage en 2025, dont plus de 825 000 dans le privé : 2,6 % au plus chez les employeurs publics ; leur exonération patronale, sur tout le salaire, pèse bien plus par apprenti que l’exonération salariale du privé, d’où 7 à 11 % du coût (calcul d’Isoloir)"
+        },
+        {
+          "title": "Rapport n° 131 (2025-2026) sur le projet de loi de financement de la sécurité sociale pour 2026, tome I, exposé général, note 81",
+          "publisher": "Sénat, commission des affaires sociales",
+          "url": "https://www.senat.fr/rap/l25-131-1/l25-131-1_mono.html",
+          "date": "2025-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Le PLFSS 2026 (article 9) proposait de supprimer l’exonération des apprentis pour les nouveaux contrats : la borne −100 %"
+        }
+      ]
+    },
+    {
+      "id": "exonerations-jeunes-entreprises",
+      "family": "impots",
+      "label": "Exonérations des jeunes entreprises",
+      "today": "411 M€ en 2027 : JEI et JEC 207 M€, Acre (créateurs) 204 M€",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût des exonérations",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.002466,
+        "hi": 0.00411
+      },
+      "base": {
+        "value": 0.411,
+        "label": "411 M€ d’exonérations prévues en 2027 sur les régimes de base : JEI et JEC 207 M€, Acre 204 M€ (rapport CCSS d’octobre 2026, avant le PLFSS 2027)",
+        "source": {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 « Principales mesures d’exonérations ciblées entre 2024 et 2027 » (p. 69)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLFSS",
+      "estimate": {
+        "method": "1. Coût 2027 (CCSS, tableau 4) : JEI et JEC 207 M€, Acre 204 M€, soit 411 M€ ; haut : 1 % de ce coût, 4,11 M€ par point. 2. Bas à 60 % : une part des cotisations des chercheurs pourrait être reprise par la réduction générale si l’exonération JEI baissait, ou cesser d’en bénéficier si elle montait ; sans l’Acre, moins de créations (déjà −47 % en 2027). 3. Soit 2,47 à 4,11 M€ par point (±25 % autour de 3,29), sur toute l’année."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.002055,
+          "hi": 0.00411
+        },
+        "why": "Jusqu’à −100 % : la suppression des deux exonérations ; +100 % : leur doublement. Au-delà de ±25 %, extrapolation, bas à 50 % : réduction générale reprise ou perdue sur une part des salaires, dans les deux sens ; en baisse, créations qui ne se feraient plus."
+      },
+      "amount": {
+        "value": 0.411,
+        "label": "411 M€ d’exonérations de cotisations en 2027 : jeunes entreprises innovantes et de croissance (207 M€), aide aux créateurs et repreneurs d’entreprise (204 M€)"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux"
+      ],
+      "operatorCaveat": false,
+      "limits": "Coût brut des régimes de base, prévu avant le PLFSS 2027 ; hors jeunes entreprises universitaires (3 M€) et volet fiscal de la JEI, en extinction. La compensation versée par l’État (218,7 M€) reste interne aux APU.",
+      "sources": [
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 « Principales mesures d’exonérations ciblées entre 2024 et 2027 » (p. 69)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Jeunes entreprises innovantes et de croissance : 207 M€ en 2027 (p), régimes de base"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 « Principales mesures d’exonérations ciblées entre 2024 et 2027 » (p. 69)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aide aux créateurs et repreneurs d’entreprise, micro-entrepreneurs compris : 204 M€ en 2027 (p), −47,2 %"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi » (p. 68)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Acre : −47,2 % en 2027, moins de bénéficiaires et un montant moyen plus faible après la réforme"
+        },
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 192, action 02 (p. 342)",
+          "publisher": "Ministère chargé de l’économie (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Champ de l’exonération JEI : cotisations patronales d’assurances sociales et d’allocations familiales des personnels de recherche"
+        },
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 192, action 02 (p. 342)",
+          "publisher": "Ministère chargé de l’économie (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Compensation forfaitaire de l’exonération JEI par l’État : 218,7 M€ en 2027 (transfert interne aux administrations publiques)"
+        }
+      ]
+    },
+    {
+      "id": "exonerations-outre-mer",
+      "family": "impots",
+      "label": "Exonérations sociales outre-mer",
+      "today": "1 931 M€ compensés en 2027 : Lodeom, indépendants, particuliers",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de l’avantage en plus de la réduction générale",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.005407,
+        "hi": 0.012551
+      },
+      "base": {
+        "value": 1.93096,
+        "label": "1 931,0 M€ de compensation des exonérations de cotisations propres à l’outre-mer au PLF 2027 (programme 138, action 01) ; 1 335 M€ sur les seuls régimes de base (CCSS)",
+        "source": {
+          "title": "PAP 2027, mission Outre-mer, programme 138 « Emploi outre-mer », action 01 « Soutien aux entreprises » (p. 40)",
+          "publisher": "Ministère des outre-mer, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1 931 M€ compensés en 2027 (PAP), dont 1 335 M€ aux régimes de base (CCSS). Supprimées, les entreprises auraient la réduction générale : autant au Smic (40 %), moins jusqu’à 3 Smic (Sénat). Écart par salaire avec les barèmes du PAP, sur des salaires supposés par Isoloir, sans donnée publiée (50 à 70 % sous 1,2 Smic) : 28 à 45 % du coût (compétitivité), 42 à 65 % (renforcée). Indépendants, particuliers employeurs : relais du droit commun."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.004325,
+          "hi": 0.012551
+        },
+        "why": "Jusqu’à −100 % : la suppression, idée du débat ; +100 %, l’avantage doublé, est le miroir, sans mesure précise. Au-delà de ±25 %, bas réduit d’un cinquième : l’effet sur l’emploi déclaré, ignoré par le calcul statique."
+      },
+      "amount": {
+        "value": 1.255,
+        "lo": 0.541,
+        "label": "0,54 à 1,26 Md€ d’avantage en plus de la réduction générale (estimation), sur les 1 931 M€ compensés"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux"
+      ],
+      "operatorCaveat": false,
+      "limits": "Supprimées (−100 %), les entreprises auraient la réduction générale, qui efface autant au Smic : seul l’avantage en plus est gagné. Effets sur l’emploi déclaré et l’impôt sur les sociétés non comptés.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 138 « Emploi outre-mer », action 01 « Soutien aux entreprises » (p. 40)",
+          "publisher": "Ministère des outre-mer, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "1 930 961 480 € de compensation en 2027 (AE = CP) des exonérations propres à l’outre-mer (Lodeom, indépendants, particuliers employeurs) : leur coût brut, toutes caisses"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 (exonérations ciblées), p. 69",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Exonérations en outre-mer : 1 335 M€ en 2027 (p) sur les seuls régimes de base (champ du tableau), cohérent avec les 1 931 M€ toutes caisses"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 138, action 01 (p. 38)",
+          "publisher": "Ministère des outre-mer, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Environ 40 % d’exonération au niveau du Smic avec Lodeom : les cotisations patronales y sont annulées"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 138, action 01, note [1] (p. 40)",
+          "publisher": "Ministère des outre-mer, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "39,81 % ou 40,21 % au Smic avec Lodeom et les réductions de taux maladie et famille"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 138, action 01, régime de compétitivité (p. 39)",
+          "publisher": "Ministère des outre-mer, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Régime de compétitivité : exonération totale jusqu’à 1,3 Smic, nulle à 2,2 Smic"
+        },
+        {
+          "title": "PAP 2027, mission Outre-mer, programme 138, action 01, régime de compétitivité renforcée (p. 39)",
+          "publisher": "Ministère des outre-mer, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128249/file/PAP%202027%20-%20Outre-mer.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Régime de compétitivité renforcée : exonération totale jusqu’à 2 Smic, nulle à 2,7 Smic"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome II, fascicule 1, sur le projet de loi de finances pour 2026, p. 755",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-21/l25-139-211.pdf",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "La réduction générale, qui s’appliquerait à la place, couvre les salaires sous 3 Smic, avec 2 % au moins"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome II, fascicule 1, sur le projet de loi de finances pour 2026, p. 755",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-21/l25-139-211.pdf",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "210 M€ de TVA prévus pour l’effet, sur la réduction générale, du recentrage des exonérations ciblées (Lodeom, Acre) proposé pour 2026 : une baisse de Lodeom est en partie reprise par la réduction générale"
+        }
+      ]
+    },
+    {
+      "id": "exonerations-saisonniers-agricoles",
+      "family": "impots",
+      "label": "Saisonniers agricoles : exonération",
+      "today": "593,5 M€ en 2027, dont 60 à 179 M€ au-delà de la réduction générale",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de l’avantage en plus de la réduction générale",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0006,
+        "hi": 0.00179
+      },
+      "base": {
+        "value": 0.593478,
+        "label": "593,5 M€ de compensation de l’exonération des travailleurs occasionnels agricoles (TO-DE) au PLF 2027 (programme 149, action 25), après fusion du programme 381",
+        "source": {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 25 « Protection sociale » (p. 55)",
+          "publisher": "Ministère de l’agriculture, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "593,5 M€ compensés en 2027 (PAP ; 422 M€ aux régimes de base, CCSS). Supprimée, les employeurs auraient la réduction générale : seul le surplus est gagné. Deux calculs. En 2026, le programme 149 compensait ce surplus : 142,55 M€ sur 591,55 (Sénat), 24,1 %, soit 143 M€. Par les barèmes (plateau à 1,25 Smic), salaires collés au Smic (Sénat), où la réduction générale efface presque autant : 8 à 15 %, plus les contrats vendanges. D’où 60 à 179 M€."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00048,
+          "hi": 0.00179
+        },
+        "why": "Jusqu’à ±100 % : supprimer l’avantage (les employeurs gardent la réduction générale) ou, en miroir, le doubler. Au-delà de ±25 %, bas réduit d’un cinquième : l’effet sur l’embauche saisonnière déclarée, ignoré par le calcul statique."
+      },
+      "amount": {
+        "value": 0.179,
+        "lo": 0.06,
+        "label": "60 à 179 M€ d’avantage en plus de la réduction générale (estimation), sur les 593,5 M€ compensés"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux"
+      ],
+      "operatorCaveat": false,
+      "limits": "Supprimée (−100 %), les employeurs gardent la réduction générale : seul l’avantage en plus (dont les contrats vendanges) est gagné. Effet sur l’emploi saisonnier déclaré et cotisations des exploitants non comptés.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 25 « Protection sociale » (p. 55)",
+          "publisher": "Ministère de l’agriculture, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "593 478 483 € en 2027 (AE = CP) pour compenser l’exonération des travailleurs occasionnels (TO-DE), tout le dispositif sur le programme 149 après la fusion du programme 381"
+        },
+        {
+          "title": "PAP 2027, mission Agriculture et alimentation, programme 149, action 25 (p. 56)",
+          "publisher": "Ministère de l’agriculture, PAP annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128206/file/PAP%202027%20-%20Agriculture%20et%20alimentation.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût de la mesure compensé en entier à la MSA et à l’Unédic : 593,5 M€ en 2027"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 (exonérations ciblées), p. 69",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "TO-DE : 422 M€ en 2027 (p) sur les seuls régimes de base (champ du tableau)"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3 « Agriculture, alimentation, forêt et affaires rurales », sur le projet de loi de finances pour 2026",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Programme 381 : 449 M€ en 2026, le reste de la compensation du TO-DE, soit la part que la réduction générale couvrirait aussi"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3, sur le projet de loi de finances pour 2026 (action 25 du programme 149)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Programme 149, sous-action 25-17 : 142,55 M€ en 2026 (TO-DE et contrats vendanges) ; avec les 449 M€ du programme 381, 591,55 M€, dont 24,1 % (calculé)"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3, sur le projet de loi de finances pour 2026 (programme 381, objet)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Le programme 381 couvre « la différence » entre le coût sans exonération et le coût avec les seuls allègements généraux renforcés : la part que ceux-ci couvriraient aussi. Isoloir écarte la lecture inverse (tout le programme 381 en plus), contredite par la phrase sur le surplus et par son financement par la TVA de 2019 à 2022, comme les allègements généraux"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3, sur le projet de loi de finances pour 2026 (programme 381)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Le programme 149 compense le surplus d’exonération par rapport aux allègements généraux : la part que la réduction générale ne reprendrait pas. Plateau d’exonération totale relevé depuis de 1,2 à 1,25 Smic (même rapport)"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3, sur le projet de loi de finances pour 2026 (programme 381, financement)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "De 2019 à 2022, le TO-DE était financé par une fraction de TVA, comme les allègements généraux ; le surplus restait sur le programme 149"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3, sur le projet de loi de finances pour 2026 (programme 381, salaires)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Salaires des saisonniers très liés au Smic : là, la réduction générale efface presque autant que le TO-DE, d’où un surplus faible par les barèmes"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome III, annexe 3, sur le projet de loi de finances pour 2026 (engagements tenus)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Plateau d’exonération totale du TO-DE relevé de 1,2 à 1,25 Smic"
+        }
+      ]
+    },
+    {
       "id": "forfait-social-taux",
       "family": "impots",
       "label": "Forfait social : tous les taux",
@@ -4217,10 +10347,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, chapitre « Les recettes », tableau 2 (p. 61)",
           "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Forfait social : 6 300 M€ (2024), 6 552 (2025), 6 629 (2026 p), 6 756 (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 25,
@@ -4233,6 +10360,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLFSS",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.04,
+          "hi": 0.06756
+        },
+        "perUnitDown": {
+          "lo": 0.06756,
+          "hi": 0.0845
+        },
+        "why": "−100 % : la suppression, la ligne entière ; +100 % par symétrie : taux normal de 40 % (8 % à 20 % en 2012, IPP). Hausse : bas réduit de 40 %, l’intéressement est facultatif. Baisse : jusqu’à un quart de plus si des salaires deviennent de l’intéressement."
+      },
       "amount": {
         "value": 6.756,
         "label": "6 756 M€ de forfait social prévus en 2027, avant les mesures du PLFSS (CCSS)"
@@ -4249,6 +10388,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Produit du forfait social : 6 756 M€ en 2027 (p)"
         }
+      ],
+      "overlapsWith": [
+        "epargne-retraite-per"
       ]
     },
     {
@@ -4272,10 +10414,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépenses d’intervention (p. 167)",
           "publisher": "Ministère chargé de l’aménagement du territoire (PAP annexé au PLF 2027)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "France services : 84,4 M€ en AE et CP en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
         }
       },
       "max": 5,
@@ -4288,6 +10427,18 @@ export const budget: BudgetData = {
         5
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 30,
+        "perUnit": {
+          "lo": 0.005,
+          "hi": 0.014
+        },
+        "perUnitDown": {
+          "lo": 0.004,
+          "hi": 0.011
+        },
+        "why": "±3 000 espaces : tout le réseau (2 865 en septembre 2026, le 3 000e en 2027, PAP). Bas à 40 000 € par espace fermé : ses usagers vont aux guichets des partenaires ; haut à 140 000 € par espace ouvert : il coûte plus en ville qu’à la campagne (Cour)."
+      },
       "exclusiveWith": [],
       "overlapsWith": [
         "effectifs-publics"
@@ -4322,6 +10473,687 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "franchises-medicales",
+      "family": "sociale",
+      "label": "Franchises et participations",
+      "today": "2 € par consultation, 1 € par boîte ; plafonds indexés de 70 € chacun",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 % des montants et des plafonds",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.022,
+        "hi": 0.0285
+      },
+      "perUnitDown": {
+        "lo": 0.025,
+        "hi": 0.0285
+      },
+      "base": {
+        "value": 2.5,
+        "label": "2,5 Md€ de franchises et participations en 2025, tous régimes de base (Cour des comptes). Avec les plafonds portés à 70 € en octobre 2026 : environ 2,85 Md€ en 2027 (0,3 Md€ dès 2026 et 0,05 Md€ de plus en 2027, CCSS ; calcul).",
+        "source": {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre V « Les franchises et participations forfaitaires de l’assurance maladie », présentation (p. 175)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf"
+        }
+      },
+      "max": 100,
+      "step": 5,
+      "notches": [
+        -100,
+        -50,
+        0,
+        50,
+        100
+      ],
+      "baseLabel": "PLFSS",
+      "exclusiveWith": [
+        "ondam"
+      ],
+      "overlapsWith": [
+        "prise-en-charge-assurance-maladie"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique : sans le recul ou la hausse des soins qui suivrait. Hausse calculée sur le rendement de 2027 (2,85 Md€), le bas si 78 % seulement est recouvré. Comptées en recette : en comptabilité, elles réduisent les remboursements.",
+      "sources": [
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre V « Les franchises et participations forfaitaires de l’assurance maladie », rendement (p. 181)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Rendement des franchises et participations : 2,5 Md€ en 2025, tous régimes de base ; suppression : 2,5 Md€ de remboursements en plus"
+        },
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre V « Les franchises et participations forfaitaires de l’assurance maladie », projets de 2025 (p. 189)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Doublement des montants et des plafonds (projets de décrets de 2025) : 2,3 Md€ en année pleine, « un doublement du rendement total » ; +1 % des montants et des plafonds, c’est +1 % du rendement : 2,85 Md€ pour un doublement en 2027 (calcul)"
+        },
+        {
+          "title": "Sécurité sociale : la boîte à outils du Sénat, rapport d’information n° 901 (2024-2025)",
+          "publisher": "Sénat, commission des affaires sociales (MECSS)",
+          "url": "https://www.senat.fr/rap/r24-901/r24-901_mono.html",
+          "date": "2025-09-23",
+          "accessedAt": "2026-10-18",
+          "figure": "Doublement des franchises et participations et de leurs plafonds annuels (de 50 à 100 €) : environ 1,8 Md€ sur les règles de 2025 (contexte, non repris tel quel)"
+        },
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre V « Les franchises et participations forfaitaires de l’assurance maladie », doublement de 2024 (p. 181)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Doublement des seuls montants en 2024, plafonds inchangés : 820 M€ (+56 %) en année pleine 2025 ; les plafonds freinent la hausse"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche « L’ONDAM en 2025, 2026 et 2027 » (p. 80)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafonds annuels portés à 70 € chacun en octobre 2026 : 0,3 Md€ dès 2026"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, ONDAM tendanciel 2027, soins de ville (p. 88)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Effet en année pleine en 2027 des plafonds à 70 € : 0,05 Md€ de plus ; rendement de 2027 d’environ 2,85 Md€ (calcul)"
+        },
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre V « Les franchises et participations forfaitaires de l’assurance maladie », recouvrement (p. 184)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-5-Franchises-et-participations-forfaitaires-de-l-assurance-maladie.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de recouvrement des sommes réclamées aux assurés : 78 % sur 2020-2024 ; bas de la hausse : 78 % de 2,85 Md€ pour un doublement, soit 2,2 Md€ (calcul)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, synthèse (p. 10)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafonds annuels relevés à 70 € et indexés au 1er octobre 2026 : dans la base du PLFSS 2027"
+        }
+      ]
+    },
+    {
+      "id": "grandes-transmissions-plancher",
+      "family": "impots",
+      "label": "Très grosses transmissions",
+      "today": "Aucun impôt minimum : environ 5 % payés sur 100 M€ transmis en Dutreil",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de l’impôt minimum par bénéficiaire, sur la pleine valeur reçue (démembrement compris), droits déjà payés déduits",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 22.029,
+        "label": "22,0 Md€ de droits de succession et de donation prévus en 2027 (état A, lignes 1705 et 1706), sur lesquels s’ajouterait l’impôt minimum",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 et 1706 (p. 231)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "Aucun",
+      "options": [
+        {
+          "id": "aucun",
+          "label": "Pas d’impôt minimum (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "7-5-total-5m",
+          "label": "Au moins 7,5 % du total, si plus de 5 M€ reçus",
+          "lo": 0.075,
+          "hi": 0.6,
+          "note": "Le dessin du CPO (tableau n° 15) : 7,5 % de toute la transmission, abattements décomptés, donations des 15 ans réintégrées, droits payés déduits ; non chiffré par le CPO.",
+          "estimate": "7,5 % de 6,3 à 19,6 Md€ reçus, moins 5 % déjà payés : 0,16 à 0,49 Md€ pour les 110 plus gros bénéficiaires du Dutreil ; les autres (2 à 4 % payés, Sénat) : au plus 0,11 sur 2 Md€ concernés ; bas divisé par deux pour les comportements."
+        },
+        {
+          "id": "20-au-dela-10m",
+          "label": "Au moins 20 % sur la part au-delà de 10 M€",
+          "lo": 0.35,
+          "hi": 3,
+          "note": "Un réglage entre le dessin du CPO et le taux du barème, sans chiffrage publié.",
+          "estimate": "20 % de (6,3 à 19,6 Md€ − 110 × 10 M€), moins 5 % déjà payés : 0,73 à 2,7 Md€ pour les 110 plus gros bénéficiaires du Dutreil ; les autres : au plus 0,3 (20 % de 2 Md€, moins leurs droits) ; bas divisé par deux pour les comportements."
+        },
+        {
+          "id": "45-au-dela-10m",
+          "label": "Au moins 45 % sur la part au-delà de 10 M€",
+          "lo": 0.65,
+          "hi": 8,
+          "note": "Le taux du barème en ligne directe, comme si aucune exonération ne jouait au-delà de 10 M€.",
+          "estimate": "45 % de (6,3 à 19,6 Md€ − 110 × 10 M€), moins 5 % déjà payés : 2,0 à 7,3 Md€ pour les 110 plus gros bénéficiaires du Dutreil ; les autres : au plus 0,65 (45 % de 2 Md€, moins leurs droits) ; bas divisé par trois : ventes d’entreprises pour payer, départs, montages."
+        }
+      ],
+      "estimate": {
+        "method": "1) Pacte Dutreil : 3,8 Md€ en 2027 (PAP), dont 65 % pour 110 bénéficiaires par an (CPO ; 30 M€ chacun en 2023) : 2,5 à 3,3 Md€. 2) Cet avantage vaut 17 % (nue-propriété) à 39 % (pleine propriété) de la pleine valeur, taxée environ 5 % (Sénat) : 6,3 à 19,6 Md€ reçus. 3) Minimum moins droits payés. 4) Les 11 000 autres : 1,3 Md€ d’avantage, 3,4 à 7,9 Md€ reçus, peu au-delà de 5 M€ (Cour : 500 000 € d’avantage moyen) : au plus 2 Md€, au haut."
+      },
+      "exclusiveWith": [
+        "dutreil-exoneration"
+      ],
+      "overlapsWith": [
+        "assurance-vie-transmission",
+        "demembrement-propriete",
+        "dmtg-abattement-ligne-directe",
+        "dmtg-ensemble",
+        "dmtg-ligne-indirecte-taux",
+        "dmtg-tranche-45"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "À terme, hors total : taxer l’ensemble des héritages et dons reçus sur la vie à leur valeur économique rapporterait 12 à 19 Md€ par an selon le barème (CAE, données de 2006) ; il faudrait d’abord suivre tout ce qui est reçu sur la vie (le rappel fiscal s’arrête à 15 ans).",
+      "limits": "Bâtie sur l’avantage Dutreil des 110 plus gros bénéficiaires annuels (CPO), les autres ajoutés au haut ; très variable selon l’année. Ne se cumule pas avec une baisse du Dutreil. Un plafond (100 % au-delà d’un montant) n’est pas chiffré.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Économie : dépense fiscale n° 520110 (p. 38)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Pacte Dutreil (CGI, art. 787 B et 787 C) : 3 800 M€ en 2025, 2026 et 2027 (ordre de grandeur)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.3.3 b) (p. 207)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "65 % de l’avantage du pacte Dutreil va à 1 % des bénéficiaires, 110 personnes en 2024, 30 M€ chacun en moyenne en 2023 (3,3 Md€) ; appliqué aux 3,8 Md€ du PAP 2027 : 2,5 Md€"
+        },
+        {
+          "title": "Le pacte Dutreil, un dispositif fiscal en forte croissance à mieux cibler (novembre 2025), synthèse (p. 12)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251118-Synthese-Pacte%20Dutreil.pdf",
+          "date": "2025-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Avantage moyen de 30 M€ pour les 110 plus gros bénéficiaires, contre 500 000 € pour l’ensemble (environ 11 000 personnes) : les autres reçoivent en moyenne bien moins de 5 M€"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, tableau d’après la Cour des comptes (p. 168)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Entreprise de 100 M€ donnée à deux enfants : 44,4 % de droits sans Dutreil et 5,3 % avec en pleine propriété ; 21,9 % et 5,1 % en nue-propriété. L’avantage vaut donc 17 % à 39 % de la valeur, et les plus gros paient environ 5 % ; de 2,5 à 20 M€, 1,6 à 4,2 %"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 12 « tarif des droits applicables en ligne directe » (p. 180)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "45 % : le taux du barème en ligne directe au-delà de 1 805 677 € (option à 45 %)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.3.3 a), scénario 1 (p. 205)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Dessin du CPO : un taux proportionnel sur toute la transmission, donations des 15 années précédentes réintégrées, droits déjà payés déduits (option à 7,5 % du total)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.3.3 a), scénario 1 (p. 205)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "L’impôt viserait les plus hauts patrimoines (au-dessus de 2,667 M€) et les effets du démembrement : d’où une base en pleine valeur, démembrement compris"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), § 3.3.3 a) (p. 205) et recommandation n° 17.1 (p. 206, « Nc » au tableau de la p. 214)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 7,5 % après abattements, non chiffré par le CPO (« Nc »)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 15 (p. 209)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Cas-types du CPO avec un « impôt différentiel (7,5 % au-dessus de 5 M€) » : seuil de 5 M€ retenu pour l’option à 7,5 %"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 15 (p. 210)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Pour 50 M€ transmis avec Dutreil et démembrement, le taux effectif passe de 5,1 % à 7,5 % avec l’impôt différentiel : 7,5 % de toute la transmission"
+        },
+        {
+          "title": "Les droits de succession (juin 2024), p. 66, d’après la microsimulation de la DG Trésor",
+          "publisher": "Cour des comptes (communication à la commission des finances de l’Assemblée nationale)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/295513.pdf",
+          "date": "2024-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Au-delà de 2,5 M€ transmis en ligne directe, les exonérations abaissent de 15 points le taux moyen des successions, dont 8 points pour le pacte Dutreil et 6 pour l’assurance-vie (contexte)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 204",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Le risque de censure pour taux confiscatoire est jugé plus limité sur les transmissions que sur le patrimoine détenu ; un plafond à 100 % n’est pas proposé"
+        },
+        {
+          "title": "Repenser l’héritage, Les notes du CAE n° 69 (décembre 2021), graphique 4 (p. 11)",
+          "publisher": "Conseil d’analyse économique",
+          "url": "https://www.cae-eco.fr/staticfiles/pdf/cae-note069.pdf",
+          "date": "2021-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Taxer l’ensemble des transmissions reçues sur la vie à leur valeur économique : +12 à +19 Md€ par an en régime de croisière selon le barème (données de 2006 ; hors total)"
+        }
+      ]
+    },
+    {
+      "id": "gratuite-creches",
+      "family": "sociale",
+      "label": "Gratuité des crèches",
+      "today": "Les familles paient 17 % du coût des crèches PSU (1,25 Md€ en 2022)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de la participation des familles, payé par l’argent public",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0104,
+        "hi": 0.0185
+      },
+      "base": {
+        "value": 1.252,
+        "label": "1,252 Md€ de participations des familles en 2022 dans les crèches financées par la prestation de service unique (17 % de leur fonctionnement)",
+        "source": {
+          "title": "La politique d’accueil du jeune enfant (p. 101)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-12/20241212-La-politique-daccueil-du-jeune-enfant.pdf"
+        }
+      },
+      "max": 50,
+      "step": 5,
+      "notches": [
+        -50,
+        -25,
+        0,
+        25,
+        50
+      ],
+      "baseLabel": "PLFSS",
+      "estimate": {
+        "method": "Familles : 1,252 Md€ en 2022, 17 % du fonctionnement des crèches PSU (Cour des comptes), soit 7,4 Md€. Porté à 2027 à +2,8 % par an (accueil collectif 2019-2023, IGF-IGAS ; +3,9 % pour les crèches PSU de 2019 à 2024 donnerait 1,40 à 1,52), avec une part des familles de 15,7 % (cible 2027) à 17 % : 1,33 à 1,44 Md€. Fourchette élargie à 1,04 à 1,85 Md€ : ±25 %, et plus en haut pour la demande que la gratuité attirerait."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0104,
+          "hi": 0.022
+        },
+        "perUnitDown": {
+          "lo": 0.007,
+          "hi": 0.0185
+        },
+        "why": "Borne : la gratuité (100 % de la participation des familles) ; à la baisse, son doublement. Au-delà de 50 %, haut relevé de 20 % (plus d’heures facturées), en plus de la demande comptée dans la plage ; à la baisse, des familles partent : bas réduit d’un tiers."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "ir-credits-reductions",
+        "places-creche"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Dès 2028 (impôt sur les revenus de 2027), le crédit d’impôt pour frais de garde ne porte plus sur ces frais : jusqu’à la moitié du coût revient à l’État (crédit de 50 % des frais, dans la limite de 3 500 € par enfant), moins pour les familles qui paient plus. À la baisse, une part de l’économie repart en crédit d’impôt.",
+      "limits": "Crèches PSU seules : ni micro-crèches du complément de mode de garde, ni assistantes maternelles. Ni places à ouvrir, ni emploi des parents. Coût brut : le crédit d’impôt pour frais de garde, qui en reprend une part, ne joue qu’en 2028.",
+      "sources": [
+        {
+          "title": "La politique d’accueil du jeune enfant (p. 101)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-12/20241212-La-politique-daccueil-du-jeune-enfant.pdf",
+          "date": "2024-12-12",
+          "accessedAt": "2026-10-18",
+          "figure": "participations des familles dans les crèches financées par la prestation de service unique : 1,252 Md€ en 2022"
+        },
+        {
+          "title": "La politique d’accueil du jeune enfant, note 23 (p. 35)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-12/20241212-La-politique-daccueil-du-jeune-enfant.pdf",
+          "date": "2024-12-12",
+          "accessedAt": "2026-10-18",
+          "figure": "les familles financent 17 % du fonctionnement des crèches PSU en 2022, soit 7,4 Md€ de fonctionnement"
+        },
+        {
+          "title": "La politique d’accueil du jeune enfant, note 154 (p. 101)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-12/20241212-La-politique-daccueil-du-jeune-enfant.pdf",
+          "date": "2024-12-12",
+          "accessedAt": "2026-10-18",
+          "figure": "part des participations des familles visée pour 2027 : 15,7 %"
+        },
+        {
+          "title": "La politique d’accueil du jeune enfant (p. 34)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-12/20241212-La-politique-daccueil-du-jeune-enfant.pdf",
+          "date": "2024-12-12",
+          "accessedAt": "2026-10-18",
+          "figure": "les familles qui paient une crèche bénéficient du crédit d’impôt pour frais de garde ; le barème des participations s’entend avant ce crédit (note 156, p. 101)"
+        },
+        {
+          "title": "La politique d’accueil du jeune enfant, annexe sur les dépenses fiscales (p. 161)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-12/20241212-La-politique-daccueil-du-jeune-enfant.pdf",
+          "date": "2024-12-12",
+          "accessedAt": "2026-10-18",
+          "figure": "crédit d’impôt pour frais de garde : 50 % des sommes versées, dans la limite de 3 500 € de frais par enfant de moins de six ans (2023) ; au plus la moitié des participations revient donc à l’État quand elles disparaissent, l’année suivante"
+        },
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe VII, tableau 9 (p. 44)",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "coût de l’accueil collectif : 7 490 M€ en 2019, 8 354 M€ en 2023, soit +2,8 % par an"
+        },
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe VII (p. 43)",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "crèches PSU de 2019 à 2024 : prix de revient par heure facturée +26,9 %, heures facturées −4,5 %, soit environ +3,9 % par an pour leur coût"
+        },
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe VII, p. 45",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "la prestation de la CAF se calcule après les participations des familles : une participation en moins est reprise par l’argent public"
+        }
+      ]
+    },
+    {
+      "id": "gratuite-transports-urbains",
+      "family": "depenses",
+      "label": "Gratuité des transports urbains",
+      "today": "Billets payants : 4,0 à 8,2 Md€ de recettes en 2027 (estimation)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des recettes de billets pris en charge par l’argent public",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.04,
+        "hi": 0.082
+      },
+      "base": {
+        "value": 3.6,
+        "label": "3,6 Md€ de recettes de billets et d’abonnements en Île-de-France en 2017 (dernier chiffre publié retrouvé) ; les réseaux de province s’y ajoutent (0,8 à 1,5 Md€ en 2015, calculés sur les chiffres du même rapport)",
+        "source": {
+          "title": "Rapport d’information n° 744 (2018-2019), « Gratuité des transports collectifs : fausse bonne idée ou révolution écologique et sociale des mobilités ? », p. 83",
+          "publisher": "Sénat, mission d’information",
+          "url": "https://www.senat.fr/rap/r18-744/r18-7441.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "Sénat : 3,6 Md€ de billets et abonnements en Île-de-France en 2017 ; en province, 7,3 Md€ de coûts d’exploitation en 2015, couverts à 11 à 20 % par les billets : 0,8 à 1,5 Md€. Total de 4,4 à 5,1 Md€, porté en 2027 de +15 à +40 % (dépense des ménages de 2019 à 2024 : +16,8 % en rail, +34,5 % en car, bus et taxi, SDES) : 5,1 à 7,1 Md€. Méthode fruste (5 ans d’indice pour 10 à 12, trains et taxis compris) : ±35 % autour de 6,1 : 4,0 à 8,2 Md€."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.037,
+          "hi": 0.098
+        },
+        "perUnitDown": {
+          "lo": 0.02,
+          "hi": 0.06
+        },
+        "why": "100 % : gratuité totale ; −100 % : tarifs doublés, simple miroir. Au-delà de 25 %, estimation : bas −7 % (billetterie en moins, Sénat) ; haut +20 % (renforts pour 10 % de voyages en plus, Sénat, à moitié de leur coût). Tarifs en hausse : des voyageurs partent."
+      },
+      "amount": {
+        "value": 8.2,
+        "lo": 4,
+        "label": "4,0 à 8,2 Md€ de recettes de billets et d’abonnements des transports urbains en 2027, Île-de-France comprise avec le RER et le Transilien (estimation Isoloir)"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "tva-taux-intermediaire"
+      ],
+      "operatorCaveat": false,
+      "limits": "Estimation statique (chiffres de 2015 et 2017). Réseaux urbains et tous les modes d’Île-de-France, RER compris ; sans TER ni cars régionaux. Non comptés : voyageurs en plus, renforts, part des abonnements des employeurs publics, TVA.",
+      "sources": [
+        {
+          "title": "Rapport d’information n° 744 (2018-2019), « Gratuité des transports collectifs : fausse bonne idée ou révolution écologique et sociale des mobilités ? », p. 83",
+          "publisher": "Sénat, mission d’information",
+          "url": "https://www.senat.fr/rap/r18-744/r18-7441.pdf",
+          "date": "2019-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Île-de-France, 2017 : 3,6 Md€ de recettes de billets et d’abonnements, dont 2,7 Md€ payés par les voyageurs (27 % des coûts de fonctionnement) et 926 M€ remboursés par les employeurs"
+        },
+        {
+          "title": "Rapport d’information n° 744 (2018-2019), « Gratuité des transports collectifs : fausse bonne idée ou révolution écologique et sociale des mobilités ? », p. 22",
+          "publisher": "Sénat, mission d’information",
+          "url": "https://www.senat.fr/rap/r18-744/r18-7441.pdf",
+          "date": "2019-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Réseaux hors Île-de-France : 7,3 Md€ de coûts d’exploitation en 2015"
+        },
+        {
+          "title": "Rapport d’information n° 744 (2018-2019), « Gratuité des transports collectifs : fausse bonne idée ou révolution écologique et sociale des mobilités ? », p. 24",
+          "publisher": "Sénat, mission d’information",
+          "url": "https://www.senat.fr/rap/r18-744/r18-7441.pdf",
+          "date": "2019-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Hors Île-de-France, en 2015, les billets couvrent 11 à 20 % des coûts d’exploitation selon le type de réseau"
+        },
+        {
+          "title": "Rapport d’information n° 744 (2018-2019), « Gratuité des transports collectifs : fausse bonne idée ou révolution écologique et sociale des mobilités ? », p. 83",
+          "publisher": "Sénat, mission d’information",
+          "url": "https://www.senat.fr/rap/r18-744/r18-7441.pdf",
+          "date": "2019-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Économies de billetterie, de contrôle et de lutte contre la fraude en cas de gratuité en Île-de-France : 250 M€ au mieux (7 % des recettes)"
+        },
+        {
+          "title": "Rapport d’information n° 744 (2018-2019), « Gratuité des transports collectifs : fausse bonne idée ou révolution écologique et sociale des mobilités ? », p. 81",
+          "publisher": "Sénat, mission d’information",
+          "url": "https://www.senat.fr/rap/r18-744/r18-7441.pdf",
+          "date": "2019-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Avec la gratuité en Île-de-France, l’usage des réseaux de la RATP augmenterait de 10 %, soit 1 million de déplacements par jour"
+        },
+        {
+          "title": "Bilan annuel des transports en 2024, fiche A3 « Dépenses des ménages en transport », figure A3-1 (p. 44)",
+          "publisher": "Service des données et études statistiques (SDES), ministère chargé des transports",
+          "url": "https://www.statistiques.developpement-durable.gouv.fr/media/8868/download?inline",
+          "date": "2025-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Dépense des ménages de 2019 à 2024, en valeur : +16,8 % pour le train, le métro et le tramway, +34,5 % pour les cars et bus (taxis compris)"
+        },
+        {
+          "title": "Bilan annuel des transports en 2024, fiche A5.1, figure A5.1-3 « Transferts des administrations publiques centrales et locales vers la RATP » (p. 51)",
+          "publisher": "Service des données et études statistiques (SDES), ministère chargé des transports",
+          "url": "https://www.statistiques.developpement-durable.gouv.fr/media/8868/download?inline",
+          "date": "2025-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis 2021, la RATP reverse à Île-de-France Mobilités (administration publique locale) les recettes des voyageurs : les billets sont une recette publique"
+        }
+      ]
+    },
+    {
+      "id": "ifi-assiette",
+      "family": "impots",
+      "label": "Ce que taxe l’IFI",
+      "today": "Immobilier net au-delà de 1,3 M€ ; 3,08 Md€ au PLF 2027",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de l’assiette",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 3.081,
+        "label": "3,08 Md€ d’impôt sur la fortune immobilière prévus au PLF 2027 (état A, ligne 1406)",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », ligne 1406 (p. 230)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "Immo.",
+      "options": [
+        {
+          "id": "seuil-2m",
+          "label": "Seuil d’entrée relevé de 1,3 à 2 M€",
+          "lo": -0.85,
+          "hi": -0.5,
+          "note": "Environ la moitié des foyers redevables sortent de l’IFI ; au-dessus de 2 M€, l’impôt ne change pas.",
+          "estimate": "Données DGFiP (France Stratégie, tableau A22) : les cinq premiers déciles (jusqu’à 1,9 M€, 16 400 foyers chacun) paient 2 200 à 5 700 € en moyenne, soit 328 M€, plus la moitié du sixième (1,9 à 2,1 M€, 6 800 €), 56 M€ : 384 M€ sur 1 834 M€, 21 %. Avec une décote pour éviter un saut au seuil, 22 % des 3,08 Md€ : 0,68 Md€ ; fourchette de ±25 % : 0,5 à 0,85 Md€ de recettes en moins."
+        },
+        {
+          "id": "immobilier",
+          "label": "Immobilier au-delà de 1,3 M€ (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "placements-financiers",
+          "label": "Placements financiers à la place de l’immobilier",
+          "lo": 0.3,
+          "hi": 4.5,
+          "note": "Barème et seuil de l’IFI, biens professionnels exonérés comme sous l’ISF.",
+          "estimate": "Assiette de l’ISF sans l’immobilier. France Stratégie : l’IFI valait 29 % de l’ISF qu’il remplace ; le reste (71 %) tenait à l’ajout des placements. Même rapport en 2027 : 3,08 × 71/29 = 7,54 Md€. Seuls, les placements tombent dans des tranches plus basses : 60 à 100 % de ce montant, bas réduit de 25 % (départs, sous-évaluation) : 3,39 à 7,54 Md€, moins l’IFI supprimé (3,08 Md€) : +0,3 à +4,5 Md€."
+        }
+      ],
+      "estimate": {
+        "method": "Aucune source ne chiffre ces assiettes : estimations d’Isoloir sur les données DGFiP publiées par France Stratégie (2023), l’IFI par décile pour le seuil, la part de l’ISF que l’IFI a remplacée (29 %) pour les placements financiers, rapportées à l’IFI du PLF 2027. Le calcul est détaillé sous chaque réglage."
+      },
+      "exclusiveWith": [
+        "ifi-bareme",
+        "isf-retablissement"
+      ],
+      "overlapsWith": [
+        "contribution-differentielle-patrimoine",
+        "impot-plancher-tres-hauts-patrimoines",
+        "taxe-holdings-patrimoniales"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique. La « fortune improductive » (logements vacants, luxe, liquidités) n’est pas proposée : la part financière des hauts patrimoines n’est plus connue depuis 2018, ni la part des logements loués (Sénat, 2026).",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », ligne 1406 (p. 230)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Impôt sur la fortune immobilière : 3 080 879 729 € prévus en 2027"
+        },
+        {
+          "title": "Comité d’évaluation des réformes de la fiscalité du capital, rapport final (octobre 2023), p. 12",
+          "publisher": "France Stratégie (Premier ministre)",
+          "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_2.pdf",
+          "date": "2023-10",
+          "accessedAt": "2026-10-18",
+          "figure": "L’IFI valait en 2018 29 % des recettes potentielles de l’ISF qu’il remplace"
+        },
+        {
+          "title": "Comité d’évaluation des réformes de la fiscalité du capital, rapport final (octobre 2023), p. 13",
+          "publisher": "France Stratégie (Premier ministre)",
+          "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_2.pdf",
+          "date": "2023-10",
+          "accessedAt": "2026-10-18",
+          "figure": "ISF hypothétique de 6,3 Md€ en 2022, perte de 4,5 Md€ par rapport à l’IFI (hypothèse : même croissance que l’IFI)"
+        },
+        {
+          "title": "Comité d’évaluation des réformes de la fiscalité du capital, rapport final (octobre 2023), p. 303",
+          "publisher": "France Stratégie (Premier ministre)",
+          "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_2.pdf",
+          "date": "2023-10",
+          "accessedAt": "2026-10-18",
+          "figure": "IFI net de 1 834 M€ (données DGFiP) ; 163 900 foyers redevables, patrimoine net imposable moyen de 2,5 M€, IFI moyen de 11 200 €"
+        },
+        {
+          "title": "Comité d’évaluation des réformes de la fiscalité du capital, rapport final (octobre 2023), p. 304, tableau A22 (données DGFiP)",
+          "publisher": "France Stratégie (Premier ministre)",
+          "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_2.pdf",
+          "date": "2023-10",
+          "accessedAt": "2026-10-18",
+          "figure": "IFI par décile de patrimoine net imposable : 16 400 foyers par décile ; IFI net moyen de 2,2 / 3,3 / 4 / 4,8 / 5,7 k€ pour les cinq premiers déciles (jusqu’à 1,9 M€), 6,8 k€ de 1,9 à 2,1 M€ ; 11,2 k€ en moyenne"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 110",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis le passage de l’ISF à l’IFI, la composante financière des plus hauts patrimoines n’est plus connue (CPO, cité par le Sénat)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 110",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis la fin de la taxe d’habitation, la DGFiP peine à distinguer propriétaires occupants et bailleurs parmi les foyers IFI : la part des logements loués n’est pas connue"
+        }
+      ]
+    },
+    {
       "id": "ifi-bareme",
       "family": "impots",
       "label": "Impôt sur la fortune immobilière",
@@ -4342,10 +11174,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1406 (p. 230)",
           "publisher": "Gouvernement (Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt sur la fortune immobilière : 3 080 879 729 € prévus en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 25,
@@ -4358,11 +11187,26 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0154,
+          "hi": 0.0308
+        },
+        "perUnitDown": {
+          "lo": 0.0308,
+          "hi": 0.0308
+        },
+        "why": "−100 % : la suppression, la recette entière, exacte ; +100 %, symétrique : taux doublés (3 % en haut). En hausse, bas divisé par deux : la détention du patrimoine est un champ très important d’évitement, et l’IFI est plafonné à 75 % des revenus (CPO)."
+      },
       "amount": {
         "value": 3.08,
         "label": "3,08 Md€ d’impôt sur la fortune immobilière prévus au PLF 2027"
       },
-      "exclusiveWith": [],
+      "exclusiveWith": [
+        "ifi-assiette",
+        "isf-retablissement"
+      ],
       "operatorCaveat": false,
       "limits": "Proportionnel à la recette prévue, sans départs ni changement des patrimoines. La décote, les réductions pour dons et le plafonnement à 75 % des revenus écartent l’effet réel de ce calcul, dans un sens non chiffré.",
       "sources": [
@@ -4381,6 +11225,158 @@ export const budget: BudgetData = {
           "date": "2025-12",
           "accessedAt": "2026-10-18",
           "figure": "2,3 Md€ en 2023 pour 175 980 déclarants (contexte, hors fourchette)"
+        }
+      ],
+      "overlapsWith": [
+        "contribution-differentielle-patrimoine",
+        "impot-plancher-tres-hauts-patrimoines",
+        "taxe-holdings-patrimoniales"
+      ]
+    },
+    {
+      "id": "impot-plancher-tres-hauts-patrimoines",
+      "family": "impots",
+      "label": "Impôt plancher des plus de 100 M€",
+      "today": "Aucun : voté par l’Assemblée puis rejeté (Sénat, Assemblée) en 2025",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de l’impôt plancher sur le patrimoine",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 0.5,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "Aucun",
+      "options": [
+        {
+          "id": "aucun",
+          "label": "Pas d’impôt plancher (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "1-pct",
+          "label": "1 % des patrimoines de plus de 100 M€",
+          "lo": 1,
+          "hi": 3,
+          "note": "Même dessin qu’à 2 %, au taux de 1 % : dû sur tout le patrimoine dès 100 M€, sans décote.",
+          "estimate": "Isoloir : les 3,5 à 5,5 Md€ de la DG Trésor à 2 % mis à l’échelle de ce qui reste dû, (taux − t) / (2 % − t), t étant les impôts déjà payés en part du patrimoine, pris de 0 à 0,5 % (environ 0,3 % en moyenne d’après une audition au Sénat, rapport n° 689). Soit 0,33 à 0,5 fois le produit à 2 % : 1,2 à 2,8 Md€. Bas abaissé à 1,0 : la moyenne cache des foyers qui paient déjà plus de 1 % et ne devraient rien ; haut relevé à 3,0, moins de départs qu’à 2 %."
+        },
+        {
+          "id": "2-pct-is-deduit",
+          "label": "2 %, impôt sur les sociétés déduit",
+          "lo": 0.3,
+          "hi": 3,
+          "note": "L’impôt sur les sociétés payé par les entreprises que ces foyers contrôlent compterait parmi les impôts déjà payés, ce qui réduit fortement le produit.",
+          "estimate": "Isoloir : avec l’impôt sur les sociétés déduit, le Sénat (rapport n° 689) cite un produit statique de 2 à 3 Md€ au lieu d’environ 20, soit 10 à 15 %. Appliqués aux 3,5 à 5,5 Md€ de la DG Trésor après effets de comportement : 0,35 à 0,8 Md€, d’où un bas de 0,3. Haut : les 3 Md€ statiques, l’impôt restant dû étant faible, donc les départs moins nombreux."
+        },
+        {
+          "id": "2-pct",
+          "label": "2 % des patrimoines de plus de 100 M€",
+          "lo": 3.5,
+          "hi": 5.5,
+          "note": "Le texte adopté par l’Assemblée en février 2025 : 2 % de tout le patrimoine net dès 100 M€, sans décote, biens professionnels compris, moins l’IR, l’IFI et une partie des prélèvements sociaux. Après effets de comportement (DG Trésor, citée par le Sénat)."
+        },
+        {
+          "id": "3-pct",
+          "label": "3 % des patrimoines de plus de 100 M€",
+          "lo": 4.5,
+          "hi": 9.2,
+          "note": "Le Conseil d’État a estimé contraire à la Constitution une contribution à 3 % sans plafonnement, au-delà de 10 M€ (avis du 30 octobre 2025).",
+          "estimate": "Isoloir : les 3,5 à 5,5 Md€ de la DG Trésor à 2 % mis à l’échelle de ce qui reste dû, (taux − t) / (2 % − t), t étant les impôts déjà payés en part du patrimoine, pris de 0 à 0,5 % (environ 0,3 % en moyenne d’après une audition au Sénat, rapport n° 689). Soit 1,5 à 1,67 fois le produit à 2 % : 5,3 à 9,2 Md€ ; bas abaissé à 4,5 pour des départs plus nombreux."
+        }
+      ],
+      "exclusiveWith": [
+        "contribution-differentielle-patrimoine",
+        "isf-retablissement"
+      ],
+      "overlapsWith": [
+        "cdhr-taux-plancher",
+        "cehr-taux",
+        "ifi-assiette",
+        "ifi-bareme",
+        "pfu-taux-ir",
+        "taxe-holdings-patrimoniales"
+      ],
+      "operatorCaveat": false,
+      "limits": "Produit annuel, première échéance supposée en 2027. Patrimoines durs à évaluer, produit très sensible au départ de quelques foyers ; conventions fiscales ; risque de censure sans plafonnement. Autres seuils non chiffrés.",
+      "sources": [
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 193",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Impôt plancher de 2 % au-delà de 100 M€ : 3,5 à 5,5 Md€ par an après effets de comportement, selon une note de la DG Trésor"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 193",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Le dessin : 2 % du patrimoine net, biens professionnels compris, dès 100 M€, sans décote"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 193, note 1",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Adopté par l’Assemblée nationale le 20 février 2025, rejeté par le Sénat le 12 juin 2025"
+        },
+        {
+          "title": "Rapport n° 689 (2024-2025) de la commission des finances sur la proposition de loi n° 380 (impôt plancher de 2 % sur le patrimoine), l’essentiel (juin 2025)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-689/l24-689_mono.html",
+          "date": "2025-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Si l’impôt sur les sociétés payé en amont est déduit : 2 à 3 Md€, chiffre statique (base du réglage « IS déduit »)"
+        },
+        {
+          "title": "Rapport n° 689 (2024-2025) de la commission des finances sur la proposition de loi n° 380 (impôt plancher de 2 % sur le patrimoine), examen de l’article (juin 2025)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-689/l24-689_mono.html",
+          "date": "2025-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Sans l’impôt sur les sociétés déduit : environ 20 Md€, calcul statique avant effets de comportement (le dénominateur du réglage « IS déduit »)"
+        },
+        {
+          "title": "Rapport n° 689 (2024-2025) de la commission des finances sur la proposition de loi n° 380 (impôt plancher de 2 % sur le patrimoine), examen de l’article (juin 2025)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-689/l24-689_mono.html",
+          "date": "2025-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Impôts directs déjà payés par ces foyers : environ 0,3 % de leur patrimoine en moyenne, selon une audition (base de la mise à l’échelle des taux de 1 % et 3 %)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 191",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Avis du Conseil d’État du 30 octobre 2025 (n° 410182) : une contribution différentielle à 3 % sans plafonnement méconnaît l’égalité devant les charges publiques"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 194",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Conventions fiscales sur la fortune avec une cinquantaine d’États : assiette réduite"
         }
       ]
     },
@@ -4405,10 +11401,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1301 « Impôt sur les sociétés » (p. 230) et récapitulation des recettes du budget général (p. 236)",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt net sur les sociétés : 58 515 984 932 € prévus en 2027 (hors contribution exceptionnelle, ligne 1441), soit 585,2 M€ par 1 % (bas de la fourchette)"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 25,
@@ -4421,6 +11414,14 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 40,
+        "perUnit": {
+          "lo": 0.35,
+          "hi": 0.8389
+        },
+        "why": "De 15 %, le taux minimum mondial des grands groupes (directive (UE) 2022/2523), à 35 %, un peu plus que les 33 1/3 % de 2016 (Insee). Au-delà de ±25 %, bas à 0,35 Md€ dans les deux sens : les bénéfices déplacés à l’étranger suivent l’écart de taux (CEPII)."
+      },
       "amount": {
         "value": 58.516,
         "label": "58,5 Md€ d’impôt sur les sociétés prévus au PLF 2027 (produit net)"
@@ -4461,6 +11462,128 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Taux normal de 25 % (contexte, hors fourchette : les crans de ±25 % le portent à 18,75 % ou 31,25 %)"
         }
+      ],
+      "overlapsWith": [
+        "contribution-benefices-exceptionnels",
+        "credit-impot-recherche-innovation",
+        "is-taux-reduit-brevets",
+        "is-taux-reduit-pme",
+        "plus-values-titres-participation",
+        "taxe-tonnage",
+        "zones-aidees-entreprises"
+      ]
+    },
+    {
+      "id": "incitations-bailleurs-prives",
+      "family": "impots",
+      "label": "Incitations fiscales des bailleurs",
+      "today": "57 M€ en 2027 pour quatre avantages ouverts aux bailleurs",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût de ces avantages",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.00057,
+        "hi": 0.00057
+      },
+      "base": {
+        "value": 0.057,
+        "label": "57 M€ en 2027 : la somme de quatre dépenses fiscales du PAP 2027 Cohésion des territoires (p. 93-94), n° 130219 (20 M€), 110269 (19 M€), 110265 (11 M€) et 130304 (7 M€) ; aucune ligne ne publie ce total",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 130219, 110269, 110265 et 130304 (p. 93-94)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00043,
+          "hi": 0.00057
+        },
+        "why": "−100 % : la fin des quatre avantages (la ligne entière) ; +100 % par symétrie : leur doublement, sans dessin. Au-delà de ±25 %, bas réduit d’un quart : premier chiffrage de Relance logement, sans fiabilité publiée, et choix du régime d’imposition des loyers."
+      },
+      "amount": {
+        "value": 0.057,
+        "label": "57 M€ de coût en 2027 : Relance logement 20, Loc’Avantages 19, Denormandie 11, déficit foncier doublé 7"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "ir-credits-reductions",
+        "plafonnement-global-niches"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le coût monte avec les investissements des années suivantes (Relance logement, créée en 2026 pour trois ans, n’en est qu’à sa première année) : hors du total. Une baisse pour des bailleurs déjà engagés poserait une question de sécurité juridique.",
+      "limits": "Statique, sur les revenus de 2026 imposés en 2027 ; pour les seuls nouveaux investissements, l’effet en 2027 serait quasi nul. Hors Pinel (fermé, 1 199 M€) et déduction des travaux d’entretien (2 290 M€).",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 130219 « Relance Logement » (p. 93-94)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Déduction « Relance Logement » sur les revenus fonciers : 20 M€ en 2027 (non chiffrée avant), créée en 2026, sans fiabilité publiée"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 110269 « Loc’Avantages » (p. 94)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt Loc’Avantages : 12 M€ (2025), 19 M€ (2026), 19 M€ (2027), fiabilité très bonne"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 110265 « Denormandie » (p. 94)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt Denormandie (investissement locatif intermédiaire rénové) : 4 M€ (2025), 8 M€ (2026), 11 M€ (2027), fiabilité très bonne"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 130304 (p. 94)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Doublement du déficit foncier imputable pour des travaux de rénovation énergétique : 7 M€ par an de 2025 à 2027, fiabilité bonne"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : présentation stratégique (p. 71)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La déduction « Relance Logement » a été créée pour trois ans par la LFI 2026 : son coût monte avec les investissements des années suivantes"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, avertissement (p. 92)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les chiffrages de 2027 ne comptent que les mesures votées avant le dépôt du PLF 2027, et pas les changements de comportement"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : évaluation des dépenses fiscales, n° 130201 et 110261 (p. 92)",
+          "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Hors levier : déduction des dépenses de réparation et d’amélioration (2 290 M€ en 2027) et réductions Duflot et Pinel, fermées aux nouveaux investissements (1 199 M€ en 2027, fin du fait générateur 2024)"
+        }
       ]
     },
     {
@@ -4484,10 +11607,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026, tableau 2 « Charges et produits nets de la CNAM-Maladie » (p. 171)",
           "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Indemnités journalières (prestations légales maladie, soins de ville) : 11 775 M€ (2024), 11 998 (2025), 12 087 (2026 p), 12 747 (2027 p)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 5,
@@ -4561,10 +11681,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Évaluation des voies et moyens, tome II : dépenses fiscales, annexe au PLF 2026, tableau « Dépenses fiscales par impôt » (p. 16)",
           "publisher": "Direction de la législation fiscale (annexe au PLF 2026)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf",
-          "date": "2025-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt sur le revenu, dont réduction et crédit d’impôt : 14 140 M€ (2024), 15 076 (2025), 14 623 (2026)"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf"
         }
       },
       "max": 10,
@@ -4577,7 +11694,21 @@ export const budget: BudgetData = {
         10
       ],
       "baseLabel": "PLF",
-      "exclusiveWith": [],
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.08,
+          "hi": 0.13
+        },
+        "perUnitDown": {
+          "lo": 0.11,
+          "hi": 0.18
+        },
+        "why": "±100 % : jusqu’à supprimer toutes les réductions et crédits d’impôt sur le revenu (14,6 Md€ en 2026), hors avantages acquis sur des investissements passés (1,7 Md€), ou les doubler. Au-delà de 10 %, effet élargi : moins d’emploi déclaré ou plus de recours."
+      },
+      "exclusiveWith": [
+        "plafonnement-global-niches"
+      ],
       "operatorCaveat": false,
       "limits": "Rabot uniforme de tous les crédits et réductions d’impôt des ménages, législation 2025, une seule source (1,1 Md€ pour 10 %). Statique : dons, emploi à domicile… supposés inchangés.",
       "sources": [
@@ -4589,6 +11720,11 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "1,1 Md€ pour une baisse de 10 % du montant des crédits et réductions d’impôt, soit 0,11 Md€ par point de pourcentage (calcul)"
         }
+      ],
+      "overlapsWith": [
+        "aide-fiscale-investissement-outre-mer",
+        "gratuite-creches",
+        "incitations-bailleurs-prives"
       ]
     },
     {
@@ -4612,10 +11748,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Solde général du budget de l’État », p. 55 du PDF",
           "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt sur le revenu net : 102,5 Md€ au PLF 2027 (colonnes : exécution 2025, LFI 2026, révisé 2026, PLF 2027)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf"
         }
       },
       "max": 2.1,
@@ -4665,6 +11798,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "3,7 Md€ en 2025 pour une indexation de 2,0 %, soit environ 1,85 Md€ par point (calcul)"
         }
+      ],
+      "overlapsWith": [
+        "pensions-alimentaires-defiscalisation"
       ]
     },
     {
@@ -4688,10 +11824,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Solde général du budget de l’État », p. 55 du PDF",
           "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt sur le revenu net : 102,5 Md€ au PLF 2027"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf"
         }
       },
       "max": 1,
@@ -4704,6 +11837,18 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "45 %",
+      "stretch": {
+        "max": 4,
+        "perUnit": {
+          "lo": 0,
+          "hi": 0.15
+        },
+        "perUnitDown": {
+          "lo": 0.03,
+          "hi": 0.15
+        },
+        "why": "±4 pts : à −4, la tranche à 45 %, créée en 2013, disparaît (retour à 41 %) ; à +4 (49 %), le taux cumulé reste sous les 68,2 % censurés en 2012. Au-delà de ±1 pt, effet élargi jusqu’à zéro : le rendement culmine vers 49 % (Insee)."
+      },
       "exclusiveWith": [
         "ir-taux-bareme",
         "ir-tranches-hautes"
@@ -4742,10 +11887,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Solde général du budget de l’État », p. 55 du PDF",
           "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt sur le revenu net : 102,5 Md€ au PLF 2027"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf"
         }
       },
       "max": 1,
@@ -4758,6 +11900,18 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 4,
+        "perUnit": {
+          "lo": 4,
+          "hi": 6.4
+        },
+        "perUnitDown": {
+          "lo": 4.5,
+          "hi": 6.4
+        },
+        "why": "±4 pts (premier taux de 7 à 15 %). À +4 (49 %), prélèvements sociaux et contribution sur les hauts revenus compris, le cumul reste sous les 68,2 % censurés en 2012 (68,0 % en meublé). Au-delà de ±1 pt, effet élargi pour les réactions des contribuables."
+      },
       "exclusiveWith": [
         "ir-taux-45",
         "ir-tranches-hautes"
@@ -4773,6 +11927,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "6,4 Md€ pour un point sur les taux de 11, 30, 41 et 45 %"
         }
+      ],
+      "overlapsWith": [
+        "pensions-alimentaires-defiscalisation"
       ]
     },
     {
@@ -4796,10 +11953,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Solde général du budget de l’État », p. 55 du PDF",
           "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Impôt sur le revenu net : 102,5 Md€ au PLF 2027"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf"
         }
       },
       "max": 1,
@@ -4812,6 +11966,18 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "41/45 %",
+      "stretch": {
+        "max": 4,
+        "perUnit": {
+          "lo": 0,
+          "hi": 0.45
+        },
+        "perUnitDown": {
+          "lo": 0.1,
+          "hi": 0.45
+        },
+        "why": "±4 pts : de 37/41 % à 45/49 %. À +4, prélèvements sociaux et contribution sur les hauts revenus compris, le cumul reste sous les 68,2 % censurés en 2012 (68,0 % en meublé). Au-delà de ±1 pt, effet élargi jusqu’à zéro : le rendement culmine vers 49 % (Insee)."
+      },
       "exclusiveWith": [
         "ir-taux-45",
         "ir-taux-bareme"
@@ -4830,6 +11996,488 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "is-taux-reduit-brevets",
+      "family": "impots",
+      "label": "IS à 10 % sur les brevets",
+      "today": "10 % sur les revenus des brevets et logiciels (IS normal : 25 %)",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage du taux réduit en 2027",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 1.554,
+        "label": "1 554 M€ : coût en 2026 du taux de 10 % sur les revenus des brevets et actifs assimilés (dépense fiscale n° 210326) ; non chiffré pour 2027 au PAP 2027",
+        "source": {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 210326 (p. 43)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "10 %",
+      "options": [
+        {
+          "id": "taux-25",
+          "label": "25 % : fin du taux réduit",
+          "lo": -1.943,
+          "hi": -1.01,
+          "note": "15 points × 104 M€ = 1 554 M€ (coût de 2026), de 65 % à 125 %."
+        },
+        {
+          "id": "taux-20",
+          "label": "20 %",
+          "lo": -1.295,
+          "hi": -0.673,
+          "note": "10 points × 104 M€ = 1 036 M€, de 65 % à 125 %."
+        },
+        {
+          "id": "taux-15",
+          "label": "15 %",
+          "lo": -0.648,
+          "hi": -0.337,
+          "note": "5 points × 104 M€ = 518 M€, de 65 % à 125 % ; le taux d’avant 2019, sur une assiette alors plus large."
+        },
+        {
+          "id": "taux-10",
+          "label": "10 % (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le taux du PLF 2027, 10 % depuis la loi de finances pour 2019."
+        },
+        {
+          "id": "taux-5",
+          "label": "5 %",
+          "lo": 0.337,
+          "hi": 0.648,
+          "note": "5 points × 104 M€ = 518 M€, de 65 % à 125 % ; l’impôt minimum de 15 % peut en reprendre une part chez les grands groupes."
+        },
+        {
+          "id": "taux-0",
+          "label": "0 % : exonération",
+          "lo": 0.673,
+          "hi": 1.295,
+          "note": "10 points × 104 M€ = 1 036 M€, de 65 % à 125 % ; la borne : un taux ne descend pas sous 0 (exonération complète en Grèce, Sénat)."
+        }
+      ],
+      "estimate": {
+        "method": "Le PAP 2027 ne chiffre pas 2027 (« nc ») : Isoloir reprend le coût de 2026, 1 554 M€. L’avantage vaut 15 points (25 % − 10 %), soit environ 10,4 Md€ de revenus imposés à 10 % (1 554 / 0,15) et 104 M€ par point de taux. Chaque réglage : écart de taux × 104 M€. Fourchette de 65 % à 125 % du calcul : en bas, le coût plus faible de 2025 (1 232 M€) et l’impôt minimum de 15 % des grands groupes (77 % de l’assiette) ; en haut, la hausse de 2025 à 2026."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "impot-societes"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Impôt sur les sociétés : un changement pour les exercices 2027 passe en partie par les acomptes de 2027, le reste par le solde payé en 2028.",
+      "limits": "Estimation statique : bénéfices et lieu des brevets inchangés. L’impôt minimum de 15 % des groupes de 750 M€ de chiffre d’affaires peut reprendre une part d’une baisse, ou réduire le gain d’une hausse.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 210326 (p. 43)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taxation à 10 % des revenus de certains actifs de propriété industrielle : 1 232 M€ (2025), 1 554 M€ (2026), non chiffrable pour 2027 ; 1 243 entreprises bénéficiaires en 2025"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I (p. 260)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Revenus des brevets imposés à 10 % au lieu du taux normal de 25 %"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I (p. 260)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux réduit passé de 15 % à 10 % en 2019, avec le coefficient « Nexus » qui limite l’avantage aux revenus issus de recherche menée par l’entreprise"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I (p. 260)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût annuel de 1,208 Md€ (2024), 973 entreprises bénéficiaires"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I (p. 261)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Ailleurs en Europe : 3,76 % en Belgique, exonération complète en Grèce (borne du réglage à 0 %)"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I, annexe (p. 412)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Les grandes entreprises concentrent 77 % de l’assiette du taux réduit sur les brevets (33 % de la valeur ajoutée)"
+        },
+        {
+          "title": "Directive (UE) 2022/2523 du Conseil visant à assurer un niveau minimum d’imposition mondial pour les groupes d’entreprises multinationales et les groupes nationaux de grande envergure dans l’Union, article 3",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32022L2523",
+          "date": "2022-12-22",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux minimum d’imposition de 15 % pour les groupes de 750 M€ de chiffre d’affaires ou plus : sous ce taux, un impôt complémentaire est dû"
+        }
+      ]
+    },
+    {
+      "id": "is-taux-reduit-pme",
+      "family": "impots",
+      "label": "IS à 15 % des PME",
+      "today": "15 % jusqu’à 42 500 € de bénéfice des PME, inchangé au PLF 2027",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 point du taux réduit (15 % → 16 %)",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.17,
+        "hi": 0.34
+      },
+      "base": {
+        "value": 2.2,
+        "label": "2,2 Md€ : coût du taux de 15 % en 2019 pour 760 000 entreprises, le dernier chiffre publié (CPO, d’après l’annexe Voies et moyens du PLF 2019) ; ce taux n’est plus compté comme dépense fiscale depuis 2006",
+        "source": {
+          "title": "Les différences d’imposition sur les bénéfices entre PME et grandes entreprises (rapport, juin 2023), p. 17",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2023-10/20230703-Differences-taxation-entre-PME-et-grandes-entreprises.pdf"
+        }
+      },
+      "max": 5,
+      "step": 0.1,
+      "notches": [
+        -5,
+        -2.5,
+        0,
+        2.5,
+        5
+      ],
+      "baseLabel": "15 %",
+      "estimate": {
+        "method": "1. CPO : 2,2 Md€ en 2019 pour 13 points d’écart avec 28 %, soit 17 Md€ taxés à 15 % (18,2 Md€ en 2018, Insee). 2. Insee, 2022 : ce taux retire 0,9 point au taux moyen sur 223,7 Md€ de bénéfice du champ : 20 Md€ taxés à 15 %, plafond de 42 500 € compris. 3. Ce champ couvrait 86 % de la base en 2018 : 23 Md€ en 2022, toutes sociétés, 25 à 26 Md€ en 2027 (sociétés : +1 à 2 % par an). Fourchette : 17 à 34 Md€, soit 0,17 à 0,34 Md€ par point."
+      },
+      "stretch": {
+        "max": 10,
+        "perUnit": {
+          "lo": 0.14,
+          "hi": 0.34
+        },
+        "perUnitDown": {
+          "lo": 0.17,
+          "hi": 0.37
+        },
+        "why": "+10 points : le taux réduit rejoint le taux normal de 25 % (sa suppression) ; −10 points (5 %) : même écart, par symétrie, sans limite légale. Au-delà de ±5 points, fourchette élargie pour les comportements : gain plus bas en hausse, coût plus haut en baisse."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "impot-societes"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le solde de l’impôt d’une année est versé l’année suivante : une part de l’effet n’est encaissée qu’en 2028. Le total montre l’année pleine.",
+      "limits": "Statique, sur les bénéfices de 2018 à 2022 : comportements non comptés. Sociétés de moins de 10 M€ de chiffre d’affaires détenues à 75 % par des personnes physiques, sur leurs 42 500 premiers euros de bénéfice.",
+      "sources": [
+        {
+          "title": "Les différences d’imposition sur les bénéfices entre PME et grandes entreprises (rapport, juin 2023), p. 17",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2023-10/20230703-Differences-taxation-entre-PME-et-grandes-entreprises.pdf",
+          "date": "2023-07",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux réduit de 15 % : coût estimé à 2,2 Md€ en 2019 pour 760 000 entreprises ; plus compté comme dépense fiscale depuis 2006"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, figure 1 (p. 11)",
+          "publisher": "Insee, document de travail (auteurs de l’Insee et de la DGFiP, n’engage que ses auteurs)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "18,2 Md€ de bénéfice taxé à 15 % en 2018, toutes sociétés à l’impôt sur les sociétés"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, tableau 2 « Décomposition du taux d’imposition moyen entre 2016 et 2022 » (p. 33)",
+          "publisher": "Insee, document de travail (auteurs de l’Insee et de la DGFiP, n’engage que ses auteurs)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Par rapport au taux normal, le taux de 15 % retire 1,9 point au taux d’imposition moyen de 2016 à 2019 (taux normal 33,3 %) et 0,9 point en 2022 (taux normal 25 %), sociétés non financières bénéficiaires"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, tableau 15 « Répartition des agrégats par type de traitement et par année » (p. 76), ligne 2022",
+          "publisher": "Insee, document de travail (auteurs de l’Insee et de la DGFiP, n’engage que ses auteurs)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Bénéfice fiscal du champ : 223,7 Md€ en 2022 ; 0,9 point de 223,7 Md€ = 2,0 Md€, soit 20 Md€ taxés à 15 % pour 10 points d’écart (calcul)"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, tableau 15 « Répartition des agrégats par type de traitement et par année » (p. 76), ligne 2018",
+          "publisher": "Insee, document de travail (auteurs de l’Insee et de la DGFiP, n’engage que ses auteurs)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Bénéfice fiscal du champ : 150,1 Md€ en 2018 ; 1,9 point de 150,1 Md€ pour 18,3 points d’écart = 15,6 Md€ taxés à 15 %, contre 18,2 Md€ toutes sociétés : le champ couvre environ 86 % de la base (calcul)"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027, évaluations préalables des articles, article 15 (p. 155)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 15 % sur les 42 500 premiers euros de bénéfice des PME (chiffre d’affaires inférieur à 10 M€), plafond en vigueur pour les exercices clos depuis le 31 décembre 2022 : inchangé au PLF 2027"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, section 3.1 (p. 12)",
+          "publisher": "Insee, document de travail (auteurs de l’Insee et de la DGFiP, n’engage que ses auteurs)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Le solde de l’impôt sur les sociétés d’une année est versé l’année suivante (une part de l’effet en 2028)"
+        }
+      ]
+    },
+    {
+      "id": "isf-retablissement",
+      "family": "impots",
+      "label": "Impôt sur la fortune (ISF)",
+      "today": "IFI seul, 3,08 Md€ au PLF 2027 ; l’ISF est supprimé depuis 2018",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de l’impôt sur le patrimoine",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 3.081,
+        "label": "3,08 Md€ d’impôt sur la fortune immobilière prévus au PLF 2027 (état A, ligne 1406) : la ligne que l’ISF remplacerait.",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1406 (p. 230)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 0.5,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "IFI",
+      "options": [
+        {
+          "id": "suppression-ifi",
+          "label": "Supprimer l’IFI",
+          "lo": -3.081,
+          "hi": -3.081,
+          "note": "Tout le produit de l’IFI prévu au PLF 2027 (état A, ligne 1406)."
+        },
+        {
+          "id": "ifi",
+          "label": "IFI (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : un impôt sur la seule fortune immobilière."
+        },
+        {
+          "id": "isf-2017",
+          "label": "ISF de 2017 à la place de l’IFI",
+          "lo": 4,
+          "hi": 7.5,
+          "note": "Même barème que l’IFI (0,5 à 1,5 %), mais sur tout le patrimoine net, placements compris, biens professionnels exonérés, plafonné à 75 % des revenus. Coût du passage à l’IFI en 2022 : 4,5 Md€ (comité d’évaluation, cité par le Sénat), plus de 4 Md€ (CPO).",
+          "estimate": "Bas : perte de recettes de 2022 publiée par le comité d’évaluation des réformes de la fiscalité du capital (4,0 Md€, départs compris ; 4,5 Md€ sans). Haut : le même écart porté à 2027 au rythme de l’IFI, passé de 1,8 Md€ en 2022 à 3,08 Md€ au PLF 2027 (× 1,7) : 7,5 Md€, estimation d’Isoloir, statique."
+        }
+      ],
+      "exclusiveWith": [
+        "contribution-differentielle-patrimoine",
+        "ifi-assiette",
+        "ifi-bareme",
+        "impot-plancher-tres-hauts-patrimoines"
+      ],
+      "overlapsWith": [
+        "taxe-holdings-patrimoniales"
+      ],
+      "operatorCaveat": false,
+      "limits": "Bas : chiffre de 2022 ; haut : porté à 2027 au rythme de l’IFI (estimation). Statique : ni les départs (environ 600 départs nets par an de contribuables à l’ISF de 2011 à 2016, DGFiP). Variantes non chiffrées : biens professionnels taxés, plafond à 85 %.",
+      "sources": [
+        {
+          "title": "Rapport n° 689 (2024-2025) de la commission des finances sur la proposition de loi n° 380 (impôt plancher de 2 % sur le patrimoine), exposé général (juin 2025)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-689/l24-689_mono.html",
+          "date": "2025-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût du remplacement de l’ISF par l’IFI : 4,5 Md€ de recettes perdues en 2022, selon le comité d’évaluation des réformes de la fiscalité du capital (France Stratégie, octobre 2023)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 46",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût du remplacement de l’ISF par l’IFI : plus de 4 Md€ en 2022 (d’après le comité d’évaluation, rapport final d’octobre 2023)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 46",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Départs : 950 par an en moyenne contre 370 retours de 2011 à 2016 (ISF) ; 260 départs contre 380 retours de 2018 à 2021 (IFI). Contexte, hors fourchette"
+        },
+        {
+          "title": "Rapport n° 689 (2024-2025) de la commission des finances sur la proposition de loi n° 380 (impôt plancher de 2 % sur le patrimoine), exposé général (juin 2025)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-689/l24-689_mono.html",
+          "date": "2025-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "L’IFI reprend le barème et la décote de l’ISF (0,5 % à 1,5 % au-delà de 10 M€)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 46",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Barème de l’IFI : six tranches, taux marginal de 1,5 % au-dessus de 10 M€, plafonnement à 75 % des revenus"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1406 (p. 230)",
+          "publisher": "Gouvernement (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Impôt sur la fortune immobilière : 3 080 879 729 € prévus en 2027"
+        }
+      ]
+    },
+    {
+      "id": "journee-solidarite-csa",
+      "family": "impots",
+      "label": "Journée de solidarité (CSA)",
+      "today": "Une journée : CSA de 0,3 % de la masse salariale (employeurs)",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 journée de solidarité (0,3 point de CSA)",
+        "short": "j"
+      },
+      "perUnit": {
+        "lo": 1.55,
+        "hi": 2.59
+      },
+      "perUnitDown": {
+        "lo": 1.55,
+        "hi": 2.18
+      },
+      "base": {
+        "value": 2.424,
+        "label": "2 424 M€ de contribution solidarité autonomie (CSA) prévus en 2027, versés à la branche autonomie, après l’effet de la réduction générale des cotisations (CCSS d’octobre 2026, avant le PLFSS)",
+        "source": {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4, tableau 2 « Contributions sociales (hors CSG), impôts et taxes bruts affectés aux organismes de sécurité sociale » (p. 63 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
+        }
+      },
+      "max": 1,
+      "step": 0.1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "1 jour",
+      "estimate": {
+        "method": "La CSA rapporte 2 424 M€ en 2027, après environ 0,2 Md€ de réduction générale (CCSS, octobre 2026). Une journée de plus double le taux (0,3 à 0,6 %) : +2,42 à +2,62 Md€ pour la Sécurité sociale (Sénat, 2025 : 2,5 Md€). Les employeurs publics en paient 17 à 19 % (part du secteur public dans la valeur d’un point de cotisation, CCSS) : flux interne retiré, 1,96 à 2,18 Md€, centre 2,07, élargi à ±25 % : 1,55 à 2,59 Md€ par jour."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique : ni l’effet d’un jour travaillé de plus ou de moins sur l’activité, ni un report sur les salaires. Employeurs publics retirés (flux interne). Retraités (CASA) inchangés. Pas plus loin : sous −1 jour, le taux serait négatif.",
+      "sources": [
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4, tableau 2 (p. 63 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "CSA : 2 424 M€ prévus en 2027 ; doubler le taux en ajoute autant, avant le retrait des employeurs publics"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.7 « Les comptes de la CNSA » (p. 186 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La réduction générale dégressive unique ôte environ 0,2 Md€ à la CSA : un taux doublé rapporterait 2,42 à 2,62 Md€ selon que la réduction suit ou non (calcul)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.2, encadré 2 « Valeurs de point de cotisation déplafonné des actifs des régimes de base » (p. 53 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "1 point de cotisation en 2026 : secteur privé 7 590 M€, secteur public 1 740 M€, salariés agricoles 280 M€ ; le secteur public pèse 17,6 à 18,1 % de la masse des salariés (calcul), part retirée car versée d’une administration à une autre"
+        },
+        {
+          "title": "Sécurité sociale : la boîte à outils du Sénat, rapport d’information n° 901 (2024-2025)",
+          "publisher": "Sénat, commission des affaires sociales (MECSS)",
+          "url": "https://www.senat.fr/rap/r24-901/r24-901_mono.html",
+          "date": "2025-09-23",
+          "accessedAt": "2026-10-18",
+          "figure": "Une seconde journée (taux de CSA de 0,3 à 0,6 %) : 2,5 Md€ pour la Sécurité sociale, sans retirer les employeurs publics (recoupement, hors total)"
+        },
+        {
+          "title": "Sécurité sociale : la boîte à outils du Sénat, rapport d’information n° 901 (2024-2025)",
+          "publisher": "Sénat, commission des affaires sociales (MECSS)",
+          "url": "https://www.senat.fr/rap/r24-901/r24-901_mono.html",
+          "date": "2025-09-23",
+          "accessedAt": "2026-10-18",
+          "figure": "Une seconde journée : sept heures de travail en plus par an (0,4 % de la durée) et taux de CSA porté de 0,3 % à 0,6 %"
+        },
+        {
+          "title": "Sécurité sociale : la boîte à outils du Sénat, rapport d’information n° 901 (2024-2025)",
+          "publisher": "Sénat, commission des affaires sociales (MECSS)",
+          "url": "https://www.senat.fr/rap/r24-901/r24-901_mono.html",
+          "date": "2025-09-23",
+          "accessedAt": "2026-10-18",
+          "figure": "La CSA, contrepartie de la journée de solidarité : 0,3 % de la masse salariale, payée par l’employeur (le réglage du PLF)"
+        }
+      ]
+    },
+    {
       "id": "minima-sociaux-revalorisation",
       "family": "sociale",
       "label": "Revalorisation des minima sociaux",
@@ -4841,8 +12489,8 @@ export const budget: BudgetData = {
         "short": "pt"
       },
       "perUnit": {
-        "lo": 0.29,
-        "hi": 0.35
+        "lo": 0.23,
+        "hi": 0.27
       },
       "base": {
         "value": 29,
@@ -4850,10 +12498,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 07 « Les dépenses d’allocations », tableau 1",
           "publisher": "DREES",
-          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d%27allocations.pdf",
-          "date": "2025-12",
-          "accessedAt": "2026-10-18",
-          "figure": "Dépenses 2023 : RSA 12 218 M€, AAH 12 717 M€, minimum vieillesse 4 109 M€, soit 29 044 M€ (somme, calcul)"
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d%27allocations.pdf"
         }
       },
       "max": 1,
@@ -4866,11 +12511,24 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 25,
+        "perUnit": {
+          "lo": 0.19,
+          "hi": 0.31
+        },
+        "perUnitDown": {
+          "lo": 0.16,
+          "hi": 0.23
+        },
+        "why": "±25 pts : à +25, l’AAH et le minimum vieillesse (1 042 et 1 044 € par mois en 2026) approchent le seuil de pauvreté de 2024 (1 337 €, Insee) ; −25 en miroir. Au-delà de ±1 pt, 9 mois pour le RSA et l’AAH (avril), effet élargi aux nouveaux ayants droit."
+      },
       "exclusiveWith": [
         "credits-prime-activite-rsa"
       ],
       "operatorCaveat": false,
-      "limits": "Statique, en année pleine. Le bas part des dépenses de 2023, plus basses qu’en 2027. Ni le non-recours, ni les effets sur la prime d’activité et les aides au logement. Le RSA est surtout payé par les départements.",
+      "laterNote": "En année pleine, 0,29 à 0,35 Md€ par point, hors total.",
+      "limits": "Statique. RSA et AAH revalorisés au 1er avril : neuf mois comptent en 2027. Le bas part des dépenses de 2023, plus basses qu’en 2027. Ni le non-recours, ni les effets sur la prime d’activité et les aides au logement. Le RSA est surtout payé par les départements.",
       "sources": [
         {
           "title": "Perspectives budgétaires (juin 2025), chapitre 2 « Effets budgétaires et redistributifs des mesures socio-fiscales »",
@@ -4896,6 +12554,266 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "AAH, RSA et minimum vieillesse revalorisés sur l’inflation en 2027 (point de départ)"
         }
+      ],
+      "overlapsWith": [
+        "minimum-pension-carriere-complete",
+        "non-recours-versement-automatique",
+        "rsa-18-24-ans"
+      ]
+    },
+    {
+      "id": "minimum-pension-carriere-complete",
+      "family": "sociale",
+      "label": "Pension minimale, carrière complète",
+      "today": "85 % du Smic net après une carrière complète au Smic",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 point de Smic net garanti",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.144,
+        "hi": 0.239
+      },
+      "base": {
+        "value": 7.5,
+        "label": "7,5 Md€ de minima de pension du privé versés en 2023 : minimum contributif de la Cnav (6,4) et de la MSA (0,5), minima des exploitants agricoles (0,6) ; somme, calcul. Le minimum garanti des fonctionnaires (1,7 Md€), que le levier ne règle pas, n’est pas compté.",
+        "source": {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre IX « Les petites pensions de retraite », tableau n° 29 (p. 301)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-9-Petites-pensions-de-retraite.pdf"
+        }
+      },
+      "max": 7,
+      "step": 1,
+      "notches": [
+        -7,
+        -3,
+        0,
+        3,
+        7
+      ],
+      "baseLabel": "85 %",
+      "estimate": {
+        "method": "Calé sur la hausse de 2023 : 100 € par mois au plus, environ 7 points de Smic net. Son coût : 0,99 Md€ mesuré en 2024 (940 M€ plus environ 50 M€ agricoles, Cour des comptes) à 1,6 Md€ prévus pour 2026 (étude d’impact, même champ), soit 9,9 à 16 M€ par an par euro de hausse. Un point vaut 14,78 € par mois (Smic net de 1 477,93 €) : 0,146 à 0,236 Md€ par point, centre 0,19, fourchette de ±25 %. Retraités actuels compris, dès janvier 2027."
+      },
+      "stretch": {
+        "max": 15,
+        "perUnit": {
+          "lo": 0.144,
+          "hi": 0.4
+        },
+        "perUnitDown": {
+          "lo": 0.15,
+          "hi": 0.5
+        },
+        "why": "Jusqu’à 100 % du Smic net, l’idée débattue (70 % en baisse). Au-delà de +7, haut relevé : vers 95 %, il faut relever le seuil d’écrêtement. Au-delà de −7, 0,15 à 0,5 Md€ par point : le reste de la majoration, puis le minimum de base (5,6 millions de minima)."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "minima-sociaux-revalorisation",
+        "pensions-revalorisation",
+        "smic-coup-de-pouce"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Chaque nouvelle génération de retraités ajoute un peu au coût : 67 M€ par an pour la hausse de 2023, soit environ 0,01 Md€ par point et par an. Hors total.",
+      "limits": "Estimation statique, calée sur la hausse de 2023 (100 € au plus, environ 7 points). Retraités actuels compris, dès janvier. Sans la fonction publique (minimum garanti), ni l’effet sur l’ASPA, la CSG et l’impôt.",
+      "sources": [
+        {
+          "title": "Projet de loi de financement rectificative de la sécurité sociale pour 2023 (n° 760), annexe 2 : fiches d’évaluation préalable, article 10, impact financier (p. 109)",
+          "publisher": "Gouvernement (annexe au projet de loi déposé à l’Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/16/textes/l16b0760_etude-impact.pdf",
+          "date": "2023-01-23",
+          "accessedAt": "2026-10-18",
+          "figure": "Hausse de 100 € au plus du minimum contributif et de la pension majorée de référence, retraités actuels compris, avec les trimestres de parent au foyer et le complément agricole (CD-RCO, 50 M€) : 1,4 Md€ en 2024, 1,5 Md€ en 2025, 1,6 Md€ en 2026 (estimation avant la mesure, plus haute que le coût mesuré)"
+        },
+        {
+          "title": "Projet de loi de financement rectificative de la sécurité sociale pour 2023 (n° 760), annexe 2 : fiches d’évaluation préalable, article 10, présentation de la mesure (p. 105)",
+          "publisher": "Gouvernement (annexe au projet de loi déposé à l’Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/16/textes/l16b0760_etude-impact.pdf",
+          "date": "2023-01-23",
+          "accessedAt": "2026-10-18",
+          "figure": "La hausse de 100 € par mois au plus porte la pension d’une carrière complète au Smic à 85 % du Smic net (environ 7 points de Smic net)"
+        },
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre IX « Les petites pensions de retraite », coût mesuré des revalorisations de 2023 (p. 316)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-9-Petites-pensions-de-retraite.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût mesuré en 2024 de la majoration exceptionnelle et de la hausse du minimum contributif : 940 M€ (hors anciens artisans et commerçants), plus de l’ordre de 50 M€ pour les non-salariés agricoles"
+        },
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre IX « Les petites pensions de retraite », barème des minima de pension en 2026, tableau n° 28 (p. 300)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-9-Petites-pensions-de-retraite.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Minimum contributif de 756,29 € plus 147,64 € de majoration (903,93 €) ; seuil d’écrêtement de la pension totale : 1 410,89 € par mois en 2026"
+        },
+        {
+          "title": "La sécurité sociale 2026 (RALFSS), chapitre IX « Les petites pensions de retraite », coût par génération de nouveaux retraités (p. 315)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-9-Petites-pensions-de-retraite.pdf",
+          "date": "2026-05-27",
+          "accessedAt": "2026-10-18",
+          "figure": "Nouveaux retraités de 2024 : 185 000 bénéficiaires, 30 € par mois en moyenne, 67 M€ en année pleine"
+        },
+        {
+          "title": "Salaire minimum interprofessionnel de croissance (Smic), montants",
+          "publisher": "Direction de l’information légale et administrative (Premier ministre), Service-Public.fr",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2300",
+          "date": "2026-06-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Smic mensuel net : 1 477,93 € (1 point de Smic net vaut 14,78 € par mois)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche « Les prestations de retraite », encadré sur la réforme de 2023 (p. 113)",
+          "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Objectif de 85 % du Smic net pour une carrière complète au Smic ; minimum contributif majoré indexé sur le Smic (point de départ)"
+        }
+      ]
+    },
+    {
+      "id": "non-recours-versement-automatique",
+      "family": "sociale",
+      "label": "Versement automatique des aides",
+      "today": "Pas de versement d’office ; ressources préremplies depuis mars 2025",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "part des droits non réclamés versée d’office",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 12.972592,
+        "label": "12 972,6 M€ de crédits 2027 de l’action 11 du programme 304 (prime d’activité, RSA payé par l’État) ; le RSA des départements (12,2 Md€ versés en 2023 en tout) n’y est qu’en partie",
+        "source": {
+          "title": "PAP 2027, mission Solidarité, insertion et égalité des chances : programme 304, éléments de synthèse du programme (p. 38)",
+          "publisher": "Ministère chargé des solidarités (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "plf",
+          "label": "Pas de versement d’office (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true
+        },
+        {
+          "id": "auto-25",
+          "label": "Un quart des droits non réclamés",
+          "lo": 2.08,
+          "hi": 3.75,
+          "estimate": "Droits non versés estimés à partir de la DREES : RSA, 3,0 à 5,9 Md€ par an ; prime d’activité, 5,3 à 9,1 Md€ (8,3 à 15,0 Md€ en tout) ; un quart."
+        },
+        {
+          "id": "auto-50",
+          "label": "La moitié",
+          "lo": 4.15,
+          "hi": 7.5,
+          "estimate": "Mêmes droits non versés (8,3 à 15,0 Md€ par an, DREES) : la moitié."
+        },
+        {
+          "id": "auto-100",
+          "label": "Tous les droits non réclamés",
+          "lo": 7.65,
+          "hi": 15.75,
+          "estimate": "Mêmes droits non versés (8,3 à 15,0 Md€ par an, DREES), bas réduit pour ceux qu’un calcul d’office ne trouverait pas, haut élargi de 5 % pour les nouveaux droits."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "credits-prime-activite-rsa",
+        "minima-sociaux-revalorisation",
+        "prime-activite-revalorisation",
+        "rsa-18-24-ans"
+      ],
+      "operatorCaveat": false,
+      "limits": "Droits non versés estimés par la DREES (RSA 2018, prime d’activité 2021). Ni coût de gestion, ni baisse des versements à tort qu’un calcul d’office permettrait, ni effet sur l’emploi. Rien ne peut faire monter le non-recours : pas de réglage à la baisse.",
+      "sources": [
+        {
+          "title": "Non-recours à la prime d’activité : la moitié des foyers éligibles ne la perçoivent pas fin 2021 (Études et résultats n° 1379), p. 3",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2026-07/ER1379_Non-recours_PA.pdf",
+          "date": "2026-07",
+          "accessedAt": "2026-10-18",
+          "figure": "sans non-recours, environ 1,3 Md€ de prime d’activité en plus par trimestre (fin 2021), soit 77 à 85 % de la masse versée"
+        },
+        {
+          "title": "Non-recours à la prime d’activité (Études et résultats n° 1379), tableau 1 : non-recours au dernier trimestre 2021, en foyers et en masse financière (p. 3)",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2026-07/ER1379_Non-recours_PA.pdf",
+          "date": "2026-07",
+          "accessedAt": "2026-10-18",
+          "figure": "non-recourants : 3 426 000 foyers et 1 334 M€ par trimestre (fin 2021, métropole, logements ordinaires) ; recourants : 1 570 à 1 725 M€"
+        },
+        {
+          "title": "Mesurer régulièrement le non-recours au RSA et à la prime d’activité : méthode et résultats (Les Dossiers de la DREES n° 92), p. 30",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2022-02/DD92.pdf",
+          "date": "2022-02",
+          "accessedAt": "2026-10-18",
+          "figure": "RSA non versé du fait du non-recours : 750 M€ par trimestre en 2018, soit 3,0 Md€ par an, sur le champ couvert"
+        },
+        {
+          "title": "Les Dossiers de la DREES n° 92, tableau 8 « Taux de non-recours moyen au RSA en 2018 » (p. 30)",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2022-02/DD92.pdf",
+          "date": "2022-02",
+          "accessedAt": "2026-10-18",
+          "figure": "RSA versé aux foyers recourants : 1 560 M€ par trimestre sur le même champ ; non versé : 750 M€, soit 48 % de la somme versée"
+        },
+        {
+          "title": "Les Dossiers de la DREES n° 92, synthèse, note 5 (p. 5)",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2022-02/DD92.pdf",
+          "date": "2022-02",
+          "accessedAt": "2026-10-18",
+          "figure": "le champ de l’estimation du RSA couvre 70 % des allocataires (France entière) : la masse non versée serait plus grande sur tout le champ"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 07 « Les dépenses d’allocations » (p. 78)",
+          "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (DREES)",
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d%27allocations.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "RSA : 12,2 Md€ d’allocations versées en 2023 (12 218 M€), 549 € par mois en moyenne par allocataire"
+        },
+        {
+          "title": "Projet annuel de performances 2027, mission Solidarité, insertion et égalité des chances : justification de l’action 11 du programme 304 (p. 40-42)",
+          "publisher": "Ministère chargé des solidarités (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "prime d’activité : 10,7 Md€ de crédits au PLF 2027"
+        },
+        {
+          "title": "Projet annuel de performances 2027, mission Solidarité, insertion et égalité des chances : présentation stratégique (p. 8)",
+          "publisher": "Ministère chargé des solidarités (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "point de départ : ressources préremplies dans les déclarations des allocataires du RSA et de la prime d’activité depuis 2025, sans versement d’office aux non-recourants"
+        }
       ]
     },
     {
@@ -4919,10 +12837,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Objectif national de dépenses d’assurance maladie », p. 61 du PDF",
           "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Ondam 2027 : 278,7 Md€ (révisé 2026 : 273,3 Md€)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf"
         }
       },
       "max": 1,
@@ -4935,8 +12850,22 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "+2,0 %",
+      "stretch": {
+        "max": 2,
+        "perUnit": {
+          "lo": 2.65,
+          "hi": 2.75
+        },
+        "perUnitDown": {
+          "lo": 1.5,
+          "hi": 2.75
+        },
+        "why": "±2 pts : à −2, l’Ondam reste stable en euros ; à +2 (4 %), il dépasse son évolution spontanée de 3,6 % (HCFP). Au-delà de 1 pt d’économies, effet élargi : l’effort sur les établissements de santé (116 Md€) peut finir en partie en déficit hospitalier."
+      },
       "exclusiveWith": [
-        "indemnites-journalieres"
+        "franchises-medicales",
+        "indemnites-journalieres",
+        "prise-en-charge-assurance-maladie"
       ],
       "overlapsWith": [
         "effectifs-publics",
@@ -4972,6 +12901,359 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "operateurs-fonctions-support",
+      "family": "depenses",
+      "label": "Agences de l’État : frais de gestion",
+      "today": "Pas d’objectif chiffré ; −1 209 emplois chez les opérateurs (PLF)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût des fonctions support",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0218,
+        "hi": 0.0327
+      },
+      "base": {
+        "value": 2.7,
+        "label": "2,7 Md€ : coût des fonctions support (gestion, ressources humaines, informatique, immobilier, achats) des opérateurs de l’État en 2024, hors universités et centres de recherche, estimé par le Sénat à 10 % de 27,2 Md€ de charges de personnel et de fonctionnement. Dernier chiffre publié ; le levier en retient 2,2 à 3,3 Md€ hors cotisations des employeurs.",
+        "source": {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (coût des fonctions support)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html"
+        }
+      },
+      "max": 20,
+      "step": 1,
+      "notches": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 25,
+        "perUnit": {
+          "lo": 0.0218,
+          "hi": 0.0327
+        },
+        "perUnitDown": {
+          "lo": 0.0109,
+          "hi": 0.0327
+        },
+        "why": "25 % : aligner les opérateurs importants (environ 15 % des effectifs en fonctions support, Sénat) sur la référence du privé (11,1 %, DGME), soit −26 %. Au-delà de ±20 %, le même point ; à la baisse, bas divisé par deux (coûts des fusions, missions touchées)."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "credits-administration-penitentiaire",
+        "credits-aides-indirectes-etudiants",
+        "credits-anah-renovation",
+        "credits-asile",
+        "credits-culture",
+        "credits-integration",
+        "credits-justice-judiciaire",
+        "credits-politique-de-la-ville",
+        "credits-service-civique",
+        "effectifs-publics"
+      ],
+      "operatorCaveat": true,
+      "laterNote": "Le Sénat ne date pas l’économie ; fusions et mutualisations s’étalent souvent sur plusieurs années : le réglage est l’économie obtenue en 2027. Réduire de 20 % le nombre d’organes consultatifs : environ 10 M€ de plus (Sénat).",
+      "limits": "Bas : fonctions support à 9 % des charges ; haut : 13,5 % (parts relevées par le Sénat, qui retient 10 %). Charges de 2024, hors universités, recherche et cotisations des employeurs (compte des ODAC, Insee). Missions inchangées.",
+      "sources": [
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (coût des fonctions support)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction de 20 % du coût des fonctions support des opérateurs (coût de 2024) : économie de l’ordre de 540 M€, soit 27 M€ par point, jugée « très volontariste » sans fusion. Fixe la plage chiffrée à ±20 %"
+        },
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (compte rendu de l’examen du rapport)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "En poussant la mutualisation « le plus loin possible », à politiques inchangées : de l’ordre de 540 M€ (la plage chiffrée de ±20 %) ; au-delà, le prolongement est une estimation d’Isoloir"
+        },
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (coût des fonctions support)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Charges 2024 des opérateurs hors enseignement et recherche : environ 14 Md€ de personnel et 13,2 Md€ de fonctionnement (27,2 Md€)"
+        },
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (coût des fonctions support)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Fonctions support : un peu moins de 10 % des charges dans les grands organismes, 13 à 14 % dans les plus petits ; d’où le bas à 9 % et le haut à 13,5 % des charges"
+        },
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (coût des fonctions support)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Part des fonctions support dans les effectifs : 11,1 à 12,1 % dans le privé (référence DGME), 14,6 à 15,2 % à l’INSERM et au CNRS, 20 % ou plus dans les petits organismes : la référence du privé fixe la borne du prolongement"
+        },
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, de la commission d’enquête sur les missions des agences, opérateurs et organismes consultatifs de l’État (coût des fonctions support)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Fonctions support à 15 % environ des effectifs des opérateurs importants ; ramenée à la référence du privé (11,1 %), la part baisse de 26 % : borne du prolongement à 25 %"
+        },
+        {
+          "title": "Agencification : une méthodologie repensée pour une action publique renforcée, rapport n° 807 (2024-2025), tome I, « L’essentiel » (organes consultatifs)",
+          "publisher": "Sénat",
+          "url": "https://www.senat.fr/rap/r24-807-1/r24-807-1_mono.html",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "20 % de commissions et instances consultatives en moins : environ 10 M€ d’économie (hors levier, en note)"
+        },
+        {
+          "title": "Administrations publiques en 2025 (comptes nationaux annuels, base 2020), tableau 7.304 « Compte des organismes divers d’administration centrale (S13112) »",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/8988833",
+          "date": "2026-08-28",
+          "accessedAt": "2026-10-18",
+          "figure": "Salaires bruts (D11) 24,259 Md€ sur 30,900 Md€ de rémunérations (D1) des ODAC en 2024, soit 78,5 % : personnel des opérateurs hors cotisations des employeurs 14 × 0,785 = 11,0 Md€ ; assiette 11,0 + 13,2 = 24,2 Md€ ; 9 % = 21,8 M€ par point, 13,5 % = 32,7 M€ par point (calcul)"
+        },
+        {
+          "title": "Budget 2027 : dossier de presse du PLF et du PLFSS pour 2027, présentation générale du PLF (p. 11 et p. 30)",
+          "publisher": "Ministères économiques et financiers (dossier de presse PLF et PLFSS 2027, Direction du budget)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "PLF 2027 : −1 209 emplois chez les opérateurs, rapprochements d’opérateurs amplifiés, sans objectif chiffré sur leurs fonctions support (le réglage du PLF)"
+        }
+      ]
+    },
+    {
+      "id": "opex-surcouts",
+      "family": "depenses",
+      "label": "Opérations extérieures : surcoûts",
+      "today": "680 M€ provisionnés au PLF 2027 (programmes 178 et 212)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de la provision",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0068,
+        "hi": 0.0068
+      },
+      "base": {
+        "value": 0.68,
+        "label": "680 M€ de crédits de paiement pour les surcoûts des opérations extérieures au PLF 2027 : opération stratégique OPEX du programme 178 (540 M€) et sous-action 59.01 du programme 212 (140 M€ de rémunérations) ; somme calculée, aucune ligne ne publie le total",
+        "source": {
+          "title": "PAP 2027, mission Défense, programme 178, synthèse de l’action 06 par opération stratégique et par titre (p. 191)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf"
+        }
+      },
+      "max": 100,
+      "step": 1,
+      "notches": [
+        -100,
+        -50,
+        0,
+        50,
+        100
+      ],
+      "baseLabel": "PLF",
+      "amount": {
+        "value": 0.68,
+        "label": "680 M€ de surcoûts des opérations extérieures provisionnés au PLF 2027 : 540 M€ au programme 178 et 140 M€ de rémunérations au programme 212"
+      },
+      "exclusiveWith": [
+        "defense"
+      ],
+      "overlapsWith": [
+        "point-indice"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le PAP vise 10 500 militaires déployés en 2027, puis 12 000 en 2028 et 2029 avec des forces de stabilisation après de probables cessez-le-feu en Ukraine et au Moyen-Orient : hors du total.",
+      "limits": "Provision du PLF : les surcoûts réels peuvent la dépasser. Hors missions intérieures (120 M€) et flanc Est de l’Europe (400 M€). Le Proche-Orient n’est pas isolé ; un retrait coûte aussi en transport l’année même.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Défense, programme 178, action 06 « Surcoûts liés aux engagements opérationnels » : contenu de l’action (p. 189)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "L’action 06 est une provision pour les surcoûts des opérations extérieures, des missions intérieures et des missions sur le flanc Est de l’Europe"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 178, action 06 : principales mesures de l’année (p. 189)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Dotation 2027 de l’action 06 : 900 M€, pour les engagements en cours, notamment au Proche et au Moyen-Orient (part de la région non isolée)"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 178, synthèse de l’action 06 par opération stratégique et par titre (p. 191)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Opération stratégique OPEX : 540,00 M€ de CP en 2027 (titre 3 : 480,30 ; titre 6 : 59,70) ; MISSINT 60 M€ et flanc Est 300 M€ hors levier"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 212, action 59 « Surcoûts liés aux engagements opérationnels - Personnel » : sous-action 59.01 (p. 232)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Rémunérations liées aux opérations extérieures : 140 M€ de CP en 2027 (titre 2), dans le levier ; 59.02 (60 M€) et 59.03 flanc Est (100 M€) hors levier"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 212, éléments salariaux (p. 244)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La provision OPEX-MISSINT de la masse salariale atteint 300 M€, missions opérationnelles comprises"
+        },
+        {
+          "title": "PAP 2027, mission Défense, programme 178, indicateur 1.3 « Volume de personnel militaire déployé » et justification des cibles (p. 96)",
+          "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "10 500 militaires déployés visés en 2027, 12 000 en 2028 et 2029 avec des forces de stabilisation après de probables cessez-le-feu en Ukraine et au Moyen-Orient (note hors total)"
+        }
+      ]
+    },
+    {
+      "id": "pensions-alimentaires-defiscalisation",
+      "family": "impots",
+      "label": "Pensions alimentaires : imposition",
+      "today": "Imposées chez le parent qui les reçoit, déduites chez celui qui verse",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "hors-impot-et-aides",
+          "label": "Ni imposées ni comptées dans les aides de qui les reçoit",
+          "lo": -1.8,
+          "hi": -1.56,
+          "note": "Une moitié de la réforme chiffrée par l’administration en 2022 (citée par l’IGF et l’IGAS) : baisse d’impôt et hausse des prestations sous conditions de ressources du parent qui reçoit ; celui qui verse garde sa déduction.",
+          "estimate": "1,56 Md€ (chiffrage de 2022, non actualisé par la source), porté à 2027 de 0 à +15 % pour la hausse des pensions et des prestations depuis : 1,56 à 1,8 Md€."
+        },
+        {
+          "id": "inversion",
+          "label": "Inversion : imposées chez celui qui verse",
+          "lo": -0.93,
+          "hi": -0.81,
+          "note": "La réforme entière chiffrée par l’administration en 2022 : la pension sort des ressources (impôt et aides) de qui la reçoit et entre dans celles de qui la verse, sans partage du quotient familial.",
+          "estimate": "Coût net de 810 M€ (chiffrage de 2022 : 1 560 M€ de moins chez qui reçoit, 750 M€ de plus chez qui verse), porté à 2027 de 0 à +15 % : 0,81 à 0,93 Md€."
+        },
+        {
+          "id": "exoneration-ir",
+          "label": "Exonération d’impôt chez le parent qui reçoit",
+          "lo": -0.9,
+          "hi": -0.1,
+          "note": "L’impôt seul : les aides sous conditions de ressources continuent de compter la pension.",
+          "estimate": "Hypothèses, faute de chiffre publié sur la part versée pour des enfants et sur le taux d’impôt de ceux qui reçoivent : 10 Md€ de pensions alimentaires (2023) × 40 à 70 % pour des enfants × 90 % (abattement de 10 %) × 3 à 14 % de taux marginal moyen, décote comprise, beaucoup ne payant pas d’impôt : 0,1 à 0,9 Md€. Moins que la variante qui sort aussi la pension des aides (1,56 Md€)."
+        },
+        {
+          "id": "plf",
+          "label": "Imposées chez le parent qui les reçoit (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "fin-deduction-debiteur",
+          "label": "Fin de la déduction chez celui qui verse",
+          "lo": 0.75,
+          "hi": 0.86,
+          "note": "L’autre moitié de la réforme chiffrée en 2022 : plus d’impôt pour celui qui verse et pension comptée dans ses aides au logement ; la pension reste imposée chez qui la reçoit, donc des deux côtés.",
+          "estimate": "750 M€ (chiffrage de 2022), porté à 2027 de 0 à +15 % : 0,75 à 0,86 Md€."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "credits-aides-personnelles-logement",
+        "credits-prime-activite-rsa",
+        "ir-indexation-bareme",
+        "ir-taux-bareme",
+        "quotient-familial-plafond"
+      ],
+      "operatorCaveat": false,
+      "limits": "Chiffrages de l’administration de 2022 (deux moitiés d’une même réforme), portés à 2027 de 0 à +15 % ; exonération d’impôt seule : estimation fruste. Plafonner la déduction n’est pas chiffré, ni l’effet sur les montants fixés.",
+      "sources": [
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe V, p. 40",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "réforme étudiée (sortir des bases ressources les pensions reçues par le parent créditeur et y intégrer les pensions versées par le parent débiteur), moitié « parent qui reçoit » : 1 560 M€ de baisse d’impôt et de hausse des prestations (administration, 2022)"
+        },
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe V, p. 40",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "même réforme, moitié « parent qui verse » : 750 M€ de plus d’impôt et de moins d’allocations logement (administration, 2022)"
+        },
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe V, p. 40",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "la réforme entière (1 560 M€ moins 750 M€) : coût net de 810 M€ (administration, 2022)"
+        },
+        {
+          "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe V, p. 26",
+          "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+          "date": "2026-06",
+          "accessedAt": "2026-10-18",
+          "figure": "aujourd’hui : déduite chez le parent qui verse (sans plafond pour un enfant mineur), imposée chez celui qui reçoit après l’abattement de 10 %"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026) sur le projet de loi de finances pour 2026, tome II, fascicule 1, article 6",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-21/l25-139-21_mono.html",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "environ 10 Md€ de pensions alimentaires en 2023, ordre de grandeur cité à propos de l’abattement de 10 % sur les pensions, sans détail par catégorie (enfants, ex-conjoints, ascendants)"
+        }
+      ]
+    },
+    {
       "id": "pensions-revalorisation",
       "family": "sociale",
       "label": "Revalorisation des retraites de base",
@@ -4992,10 +13274,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026 (rapport à la Commission des comptes de la Sécurité sociale), fiche 2.5 « Les prestations de retraite », p. 108",
           "publisher": "Direction de la sécurité sociale",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "pensions nettes des régimes de retraite de base : 314,5 Md€ en 2027, avec la revalorisation légale de +1,7 % au 1er janvier 2027 (avant le gel différencié du PLFSS)"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -5035,6 +13314,22 @@ export const budget: BudgetData = {
           "lo": 4,
           "hi": 4.3,
           "note": "La règle habituelle. Bas : DSS, net de CSG et de CASA ; haut : HCFP, 3,0 Md€ Sécurité sociale et 1,3 Md€ État."
+        },
+        {
+          "id": "juillet-inflation",
+          "label": "Inflation pour toutes, au 1er juillet",
+          "lo": 1.38,
+          "hi": 2.32,
+          "note": "Toutes les pensions suivent l’inflation, mais six mois plus tard : une « autre option » chiffrée par la DSS dans l’annexe du PLFSS 2027. Estimation.",
+          "estimate": "Calcul d’Isoloir à partir de la DSS (annexe 9 du PLFSS 2027) : revaloriser toutes les pensions sur l’inflation au 1er juillet au lieu du 1er janvier épargne 2,3 Md€ en 2027 ; la revalorisation au 1er janvier coûte 4,0 Md€ (DSS, net de CSG et de CASA) à 4,3 Md€ (HCFP) de plus que la règle du PLFSS. Écart : 1,7 à 2,0 Md€, élargi à ±25 % autour de 1,85 Md€, car la DSS ne dit pas si les 2,3 Md€ sont nets de CSG."
+        },
+        {
+          "id": "inflation-moins-04",
+          "label": "Inflation moins 0,4 point pour toutes",
+          "lo": 2.2,
+          "hi": 3.8,
+          "note": "+1,3 % pour toutes les pensions. Sous-indexation proposée dans le PLFSS 2026 pour 2027 à 2030, non reprise au PLFSS 2027 ; le comité de suivi des retraites recommande 2 points de moins en cumulé d’ici 2030. Estimation.",
+          "estimate": "Calcul d’Isoloir : l’inflation pour toutes coûte 4,0 Md€ (DSS) à 4,3 Md€ (HCFP) de plus que la règle du PLFSS. Un point de revalorisation de toutes les pensions de base vaut 2,8 Md€ en 2027 (gel complet : 4,7 Md€ pour 1,7 %, DSS) à 3,0 Md€ (0,5 point pour 1,5 Md€, Sénat). Retirer 0,4 point : 4,0 − 1,1 = 2,9 Md€ à 4,3 − 1,2 = 3,1 Md€, élargi à ±25 % autour de 3,0 Md€."
         }
       ],
       "exclusiveWith": [],
@@ -5074,6 +13369,135 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "gel différencié : 3,0 Md€ pour la Sécurité sociale et 1,3 Md€ pour l’État (régime des fonctionnaires), soit 4,3 Md€"
         }
+      ],
+      "overlapsWith": [
+        "minimum-pension-carriere-complete"
+      ]
+    },
+    {
+      "id": "pfu-taux-ir",
+      "family": "impots",
+      "label": "Prélèvement forfaitaire (part impôt)",
+      "today": "12,8 % d’impôt sur le revenu (31,4 % avec les prélèvements sociaux)",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 point sur le taux de 12,8 %",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.35,
+        "hi": 0.8
+      },
+      "base": {
+        "value": 8.1,
+        "label": "8,1 Md€ de prélèvement forfaitaire sur les dividendes et intérêts prévus en 2026, compté dans l’impôt sur le revenu (Voies et moyens 2026). Le PFU sur les plus-values s’y ajoute (2,24 Md€ en 2022).",
+        "source": {
+          "title": "Évaluation des voies et moyens, tome 1 : recettes, annexe au PLF 2026, tableau de l’impôt sur le revenu (p. 16)",
+          "publisher": "Gouvernement, direction du Budget (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf"
+        }
+      },
+      "max": 1,
+      "step": 0.1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "12,8 %",
+      "estimate": {
+        "method": "Part impôt du PFU : 8,1 Md€ sur dividendes et intérêts prévus en 2026 (Voies et moyens), 2,2 Md€ sur les plus-values (2022, Sénat) : 10,3 Md€ pour 12,8 points, 0,8 par point en statique, le haut, sur 80 Md€ de revenus. Bas : 0,4 à 1,2 % de revenus en moins par point (élasticité supposée 0,3 à 0,8 ; dividendes −20 % en 2013, +20 % en 2018, CPO) à 31,4 %, soit 0,30, et la CDHR, 0,08 : 0,42, ramené à 0,35 (le PFO est un acompte, en partie rendu)."
+      },
+      "stretch": {
+        "max": 12.8,
+        "perUnit": {
+          "lo": 0.15,
+          "hi": 0.65
+        },
+        "perUnitDown": {
+          "lo": 0.15,
+          "hi": 0.8
+        },
+        "why": "En bas, 0 % : toute la ligne, environ 10 Md€. En haut, 25,6 % : moins qu’une imposition au barème (+8,7 à +9,0 Md€, CPO, IPP), haut plafonné vers 8,5 Md€. Au-delà de ±1 point, bas abaissé des deux côtés : dividendes −20 % après 2013, +20 % après 2018 (CPO)."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "apport-cession-report",
+        "cdhr-taux-plancher",
+        "csg-capital",
+        "epargne-retraite-per",
+        "impot-plancher-tres-hauts-patrimoines"
+      ],
+      "operatorCaveat": false,
+      "limits": "Rendements de 2026 et 2022 (plus-values), non portés à 2027. Le PFO est un acompte, en partie rendu aux foyers qui choisissent le barème : le haut est un plafond. Bas : moins de dividendes versés, CDHR qui baisse d’autant chez ses payeurs.",
+      "sources": [
+        {
+          "title": "Évaluation des voies et moyens, tome 1 : recettes, annexe au PLF 2026, tableau de l’impôt sur le revenu (p. 16)",
+          "publisher": "Gouvernement, direction du Budget (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Prélèvement forfaitaire (PFO/PFU) sur dividendes et intérêts, dans l’impôt sur le revenu : 7,5 Md€ (2024), 8,0 Md€ (2025), 8,1 Md€ prévus en 2026"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome 1 : recettes, annexe au PLF 2026, encadré méthodologique (p. 13)",
+          "publisher": "Gouvernement, direction du Budget (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le PFU est un acompte prélevé à la source sur les dividendes et intérêts au taux de 12,8 %, compté dans les recettes brutes de l’impôt sur le revenu : le chiffre de 8,1 Md€ est un plafond"
+        },
+        {
+          "title": "Rapport n° 689 (2024-2025) de la commission des finances sur la proposition de loi instaurant un impôt plancher de 2 % sur le patrimoine des « ultrariches »",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-689/l24-689_mono.html",
+          "date": "2025-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "PFU en 2022 : 7,2 Md€, dont 4,94 Md€ sur les revenus mobiliers et 2,24 Md€ sur les plus-values mobilières ; 2,2 Md€ de plus-values ajoutés aux 8,1 Md€ : environ 10,3 Md€"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 10 (p. 96)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 12,8 % (PFU) ou barème sur option, plus 18,6 % de prélèvements sociaux en 2027"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 83",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Imposer au barème plutôt qu’au PFU : 8,7 Md€ d’impôt en plus à revenus constants, plafond du haut à 25,6 % ; la réforme de 2018 n’a pas fait perdre de recettes sur ses premières années (bas abaissé)"
+        },
+        {
+          "title": "Perspectives budgétaires (juin 2025), chapitre 2 : Effets budgétaires et redistributifs des mesures socio-fiscales, tableau 2.2 (p. 48)",
+          "publisher": "Institut des politiques publiques (IPP)",
+          "url": "https://www.ipp.eu/wp-content/uploads/2026/04/chapitre_2_fiscalite_web.pdf",
+          "date": "2025-06",
+          "accessedAt": "2026-10-18",
+          "figure": "Suppression de la part impôt du PFU (revenus au barème) : +9,0 Md€, en statique, sans les réactions « potentiellement très importantes » : plafond du haut à 25,6 %"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 46",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Réactions des dividendes : environ −20 % après la mise au barème de 2013, +20 % après le PFU de 2018 (ménages propriétaires d’une entreprise) ; d’où le bas, 0,4 à 1,2 % de revenus en moins par point (élasticité supposée de 0,3 à 0,8), et le bas abaissé dans les deux sens au-delà de ±1 point"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 50",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "La réforme du PFU s’est autofinancée à court terme : une baisse du taux peut coûter bien moins que le calcul statique"
+        }
       ]
     },
     {
@@ -5097,10 +13521,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe VII, tableau 9 (p. 44 de l’annexe)",
           "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
-          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
-          "date": "2026-06",
-          "accessedAt": "2026-10-18",
-          "figure": "Accueil collectif : coût total de 8 354 M€ en 2023 (7 490 M€ en 2019), 495 600 places"
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf"
         }
       },
       "max": 3.5,
@@ -5117,7 +13538,8 @@ export const budget: BudgetData = {
         "depense-complement-mode-de-garde"
       ],
       "overlapsWith": [
-        "effectifs-publics"
+        "effectifs-publics",
+        "gratuite-creches"
       ],
       "operatorCaveat": false,
       "limits": "Coût moyen de fonctionnement, tous financeurs publics, en année pleine : ni investissement, ni hausse des coûts depuis 2023. Ouvrir des places suppose aussi de recruter du personnel.",
@@ -5149,6 +13571,442 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "plafonnement-global-niches",
+      "family": "impots",
+      "label": "Plafond global des niches de l’IR",
+      "today": "10 000 € par foyer (18 000 € outre-mer et Sofica), dons hors plafond",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage du plafond général des réductions et crédits d’impôt",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 14.623,
+        "label": "14,6 Md€ de réductions et crédits d’impôt sur le revenu en 2026 (tome II des Voies et moyens du PLF 2026, le tome du PLF 2027 n’étant pas publié en ligne), dont une partie seulement est sous le plafond (dons, Malraux… en sont exclus) : la même ligne que pour le rabot des crédits et réductions.",
+        "source": {
+          "title": "Évaluation des voies et moyens, tome II : dépenses fiscales, annexe au PLF 2026, tableau « Dépenses fiscales par impôt » (p. 16)",
+          "publisher": "Direction de la législation fiscale (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf"
+        }
+      },
+      "max": 1,
+      "step": 0.5,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "10 000 €",
+      "options": [
+        {
+          "id": "plafond-5000",
+          "label": "Plafond à 5 000 €",
+          "lo": 0.2,
+          "hi": 1,
+          "note": "Les 17 041 foyers plafonnés en 2021 paieraient 5 000 € de plus chacun ; bien d’autres foyers dépasseraient le nouveau plafond.",
+          "estimate": "Pareto : 0,58 à 0,79 Md€ ; plancher 0,09 Md€ (17 041 foyers × 5 000 €). Sous 10 000 €, le prolongement est incertain dans les deux sens : bas abaissé à 0,2 ; haut relevé à 1,0 pour la hausse des dépenses aidées depuis 2021 (plafond non indexé)."
+        },
+        {
+          "id": "plafond-7500",
+          "label": "Plafond à 7 500 €",
+          "lo": 0.05,
+          "hi": 0.15,
+          "estimate": "Pareto : 0,09 à 0,11 Md€ ; plancher 0,04 Md€ (17 041 foyers × 2 500 €) ; haut relevé à 0,15 pour la hausse des dépenses aidées depuis 2021 (plafond non indexé)."
+        },
+        {
+          "id": "plafond-10000",
+          "label": "10 000 € (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le plafond fixé en 2013, sans indexation depuis."
+        },
+        {
+          "id": "plafond-15000",
+          "label": "Plafond à 15 000 €",
+          "lo": -0.06,
+          "hi": -0.026,
+          "estimate": "Pareto : 35 à 37 M€ de moins ; coût porté jusqu’à 60 M€ pour la hausse des dépenses aidées depuis 2021 (plafond non indexé)."
+        },
+        {
+          "id": "plafond-20000",
+          "label": "Plafond à 20 000 €",
+          "lo": -0.07,
+          "hi": -0.03,
+          "estimate": "Pareto : 42 à 43 M€ de moins, presque tout l’écrêtement de 2021 (45 M€) ; coût porté jusqu’à 70 M€ pour sa hausse depuis."
+        }
+      ],
+      "estimate": {
+        "method": "CPO (2024), données DGFiP : revenus 2021, 17 041 foyers au-dessus de 10 000 €, 2 630 € en moyenne (médiane 1 421 €), soit 45 M€. Isoloir ajuste une loi de Pareto (indice 4,8 à 5,2 selon moyenne et médiane) et la prolonge : gain = 45 M€ × ((10 000 / plafond) puissance (indice − 1) − 1). Plancher : ces foyers paient tout l’écart. Fourchettes élargies : prolongement incertain dans les deux sens ; hauts relevés, dépenses aidées en hausse depuis 2021."
+      },
+      "exclusiveWith": [
+        "ir-credits-reductions"
+      ],
+      "overlapsWith": [
+        "aide-fiscale-investissement-outre-mer",
+        "cdhr-taux-plancher",
+        "incitations-bailleurs-prives"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Dès 2028, les foyers ajustent leurs dépenses et investissements aidés : l’effet change, dans un sens non chiffré.",
+      "limits": "Estimation sur des données de 2021. Le plafond majoré (outre-mer, Sofica) et les avantages hors plafond (dons, Malraux…) ne bougent pas. Impôt de 2027 sur les revenus de 2026 : dépenses déjà faites, sans réaction comptée.",
+      "sources": [
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), chapitre III, p. 116",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafond global de l’article 200-0 A du CGI : 10 000 € depuis la loi de finances pour 2013"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), chapitre III, p. 116",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafond majoré à 18 000 € pour l’outre-mer et les Sofica"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), chapitre III, p. 117-118 (source DGFiP)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Revenus 2021 : 17 041 foyers au-dessus du plafond, 45 M€ d’impôt en plus, 2 630 € en moyenne et 1 421 € en médiane par foyer (la base de l’estimation)"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), chapitre III, p. 117-118",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les 45 M€ sont un minorant : relever le plafond pourrait accroître le recours aux avantages"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), chapitre III, p. 121",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le CPO ne chiffre pas sa piste sur le plafonnement global : seules d’autres mesures, environ 1,5 Md€, sont chiffrables avec les données accessibles"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome II : dépenses fiscales, annexe au PLF 2026, fiche 110246 (p. 59)",
+          "publisher": "Direction de la législation fiscale (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Crédit d’impôt pour l’emploi à domicile, le principal avantage sous plafond : 6 420 M€ (2024), 7 029 (2025), 7 208 (2026), 4 909 243 ménages (vieillissement des hauts de l’estimation)"
+        }
+      ]
+    },
+    {
+      "id": "plus-values-immobilieres-abattement",
+      "family": "impots",
+      "label": "Plus-values immobilières : détention",
+      "today": "Exonération d’impôt après 22 ans, de prélèvements sociaux après 30 ans",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de l’abattement pour durée de détention",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.3,
+        "hi": 2.4
+      },
+      "base": {
+        "value": 4.3,
+        "label": "4,3 Md€ : milieu de l’estimation du CPO (3,7 à 4,9 Md€ en 2024) de ce que l’abattement pour durée de détention retire à l’impôt sur le revenu et aux prélèvements sociaux ; 4,8 Md€ en 2022 pour la Cour des comptes.",
+        "source": {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 141",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "exoneration-15-ans",
+          "label": "Exonération totale après 15 ans (règle d’avant 2011)",
+          "lo": -2.4,
+          "hi": -1.5,
+          "note": "Abattement de 10 % par an dès la 6e année, pour l’impôt comme pour les prélèvements sociaux. Chiffré par la Cour des comptes sur les ventes de 2022, ramené par Isoloir aux recettes de 2024, sans les ventes en plus qu’un allègement pourrait susciter.",
+          "estimate": "Coût de 2,4 Md€ sur les ventes de 2022 (Cour des comptes). 2022 était une année haute : les recettes sont tombées de 4,5 Md€ (Cour) à 2,8 Md€ en 2024 (CPO), soit ×0,62 ; ramené à 2024, le coût est de 1,5 Md€. Isoloir retient 1,5 à 2,4 Md€, sans les ventes en plus qu’un allègement pourrait susciter."
+        },
+        {
+          "id": "exoneration-22-ans",
+          "label": "Exonération totale après 22 ans, au lieu de 30",
+          "lo": -0.75,
+          "hi": -0.3,
+          "note": "Les prélèvements sociaux s’arrêtent après 22 ans de détention, comme l’impôt sur le revenu ; le calendrier jusqu’à 22 ans ne change pas.",
+          "estimate": "La Cour des comptes reconstitue à 596 M€ les prélèvements sociaux payés en 2022 sur les biens vendus après 22 à 30 ans de détention (annexe 4) : c’est ce qu’une exonération totale après 22 ans ferait perdre. 2022 était une année haute (recettes de 4,5 Md€, 2,8 Md€ en 2024 selon le CPO) : ramené à 2024, 0,37 Md€. Isoloir retient 0,3 à 0,75 Md€ (bas abaissé de 20 %, haut relevé de 25 %), sans ventes en plus."
+        },
+        {
+          "id": "plf",
+          "label": "Abattement actuel (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : exonération d’impôt sur le revenu après 22 ans, de prélèvements sociaux après 30 ans."
+        },
+        {
+          "id": "inflation-taux-30",
+          "label": "Inflation déduite, taux de 30 %, sans limite de durée",
+          "lo": -0.65,
+          "hi": 0.765,
+          "note": "Plus d’abattement avec les années : la plus-value est corrigée de l’inflation, imposée quelle que soit la durée de détention, au taux de 30 % (celui du prélèvement forfaitaire unique). Gain selon la Cour des comptes, perte possible avec la méthode du CPO ; hors baisse des ventes.",
+          "estimate": "Haut : +765 M€ sur les ventes de 2022 (Cour des comptes, inflation mesurée), +0,48 Md€ ramené aux recettes de 2024. Bas : avec la méthode du CPO (coefficient de 2 % par an, prix en hausse de 3 % par an), les recettes de 2024 passent de 2,8 Md€ à 2,6-3,1 Md€ au taux de 36,2 % ; au taux de 30 % (×30/36,2), 2,15 à 2,57 Md€, soit −0,65 à −0,23 Md€. Isoloir retient −0,65 à +0,765 Md€."
+        },
+        {
+          "id": "inflation-taux-actuel",
+          "label": "Inflation déduite, taux actuel de 36,2 %, sans limite",
+          "lo": -0.2,
+          "hi": 1.9,
+          "note": "Recommandation n° 2 du CPO, sans limite de durée : la plus-value est corrigée de l’inflation au lieu d’être réduite avec les années. De −0,2 à +0,3 Md€ avec un coefficient de 2 % par an et des prix en hausse de 3 % par an (CPO, données vieillies à 2024) ; +1,9 Md€ avec l’inflation mesurée sur les ventes de 2022 (Cour), hors baisse des ventes."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "csg-capital"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le CPO conseille d’appliquer la correction de l’inflation un an après le vote : en 2027, des ventes seraient alors avancées sous l’ancien régime (non chiffré).",
+      "limits": "Statique : une hausse réduirait les ventes, donc le gain (Cour). Chiffres sur 2022, année haute, ou sur 2024 (CPO ou Isoloir). Résidence principale exonérée. L’inflation doit au moins être déduite (Conseil constitutionnel).",
+      "sources": [
+        {
+          "title": "L’imposition des plus-values immobilières des particuliers (novembre 2025), scénario de fluidification (p. 81)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-12/20251125-Imposition-des-plus-values-immobilieres-des-particuliers.pdf",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "exonération après 15 ans de détention, abattement doublé chaque année (règle d’avant 2011) : −2,4 Md€ sur les ventes de 2022, sans l’effet sur le nombre de ventes (bas du réglage « 15 ans »)"
+        },
+        {
+          "title": "L’imposition des plus-values immobilières des particuliers (novembre 2025), annexe n° 4 « détail des calculs » (p. 94)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-12/20251125-Imposition-des-plus-values-immobilieres-des-particuliers.pdf",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "prélèvements sociaux payés en 2022 sur les biens vendus de la 22e à la 30e année de détention : 596 M€ (base de l’estimation du réglage « 22 ans »)"
+        },
+        {
+          "title": "L’imposition des plus-values immobilières des particuliers (novembre 2025), scénario de rendement (p. 81)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-12/20251125-Imposition-des-plus-values-immobilieres-des-particuliers.pdf",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "abattement remplacé par la correction de l’inflation mesurée, sans limite de durée, au taux de 36,2 % : +42 % d’impôt, environ +1,9 Md€ sur les ventes de 2022, quand l’impôt rapportait 4,5 Md€ ; hors effet sur le nombre de ventes (haut du réglage « 36,2 % »)"
+        },
+        {
+          "title": "L’imposition des plus-values immobilières des particuliers (novembre 2025), scénario de rendement, variante au taux de 30 % (p. 81)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-12/20251125-Imposition-des-plus-values-immobilieres-des-particuliers.pdf",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "correction de l’inflation, sans limite de durée, au taux de 30 % (prélèvement forfaitaire unique) : +765 M€ sur les ventes de 2022 (haut du réglage « 30 % »)"
+        },
+        {
+          "title": "L’imposition des plus-values immobilières des particuliers (novembre 2025), p. 73",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-12/20251125-Imposition-des-plus-values-immobilieres-des-particuliers.pdf",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "les chiffres calculés sur les ventes de 2022 seraient moins élevés sur celles de 2024 (raison de ramener les chiffres de 2022 aux recettes de 2024)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 142",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "recettes actuelles de l’imposition des plus-values immobilières : 2,8 Md€ en 2024, contre 4,5 Md€ en 2022 selon la Cour, soit ×0,62 (mise à l’échelle des chiffres de 2022 ; base du calcul au taux de 30 %)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), tableau n° 8 (p. 142)",
+          "publisher": "Conseil des prélèvements obligatoires, d’après les données de la DLF",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "abattement remplacé par un coefficient d’érosion monétaire de 2 % par an, données 2022 vieillies à 2024 : de −0,2 à +0,3 Md€ si les biens prennent 3 % par an (bas du réglage « 36,2 % », base du bas du réglage « 30 % ») ; −2,8 Md€ à 2 % ; +1,8 à +2,7 Md€ à 5 %"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), recommandation n° 2 (p. 143)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "remplacer l’abattement par un coefficient d’érosion monétaire, appliqué un an après (contexte, hors fourchette)"
+        },
+        {
+          "title": "L’imposition des plus-values immobilières des particuliers (novembre 2025), synthèse (p. 9)",
+          "publisher": "Cour des comptes",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-12/20251125-Imposition-des-plus-values-immobilieres-des-particuliers.pdf",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "la correction de l’inflation est le minimum exigé par la jurisprudence constitutionnelle (contexte, hors fourchette)"
+        }
+      ]
+    },
+    {
+      "id": "plus-values-titres-participation",
+      "family": "impots",
+      "label": "Plus-values sur participations",
+      "today": "Taux de 0 % et 12 % du brut imposés à 25 %, inchangés au PLF 2027",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de la quote-part imposée au taux normal",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.045,
+        "hi": 0.11
+      },
+      "base": {
+        "value": 6,
+        "label": "6,0 Md€ en 2022 (calcul) : ce que les taux réduits des plus-values, surtout le 0 % des titres de participation, retirent à l’impôt des sociétés non financières (2,7 points sur 223,7 Md€ de bénéfice, Insee) ; aucune ligne du budget ne publie le coût du régime",
+        "source": {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, tableau 2 « Décomposition du taux d’imposition moyen entre 2016 et 2022 » (p. 33)",
+          "publisher": "Insee (document de travail, auteurs de l’Insee et de la DGFiP)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf"
+        }
+      },
+      "max": 88,
+      "step": 1,
+      "notches": [
+        -12,
+        0,
+        13,
+        38,
+        88
+      ],
+      "baseLabel": "12 %",
+      "options": [
+        {
+          "id": "qp-0",
+          "label": "0 % : plus-values exonérées en entier",
+          "lo": -1.35,
+          "hi": -0.54,
+          "note": "12 points de quote-part en moins, à 0,045 à 0,11 Md€ le point."
+        },
+        {
+          "id": "qp-12",
+          "label": "12 % du brut imposés (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "qp-25",
+          "label": "25 % du brut imposés",
+          "lo": 0.58,
+          "hi": 1.46,
+          "note": "13 points de plus, à 0,045 à 0,11 Md€ le point."
+        },
+        {
+          "id": "qp-50",
+          "label": "50 % du brut imposés",
+          "lo": 1.2,
+          "hi": 4.28,
+          "note": "38 points de plus.",
+          "estimate": "38 points à 0,045 à 0,11 Md€, bas réduit de 30 % : à ce niveau, des cessions seraient reportées ou faites autrement."
+        },
+        {
+          "id": "qp-100",
+          "label": "100 % : imposition au taux normal",
+          "lo": 2,
+          "hi": 9.9,
+          "note": "88 points de plus : la borne, toute la plus-value brute est imposée à 25 %.",
+          "estimate": "88 points à 0,045 à 0,11 Md€, bas divisé par deux : à ce taux, des cessions seraient reportées, étalées ou faites par des sociétés hors de France."
+        }
+      ],
+      "estimate": {
+        "method": "1. Insee : les taux réduits des plus-values, surtout le 0 % des titres de participation, retirent 2,7 points au taux moyen en 2022 sur 223,7 Md€ de bénéfice : 6,0 Md€, soit environ 24 Md€ de plus-values à 0 % (14 à 48 Md€ de 2016 à 2022, au taux normal de chaque année). 2. En 2027, plus-values brutes, sociétés financières comprises : 18 à 45 Md€. 3. Un point de quote-part en plus : 25 % de 1 % de ce montant, soit 0,045 à 0,11 Md€."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "impot-societes"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le solde de l’impôt d’une année est versé l’année suivante : une part de l’effet n’est encaissée qu’en 2028. Une hausse annoncée peut aussi avancer ou retarder des cessions.",
+      "limits": "Très incertain : les plus-values varient fortement d’une année à l’autre (de 14 à 48 Md€ de 2016 à 2022). Statique jusqu’à 25 % ; comportements comptés à 50 et 100 %. Pas de réglage sous 0 %, la borne légale.",
+      "sources": [
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, tableau 2 « Décomposition du taux d’imposition moyen entre 2016 et 2022 » (p. 33)",
+          "publisher": "Insee (document de travail, auteurs de l’Insee et de la DGFiP)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Les taux réduits des plus-values retirent 2,7 points au taux d’imposition moyen en 2022, 3,5 à 5,8 points de 2016 à 2021 ; taux normal de 33,3 % à 25 %"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, tableau 15 « Répartition des agrégats par type de traitement et par année » (p. 76)",
+          "publisher": "Insee (document de travail, auteurs de l’Insee et de la DGFiP)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Bénéfice fiscal du champ de 133,1 Md€ (2016) à 223,7 Md€ (2022) ; 2,7 % de 223,7 = 6,0 Md€, soit 24 Md€ de plus-values à 0 % au taux de 25 % ; 14 à 48 Md€ de 2016 à 2022 (calcul)"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, section 4.2 (p. 33)",
+          "publisher": "Insee (document de travail, auteurs de l’Insee et de la DGFiP)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Écart très variable selon les années, porté en 2021 par une grande opération de cession"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, section 4.4 (p. 42)",
+          "publisher": "Insee (document de travail, auteurs de l’Insee et de la DGFiP)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Cession de titres de participation : 88 % de la plus-value sortis de la base au taux normal, 12 % réintégrés"
+        },
+        {
+          "title": "BOI-IS-BASE-20-20-10-20 : régime fiscal des plus-values ou moins-values sur cession de titres de participation, modalités d’imposition (§ 1)",
+          "publisher": "Direction générale des finances publiques (Bulletin officiel des finances publiques-impôts)",
+          "url": "https://bofip.impots.gouv.fr/bofip/4948-PGP.html/identifiant=BOI-IS-BASE-20-20-10-20-20240403",
+          "date": "2024-04-03",
+          "accessedAt": "2026-10-18",
+          "figure": "Plus-values nettes à long terme sur titres de participation imposées au taux de 0 %, sous réserve d’une quote-part imposée au taux normal"
+        },
+        {
+          "title": "BOI-IS-BASE-20-20-10-20 : régime fiscal des plus-values ou moins-values sur cession de titres de participation, modalités d’imposition (§ 115 et 125)",
+          "publisher": "Direction générale des finances publiques (Bulletin officiel des finances publiques-impôts)",
+          "url": "https://bofip.impots.gouv.fr/bofip/4948-PGP.html/identifiant=BOI-IS-BASE-20-20-10-20-20240403",
+          "date": "2024-04-03",
+          "accessedAt": "2026-10-18",
+          "figure": "Quote-part de 12 %, assise sur le montant brut des plus-values (réglage du PLF)"
+        },
+        {
+          "title": "La réforme du taux statutaire de l’Impôt sur les Sociétés, document de travail n° 2025-18, section 3.1 (p. 12)",
+          "publisher": "Insee (document de travail, auteurs de l’Insee et de la DGFiP)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8635773/DT2025-18.pdf",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Le solde de l’impôt sur les sociétés d’une année est versé l’année suivante (une part de l’effet en 2028)"
+        }
+      ]
+    },
+    {
       "id": "point-indice",
       "family": "depenses",
       "label": "Point d’indice, fonction publique",
@@ -5169,10 +14027,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Administrations publiques en 2025 (comptes nationaux annuels, base 2020), tableau 7.301 « Compte des administrations publiques (S13) »",
           "publisher": "Insee",
-          "url": "https://www.insee.fr/fr/statistiques/8988833",
-          "date": "2026-08-28",
-          "accessedAt": "2026-10-18",
-          "figure": "Salaires et traitements bruts (D11) des APU : 245,586 Md€ en 2024, 247,557 Md€ en 2025. Rémunération des salariés (D1) : 370,012 Md€ en 2025, dont cotisations sociales à la charge des employeurs (D12) : 122,455 Md€"
+          "url": "https://www.insee.fr/fr/statistiques/8988833"
         }
       },
       "max": 1,
@@ -5185,6 +14040,18 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 5,
+        "perUnit": {
+          "lo": 1.9,
+          "hi": 2.5
+        },
+        "perUnitDown": {
+          "lo": 1.9,
+          "hi": 2.26
+        },
+        "why": "±5 % : hausses de 2022 et 2023 cumulées (de 56,23 à 59,07 € par an, Sénat) ; le point n’a jamais baissé. Au-delà de ±1 %, la CSG et la CRDS (9,5 % du brut) qui reviennent aux comptes publics sont déduites du bas, et du haut à la baisse."
+      },
       "exclusiveWith": [],
       "overlapsWith": [
         "credits-administration-penitentiaire",
@@ -5198,7 +14065,11 @@ export const budget: BudgetData = {
         "credits-remunerations-enseignement-scolaire",
         "credits-universites-recherche",
         "defense",
-        "ondam"
+        "depense-aide-sociale-enfance",
+        "ondam",
+        "opex-surcouts",
+        "polices-municipales",
+        "smic-coup-de-pouce"
       ],
       "operatorCaveat": false,
       "limits": "Année pleine. Bas : hausses de 2022 et 2023 (Sénat), sans dire si les cotisations des employeurs y sont ; haut : hors ces cotisations, masse de 2026 (Fipeco). Hors garantie individuelle du pouvoir d’achat.",
@@ -5238,6 +14109,141 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "polices-municipales",
+      "family": "depenses",
+      "label": "Polices municipales",
+      "today": "Dépense locale, 2,59 Md€ en 2024 (OFGL), non fixée par le PLF",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % de la dépense",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0162,
+        "hi": 0.0272
+      },
+      "base": {
+        "value": 2.594,
+        "label": "2,59 Md€ de dépenses du bloc communal pour ses polices municipales en 2024 : 2,28 Md€ de fonctionnement (cotisations des employeurs comprises) et 314 M€ d’équipement (OFGL, dernière année publiée)",
+        "source": {
+          "title": "Cap sur… n° 29, « Les enjeux financiers des polices municipales – Nouveaux éclairages » : dépenses de fonctionnement (p. 8)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "Tendance",
+      "estimate": {
+        "method": "Base OFGL 2024 : 2,28 Md€ de fonctionnement, à 90 % des frais de personnel dont 25,2 % de charges sociales, et 188 M€ d’équipement par an en moyenne de 2019 à 2024 (314 M€ en 2024). 2027 : fonctionnement +4 % par an (+2,7 à +3,8 % de 2017 à 2021, +5,7 % en 2024), 2,56 Md€, dont 1,98 Md€ hors cotisations des employeurs, plus 188 M€ : 2,17 Md€, 21,7 M€ par point. Fourchette ±25 % (échantillon, croissance inconnue) : 16,2 à 27,2 M€."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0095,
+          "hi": 0.0272
+        },
+        "perUnitDown": {
+          "lo": 0.0063,
+          "hi": 0.0272
+        },
+        "why": "Jusqu’à la ligne entière : −100 % supprime les polices municipales, +100 % les double. Au-delà de ±25 %, même calcul, bas réduit : recruter et former prend des mois, et des titulaires sont reclassés plutôt que licenciés."
+      },
+      "amount": {
+        "value": 2.171,
+        "label": "2,17 Md€ estimés pour 2027 (fonctionnement hors cotisations des employeurs, et équipement), d’après 2,59 Md€ en 2024 (OFGL)"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "effectifs-publics",
+        "point-indice"
+      ],
+      "operatorCaveat": false,
+      "limits": "Dépense des communes et intercommunalités, que l’État ne fixe pas : l’effet suppose qu’elles dépensent d’autant. Hors cotisations des employeurs, versées à d’autres administrations. Vidéoprotection comptée si elle est inscrite au service.",
+      "sources": [
+        {
+          "title": "Cap sur… n° 29, « Les enjeux financiers des polices municipales – Nouveaux éclairages » : dépenses de fonctionnement (p. 8)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Fonctionnement des polices municipales et intercommunales : 2,15 Md€ en 2023, 2,28 Md€ en 2024 (+5,7 %)"
+        },
+        {
+          "title": "Cap sur… n° 29 : structure des dépenses de fonctionnement (p. 10)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Frais de personnel : 90 % du fonctionnement des polices municipales"
+        },
+        {
+          "title": "Cap sur… n° 29 : décomposition des frais de personnel (p. 10)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Charges sociales : 25,2 % des frais de personnel (rémunérations principales 50,3 %, indemnités et primes 24,5 %)"
+        },
+        {
+          "title": "Cap sur… n° 29 : dépenses d’équipement des polices municipales (p. 12)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Équipement : 188 M€ par an en moyenne de 2019 à 2024, 314 M€ en 2024 (pic de fin de mandat)"
+        },
+        {
+          "title": "Cap sur… n° 29 : dépenses d’équipement de 2024 (p. 12)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "314 M€ de dépenses d’équipement en 2024"
+        },
+        {
+          "title": "Cap sur… n° 29 : croissance des dépenses de fonctionnement, 2017-2024 (p. 5 et 8)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "+41 % en sept ans ; entre +2,7 % et +3,8 % par an de 2017 à 2021"
+        },
+        {
+          "title": "Cap sur… n° 29 : dépenses d’équipement, vidéoprotection (p. 13)",
+          "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+          "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/Cap%20sur/OFGL_Cap_sur_29_Nouveaux_Eclairages_Polices_municipales_13_10_2025.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les dispositifs de vidéoprotection sont difficiles à repérer dans les comptes du service"
+        },
+        {
+          "title": "Rapport d’information n° 671 (2024-2025), « 25 propositions pour donner aux polices municipales les moyens de lutter contre l’insécurité du quotidien », synthèse (p. 2)",
+          "publisher": "Sénat, commission des lois (mission d’information)",
+          "url": "https://www.senat.fr/rap/r24-671/r24-671-syn.pdf",
+          "date": "2025-05-28",
+          "accessedAt": "2026-10-18",
+          "figure": "Effort du bloc communal pour les polices municipales : 2,5 Md€ en 2023 ; 28 161 agents dans 3 812 communes ou EPCI"
+        },
+        {
+          "title": "Rapport d’information n° 671 (2024-2025), synthèse : effectifs (p. 2)",
+          "publisher": "Sénat, commission des lois (mission d’information)",
+          "url": "https://www.senat.fr/rap/r24-671/r24-671-syn.pdf",
+          "date": "2025-05-28",
+          "accessedAt": "2026-10-18",
+          "figure": "28 161 policiers municipaux en 2023 (+45 % depuis 2012), dans 3 812 communes ou EPCI"
+        }
+      ]
+    },
+    {
       "id": "prestations-familiales-revalorisation",
       "family": "sociale",
       "label": "Prestations familiales : indexation",
@@ -5258,10 +14264,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Les comptes de la Sécurité sociale, octobre 2026 (rapport à la Commission des comptes de la Sécurité sociale), fiche 2.1, tableau 3 « Répartition des prestations légales nettes par branche », p. 75",
           "publisher": "Direction de la sécurité sociale",
-          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "prestations légales famille nettes des régimes de base : 33 896 M€ en 2027 (en millions d’euros ; colonnes 2024, 2025, 2026 (p), 2027 (p)), avant les mesures du PLFSS, revalorisation légale comprise"
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf"
         }
       },
       "max": 1,
@@ -5308,6 +14311,22 @@ export const budget: BudgetData = {
           "lo": 0.5,
           "hi": 0.52,
           "note": "Bas : HCFP ; haut : 300 M€ par point en année pleine, sur 9 mois (DSS, calcul)."
+        },
+        {
+          "id": "baisse-miroir-2024",
+          "label": "−4,6 % au 1er avril",
+          "lo": -1.3,
+          "hi": -0.77,
+          "note": "Le miroir de « +4,6 % » : les prestations baisseraient en euros, ce qui n’a jamais été fait ; aucune source ne chiffre ce cas. Estimation.",
+          "estimate": "Calcul d’Isoloir, miroir de « +4,6 % » : 300 M€ par point en année pleine (CCSS d’octobre 2026, p. 8), sur 9 mois d’avril à décembre (CCSS, p. 117) : 300 × 9/12 × 4,6 = 1 035 M€ de moins que le gel. Fourchette élargie à ±25 % : 0,77 à 1,30 Md€. Aucune source ne chiffre une baisse des prestations en euros."
+        },
+        {
+          "id": "hausse-avril-2024",
+          "label": "+4,6 % au 1er avril (comme en 2024)",
+          "lo": 0.77,
+          "hi": 1.3,
+          "note": "Comme en avril 2024 (+4,6 %), la plus forte hausse des dernières années (CCSS). Ne se cumule pas avec un changement d’une prestation (allocations familiales, ASF, CMG, PreParE). Estimation.",
+          "estimate": "Calcul d’Isoloir : un point de revalorisation des prestations familiales coûte 300 M€ en année pleine (CCSS d’octobre 2026, p. 8). La hausse joue d’avril à décembre, soit 9/12 (méthode de la CCSS, p. 117) : 300 × 9/12 × 4,6 = 1 035 M€ de plus que le gel. La même règle donne 0,52 Md€ pour +2,3 % (HCFP : 0,5). Fourchette élargie à ±25 % : 0,77 à 1,30 Md€, sans compter les effets sur les plafonds de ressources ni les comportements."
         }
       ],
       "exclusiveWith": [
@@ -5351,6 +14370,9 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "base des prestations familiales révisée au 1er avril 2027 pour que les montants restent ceux de 2026 (point de départ)"
         }
+      ],
+      "overlapsWith": [
+        "condition-residence-prestations"
       ]
     },
     {
@@ -5366,7 +14388,7 @@ export const budget: BudgetData = {
       },
       "perUnit": {
         "lo": 0.14,
-        "hi": 0.23
+        "hi": 0.17
       },
       "base": {
         "value": 10.7,
@@ -5374,10 +14396,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "PAP 2027, mission Solidarité, insertion et égalité des chances, programme 304, action 11 : 1) La prime d’activité (p. 40)",
           "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
-          "date": "2026-10",
-          "accessedAt": "2026-10-18",
-          "figure": "Prime d’activité : 10,7 Md€ de crédits en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf"
         }
       },
       "max": 1,
@@ -5390,12 +14409,24 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "Gel",
+      "stretch": {
+        "max": 4.6,
+        "perUnit": {
+          "lo": 0.13,
+          "hi": 0.19
+        },
+        "perUnitDown": {
+          "lo": 0.13,
+          "hi": 0.17
+        },
+        "why": "±4,6 points : la hausse légale de 2,3 % que le gel évite, puis +4,6 % comme en avril 2024 (CNAF) ; à la baisse, le miroir, sans précédent. Au-delà de ±1 point, bas abaissé (montée en charge en cinq mois en 2024), haut relevé à la hausse (foyers entrants)."
+      },
       "exclusiveWith": [
         "credits-prime-activite-rsa"
       ],
       "operatorCaveat": false,
-      "laterNote": "Le PLF 2027 chiffre le même gel à 995 M€ en 2028, contre 332 M€ en 2027 (revalorisation au 1er avril) : environ 0,43 Md€ par point en 2028, hors total.",
-      "limits": "Bas : PLF, effet en 2027 du gel de 2,3 % au 1er avril. Haut : IPP, année pleine, gel de 2026, législation de 2025 (avant la hausse du bonus). En dessous du gel, le chiffre est le miroir de la hausse : aucune source ne chiffre une baisse en euros. Sans réaction des ménages.",
+      "laterNote": "En année pleine, environ 0,23 Md€ par point ; le PLF 2027 chiffre le même gel à 995 M€ en 2028, contre 332 M€ en 2027 : environ 0,43 Md€ par point en 2028, hors total.",
+      "limits": "Bas : PLF, effet en 2027 du gel de 2,3 % au 1er avril ; haut : IPP, ramené aux neuf mois de 2027. En dessous du gel, le chiffre est le miroir de la hausse : aucune source ne chiffre une baisse en euros. Sans réaction des ménages.",
       "sources": [
         {
           "title": "Projet de loi de finances pour 2027 : évaluations préalables des articles, article 74, incidences budgétaires (p. 602-603)",
@@ -5437,6 +14468,304 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Gel combiné des pensions, des prestations et du barème de l’IR en 2026 (1,3 %) : 250 M€ de prime d’activité, soit 0,19 Md€ par point (dans la fourchette)"
         }
+      ],
+      "overlapsWith": [
+        "non-recours-versement-automatique"
+      ]
+    },
+    {
+      "id": "prise-en-charge-assurance-maladie",
+      "family": "sociale",
+      "label": "Remboursement des soins par la Sécu",
+      "today": "Ticket modérateur relevé au 1er janvier 2027, 0,7 Md€ de transferts",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage du partage des soins entre Sécurité sociale, patients et complémentaires",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 33.5,
+        "label": "33,5 Md€ de soins et biens médicaux payés par les complémentaires santé en 2025, les ménages en payant 19,7 de plus (DREES) : la part que la Sécurité sociale reprendrait, en tout ou en partie",
+        "source": {
+          "title": "Les dépenses de santé en 2025, édition 2026, fiche 06 « Le financement par les organismes complémentaires », tableau 1 (p. 54)",
+          "publisher": "DREES (comptes de la santé)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-09/CNS2026%20-%20Fiche%2006%20-%20Le%20financement%20par%20les%20organismes%20compl%C3%A9mentaires.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLFSS",
+      "options": [
+        {
+          "id": "miroir-transferts",
+          "label": "Autant de transferts en plus",
+          "lo": -2.4,
+          "hi": -1.4,
+          "note": "Le miroir du maintien : de nouvelles hausses du ticket modérateur et de nouveaux transferts vers les complémentaires ; aucune source ne chiffre ce cas.",
+          "estimate": "Miroir du réglage « garder les remboursements de 2026 » : de nouvelles hausses du ticket modérateur et de nouveaux transferts vers les complémentaires de la même taille que ceux de 2027 (1,2 + 0,7 = 1,9 Md€, HCFP), fourchette de ±25 % : 1,4 à 2,4 Md€ d’économies. Aucune source ne chiffre ce cas."
+        },
+        {
+          "id": "plfss",
+          "label": "Hausses de 2027 (PLFSS)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLFSS 2027 : hausse du ticket modérateur au 1er janvier 2027 (soins dentaires, dispositifs médicaux, médicaments) et transferts vers les complémentaires."
+        },
+        {
+          "id": "maintien-2026",
+          "label": "Garder les remboursements de 2026",
+          "lo": 1.9,
+          "hi": 1.9,
+          "note": "Renoncer à la hausse du ticket modérateur au 1er janvier 2027 (1,2 Md€) et aux transferts vers les complémentaires du PLFSS (0,7 Md€), chiffres du HCFP. Les franchises ont leur propre levier."
+        },
+        {
+          "id": "secu-100",
+          "label": "Sécurité sociale à 100 %",
+          "lo": 22.3,
+          "hi": 37.1,
+          "note": "Tous les soins remboursables pris en charge à 100 % par la Sécurité sociale, franchises comprises ; les complémentaires ne couvriraient plus que le reste (dépassements, confort). Estimation sur le chiffrage du HCAAM (2022, données de 2017).",
+          "estimate": "HCAAM (2022, données de 2017, législation de 2019) : +18,8 Md€ de remboursements, franchises comprises, 2,6 à 3,6 Md€ de taxe sur les complémentaires perdue et 0,13 Md€ d’autres effets. Portés en 2027 par ×1,14 à ×1,34 (soins payés par les complémentaires et les ménages, DREES, puis Ondam 2026 et 2027), plus 1,9 Md€ de hausses de 2027 annulées : 26,4 à 32,1 Md€, centre 29,7, élargi à ±25 % : 22,3 à 37,1 Md€."
+        }
+      ],
+      "exclusiveWith": [
+        "ondam"
+      ],
+      "overlapsWith": [
+        "franchises-medicales"
+      ],
+      "operatorCaveat": false,
+      "limits": "Comportements exclus : ni plus de soins quand ils sont mieux remboursés, ni la baisse des frais de gestion des complémentaires (5,4 Md€ en 2017, un gain privé). 100 % : base de 2017 portée en 2027, franchises et perte de taxe comprises.",
+      "sources": [
+        {
+          "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027 (p. 27 du PDF)",
+          "publisher": "Haut Conseil des finances publiques",
+          "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+          "date": "2026-09-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Hausse du ticket modérateur au 1er janvier 2027 : 1,2 Md€ d’économies, déjà dans le tendanciel ; transferts de prise en charge vers les complémentaires au PLFSS 2027 : 0,7 Md€. Ensemble : 1,9 Md€ (calcul), le coût de « garder les remboursements de 2026 »"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.2 « L’Ondam en 2025, 2026 et 2027 » (p. 89 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Détail des 1,2 Md€ de hausse du ticket modérateur pour les assurés hors ALD : soins dentaires 0,5 Md€, transports sanitaires 35 M€, dispositifs médicaux 0,4 Md€, médicaments à service médical rendu modéré 0,2 Md€ et faible 50 M€"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.2, encadré sur les produits de santé (p. 97 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Les hausses de ticket modérateur décidées à l’été 2026 entrent en vigueur le 1er janvier 2027 : elles jouent toute l’année 2027"
+        },
+        {
+          "title": "Rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et Assurance maladie complémentaire », annexe 4, scénario 3 (p. 134)",
+          "publisher": "Haut Conseil pour l’avenir de l’assurance maladie (HCAAM), chiffrages de la DREES",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf",
+          "date": "2022-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Scénario « augmentation des taux de remboursement de la Sécurité sociale » : +18,8 Md€ de remboursements (franchises et participations forfaitaires comprises), coût total pour les finances publiques de 22,5 Md€, dont 3,6 Md€ de taxe sur les complémentaires (TSA) perdue"
+        },
+        {
+          "title": "Rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et Assurance maladie complémentaire », encadré 5 « Source et méthode des chiffrages » (p. 23)",
+          "publisher": "Haut Conseil pour l’avenir de l’assurance maladie (HCAAM), chiffrages de la DREES",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf",
+          "date": "2022-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Chiffrages sur les données de 2017 (modèle Ines-Omar de la DREES), législation de 2019 : la base à porter en 2027"
+        },
+        {
+          "title": "Rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et Assurance maladie complémentaire », partie 2.3.4.4 (p. 80)",
+          "publisher": "Haut Conseil pour l’avenir de l’assurance maladie (HCAAM), chiffrages de la DREES",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf",
+          "date": "2022-01",
+          "accessedAt": "2026-10-18",
+          "figure": "22,5 Md€ pour les finances publiques, 21,1 Md€ si les franchises et participations forfaitaires restent dues : 1,4 Md€ pour les franchises en 2017"
+        },
+        {
+          "title": "Rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et Assurance maladie complémentaire », partie 2.3.4.3 (p. 78)",
+          "publisher": "Haut Conseil pour l’avenir de l’assurance maladie (HCAAM), chiffrages de la DREES",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf",
+          "date": "2022-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Baisse du chiffre d’affaires des complémentaires de 27 Md€ : 19,7 Md€ dus aux remboursements de la Sécurité sociale, 7,3 Md€ à la désaffiliation supposée de la moitié des assurés ; au taux de 13,27 %, 2,6 Md€ de taxe perdue sans désaffiliation (calcul), 3,6 Md€ avec"
+        },
+        {
+          "title": "Les dépenses de santé en 2025, édition 2026, fiche 07 « Le reste à charge des ménages », tableau 1 (p. 60)",
+          "publisher": "DREES (comptes de la santé)",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-09/CNS2026%20-%20Fiche%2007%20-%20Le%20reste%20%C3%A0%20charge%20des%20m%C3%A9nages.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Reste à charge des ménages sur la CSBM : 17 610 M€ en 2015, 19 691 M€ en 2025 (+1,0 % par an de 2015 à 2024) ; avec les complémentaires, 42,2 Md€ en 2015 et 53,2 Md€ en 2025, soit +2,3 % par an (calcul) : ×1,08 à ×1,28 de 2017 à 2025"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.2 « L’Ondam en 2025, 2026 et 2027 » (p. 78 du PDF)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Ondam 2026 : 273,3 Md€, +2,8 % par rapport à 2025 (pour porter la base de 2025 en 2027)"
+        },
+        {
+          "title": "Budget 2027 : dossier de presse du PLF et du PLFSS pour 2027 (p. 135 du PDF)",
+          "publisher": "Ministères économiques et sociaux (Direction du budget et Direction de la sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Ondam 2027 : +2,0 % (pour porter la base de 2025 en 2027 : ×1,028 × 1,020)"
+        },
+        {
+          "title": "Rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et Assurance maladie complémentaire », partie 2.3.4.3 (p. 79)",
+          "publisher": "Haut Conseil pour l’avenir de l’assurance maladie (HCAAM), chiffrages de la DREES",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/HCAAM/2022/Rapport%20HCAAM-%20Quatre%20scenarios%20articulation%20AMO-AMC%20-%20janvier%202022.pdf",
+          "date": "2022-01",
+          "accessedAt": "2026-10-18",
+          "figure": "5,4 Md€ de frais de gestion des complémentaires évités (2017) : un gain pour les assurés et les employeurs, hors des comptes publics (dit dans les limites)"
+        }
+      ]
+    },
+    {
+      "id": "quotient-conjugal-plafond",
+      "family": "impots",
+      "label": "Quotient conjugal et décote",
+      "today": "Aucun plafond : jusqu’à 35 355 € d’impôt en moins par couple (2023)",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 1.1,
+        "hi": 1.1
+      },
+      "base": {
+        "value": 10.6,
+        "label": "10,6 à 13,5 Md€ d’impôt en moins grâce au quotient conjugal (CPO, revenus 2023), dont 5,9 Md€ pour le dernier dixième. Un plafond ne reprend que la part au-dessus du plafond.",
+        "source": {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 34-35",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "decote-couples",
+          "label": "Décote des couples alignée (2 × 915 €)",
+          "lo": -1.3,
+          "hi": -1.3,
+          "note": "Plafond de la décote des couples porté de 1 513 € à 1 830 € au PLF 2027 (deux fois 915 €). Chiffrage du CPO sur les montants de 2024 : 4,9 millions de foyers y gagnent, du 6e au 9e dixième."
+        },
+        {
+          "id": "decote-et-plafond",
+          "label": "Décote alignée et plafond de 10 000 €",
+          "lo": -0.2,
+          "hi": -0.2,
+          "note": "La recommandation du CPO : −1,3 et +1,1 Md€."
+        },
+        {
+          "id": "sans-plafond",
+          "label": "Sans plafond (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "plafond-15000",
+          "label": "Plafond de 15 000 € par couple",
+          "lo": 0.5,
+          "hi": 0.5,
+          "note": "Environ 100 000 foyers, du dernier dixième (CPO)."
+        },
+        {
+          "id": "plafond-10000",
+          "label": "Plafond de 10 000 € par couple",
+          "lo": 1.1,
+          "hi": 1.1,
+          "note": "Environ 200 000 foyers, du dernier dixième (CPO)."
+        },
+        {
+          "id": "plafond-7000",
+          "label": "Plafond de 7 000 € par couple",
+          "lo": 1.9,
+          "hi": 1.9,
+          "note": "Environ 400 000 foyers, presque tous du dernier dixième (CPO)."
+        }
+      ],
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "limits": "Microsimulation de la DG Trésor pour le CPO (revenus 2023, barème 2024), non portée à 2027 : ni réaction des couples, ni effet sur l’emploi du second revenu. Les revenus communs sont répartis au prorata des revenus propres.",
+      "sources": [
+        {
+          "title": "Rapport particulier n° 2 au rapport « Conforter l’égalité des citoyens devant l’imposition des revenus » : la progressivité de l’imposition des revenus des personnes physiques (mai 2024), tableaux 11 à 13 (p. 48-49)",
+          "publisher": "Conseil des prélèvements obligatoires (rapport particulier, modèle de microsimulation de la DG Trésor)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2024-10/20241014-Note-Conforter-egalite-des-citoyens-devant-imposition-des-revenus-rapport-particulier2.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafonner l’avantage du quotient conjugal : +0,5 Md€ à 15 000 €, +1,1 Md€ à 10 000 €, +1,9 Md€ à 7 000 € (0,1, 0,2 et 0,4 million de foyers, presque tous dans le dernier dixième)"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 43",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Plafond de 10 000 € : +1,1 Md€, environ 200 000 foyers du dernier dixième"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 41-42",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aligner la décote des couples sur celle de deux célibataires (1 444 € → 1 746 € en 2024) : −1,3 Md€, 4,9 millions de foyers gagnants du 6e au 9e dixième"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), tableau n° 6 (p. 45)",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Synthèse des mesures pour les couples : décote −1,3 Md€, plafond de 10 000 € +1,1 Md€ ; les deux, −0,2 Md€"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 2 (p. 10)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Décote au PLF 2027 : 915 € pour une personne seule, 1 513 € pour un couple (aligner : 1 830 €)"
+        },
+        {
+          "title": "Conforter l’égalité des citoyens devant l’imposition des revenus (octobre 2024), p. 32",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://vie-publique.fr/files/rapport/pdf/295784.pdf",
+          "date": "2024-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Avantage du quotient conjugal sans plafond, au plus 35 355 € par foyer (revenus 2023, CEHR comprise)"
+        }
       ]
     },
     {
@@ -5460,10 +14789,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Revue de dépenses relative à l’efficacité des politiques familiales (juin 2026), annexe III, p. 10",
           "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
-          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
-          "date": "2026-06",
-          "accessedAt": "2026-10-18",
-          "figure": "Coût du quotient familial et des parts fiscales spécifiques : 15,6 Md€ en 2024"
+          "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf"
         }
       },
       "max": 10,
@@ -5476,6 +14802,18 @@ export const budget: BudgetData = {
         10
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 56,
+        "perUnit": {
+          "lo": 0.028,
+          "hi": 0.05
+        },
+        "perUnitDown": {
+          "lo": 0.048,
+          "hi": 0.082
+        },
+        "why": "±56 % : +56 % rend le plafond de 2012 (2 336 € par demi-part), indexé comme celui de 2014 (1 500 €, 1 845 € en 2027). Au-delà de ±10 %, calé sur la baisse de 2014 (1,4 million de ménages, 820 €) : une hausse touche moins de foyers, une baisse plus."
+      },
       "exclusiveWith": [],
       "operatorCaveat": false,
       "limits": "Microsimulation IGF (modèle Ines 2024, revenus 2022), comportements inchangés. Seule la baisse est chiffrée ; la hausse, son miroir, est un majorant. Le plafond suit aussi l’indexation du barème : les deux s’ajoutent.",
@@ -5495,6 +14833,659 @@ export const budget: BudgetData = {
           "date": "2026-10",
           "accessedAt": "2026-10-18",
           "figure": "plafond général porté de 1 807 € à 1 845 € par demi-part ; les autres plafonds (4 262, 1 079, 1 801 et 2 011 €) suivent la même indexation"
+        }
+      ],
+      "overlapsWith": [
+        "pensions-alimentaires-defiscalisation"
+      ]
+    },
+    {
+      "id": "reduction-impot-mecenat-entreprises",
+      "family": "impots",
+      "label": "Mécénat des entreprises",
+      "today": "Réduction d’impôt pour les dons des entreprises : 1 894 M€ en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût de la réduction d’impôt",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.00019,
+        "hi": 0.00095
+      },
+      "base": {
+        "value": 1.894,
+        "label": "1 894 M€ : coût prévu en 2027 de la réduction d’impôt pour les dons des entreprises aux œuvres et organismes d’intérêt général (dépense fiscale n° 210309, CGI art. 238 bis), 178 673 entreprises en 2025",
+        "source": {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 150 : dépense fiscale n° 210309 (p. 68)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "Année pleine : 1 % de 1 894 M€ (PAP 2027), 18,9 M€ par point. Non restituable, elle compte quand elle réduit l’impôt (Insee), au solde suivant la clôture de l’exercice des dons : pour les dons de 2027, en 2027 seulement si l’exercice clôt de janvier à août. Les exercices décalés pèsent 9 % de l’IS des grandes entreprises (0,5 sur 5,5 Md€, PLF) ; les dons faits depuis janvier y comptent pour 27 % en moyenne : 2,5 %, pris de 1 % à 5 %."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.00019,
+          "hi": 0.0012
+        },
+        "perUnitDown": {
+          "lo": 0.00019,
+          "hi": 0.00095
+        },
+        "why": "Jusqu’à −100 % : la suppression de la réduction (la ligne entière). Au-delà de ±25 %, haut relevé d’un quart : les dons réagiraient (moins de dons, donc moins de réductions, si l’avantage baisse ; plus s’il monte), ce que le calcul statique ignore."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "L’essentiel joue en 2028, sur l’impôt payé après la clôture de l’exercice des dons : 18,9 M€ par point en année pleine, 1,9 Md€ pour une suppression.",
+      "limits": "Suppose un changement pour les dons faits à partir du 1er janvier 2027. Statique, dons inchangés. Hors dons des particuliers (2 249 M€, réduction d’impôt sur le revenu) et réduction d’IFI pour dons (174 M€).",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 150 : dépense fiscale n° 210309 (p. 68)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt pour les dons des entreprises (CGI, art. 238 bis), 178 673 entreprises : 1 811 M€ en 2025, 1 894 M€ en 2026 et en 2027 ; 18,9 M€ par point en année pleine"
+        },
+        {
+          "title": "Fiche méthodologique n° 8 : l’enregistrement des crédits d’impôt en base 2020 (p. 1)",
+          "publisher": "Institut national de la statistique et des études économiques (Insee), comptes nationaux",
+          "url": "https://www.insee.fr/fr/metadonnees/source/fichier/fichemethodo8_B2020_credit_impots.pdf",
+          "date": "2024-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Une réduction non restituable (l’exemple donné : les dons aux œuvres) est comptée en moindre recette, l’année où elle réduit l’impôt payé"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15 « Mise à contribution des grandes entreprises », incidences budgétaires (p. 160)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "5 Md€ d’acomptes en 2027 et 500 M€ en 2028 pour les exercices décalés : 9 % (0,5 sur 5,5 Md€) d’une contribution assise sur l’IS des grandes entreprises est payé l’année suivante"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 12 « Soutien au secteur culturel », incidences budgétaires (p. 122)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt sur le revenu SOFICA prorogée pour les souscriptions de 2027 à 2029 : premier coût en 2028 (35 M€), l’année après l’opération"
+        },
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 150 : dépense fiscale n° 110201 (p. 68)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Dons des particuliers, une autre base (hors levier) : 2 249 M€ en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 150 : dépense fiscale n° 440201 (p. 68)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’IFI pour dons, une autre base (hors levier) : 174 M€ en 2027"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I, tableau 1 « Créance nette des crédits d’impôt entre 2016 et 2023 » (p. 409)",
+          "publisher": "Sénat, commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Réduction d’impôt au titre du mécénat d’entreprise : 1 742 M€ de créance nette en 2023 (1 056 M€ en 2016, +65 %), contexte"
+        }
+      ]
+    },
+    {
+      "id": "referendums-nationaux",
+      "family": "depenses",
+      "label": "Référendums nationaux",
+      "today": "Aucun référendum national prévu au PLF 2027 (programme 232)",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "nombre de dates de vote",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.1,
+        "hi": 0.19
+      },
+      "base": {
+        "value": 0.505177,
+        "label": "505,2 M€ de crédits de paiement de l’action 02 « Organisation des élections » du programme 232 au PLF 2027, qui paie élections et référendums",
+        "source": {
+          "title": "PAP 2027, programme 232 : éléments de synthèse, action 02 « Organisation des élections » (p. 79)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "Aucun",
+      "options": [
+        {
+          "id": "aucun",
+          "label": "Aucun (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : aucun référendum national inscrit au programme 232."
+        },
+        {
+          "id": "un-couple",
+          "label": "1, le même jour qu’un scrutin prévu",
+          "lo": 0.02,
+          "hi": 0.11,
+          "note": "Après mai 2027, le seul scrutin national prévu est l’élection législative que le PLF inscrit en cas de dissolution ; il n’y envoie plus les bulletins aux électeurs.",
+          "estimate": "Bureaux, assesseurs et frais des communes sont déjà payés pour le scrutin prévu : reste la propagande du référendum. Haut : un envoi à part, au coût de la propagande des européennes de 2024 (2,26 € sur 3,20 € par inscrit, 71 % de 162 M€) : 0,11 Md€. Bas : texte et bulletins joints à l’envoi prévu, impression et mise sous pli seules, prises à un cinquième de ce coût : 0,02 Md€."
+        },
+        {
+          "id": "un",
+          "label": "1 date de vote à part",
+          "lo": 0.1,
+          "hi": 0.19,
+          "note": "Un scrutin national d’un tour, à une date à part ; plusieurs questions le même jour comptent pour une date.",
+          "estimate": "Coût des européennes de 2024 (162,15 M€, un tour, un envoi), moins la part liée aux listes, prise à 38 % au plus (part non publiée) : 0,10 Md€ ; plus jusqu’à 25 % de hausse de la propagande (marché de La Poste de 2025) : 0,19 Md€."
+        },
+        {
+          "id": "deux",
+          "label": "2 dates de vote à part",
+          "lo": 0.2,
+          "hi": 0.38,
+          "estimate": "Deux fois 0,10 à 0,19 Md€, sans économie d’échelle supposée entre deux dates de vote."
+        },
+        {
+          "id": "trois",
+          "label": "3 dates de vote à part",
+          "lo": 0.3,
+          "hi": 0.57,
+          "estimate": "Trois fois 0,10 à 0,19 Md€, sans économie d’échelle supposée entre les dates de vote."
+        },
+        {
+          "id": "quatre",
+          "label": "4 dates de vote à part",
+          "lo": 0.4,
+          "hi": 0.76,
+          "note": "Borne d’Isoloir, aucune loi ne limite le nombre : élu en mai 2027, le président n’a que le second semestre ; après les législatives de juin, au plus une date par mois de septembre à décembre.",
+          "estimate": "Quatre fois 0,10 à 0,19 Md€, sans économie d’échelle supposée entre les dates de vote."
+        }
+      ],
+      "estimate": {
+        "method": "Européennes de 2024, un tour : 162,15 M€ (Sénat), 3,20 € par inscrit dont 2,26 € de propagande : mise sous pli, envoi, remboursements aux listes (PAP 2027). Un référendum n’a pas de listes à rembourser, mais l’État imprime et envoie texte et bulletins. Bas : part des listes ôtée, à 38 % au plus : 0,10 Md€. Haut : 162 M€, +25 % sur la propagande (La Poste, marché de 2025) : 0,19 Md€. Recoupement : 123,2 M€ ajoutés en 2005, en euros de 2005."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "limits": "Coût pour l’État (programme 232) seulement : temps des agents communaux, campagne des partis et effet du résultat non comptés. Plusieurs questions le même jour comptent pour une date. Au plus 4 dates, de septembre à décembre 2027.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Administration générale et territoriale de l’État, programme 232 « Vie politique », indicateur 1.1 « Coût moyen de l’élection par électeur inscrit » (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Élections européennes de 2024 : 3,20 € par électeur inscrit"
+        },
+        {
+          "title": "PAP 2027, programme 232, indicateur 1.1 : part de la propagande, élections européennes (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Élections européennes de 2024 : 2,26 € de propagande par électeur inscrit, sur 3,20 €"
+        },
+        {
+          "title": "PAP 2027, programme 232, objectif 1 « Organiser les élections au meilleur coût » (p. 69)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Ce que l’État paie pour une élection : organisation matérielle, remboursement des dépenses des candidats, propagande officielle, campagne audiovisuelle"
+        },
+        {
+          "title": "PAP 2027, programme 232, indicateur 1.1 : précisions méthodologiques (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Propagande = mise sous pli, acheminement et remboursements aux candidats"
+        },
+        {
+          "title": "PAP 2027, programme 232, indicateur 1.1 : ligne « Référendum » (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Aucun coût de référendum publié ni prévu (« sans objet » de 2024 à 2029)"
+        },
+        {
+          "title": "PAP 2027, programme 232, indicateur 1.1 : part de la propagande, élections législatives (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Propagande des législatives : 1,72 € par inscrit en 2024, 2,40 € prévus en 2027"
+        },
+        {
+          "title": "PAP 2027, programme 232 : justification des cibles, hausse du coût des législatives (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Hausse due aux tarifs du nouveau marché de La Poste conclu en 2025, et à un nombre de candidats plus élevé"
+        },
+        {
+          "title": "PAP 2027, programme 232 : justification des cibles, dématérialisation de la propagande (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le PLF 2027 supprime l’envoi des bulletins aux électeurs avant la présidentielle et les législatives"
+        },
+        {
+          "title": "PAP 2027, programme 232 : justification des cibles (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le programme ne finance en principe que les scrutins du calendrier : aucun référendum au PLF 2027"
+        },
+        {
+          "title": "PAP 2027, programme 232 : justification des cibles, élection législative en cas de dissolution (p. 70)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le PLF 2027 inscrit une élection législative générale : 3,82 € par électeur, dont 2,40 € de propagande"
+        },
+        {
+          "title": "Rapport général n° 144 (2024-2025) sur le PLF 2025, tome III, annexe 2 « Administration générale et territoriale de l’État »",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-144-32/l24-144-32_mono.html",
+          "date": "2024-11-21",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût des élections européennes de 2024 : 162,15 M€ (réponses au questionnaire budgétaire)"
+        },
+        {
+          "title": "Rapport n° 2568, annexe 2, « Administration générale et territoriale de l’État », sur le PLF 2006 : exécution du budget de 2005",
+          "publisher": "Assemblée nationale, commission des finances (rapport spécial)",
+          "url": "https://www.assemblee-nationale.fr/12/budget/plf2006/b2568-02.asp",
+          "date": "2005-10-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Recoupement, lecture d’Isoloir : 123,2 M€ de crédits ajoutés en cours d’année 2005 (crédits ouverts de 173,7 à 268,6 M€), « lié au contexte électoral » ; la page ne nomme pas le référendum du 29 mai 2005, seul scrutin national de l’année. Abondement en euros de 2005, pas le coût complet"
+        },
+        {
+          "title": "PAP 2027, programme 232, action 02 : objet des crédits (p. 85)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "L’action 02 finance l’organisation matérielle des élections, des référendums et des consultations"
+        }
+      ]
+    },
+    {
+      "id": "remunerations-au-dela-1m",
+      "family": "impots",
+      "label": "Rémunérations au-delà de 1 M€",
+      "today": "Aucune : la taxe de 50 % au-delà de 1 M€ a valu pour 2013 et 2014",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage d’une taxe des employeurs sur la part des rémunérations individuelles au-delà de 1 M€",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.715,
+        "label": "715 M€ : la part des rémunérations individuelles au-delà de 1 M€ en 2011 (DADS), assiette chiffrée de la taxe de 2013-2014 ; aucune ligne au PLF 2027",
+        "source": {
+          "title": "Rapport n° 1428, tome II, sur le projet de loi de finances pour 2014, article 9 « Taxe exceptionnelle de solidarité sur les hautes rémunérations versées par les entreprises »",
+          "publisher": "Assemblée nationale, commission des finances (rapporteur général)",
+          "url": "https://www.assemblee-nationale.fr/14/rapports/r1428-tII.asp"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "plf",
+          "label": "Pas de taxe (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Côté ménages, la contribution exceptionnelle sur les hauts revenus s’applique déjà."
+        },
+        {
+          "id": "taux-25",
+          "label": "25 % au-delà de 1 M€",
+          "lo": 0.15,
+          "hi": 0.37,
+          "note": "Sur les rémunérations versées en 2026, payée en 2027, plafonnée à 5 % du chiffre d’affaires.",
+          "estimate": "Assiette de 0,96 à 1,79 Md€ × 25 %, plafond moins souvent atteint (−5 %), × 0,86 pour l’impôt sur les sociétés déduit ; bas réduit d’un quart. Central : 0,26 Md€."
+        },
+        {
+          "id": "taux-50",
+          "label": "50 % au-delà de 1 M€ (dessin de 2013)",
+          "lo": 0.27,
+          "hi": 0.67,
+          "note": "Le dessin de 2013-2014 : 50 %, plafonnée à 5 % du chiffre d’affaires, sur les rémunérations versées en 2026.",
+          "estimate": "Assiette de 0,96 à 1,79 Md€ × 50 %, −13 % pour le plafond (comme en 2013), × 0,86 pour l’impôt sur les sociétés déduit ; bas réduit d’un quart. Central : 0,48 Md€."
+        }
+      ],
+      "estimate": {
+        "method": "1) Assiette de 2011 : 715 M€ de rémunérations au-delà de 1 M€ (DADS, chiffrage de la taxe de 2013-2014). 2) Vieillie à 2026 : salaire moyen des sociétés non financières +34 % (Insee, PLF) ; au-delà d’un seuil fixe l’assiette croît plus vite, ×1,34 à ×2,5 (central ×1,8), soit 0,96 à 1,79 Md€. 3) Taxe sur les rémunérations de 2026 payée en 2027 : plafond à 5 % du chiffre d’affaires, impôt sur les sociétés déduit en partie (×0,86). Bas −25 %."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "aga-stock-options"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Sur les rémunérations de 2027 et après, l’assiette peut fondre (actions gratuites, rémunérations versées à l’étranger) : en 2013-2014, 260 M€ attendus la première année, 160 M€ la seconde.",
+      "limits": "Estimation : assiette de 2011 vieillie, seuil fixe de 1 M€ (aucun chiffre publié plus bas), comme en 2013-2014. Bas : rémunérations déplacées ou fractionnées, recouvrement. Hors effet sur l’impôt sur le revenu des salariés.",
+      "sources": [
+        {
+          "title": "Rapport n° 1428, tome II, sur le projet de loi de finances pour 2014, article 9 « Taxe exceptionnelle de solidarité sur les hautes rémunérations versées par les entreprises »",
+          "publisher": "Assemblée nationale, commission des finances (rapporteur général)",
+          "url": "https://www.assemblee-nationale.fr/14/rapports/r1428-tII.asp",
+          "date": "2013-10-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taxe de 50 % sur la part des rémunérations au-delà de 1 M€ attribuées en 2013 et 2014 : 420 M€ sur deux ans, dont 260 M€ en 2014 (rémunérations de 2013 taxées l’année suivante)"
+        },
+        {
+          "title": "Rapport n° 1428, tome II, sur le projet de loi de finances pour 2014, article 9 « Taxe exceptionnelle de solidarité sur les hautes rémunérations versées par les entreprises »",
+          "publisher": "Assemblée nationale, commission des finances (rapporteur général)",
+          "url": "https://www.assemblee-nationale.fr/14/rapports/r1428-tII.asp",
+          "date": "2013-10-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Assiette de 715 M€ (rémunérations de 2011, DADS) ; 357,5 M€ à 50 %, dont 47,5 M€ (13 %) retirés par le plafond de 5 % du chiffre d’affaires"
+        },
+        {
+          "title": "Rapport n° 1428, tome II, sur le projet de loi de finances pour 2014, article 9 « Taxe exceptionnelle de solidarité sur les hautes rémunérations versées par les entreprises »",
+          "publisher": "Assemblée nationale, commission des finances (rapporteur général)",
+          "url": "https://www.assemblee-nationale.fr/14/rapports/r1428-tII.asp",
+          "date": "2013-10-10",
+          "accessedAt": "2026-10-18",
+          "figure": "470 entreprises redevables, pour 1 000 salariés et dirigeants ; taxe déductible de l’impôt sur les sociétés (310 M€ ramenés à 210 M€ en année pleine)"
+        },
+        {
+          "title": "Les comptes de la Nation en 2025, tableau 7.101 « Compte des sociétés non financières (S11) », salaires et traitements bruts",
+          "publisher": "Insee, comptes nationaux annuels (base 2020)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/8988829/T_7101_fr.xlsx",
+          "date": "2026-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Salaires bruts des sociétés non financières : 505,7 Md€ en 2011, 766,7 Md€ en 2025 ; rapportés à l’emploi (tableau 1.108), 32 961 € puis 43 405 € par personne, +32 %"
+        },
+        {
+          "title": "Les comptes de la Nation en 2025, tableau 1.108 « Emploi intérieur total par secteur institutionnel en nombre de personnes »",
+          "publisher": "Insee, comptes nationaux annuels (base 2020)",
+          "url": "https://www.insee.fr/fr/statistiques/fichier/8988797/T_1108_fr.xlsx",
+          "date": "2026-06-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Emploi des sociétés non financières : 15 341,4 milliers de personnes en 2011, 17 662,9 milliers en 2025"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), exposé général des motifs, environnement macroéconomique, p. 10",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Salaires +2,0 % en 2026 : de 2011 à 2026, le salaire moyen des sociétés non financières monte d’environ 34 %"
+        }
+      ]
+    },
+    {
+      "id": "rsa-18-24-ans",
+      "family": "sociale",
+      "label": "Âge d’ouverture du RSA",
+      "today": "Fermé avant 25 ans, sauf parents et jeunes ayant travaillé deux ans",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage de l’âge d’ouverture du RSA",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 12.218,
+        "label": "12,2 Md€ de RSA versés en 2023 à 1,85 million de foyers, surtout par les départements (DREES)",
+        "source": {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 07 « Les dépenses d’allocations », tableau 1",
+          "publisher": "DREES",
+          "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d%27allocations.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "25 ans",
+      "options": [
+        {
+          "id": "29-ans",
+          "label": "À partir de 29 ans",
+          "lo": -1.1,
+          "hi": -0.4,
+          "note": "Le miroir de « dès 21 ans » : quatre ans de plus, dès le 1er janvier 2027 et pour les droits en cours ; les parents et les personnes ayant travaillé deux ans sur les trois dernières années restent admis. Aucune source ne chiffre ce cas. Estimation d’Isoloir.",
+          "estimate": "Allocataires du RSA non majoré de 25 à 29 ans : 15 % de 1,63 million fin 2023 (DREES) ; ceux de 25 à 28 ans, les quatre cinquièmes (âges supposés répartis également) : 0,20 million ±10 %. × 55 à 75 % sans personne à charge (66 % de l’ensemble des allocataires, DREES ; fourchette d’Isoloir), sans déduire les rares admis pour deux ans de travail (600 foyers avant 25 ans, DREES) × 4 000 à 7 000 € par an : 0,4 à 1,1 Md€ d’économies, centre 0,7."
+        },
+        {
+          "id": "25-ans",
+          "label": "25 ans (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : le RSA à partir de 25 ans, sauf pour les parents et les jeunes ayant travaillé deux ans sur les trois dernières années."
+        },
+        {
+          "id": "21-ans",
+          "label": "Ouvert dès 21 ans",
+          "lo": 0.4,
+          "hi": 1.5,
+          "note": "Dans les conditions de droit commun, les étudiants restant exclus. Estimation d’Isoloir.",
+          "estimate": "Même calcul sur les 21-24 ans : 0,56 million ni en emploi, ni en études, ni en formation (Insee), moins 0,07 million déjà au RSA, la plupart des allocataires de moins de 25 ans ayant 21 ans ou plus (hypothèse d’Isoloir) : 0,49 million ±10 %. Mêmes parts de ressources et de recours, même montant : 0,4 à 1,5 Md€, centre 0,8."
+        },
+        {
+          "id": "18-ans",
+          "label": "Ouvert dès 18 ans",
+          "lo": 0.6,
+          "hi": 2.4,
+          "note": "Dans les conditions de droit commun, les étudiants restant exclus. Estimation d’Isoloir.",
+          "estimate": "Jeunes de 18 à 24 ans ni en emploi, ni en études, ni en formation : 0,87 million (population 2026 × part par âge, de 8,5 % à 18 ans à 19,1 % à 24 ans, Insee), moins 0,08 million de moins de 25 ans déjà allocataires (DREES) : 0,79 million ±10 %. × 40 à 60 % aux ressources propres sous le plafond (hypothèse d’Isoloir) × recours de 50 à 67 % (DREES : 63 à 67 %, moins chez les plus jeunes) × 4 000 à 7 000 € par an : 0,6 à 2,4 Md€, centre 1,3."
+        }
+      ],
+      "estimate": {
+        "method": "Statique, année pleine. Ouvrir dès 18 ou 21 ans : jeunes ni en emploi, ni en études, ni en formation (Insee), moins ceux déjà au RSA (DREES) × part aux ressources sous le plafond (hypothèse d’Isoloir) × recours (DREES) × montant. Fermer jusqu’à 29 ans : allocataires de 25 à 28 ans sans enfant (DREES) × montant. Montant annuel : 4 000 € (RSA partiel, hypothèse) à 7 000 € (RSA plein d’une personne seule moins le forfait logement, barème 2027)."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "credits-prime-activite-rsa",
+        "minima-sociaux-revalorisation",
+        "non-recours-versement-automatique"
+      ],
+      "operatorCaveat": false,
+      "limits": "Estimation sommaire, année pleine, sans montée en charge : ressources et recours des jeunes mal connus. Ni l’emploi, ni les aides des parents, ni le contrat d’engagement jeune. Étudiants exclus. Payé surtout par les départements.",
+      "sources": [
+        {
+          "title": "Population par sexe et groupe d’âges, données annuelles 2026",
+          "publisher": "Insee (recensements et estimations de population)",
+          "url": "https://www.insee.fr/fr/statistiques/2381474",
+          "date": "2026-01-13",
+          "accessedAt": "2026-10-18",
+          "figure": "Au 1er janvier 2026 : 4 300 000 jeunes de 15 à 19 ans et 3 935 000 de 20 à 24 ans ; 18-24 ans environ 5,66 millions (deux cinquièmes des 15-19 ans plus les 20-24 ans, calcul)"
+        },
+        {
+          "title": "Les jeunes ni en emploi, ni en études, ni en formation : jusqu’à 21 ans, moins nombreux parmi les femmes que parmi les hommes, Insee Focus n° 229",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/5346969",
+          "date": "2021-03-26",
+          "accessedAt": "2026-10-18",
+          "figure": "Part des jeunes ni en emploi, ni en études, ni en formation par âge (moyenne 2015-2019) : 8,5 % à 18 ans, 13,1 % à 19 ans, 15,9 % à 20 ans, 16,7 % à 21 ans, 16,9 % à 22 ans, 18,2 % à 23 ans, 19,1 % à 24 ans ; 0,87 million de 18-24 ans et 0,56 million de 21-24 ans en 2026 (calcul)"
+        },
+        {
+          "title": "Les jeunes ni en emploi, ni en études, ni en formation : jusqu’à 21 ans, moins nombreux parmi les femmes que parmi les hommes, Insee Focus n° 229",
+          "publisher": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/5346969",
+          "date": "2021-03-26",
+          "accessedAt": "2026-10-18",
+          "figure": "La part croît de 17 à 20 ans (16 %), puis jusqu’à 24 ans (19 %)"
+        },
+        {
+          "title": "Projet annuel de performances 2027, mission Travail, emploi et administration des ministères sociaux (p. 81 du PDF)",
+          "publisher": "Ministère du travail (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "13,1 % des 15-29 ans ni en emploi, ni en études, ni en formation au premier trimestre 2026 (12,9 % en 2019 selon l’Insee) : les parts par âge de 2015-2019 restent d’actualité"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 209)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Fin 2023, 1,85 million de foyers au RSA, dont 1,63 million au RSA non majoré et 216 500 au RSA majoré (par différence ; tableau 2) ; parmi les allocataires du non majoré, 63 % de personnes seules sans enfant et 3 % de couples sans personne à charge (tableau 2) : 66 % sans personne à charge"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 209)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "63 % des allocataires du RSA non majoré sont des personnes seules sans enfant"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 209)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Allocataires du RSA non majoré : 15 % ont de 25 à 29 ans (0,245 million, dont 0,20 de 25 à 28 ans, calcul) ; 96 % ont de 25 à 64 ans, 2 % moins de 25 ans (tableau 2)"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 211)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "22 % des allocataires du RSA majoré (216 500 foyers) ont moins de 25 ans ; avec 2 % du non majoré, 0,08 million d’allocataires de moins de 25 ans déjà au RSA, parents pour l’essentiel (calcul), déduits du nombre de jeunes"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 204)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Le RSA à partir de 25 ans, sauf parents et jeunes ayant travaillé deux ans sur trois (le réglage du PLF)"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 204)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Les étudiants restent exclus du RSA, quel que soit leur âge"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 205)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Le forfait logement est déduit pour une personne logée gratuitement ou qui reçoit une aide au logement : le haut du montant est le RSA d’une personne seule moins ce forfait"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 205)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "RSA jeune (moins de 25 ans ayant travaillé deux ans sur trois) : 600 foyers fin 2023, exception rare, non déduite à 29 ans"
+        },
+        {
+          "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 23 « Le revenu de solidarité active (RSA) » (p. 205)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Le barème du RSA est revalorisé chaque 1er avril selon l’inflation"
+        },
+        {
+          "title": "RSA : demandeur de 25 ans et plus",
+          "publisher": "Service-public.gouv.fr (DILA)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F19778",
+          "date": "2026-04-01",
+          "accessedAt": "2026-10-18",
+          "figure": "RSA d’une personne seule : 651,69 € par mois en 2026 ; forfait logement de 78,20 € : 573,49 € par mois, 6 882 € par an (calcul)"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 : évaluations préalables des articles, article 74, taux retenu (p. 602)",
+          "publisher": "Gouvernement (annexe au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Revalorisation prévue au 1er avril 2027 : 2,3 % ; le RSA d’une personne seule moins le forfait logement passe à 586,68 € par mois, 7 000 € sur l’année 2027 (trois mois au barème 2026, neuf au barème 2027, calcul)"
+        },
+        {
+          "title": "Budget 2027 : dossier de presse du PLF et du PLFSS pour 2027",
+          "publisher": "Ministères économiques et sociaux (Direction du budget et Direction de la sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Le RSA est revalorisé sur l’inflation en 2027 (pas de gel)"
+        },
+        {
+          "title": "Non-recours au RSA : plus d’un tiers des foyers éligibles ne le percevaient pas fin 2021, Études et Résultats n° 1370 (p. 1)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-05/ER1370_Non-recours_RSA.pdf",
+          "date": "2026-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Non-recours au RSA de 33 à 37 % fin 2021, soit un recours de 63 à 67 %"
+        },
+        {
+          "title": "Non-recours au RSA : plus d’un tiers des foyers éligibles ne le percevaient pas fin 2021, Études et Résultats n° 1370 (p. 5)",
+          "publisher": "DREES",
+          "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-05/ER1370_Non-recours_RSA.pdf",
+          "date": "2026-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Les plus jeunes, qui entrent dans l’âge du RSA, recourent moins : bas du recours à 50 % (hypothèse d’Isoloir)"
         }
       ]
     },
@@ -5576,6 +15567,792 @@ export const budget: BudgetData = {
       ]
     },
     {
+      "id": "smic-coup-de-pouce",
+      "family": "depenses",
+      "label": "Smic : coup de pouce",
+      "today": "Revalorisation légale au 1er janvier 2027, barème des allègements gelé",
+      "kind": "options",
+      "direction": "depense",
+      "unit": {
+        "label": "réglage du coup de pouce au 1er janvier 2027, barème des allègements ajusté d’autant",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.25,
+        "hi": 0.55
+      },
+      "max": 10,
+      "step": 1,
+      "notches": [
+        0,
+        2,
+        5,
+        10
+      ],
+      "baseLabel": "PLF",
+      "options": [
+        {
+          "id": "plf",
+          "label": "Revalorisation légale seule (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : pas de coup de pouce. La revalorisation légale est un plancher fixé par le Code du travail."
+        },
+        {
+          "id": "plus-2",
+          "label": "+2 % au 1er janvier",
+          "lo": 0.5,
+          "hi": 1.1,
+          "note": "2 points à 0,25 à 0,55 Md€ le point.",
+          "estimate": "Deux fois le chiffrage de 1 % de la DG Trésor ramené à 2027, même fourchette, sans effet sur l’emploi."
+        },
+        {
+          "id": "plus-5",
+          "label": "+5 % au 1er janvier",
+          "lo": 1.25,
+          "hi": 3.44,
+          "note": "5 points ; haut de la fourchette relevé de 25 %.",
+          "estimate": "Au-delà du chiffrage de 1 % de la DG Trésor : 5 points à 0,25-0,55 Md€, haut relevé de 25 % (plus de salariés et d’agents publics touchés, effet sur l’emploi non compté)."
+        },
+        {
+          "id": "plus-10",
+          "label": "+10 % au 1er janvier",
+          "lo": 2.5,
+          "hi": 7.7,
+          "note": "10 points ; haut de la fourchette relevé de 40 %. La borne du jeu.",
+          "estimate": "Au-delà du chiffrage de 1 % : 10 points à 0,25-0,55 Md€, haut relevé de 40 % (plus de salariés touchés, emploi non compté). Borne du jeu : au-delà, extrapoler un chiffrage de 1 % ne donne plus d’ordre de grandeur sûr."
+        }
+      ],
+      "estimate": {
+        "method": "1. DG Trésor (2017) : +1 % de Smic dégrade le solde public de 240 M€, hors emploi. 2. Smic de 9,76 € (2017) à environ 12,4 € en 2027 (11,88 € en 2025, +2,6 % puis +1,5 %), salariés concernés de 10,6 % à 12,4 % : ×1,3 à ×1,6, soit 0,31 à 0,38 Md€ par point. 3. Élargi à 0,25-0,55 Md€ : allègements renforcés en 2019, refondus en 2026. 4. Le barème des allègements, gelé au PLF, suit le coup de pouce ; gelé, le coût serait bien moindre, voire un gain."
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux",
+        "minimum-pension-carriere-complete",
+        "point-indice"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Une hausse décidée en cours d’année ne compte en 2027 que pour les mois restants ; elle se garde les années suivantes.",
+      "limits": "Statique, sans effet sur l’emploi, qui alourdirait le coût. Les allègements suivent la hausse, comme en 2017 ; gelés comme au PLF, ils baisseraient au Smic : le coût du travail monterait plus vite et le coût public serait bien plus faible.",
+      "sources": [
+        {
+          "title": "Salaire minimum interprofessionnel de croissance, rapport du groupe d’experts (1er décembre 2017), tableau 9, p. 82",
+          "publisher": "Groupe d’experts sur le Smic (chiffrage de la DG Trésor, modèle Saphir)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/174000842.pdf",
+          "date": "2017-12-01",
+          "accessedAt": "2026-10-18",
+          "figure": "+1 % de Smic : −240 M€ sur le solde public (cotisations employeurs nettes des allègements −400, cotisations salariales +240, paie publique −260, prestations +110, impôt sur le revenu +70)"
+        },
+        {
+          "title": "Salaire minimum interprofessionnel de croissance, rapport du groupe d’experts (1er décembre 2017), p. 81 et note 78",
+          "publisher": "Groupe d’experts sur le Smic (chiffrage de la DG Trésor, modèle Saphir)",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/174000842.pdf",
+          "date": "2017-12-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Chiffrage statique : l’effet sur l’emploi, non compté, dégraderait davantage le solde"
+        },
+        {
+          "title": "Salaire minimum interprofessionnel de croissance, rapport du groupe d’experts (1er décembre 2017), p. 34 et 41",
+          "publisher": "Groupe d’experts sur le Smic",
+          "url": "https://www.vie-publique.fr/files/rapport/pdf/174000842.pdf",
+          "date": "2017-12-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Smic horaire brut de 9,76 € en 2017 ; 10,6 % des salariés concernés par la revalorisation"
+        },
+        {
+          "title": "Salaire minimum interprofessionnel de croissance, rapport du groupe d’experts (25 novembre 2025), p. 6 et 43",
+          "publisher": "Groupe d’experts sur le Smic (rapport publié par la DG Trésor)",
+          "url": "https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "Smic horaire brut de 11,88 € depuis novembre 2024, sans hausse en 2025 ; 12,4 % des salariés concernés"
+        },
+        {
+          "title": "Salaire minimum interprofessionnel de croissance, rapport du groupe d’experts (25 novembre 2025), encadré I.4, p. 74",
+          "publisher": "Groupe d’experts sur le Smic (rapport publié par la DG Trésor)",
+          "url": "https://www.tresor.economie.gouv.fr/Articles/284b121f-b187-4280-b327-05f18064c3fa/files/1d1d1848-48bb-40a9-a14f-585b8072e716",
+          "date": "2025-11-25",
+          "accessedAt": "2026-10-18",
+          "figure": "La revalorisation légale (inflation et moitié du gain de pouvoir d’achat du salaire moyen) est un plancher : pas de réglage en dessous"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi »",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Hausse du Smic de 2,41 % au 1er juin 2026 ; le barème des allègements (RGDU) gelé, sans effet de la hausse sur leur coût"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi »",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Smic : +2,6 % en moyenne en 2026, +1,5 % en 2027 ; le gel du barème, maintenu en 2027, rapporte 5,6 Md€ de cotisations"
+        }
+      ]
+    },
+    {
+      "id": "soutien-energies-renouvelables",
+      "family": "depenses",
+      "label": "Soutien public aux renouvelables",
+      "today": "8 615,7 M€ de soutien aux renouvelables et au biométhane en 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % des charges de soutien",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.04307844,
+        "hi": 0.08615688
+      },
+      "base": {
+        "value": 9.491608,
+        "label": "9 491,6 M€ de crédits de paiement du programme 345 « Service public de l’énergie » au PLF 2027, dont 8 615,7 M€ dans le levier : actions 09 (électricité renouvelable en métropole, 7 320,8 M€) et 10 (biométhane, 1 294,9 M€)",
+        "source": {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345 : récapitulation des crédits par programme et action (p. 20)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf"
+        }
+      },
+      "max": 2,
+      "step": 0.1,
+      "notches": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1. Charges 2027 du PAP : électricité renouvelable en métropole 7 320,8 M€ et biométhane 1 294,9 M€, soit 8 615,7 M€ ; haut : 1 % de ce montant, 86,2 M€ par point. 2. Bas à 50 % jusqu’à ±2 % : ces charges paient des contrats en cours ; le PLF y trouve déjà 242 M€ en 2027 (prix négatifs, résiliations), aller plus loin demande d’autres révisions, contestables. 3. Soit 43,1 à 86,2 M€ par point, sur toute l’année."
+      },
+      "stretch": {
+        "max": 23,
+        "perUnit": {
+          "lo": 0.004308,
+          "hi": 0.08615688
+        },
+        "why": "Jusqu’à −23 % : environ 2 Md€, coût des contrats solaires de 2006-2010 (chiffre 2024), les plus exposés à une révision ; +23 % en miroir. Au-delà de ±2 %, estimation : bas à 5 %, entre 0,65 % (résiliation du PLF, 13 M€ en 2027) et 7,5 % (révision de 2021)."
+      },
+      "amount": {
+        "value": 8.615688,
+        "label": "8 615,7 M€ au PLF 2027 : électricité renouvelable en métropole (7 320,8 M€) et injection de biométhane (1 294,9 M€)"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "Décider de plus ou de moins de nouveaux contrats (éolien, solaire, biométhane) pèse à la mise en service, surtout après 2027 : 10 GW d’éolien en mer et 3 GWc de solaire doivent être attribués en 2027. La résiliation d’anciens contrats prévue au PLF rapporte 13 M€ en 2027, 500 M€ en 2030, le quart de leur coût.",
+      "limits": "Charges dues aux producteurs sous contrat, qui suivent les prix de gros (−710 M€ depuis juillet 2026). Les baisser en 2027 suppose de réviser des contrats en cours, avec clause de sauvegarde. Hors zones non interconnectées et cogénération.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345 : récapitulation des crédits par programme et action (p. 20)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Programme 345 : 9 491 607 515 € de CP au PLF 2027 (9 583 676 708 € en LFI 2026)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345, action 09 : titre et catégorie (p. 385)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Action 09 (électricité renouvelable en métropole) : 7 320 796 653 € de CP 2027, tous en transferts aux entreprises. Le texte de la page cite 8 031,8 M€ avant la baisse d’environ 710 M€ due aux prix de gros"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345, action 10 (p. 21)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Action 10 (injection de biométhane) : 1 294 890 941 € de CP 2027 ; avec l’action 09, 8 615 687 594 € (calculé)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345, justification de l’action 09 (p. 385)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La ligne suit les prix de gros : environ 710 M€ de charges en moins depuis la délibération de la CRE du 15 juillet 2026"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345, justification de l’action 09 (p. 385)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Réformes des contrats photovoltaïques déjà prévues au PLF 2027 : −242 M€ en 2027, 2,8 % de la ligne (déjà dans la base) ; la plage de ±2 % reste à cette échelle"
+        },
+        {
+          "title": "Évaluations préalables des articles du projet de loi de finances pour 2027, article 82 (p. 662)",
+          "publisher": "Gouvernement (annexe au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contrats photovoltaïques de 2006-2010 (S06, S10) : environ 2 Md€ par an sur le programme 345 (chiffre 2024), soit 23 % de la ligne du levier (calculé) : la borne du prolongement"
+        },
+        {
+          "title": "Évaluations préalables des articles du projet de loi de finances pour 2027, article 82, incidences budgétaires de la résiliation anticipée des contrats S06 et S10 (p. 666)",
+          "publisher": "Gouvernement (annexe au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Résiliation d’anciens contrats : −13 M€ en 2027 (0,65 % de leur coût), −75 en 2028, −300 en 2029, −500 M€ en 2030 sur l’ensemble des APU ; 500 M€ sur 2 Md€, soit 25 % à terme (calculé)"
+        },
+        {
+          "title": "Évaluations préalables des articles du projet de loi de finances pour 2027, article 82, méthode d’évaluation (p. 666)",
+          "publisher": "Gouvernement (annexe au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Révision des tarifs de 2021 sur ces contrats : rendement attendu de 150 M€ par an, soit 7,5 % de leur coût (calculé) : le haut de la fourchette du bas au-delà de ±2 %"
+        },
+        {
+          "title": "Évaluations préalables des articles du projet de loi de finances pour 2027, article 82, heures de prix négatifs (p. 682)",
+          "publisher": "Gouvernement (annexe au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Moindre compensation pendant les heures de prix négatifs : −100 M€ en 2027 (déjà dans la base)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345, sous-action 09.02 « Éolien en mer » (p. 386)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "De l’ordre de 10 GW d’éolien en mer attribués en 2027 (appel d’offres n° 10), mis en service bien après 2027"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 345, sous-action 09.03 « Solaire photovoltaïque » (p. 387)",
+          "publisher": "Ministère chargé de l’énergie (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Environ 3 GWc de nouveaux contrats solaires attribués en 2027, payés à la mise en service"
+        }
+      ]
+    },
+    {
+      "id": "tarif-solidarite-billets-avion",
+      "family": "impots",
+      "label": "Tarif de solidarité, billets d’avion",
+      "today": "1 478,8 M€ attendus en 2027 (PLF 2027, article 42)",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 % du produit (tarifs ajustés d’autant)",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.014788,
+        "hi": 0.014788
+      },
+      "base": {
+        "value": 1.4788,
+        "label": "1 478,8 M€ de tarif de solidarité de la taxe sur le transport aérien de passagers prévus en 2027, dont 271 M€ au plus pour l’AFITF et le reste au budget de l’État (PLF 2027, article 42)",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 42 « Dispositions relatives à l’affectation de ressources à des tiers », tableau du I (p. 128)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.01109,
+          "hi": 0.014788
+        },
+        "perUnitDown": {
+          "lo": 0.014788,
+          "hi": 0.014788
+        },
+        "why": "Jusqu’à la suppression du tarif (toute la ligne) ou son doublement. Au-delà de ±25 % : à la baisse, effet statique ; à la hausse, le bas retire un quart pour le trafic (hypothèse ; la DGAC a relevé un effet sur la compétitivité après la hausse de 2025, CPO)."
+      },
+      "amount": {
+        "value": 1.4788,
+        "label": "1 478,8 M€ de tarif de solidarité de la taxe sur les billets d’avion attendus en 2027 (PLF 2027, article 42)"
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "limits": "Statique jusqu’à ±25 % : 1 % du produit prévu, trafic inchangé. Tous les tarifs bougent ensemble, vols commerciaux comme aviation d’affaires (sa part n’est pas isolée). Autres recettes du transport aérien non comptées.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 42 « Dispositions relatives à l’affectation de ressources à des tiers », tableau du I (p. 128)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Tarif de solidarité de la taxe sur le transport aérien de passagers : rendement prévisionnel de 1 478 834 000 € en 2027, dont 271 000 000 € au plus affectés à l’AFITF"
+        },
+        {
+          "title": "Quel avenir pour la fiscalité de l’énergie ? (rapport, juin 2026), partie 2.2.3 (p. 123-124)",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-06/20260603-Quel-avenir-pour-la-fiscalite-de-l-energie.pdf",
+          "date": "2026-06-03",
+          "accessedAt": "2026-10-18",
+          "figure": "Hausse de la taxe sur les billets d’avion de l’ordre de 850 M€ en loi de finances pour 2025 (aviation commerciale), avec un effet sur la compétitivité relevé par la DGAC"
+        }
+      ]
+    },
+    {
+      "id": "taxe-holdings-patrimoniales",
+      "family": "impots",
+      "label": "Taxe sur les holdings patrimoniales",
+      "today": "20 % des biens somptuaires des holdings ; 0,1 Md€ au PLF 2027",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage de la taxe",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.1,
+        "label": "0,1 Md€ de taxe sur le patrimoine financier (taxe sur les holdings) prévus au PLF 2027, état A, ligne 1439",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », ligne 1439 (p. 231)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "20 %",
+      "options": [
+        {
+          "id": "suppression",
+          "label": "Supprimer la taxe",
+          "lo": -0.1,
+          "hi": -0.1,
+          "note": "Les 0,1 Md€ du PLF 2027."
+        },
+        {
+          "id": "somptuaires",
+          "label": "20 % des biens somptuaires (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Yachts, avions, voitures, bijoux, vins, logements réservés à l’actionnaire, dans les holdings d’au moins 5 M€ contrôlées à 50 %."
+        },
+        {
+          "id": "texte-initial",
+          "label": "2 % des placements et biens non professionnels",
+          "lo": 0.65,
+          "hi": 0.9,
+          "note": "Le texte initial du PLF 2026 (contrôle à 33 %) : 1,0 Md€ prévu par le Gouvernement, moins la taxe actuelle. Le Sénat en doute : bas estimé.",
+          "estimate": "Haut : 1,0 Md€ en année pleine (Gouvernement, PLF 2026), moins la taxe actuelle (0,1 Md€) : +0,9 Md€. Bas réduit d’un quart, à +0,65 Md€ : ce chiffre ne compte ni l’exonération d’IFI des biens taxés, ni les dividendes versés et les bilans réorganisés que l’évaluation préalable annonçait (Sénat)."
+        },
+        {
+          "id": "revenus-gardes",
+          "label": "Taxer les revenus gardés longtemps",
+          "lo": 0.9,
+          "hi": 1,
+          "note": "Proposition du CPO (2025), sur le modèle irlandais : 1,0 Md€ selon le CPO, en plus de la taxe actuelle (hypothèse) ; 0,9 Md€ si elle la remplace."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "contribution-differentielle-patrimoine",
+        "ifi-assiette",
+        "ifi-bareme",
+        "impot-plancher-tres-hauts-patrimoines",
+        "isf-retablissement"
+      ],
+      "operatorCaveat": false,
+      "limits": "Chiffres du Gouvernement et du CPO, jugés incertains par le Sénat : dividendes versés, holdings fractionnées sous 5 M€. Pas au-delà de 2 % : sans plafond, ce taux méconnaît la Constitution selon le Conseil d’État (holdings étrangères).",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », ligne 1439 (p. 231)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Taxe sur le patrimoine financier (taxe sur les holdings, CGI art. 235 ter C) : 100 000 000 € prévus en 2027"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome I, annexe au PLF 2026, p. 24",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Version initiale de la taxe (2 % des actifs non professionnels) : 1,0 Md€ prévu pour 2026"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome II, fascicule 1, sur le projet de loi de finances pour 2026, p. 99",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-21/l25-139-211.pdf",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Version initiale : environ 1 Md€ en année pleine selon le Gouvernement ; le Sénat en doute, ce chiffre ne comptant pas l’exonération d’IFI des biens taxés"
+        },
+        {
+          "title": "Rapport général n° 139 (2025-2026), tome II, fascicule 1, sur le projet de loi de finances pour 2026, p. 100",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l25-139-21/l25-139-211.pdf",
+          "date": "2025-11-24",
+          "accessedAt": "2026-10-18",
+          "figure": "Réactions annoncées par l’évaluation préalable : dividendes distribués, bilans des holdings réorganisés (bas de la version initiale)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 200",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Version initiale du PLF 2026 : rendement estimé à 1 Md€"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 214 (tableau de synthèse, recommandation 16.1)",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Imposer les revenus gardés longtemps dans les holdings contrôlées par peu de personnes : +1,0 Md€ (scénario 1 du tableau de synthèse)"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 183",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Texte initial : contrôle à 33 %, assiette comprenant le patrimoine financier, taux de 2 %"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 188",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Loi de finances pour 2026 : assiette recentrée sur les biens « somptuaires », patrimoine financier exclu, taux porté de 2 % à 20 %"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 188",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 20 % en contrepartie du resserrement de l’assiette"
+        },
+        {
+          "title": "Rapport d’information n° 760 (2025-2026) sur l’imposition des hauts patrimoines, p. 189",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/r25-760/r25-7601.pdf",
+          "date": "2026-06-17",
+          "accessedAt": "2026-10-18",
+          "figure": "Selon le Conseil d’État, un taux de 2 % sans plafonnement (volet des holdings étrangères) méconnaît la Constitution : borne du levier à 2 %"
+        }
+      ]
+    },
+    {
+      "id": "taxe-rachats-actions",
+      "family": "impots",
+      "label": "Taxe sur les rachats d’actions",
+      "today": "8 % des réductions de capital après rachat ; 0,2 Md€ au PLF 2027",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage du taux ou de l’assiette",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.2,
+        "label": "0,2 Md€ de taxe sur les rachats d’actions prévus au PLF 2027, état A, ligne 1796",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », ligne 1796 (p. 232)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "8 %",
+      "options": [
+        {
+          "id": "suppression",
+          "label": "Supprimer la taxe (0 %)",
+          "lo": -0.2,
+          "hi": -0.2,
+          "note": "Les 0,2 Md€ du PLF 2027."
+        },
+        {
+          "id": "taux-4",
+          "label": "4 %",
+          "lo": -0.1,
+          "hi": -0.06,
+          "note": "Entre deux réglages chiffrés : estimation.",
+          "estimate": "Proportionnel au taux : la moitié des 0,2 Md€ (25 M€ par point, PLF 2027), −0,1 Md€ ; perte réduite jusqu’à 40 %, car un taux plus bas pousse à annuler davantage d’actions rachetées : fourchette de ±25 % autour de −0,08 Md€."
+        },
+        {
+          "id": "taux-8",
+          "label": "8 % (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027 : grandes entreprises au siège en France (plus de 1 Md€ de chiffre d’affaires)."
+        },
+        {
+          "id": "taux-12",
+          "label": "12 %",
+          "lo": 0.06,
+          "hi": 0.1,
+          "note": "Au-delà du taux chiffré : estimation.",
+          "estimate": "Proportionnel au taux : 25 M€ par point (200 M€ pour 8 %, PLF 2027), +0,1 Md€ ; gain réduit jusqu’à 40 %, car plus le taux monte, plus les sociétés gardent leurs actions rachetées sans les annuler, ou versent des dividendes à la place : fourchette de ±25 % autour de +0,08 Md€."
+        },
+        {
+          "id": "taux-16",
+          "label": "16 %, le double",
+          "lo": 0.12,
+          "hi": 0.2,
+          "note": "Au-delà du taux chiffré : estimation. Borne : le miroir de la suppression (8 points de plus).",
+          "estimate": "Proportionnel au taux : 25 M€ par point (200 M€ pour 8 %, PLF 2027), +0,2 Md€ ; gain réduit jusqu’à 40 %, car plus le taux monte, plus les sociétés gardent leurs actions rachetées sans les annuler, ou versent des dividendes à la place : fourchette de ±25 % autour de +0,16 Md€."
+        },
+        {
+          "id": "tous-rachats",
+          "label": "8 % du prix de tous les rachats",
+          "lo": 0.4,
+          "hi": 2.2,
+          "note": "Assiette élargie : estimation. Risque au regard de la directive mères-filiales (Sénat).",
+          "estimate": "Assiette : le prix payé pour tous les rachats, pas la seule réduction de capital. Rachats des groupes du SBF 120 : 32,3 Md€ en 2023 (Sénat, CPO), un peu plus pour l’ensemble des sociétés ; moins plus de 2 Md€ de deux groupes au siège hors de France : 8 % de 30,3 Md€ = 2,4 Md€, moins les 0,2 Md€ déjà perçus : environ +2,2 Md€ (haut). Bas : rachats réduits des trois quarts au profit des dividendes : 8 % de 7,6 Md€ − 0,2 = +0,4 Md€."
+        }
+      ],
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "ttf-taux"
+      ],
+      "operatorCaveat": false,
+      "limits": "Aujourd’hui assise sur la valeur nominale et une part des primes, pas sur le prix payé : d’où 0,2 Md€ pour plus de 30 Md€ de rachats. Statique ; les rachats de 2027 peuvent s’écarter de ceux de 2023.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », ligne 1796 (p. 232)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Taxe sur les rachats d’actions : 200 000 000 € prévus en 2027, soit 25 M€ par point du taux de 8 %"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome I, annexe au PLF 2026, p. 36",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "400 M€ en 2025 avec la composante temporaire ; 200 M€ par an pour la taxe pérenne"
+        },
+        {
+          "title": "Rapport général n° 144 (2024-2025), tome II, fascicule 1, sur le projet de loi de finances pour 2025, article 26, p. 476",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-144-21/l24-144-211.pdf",
+          "date": "2024-11-21",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 8 % assis sur la réduction de capital (valeur nominale) et une fraction des primes, pas sur le prix payé ; rendement de 200 M€"
+        },
+        {
+          "title": "Rapport général n° 144 (2024-2025), tome II, fascicule 1, sur le projet de loi de finances pour 2025, article 26, p. 481",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-144-21/l24-144-211.pdf",
+          "date": "2024-11-21",
+          "accessedAt": "2026-10-18",
+          "figure": "Rachats d’actions des groupes du SBF 120 : 32,3 Md€ en 2023 (base de l’option « tous les rachats »)"
+        },
+        {
+          "title": "Rapport général n° 144 (2024-2025), tome II, fascicule 1, sur le projet de loi de finances pour 2025, article 26, p. 481",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-144-21/l24-144-211.pdf",
+          "date": "2024-11-21",
+          "accessedAt": "2026-10-18",
+          "figure": "Deux de ces groupes, au siège hors de France (non taxables), ont racheté chacun plus d’un milliard d’euros en 2023"
+        },
+        {
+          "title": "Rapport général n° 144 (2024-2025), tome II, fascicule 1, sur le projet de loi de finances pour 2025, article 26, p. 482",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-144-21/l24-144-211.pdf",
+          "date": "2024-11-21",
+          "accessedAt": "2026-10-18",
+          "figure": "Pour l’ensemble des sociétés, les rachats sont un peu plus élevés : le haut de l’option « tous les rachats » n’est pas un plafond"
+        },
+        {
+          "title": "Rapport général n° 144 (2024-2025), tome II, fascicule 1, sur le projet de loi de finances pour 2025, article 26, p. 476",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l24-144-21/l24-144-211.pdf",
+          "date": "2024-11-21",
+          "accessedAt": "2026-10-18",
+          "figure": "Taxer le prix des titres rachetés pourrait se heurter à la directive mères-filiales (risque juridique de l’option « tous les rachats »)"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 79",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "32,3 Md€ de rachats d’actions en 2023 ; taxe de 8 % sur les réductions de capital depuis le 1er mars 2025"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 17, p. 167",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Champ inchangé en 2027 : sociétés au siège en France, chiffre d’affaires de plus de 1 Md€"
+        }
+      ]
+    },
+    {
+      "id": "taxe-tonnage",
+      "family": "impots",
+      "label": "Taxe au tonnage des armateurs",
+      "today": "Régime en vigueur : 320 M€ de coût prévu en 2027 (1 437 M€ en 2025)",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût du régime",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.0024,
+        "hi": 0.0037
+      },
+      "base": {
+        "value": 0.32,
+        "label": "320 M€ : coût prévu en 2027 du régime d’imposition au tonnage des entreprises de transport maritime (dépense fiscale n° 320119, CGI art. 209-0 B), 83 entreprises en 2025, après 1 437 M€ en 2025 et 520 M€ en 2026",
+        "source": {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 205 : dépense fiscale n° 320119 (p. 126)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.0024,
+          "hi": 0.0037
+        },
+        "perUnitDown": {
+          "lo": 0.0012,
+          "hi": 0.0037
+        },
+        "why": "Jusqu’à −100 % : la suppression du régime, imposition de droit commun (la ligne entière). Au-delà de −25 %, bas divisé par deux : des navires pourraient passer sous le régime au tonnage d’un autre pays européen. À la hausse, même borne, sans dessin."
+      },
+      "amount": {
+        "value": 0.32,
+        "label": "320 M€ de coût prévu en 2027"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "contribution-benefices-exceptionnels",
+        "contribution-exceptionnelle-grandes-entreprises",
+        "impot-societes"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Un changement vaut pour les exercices 2027 : les exercices décalés et les entreprises sans acompte ajusté sur l’année en cours paient en 2028 (9 % pour la contribution des grandes entreprises).",
+      "limits": "Statique, au profit prévu : le coût suit le fret (5,6 Md€ en 2023, 0,6 Md€ en 2024). Bas : 91 % payé en 2027, prévision réduite de 16 % comme celle de 2026 ; haut : plus la contribution exceptionnelle sur l’IS des plus grandes (15,7 %).",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 205 : dépense fiscale n° 320119 (p. 126)",
+          "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Régime au tonnage (CGI, art. 209-0 B), 83 entreprises : 1 437 M€ en 2025, 520 M€ en 2026, 320 M€ en 2027, fiabilité très bonne ; 3,2 M€ par point (1 %)"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome II : dépenses fiscales, annexe au PLF 2026, dépense fiscale n° 320119 (p. 132)",
+          "publisher": "Direction de la législation fiscale (annexe au PLF 2026)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "625 M€ en 2024, 1 435 M€ prévus en 2025 et 620 M€ prévus en 2026 : la prévision de 2026 a été revue à 520 M€ un an plus tard (−16 %, bas de la fourchette)"
+        },
+        {
+          "title": "Rapport n° 808 (2024-2025) de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants, tome I, p. 260",
+          "publisher": "Sénat, commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants",
+          "url": "https://www.senat.fr/rap/r24-808-1/r24-808-11.pdf",
+          "date": "2025-07-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Coût moyen de 1,097 Md€ par an sur 2015-2025, 5,6 Md€ en 2023 et 615 M€ en 2024, pour un nombre très restreint d’entreprises (contexte : volatilité)"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15 « Mise à contribution des grandes entreprises » (p. 157)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contribution exceptionnelle sur l’IS des grandes entreprises prorogée pour l’exercice 2027 à 15,7 % et 31,4 % ; contribution de 8 % sur le résultat d’exploitation des armateurs au tonnage reconduite pour l’exercice 2026 seulement"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15, dispositif en vigueur de la contribution exceptionnelle sur les bénéfices des grandes entreprises (p. 156)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Assiette : la moyenne de l’IS de l’exercice et de l’exercice précédent ; acompte de 98 % avec le dernier acompte d’IS. Un IS 2027 plus élevé de X relève la contribution de 31,4 % × X / 2, soit 15,7 % de X (haut de la fourchette)"
+        },
+        {
+          "title": "PLF 2027, article 15, II (p. 155)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La contribution maritime de 8 % porte sur l’exercice 2026 et se paie sans acompte, donc en 2027 (0,3 Md€, dans le PLF) : une suppression du régime pour les exercices 2027 n’y touche pas"
+        },
+        {
+          "title": "PLF 2027, évaluations préalables des articles, article 15 « Mise à contribution des grandes entreprises », incidences budgétaires (p. 160)",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "5 Md€ d’acomptes en 2027 et 500 M€ en 2028 pour les exercices décalés : 9 % (0,5 sur 5,5 Md€) d’une contribution assise sur l’IS des grandes entreprises est payé l’année suivante"
+        }
+      ]
+    },
+    {
       "id": "tsn-taux",
       "family": "impots",
       "label": "Taxe sur les services numériques",
@@ -5596,10 +16373,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Projet de loi de finances pour 2027, état A, ligne 1430 « Taxe sur les services numériques » (p. 231)",
           "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
-          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
-          "date": "2026-10-01",
-          "accessedAt": "2026-10-18",
-          "figure": "980 834 006 € de recette prévue en 2027"
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
         }
       },
       "max": 25,
@@ -5612,6 +16386,18 @@ export const budget: BudgetData = {
         25
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.005,
+          "hi": 0.009808
+        },
+        "perUnitDown": {
+          "lo": 0.0074,
+          "hi": 0.009808
+        },
+        "why": "−100 % : taxe supprimée ; +100 % : taux de 6 %, voté par l’Assemblée sur le PLF 2026 (seuil relevé à 2 Md€, non repris). Au-delà de ±25 %, bas abaissé : déductible et répercutée, la taxe allège l’IS ; à la hausse, bas à la moitié (réactions des redevables)."
+      },
       "amount": {
         "value": 0.9808,
         "label": "980,8 M€ de taxe sur les services numériques prévus au PLF 2027"
@@ -5627,6 +16413,531 @@ export const budget: BudgetData = {
           "date": "2026-10-01",
           "accessedAt": "2026-10-18",
           "figure": "980 834 006 € de recette prévue en 2027"
+        }
+      ]
+    },
+    {
+      "id": "ttf-taux",
+      "family": "impots",
+      "label": "Taxe sur les achats d’actions (TTF)",
+      "today": "0,4 % des achats d’actions de sociétés cotées (France, plus de 1 Md€)",
+      "kind": "linear",
+      "direction": "recette",
+      "unit": {
+        "label": "1 point de taux (0,4 % aujourd’hui)",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 6.575,
+        "hi": 7.4325
+      },
+      "base": {
+        "value": 2.973,
+        "label": "2 973 M€ de taxe sur les transactions financières prévus en 2027 (état A du PLF 2027, ligne 1797)",
+        "source": {
+          "title": "Projet de loi de finances pour 2027, état A, ligne 1797 « Taxe sur les transactions financières » (p. 232)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 0.1,
+      "step": 0.01,
+      "notches": [
+        -0.1,
+        -0.05,
+        0,
+        0.05,
+        0.1
+      ],
+      "baseLabel": "0,4 %",
+      "stretch": {
+        "max": 0.4,
+        "perUnit": {
+          "lo": 4.383,
+          "hi": 7.4325
+        },
+        "perUnitDown": {
+          "lo": 6.575,
+          "hi": 7.4325
+        },
+        "why": "Jusqu’à 0 % : la taxe disparaît, soit toute la ligne (2,6 à 3,0 Md€). En hausse, 0,8 % par symétrie seulement, le double du taux actuel. Au-delà de ±0,1 point, extrapolation : en hausse, bas réduit d’un tiers (4,4 Md€ par point) pour une baisse des volumes."
+      },
+      "amount": {
+        "value": 2.973,
+        "label": "2 973 M€ de taxe sur les transactions financières prévus au PLF 2027"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "taxe-rachats-actions"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique : 1 point vaut le produit divisé par 0,4. Bas : prévision 2026 (2 630 M€) ; haut : 2027 (2 973 M€). Le produit suit les cours et les volumes. L’extension aux achats revendus dans la journée et aux dérivés n’est pas chiffrée.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027, état A, ligne 1797 « Taxe sur les transactions financières » (p. 232)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "2 973 000 000 € de recette prévue en 2027, au taux de 0,4 % : 7,43 Md€ par point de taux en statique (2 973 / 0,4), haut de la fourchette"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome I « Évaluation des recettes », annexe au PLF 2026 (p. 37)",
+          "publisher": "Gouvernement (direction du budget), annexe au projet de loi de finances pour 2026",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "2 630 M€ prévus en 2026 avec le taux de 0,4 % en année pleine : 6,58 Md€ par point (2 630 / 0,4), bas de la fourchette"
+        },
+        {
+          "title": "Évaluation des voies et moyens, tome I « Évaluation des recettes », annexe au PLF 2026 (p. 36)",
+          "publisher": "Gouvernement (direction du budget), annexe au projet de loi de finances pour 2026",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+          "date": "2025-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : 1 332 M€ pour l’État en 2024, au taux de 0,3 %, avant que la part du Fonds de solidarité pour le développement ne passe au budget général"
+        },
+        {
+          "title": "Projet annuel de performances 2027, mission Aide publique au développement, programme 384 (p. 122)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : 528 M€ de TTF allaient au Fonds de solidarité pour le développement, soit environ 1 860 M€ au total à 0,3 % en 2024 ; 2 630 M€ à 0,4 % en 2026 (+41 % pour un taux +33 %) : pas d’érosion visible du produit dans la plage chiffrée"
+        },
+        {
+          "title": "Corriger les principales distorsions de l’imposition du patrimoine (décembre 2025), p. 79",
+          "publisher": "Conseil des prélèvements obligatoires",
+          "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+          "date": "2025-12",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte : champ de la taxe, les actions de sociétés françaises cotées de plus de 1 Md€ de capitalisation ; le taux de 0,3 % cité est celui d’avant la hausse de 2025"
+        }
+      ]
+    },
+    {
+      "id": "tva-electricite",
+      "family": "impots",
+      "label": "TVA sur l’électricité des ménages",
+      "today": "20 % au PLF 2027, abonnement compris depuis 2025",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0.22,
+        "hi": 0.38
+      },
+      "base": {
+        "value": 4,
+        "label": "Environ 4 Md€ de TVA par an sur les factures d’électricité des ménages, en moyenne selon l’administration fiscale (Sénat, 2024) ; davantage en 2024, année de prix hauts (SDES)",
+        "source": {
+          "title": "Rapport n° 714 (2023-2024) de la commission d’enquête sur la production, la consommation et le prix de l’électricité, tome I",
+          "publisher": "Sénat, commission d’enquête",
+          "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        -0.5,
+        0,
+        0.5,
+        1
+      ],
+      "baseLabel": "20 %",
+      "options": [
+        {
+          "id": "taux-normal",
+          "label": "20 % sur toute la facture (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "base-5-5",
+          "label": "5,5 % sur une consommation de base, 20 % au-delà",
+          "lo": -3.1,
+          "hi": -1,
+          "note": "Seuils du Sénat (2024) : 4 500 kWh par an, 6 000 kWh avec chauffage électrique. Coût très dépendant des prix. Compatibilité avec la directive TVA non établie.",
+          "estimate": "Le Sénat chiffre environ 1 Md€ aux rendements passés de la TVA. Calcul statique d’Isoloir aux prix de 2024 : 175 € d’économie pour 6 MWh (Sénat), soit 29,2 € par MWh sous les seuils ; volume sous les seuils supposé aux deux tiers des 158 TWh des ménages (SDES), les seuils étant proches de la consommation moyenne de 5,7 MWh par ménage (RTE, cité par le Sénat) : 105 TWh × 29,2 € = 3,1 Md€. Retenu : 1 à 3,1 Md€."
+        },
+        {
+          "id": "taux-10",
+          "label": "10 % sur toute la facture",
+          "lo": -3.8,
+          "hi": -2.2,
+          "note": "Le taux intermédiaire, appliqué à l’électricité.",
+          "estimate": "Base hors TVA de l’électricité des ménages : 42,2 Md€ de dépense en 2024 × 239/280 (prix moyens hors TVA et TTC, SDES) = 36 Md€, soit 0,36 Md€ par point. Aux rendements passés : 4 Md€ de TVA à 15 % de la facture (Sénat, 2024), soit 26,7 Md€ TTC et 22,7 Md€ hors TVA, 0,23 Md€ par point. Retenu, élargi à plus de ±25 % autour de 0,30 : 0,22 à 0,38 Md€ par point, × 10 points = 2,2 à 3,8 Md€. Statique, consommation inchangée."
+        },
+        {
+          "id": "taux-5-5",
+          "label": "5,5 % sur toute la facture",
+          "lo": -5.5,
+          "hi": -3.2,
+          "note": "Le plus bas des taux réduits français ; le droit de l’Union interdit moins de 5 % pour l’électricité.",
+          "estimate": "Base hors TVA de l’électricité des ménages : 42,2 Md€ de dépense en 2024 × 239/280 (prix moyens hors TVA et TTC, SDES) = 36 Md€, soit 0,36 Md€ par point. Aux rendements passés : 4 Md€ de TVA à 15 % de la facture (Sénat, 2024), soit 26,7 Md€ TTC et 22,7 Md€ hors TVA, 0,23 Md€ par point. Retenu, élargi à plus de ±25 % autour de 0,30 : 0,22 à 0,38 Md€ par point, × 14,5 points = 3,2 à 5,5 Md€. Statique, consommation inchangée."
+        }
+      ],
+      "exclusiveWith": [
+        "tva-taux-normal",
+        "tva-tous-taux"
+      ],
+      "overlapsWith": [
+        "accise-electricite"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique, consommation inchangée. Ménages seuls : les entreprises récupèrent la TVA ; acheteurs sans droit à déduction (santé, banque, associations) non comptés. Outre-mer non distingué. Pas de taux au-dessus de 20 % : un seul taux normal.",
+      "sources": [
+        {
+          "title": "Bilan énergétique de la France pour 2024, partie 4.6.3 « Consommation finale d’électricité » (p. 119)",
+          "publisher": "Service des données et études statistiques (SDES), ministère de la transition écologique",
+          "url": "https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline",
+          "date": "2026-03-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Résidentiel : 158 TWh d’électricité (climat corrigé) et 42,2 Md€ de dépense en 2024"
+        },
+        {
+          "title": "Bilan énergétique de la France pour 2024, figure 1.7.2.2 « Prix moyen de l’électricité par secteur » (p. 38)",
+          "publisher": "Service des données et études statistiques (SDES), ministère de la transition écologique",
+          "url": "https://www.statistiques.developpement-durable.gouv.fr/media/9087/download?inline",
+          "date": "2026-03-04",
+          "accessedAt": "2026-10-18",
+          "figure": "Prix moyen de l’électricité du résidentiel en 2024 : 239 €/MWh hors TVA, 280 €/MWh TTC"
+        },
+        {
+          "title": "Rapport n° 714 (2023-2024) de la commission d’enquête sur la production, la consommation et le prix de l’électricité, tome I",
+          "publisher": "Sénat, commission d’enquête",
+          "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+          "date": "2024-07-02",
+          "accessedAt": "2026-10-18",
+          "figure": "TVA sur les factures d’électricité des ménages : environ 4 Md€ par an en moyenne, selon l’administration fiscale"
+        },
+        {
+          "title": "Rapport n° 714 (2023-2024) de la commission d’enquête sur la production, la consommation et le prix de l’électricité, tome I (repères sur la consommation des ménages)",
+          "publisher": "Sénat, commission d’enquête",
+          "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+          "date": "2024-07-02",
+          "accessedAt": "2026-10-18",
+          "figure": "Consommation électrique annuelle moyenne d’un ménage : 5,7 MWh (RTE)"
+        },
+        {
+          "title": "Rapport n° 714 (2023-2024) de la commission d’enquête sur la production, la consommation et le prix de l’électricité, tome I (recommandation de TVA ciblée)",
+          "publisher": "Sénat, commission d’enquête",
+          "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+          "date": "2024-07-02",
+          "accessedAt": "2026-10-18",
+          "figure": "TVA à 5,5 % sous 4,5 MWh par an (6 MWh avec chauffage électrique) : environ 175 € de baisse par an pour un foyer chauffé à l’électricité consommant 6 MWh, au tarif réglementé de 2024"
+        },
+        {
+          "title": "Rapport n° 714 (2023-2024) de la commission d’enquête sur la production, la consommation et le prix de l’électricité, tome I (coût de la TVA ciblée)",
+          "publisher": "Sénat, commission d’enquête",
+          "url": "https://www.senat.fr/rap/r23-714-1/r23-714-1_mono.html",
+          "date": "2024-07-02",
+          "accessedAt": "2026-10-18",
+          "figure": "TVA à 5,5 % sur une consommation de base : perte d’environ 1 Md€ en moyenne selon les scénarios, d’après les rendements historiques de la TVA"
+        },
+        {
+          "title": "Quel avenir pour la fiscalité de l’énergie ? (rapport, juin 2026), p. 111",
+          "publisher": "Conseil des prélèvements obligatoires (Cour des comptes)",
+          "url": "https://www.ccomptes.fr/sites/default/files/2026-06/20260603-Quel-avenir-pour-la-fiscalite-de-l-energie.pdf",
+          "date": "2026-06-03",
+          "accessedAt": "2026-10-18",
+          "figure": "Depuis la loi de finances pour 2025, l’abonnement et la fourniture d’électricité sont au taux normal de 20 % (auparavant 5,5 % sur l’abonnement)"
+        },
+        {
+          "title": "Directive 2006/112/CE du Conseil du 28 novembre 2006 relative au système commun de taxe sur la valeur ajoutée (version consolidée), articles 96 à 98 et annexe III, point 22",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:02006L0112-20250101",
+          "date": "2025-01-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Électricité admise aux taux réduits (annexe III, point 22), qui ne peuvent être inférieurs à 5 % ; deux taux réduits au plus ; un seul taux normal pour tous les biens"
+        }
+      ]
+    },
+    {
+      "id": "tva-hebergement",
+      "family": "impots",
+      "label": "TVA hébergement touristique (10 %)",
+      "today": "10 % au PLF 2027 (coût du taux réduit : 965 M€)",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage du taux de TVA de l’hébergement",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.965,
+        "label": "965 M€ : coût prévu en 2027 du taux de 10 % sur l’hébergement touristique ou professionnel et les campings classés, par rapport au taux normal (dépense fiscale n° 730601, fiabilité bonne, PAP 2027 Économie, p. 38).",
+        "source": {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 730601 (p. 38)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "10 %",
+      "options": [
+        {
+          "id": "taux-reduit-5-5",
+          "label": "5,5 %, le taux réduit",
+          "lo": -0.543,
+          "hi": -0.326,
+          "note": "Le taux le plus bas possible ici : le droit de l’UE n’admet que deux taux réduits d’au moins 5 %.",
+          "estimate": "Statique, à partir de la dépense fiscale 730601 (PAP 2027 Économie, p. 38) : 965 M€ en 2027 pour l’écart de 10 points entre 20 % et 10 %, soit une base hors taxe d’environ 9,65 Md€. À 5,5 %, 4,5 points de moins sur cette base : 9,65 × 4,5 % = 434 M€ de recettes en moins. Fourchette de ±25 % (326 à 543 M€) : effet des prix sur la fréquentation et part de la baisse gardée par les exploitants non mesurés."
+        },
+        {
+          "id": "plf-10",
+          "label": "10 % (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "taux-normal-20",
+          "label": "20 %, le taux normal",
+          "lo": 0.965,
+          "hi": 0.965,
+          "note": "Fin du taux réduit : son coût prévu en 2027 (dépense fiscale 730601, PAP 2027 Économie), à fréquentation inchangée."
+        }
+      ],
+      "exclusiveWith": [
+        "tva-taux-intermediaire",
+        "tva-tous-taux"
+      ],
+      "overlapsWith": [
+        "tva-taux-normal",
+        "tva-taux-reduit"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique (dépense fiscale) : prix et fréquentation inchangés. Le droit de l’UE n’admet que deux taux réduits, d’au moins 5 % (5,5 % et 10 % en France) : pas d’autre taux pour ce seul secteur.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Économie, programme 134 : dépense fiscale n° 730601 (p. 38)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "taux de 10 % sur l’hébergement touristique et les campings classés : 900 M€ en 2025, 910 M€ en 2026, 965 M€ en 2027 (fiabilité bonne)"
+        },
+        {
+          "title": "Directive (UE) 2022/542 du Conseil du 5 avril 2022 modifiant la directive 2006/112/CE en ce qui concerne les taux de TVA, article 98, paragraphe 1",
+          "publisher": "Conseil de l’Union européenne (Journal officiel de l’Union européenne, EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32022L0542",
+          "date": "2022-04-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Deux taux réduits au plus, chacun d’au moins 5 % : en France, 5,5 % et 10 % ; aucun autre taux possible pour un seul secteur"
+        }
+      ]
+    },
+    {
+      "id": "tva-renovation-energetique",
+      "family": "impots",
+      "label": "TVA rénovation énergétique (5,5 %)",
+      "today": "5,5 % au PLF 2027 (coût du taux réduit : 980 M€)",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage du taux de TVA de la rénovation énergétique",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 0.98,
+        "label": "980 M€ : coût prévu en 2027 du taux de 5,5 % sur les travaux de rénovation énergétique dans les logements qui ne sont pas neufs, par rapport au taux normal (dépense fiscale n° 730501, 101 124 entreprises, PAP 2027 Cohésion des territoires, p. 92).",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : dépense fiscale n° 730501 (p. 92)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "5,5 %",
+      "options": [
+        {
+          "id": "plf-5-5",
+          "label": "5,5 % (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027, et le plus bas possible : le droit de l’UE n’admet pas de taux sous 5 % pour ces travaux."
+        },
+        {
+          "id": "taux-intermediaire-10",
+          "label": "10 %, le taux intermédiaire",
+          "lo": 0.304,
+          "hi": 0.304,
+          "note": "La dépense fiscale (980 M€) mesure 14,5 points d’écart avec le taux normal, sur une base hors taxe d’environ 6,76 Md€. Passer à 10 % en reprend 4,5 : 304 M€, à volume de travaux inchangé."
+        },
+        {
+          "id": "taux-normal-20",
+          "label": "20 %, le taux normal",
+          "lo": 0.98,
+          "hi": 0.98,
+          "note": "Fin du taux réduit : son coût prévu en 2027 (dépense fiscale 730501, PAP 2027), à volume de travaux inchangé."
+        }
+      ],
+      "exclusiveWith": [
+        "tva-taux-reduit",
+        "tva-tous-taux"
+      ],
+      "overlapsWith": [
+        "tva-taux-intermediaire",
+        "tva-taux-normal"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique : volume de travaux inchangé ; les aides de l’Anah sont un autre levier. Pas de taux sous 5,5 % (droit de l’UE). Pour mettre d’autres travaux de logement à 5,5 % : levier « TVA des travaux de logement ».",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : dépense fiscale n° 730501 (p. 92)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "taux de 5,5 % sur les travaux de rénovation énergétique dans les logements qui ne sont pas neufs : 895 M€ en 2025, 915 M€ en 2026, 980 M€ en 2027 (101 124 entreprises, fiabilité bonne)"
+        },
+        {
+          "title": "PAP 2027, mission Écologie, développement et mobilité durables, programme 174 : dépense fiscale n° 730501, à titre subsidiaire (p. 338)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128225/file/PAP%202027%20-%20Ecologie%20developpement%20et%20mobilite%20durables.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "la même dépense fiscale, rattachée aussi au programme Énergie, climat et après-mines : 980 M€ en 2027"
+        },
+        {
+          "title": "Directive (UE) 2022/542 du Conseil du 5 avril 2022 modifiant la directive 2006/112/CE en ce qui concerne les taux de TVA, article 98, paragraphes 1 et 2",
+          "publisher": "Conseil de l’Union européenne (Journal officiel de l’Union européenne, EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32022L0542",
+          "date": "2022-04-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Deux taux réduits au plus, d’au moins 5 % chacun (en France, 5,5 % et 10 %). Un taux sous 5 % n’est admis que pour les points 1 à 6 et 10 quater de l’annexe III (dont les panneaux solaires) ou pour les taux déjà appliqués en 2021 (article 105 bis) : en France, pas pour la rénovation des logements (point 10)."
+        }
+      ]
+    },
+    {
+      "id": "tva-restauration",
+      "family": "impots",
+      "label": "TVA de la restauration (10 %)",
+      "today": "10 % sur la restauration et les cantines, 2,51 Md€ de coût en 2027",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage du taux de TVA de la restauration au 1er janvier 2027",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 2.51,
+        "label": "2 510 M€ : coût en 2027 du taux de 10 % de la restauration, cantines comprises (dépense fiscale 730602, PAP 2027 Économie, p. 38)",
+        "source": {
+          "title": "Projet annuel de performances 2027, mission Économie, programme 134, dépenses fiscales, p. 38",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "10 %",
+      "options": [
+        {
+          "id": "taux-5-5",
+          "label": "Taux de 5,5 %",
+          "lo": -1.3,
+          "hi": -0.78,
+          "note": "Le taux réduit de 5,5 % du barème ; plus bas, la directive TVA n’admet de taux réduit que pour une courte liste.",
+          "estimate": "Extrapolation statique sous 10 % : 4,5 points × 0,21 à 0,25 Md€ par point (dépense 730602, 2 510 M€ pour 10 points, du net au brut), élargie de ±25 % autour de 1,04 Md€."
+        },
+        {
+          "id": "plf",
+          "label": "10 % (PLF)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Taux de 10 % sur la restauration sur place, la vente à emporter à consommer tout de suite et les cantines."
+        },
+        {
+          "id": "taux-20",
+          "label": "Taux normal de 20 %",
+          "lo": 2.11,
+          "hi": 2.51,
+          "note": "Fin du taux réduit : la dépense fiscale entière (2 510 M€). Bas : net de la TVA que paient les administrations (cantines)."
+        }
+      ],
+      "exclusiveWith": [
+        "tva-taux-intermediaire",
+        "tva-tous-taux"
+      ],
+      "overlapsWith": [
+        "tva-taux-normal",
+        "tva-taux-reduit"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Le changement de prix joue ensuite sur l’indexation des pensions, des prestations et des seuils de l’impôt sur le revenu, surtout à partir de 2028 : l’effet net, gain ou perte, devient plus faible.",
+      "limits": "Statique : prix et fréquentation inchangés. Bas : net de la TVA payée par les administrations (DG Trésor, taux de 10 %) ; haut : coût publié. Pas de 15 % : ce serait un troisième taux réduit d’au moins 5 %, exclu par la directive TVA.",
+      "sources": [
+        {
+          "title": "Projet annuel de performances 2027, mission Économie, programme 134, dépenses fiscales, p. 38",
+          "publisher": "Gouvernement (annexe au projet de loi de finances pour 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 10 % de la restauration, cantines comprises (730602) : 2 335 M€ (2025), 2 360 M€ (2026), 2 510 M€ (2027), fiabilité bonne, soit 251 M€ par point entre 10 % et 20 %"
+        },
+        {
+          "title": "Trésor-Éco n° 371 : Analyse de la composition des recettes de TVA, tableau 1 (brut)",
+          "publisher": "Direction générale du Trésor",
+          "url": "https://www.tresor.economie.gouv.fr/Articles/c462ac7f-76db-4c33-9bb3-dcc6886ed898/files/f4d0d1ac-fc61-4cf3-ab3f-094385b218bd",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 10 % : 1,9 Md€ brut par point (2025)"
+        },
+        {
+          "title": "Trésor-Éco n° 371 : Analyse de la composition des recettes de TVA, tableau 2 (net de la TVA payée par les administrations publiques)",
+          "publisher": "Direction générale du Trésor",
+          "url": "https://www.tresor.economie.gouv.fr/Articles/c462ac7f-76db-4c33-9bb3-dcc6886ed898/files/f4d0d1ac-fc61-4cf3-ab3f-094385b218bd",
+          "date": "2025-09",
+          "accessedAt": "2026-10-18",
+          "figure": "Taux de 10 % : 1,6 Md€ net par point (2025) ; le rapport net/brut (0,84) donne le bas de la fourchette"
+        },
+        {
+          "title": "Directive (UE) 2022/542 du Conseil du 5 avril 2022 modifiant les directives 2006/112/CE et (UE) 2020/285 en ce qui concerne les taux de taxe sur la valeur ajoutée, article 1er (nouvel article 98, paragraphes 1 et 2)",
+          "publisher": "Conseil de l’Union européenne (EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32022L0542",
+          "date": "2022-04-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Contexte, pas un montant : deux taux réduits d’au moins 5 % au maximum (en France, 5,5 % et 10 %), d’où l’absence d’un taux de 15 % propre à la restauration ; sous 5 %, une courte liste seulement (borne basse de 5,5 %, taux réduit du barème)"
         }
       ]
     },
@@ -5651,10 +16962,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Évaluation des voies et moyens, tome I, PLF 2026 : TVA, passage à la TVA nette budgétaire (p. 33)",
           "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
-          "date": "2025-10",
-          "accessedAt": "2026-10-18",
-          "figure": "TVA nette totale (toutes administrations, comptabilité budgétaire) : 210,7 Md€ exécutés en 2024, 210,0 Md€ prévus en 2025, 215,4 Md€ prévus en 2026"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf"
         }
       },
       "max": 1,
@@ -5667,8 +16975,19 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "10 %",
+      "stretch": {
+        "max": 5,
+        "perUnit": {
+          "lo": 1.1,
+          "hi": 1.9
+        },
+        "why": "De 5 % à 15 % : la directive interdit à la restauration et aux travaux un taux sous 5 % ; 15 %, en miroir, est le plancher du taux normal. Au-delà d’un point, estimation : de 60 % du brut au brut ; le CPO chiffre 12,5 % à 3,4 Md€, dans la fourchette."
+      },
       "exclusiveWith": [
-        "tva-tous-taux"
+        "tva-hebergement",
+        "tva-restauration",
+        "tva-tous-taux",
+        "tva-travaux-logement"
       ],
       "operatorCaveat": false,
       "laterNote": "La hausse des prix relève ensuite les pensions, les prestations et les seuils de l’impôt sur le revenu, surtout à partir de 2028 : le gain net devient plus faible.",
@@ -5698,6 +17017,10 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Taux de 10 % : 1,9 Md€ par point (reprend l’étude de la DG Trésor)"
         }
+      ],
+      "overlapsWith": [
+        "gratuite-transports-urbains",
+        "tva-renovation-energetique"
       ]
     },
     {
@@ -5721,10 +17044,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Évaluation des voies et moyens, tome I, PLF 2026 : TVA, passage à la TVA nette budgétaire (p. 33)",
           "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
-          "date": "2025-10",
-          "accessedAt": "2026-10-18",
-          "figure": "TVA nette totale (toutes administrations, comptabilité budgétaire) : 210,7 Md€ exécutés en 2024, 210,0 Md€ prévus en 2025, 215,4 Md€ prévus en 2026"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf"
         }
       },
       "max": 1,
@@ -5737,7 +17057,16 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "20 %",
+      "stretch": {
+        "max": 5,
+        "perUnit": {
+          "lo": 5.3,
+          "hi": 8.9
+        },
+        "why": "De 15 % à 25 % : la directive interdit un taux normal sous 15 % ; 25 %, en miroir, est celui du Danemark. Au-delà d’un point, estimation : de 60 % du chiffre statique brut à ce chiffre, qui suppose des achats et des prix hors taxe inchangés."
+      },
       "exclusiveWith": [
+        "tva-electricite",
         "tva-tous-taux"
       ],
       "operatorCaveat": false,
@@ -5768,6 +17097,12 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Taux de 20 % : environ 8,9 Md€ par point (reprend l’étude de la DG Trésor)"
         }
+      ],
+      "overlapsWith": [
+        "tva-hebergement",
+        "tva-renovation-energetique",
+        "tva-restauration",
+        "tva-travaux-logement"
       ]
     },
     {
@@ -5791,10 +17126,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Évaluation des voies et moyens, tome I, PLF 2026 : TVA, passage à la TVA nette budgétaire (p. 33)",
           "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
-          "date": "2025-10",
-          "accessedAt": "2026-10-18",
-          "figure": "TVA nette totale (toutes administrations, comptabilité budgétaire) : 210,7 Md€ exécutés en 2024, 210,0 Md€ prévus en 2025, 215,4 Md€ prévus en 2026"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf"
         }
       },
       "max": 1,
@@ -5807,7 +17139,20 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "5,5 %",
+      "stretch": {
+        "max": 5.5,
+        "perUnit": {
+          "lo": 1.4,
+          "hi": 2.4
+        },
+        "perUnitDown": {
+          "lo": 1.3,
+          "hi": 2.2
+        },
+        "why": "De 0 % à 11 %, en miroir. Sous 5 %, seuls l’alimentation, l’eau, les livres… suivent, avec un seul taux non nul, déjà 2,1 % : hors 2,1 % et 0 %, les deux fusionneraient. Au-delà d’un point, estimation : de 60 % du brut au brut ; à la baisse, d’après le CPO."
+      },
       "exclusiveWith": [
+        "tva-renovation-energetique",
         "tva-tous-taux"
       ],
       "operatorCaveat": false,
@@ -5838,6 +17183,11 @@ export const budget: BudgetData = {
           "accessedAt": "2026-10-18",
           "figure": "Taux de 5,5 % : 2,4 Md€ par point (reprend l’étude de la DG Trésor)"
         }
+      ],
+      "overlapsWith": [
+        "tva-hebergement",
+        "tva-restauration",
+        "tva-travaux-logement"
       ]
     },
     {
@@ -5861,10 +17211,7 @@ export const budget: BudgetData = {
         "source": {
           "title": "Évaluation des voies et moyens, tome I, PLF 2026 : TVA, passage à la TVA nette budgétaire (p. 33)",
           "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
-          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
-          "date": "2025-10",
-          "accessedAt": "2026-10-18",
-          "figure": "TVA nette totale (toutes administrations, comptabilité budgétaire) : 210,7 Md€ exécutés en 2024, 210,0 Md€ prévus en 2025, 215,4 Md€ prévus en 2026"
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf"
         }
       },
       "max": 1,
@@ -5877,10 +17224,27 @@ export const budget: BudgetData = {
         1
       ],
       "baseLabel": "PLF",
+      "stretch": {
+        "max": 2.1,
+        "perUnit": {
+          "lo": 8.2,
+          "hi": 13.7
+        },
+        "perUnitDown": {
+          "lo": 8,
+          "hi": 13.4
+        },
+        "why": "2,1 points au plus, car à −2,1 le taux de 2,1 % atteint 0 %. Sous 5 %, seuls l’alimentation, l’eau, les livres… suivent, avec un seul taux non nul : entre −0,5 et −2,1, deux taux fusionneraient. Au-delà d’un point, estimation : de 60 % du brut au brut."
+      },
       "exclusiveWith": [
+        "tva-electricite",
+        "tva-hebergement",
+        "tva-renovation-energetique",
+        "tva-restauration",
         "tva-taux-intermediaire",
         "tva-taux-normal",
-        "tva-taux-reduit"
+        "tva-taux-reduit",
+        "tva-travaux-logement"
       ],
       "operatorCaveat": false,
       "laterNote": "Une fois les retraites et les prestations indexées sur la hausse des prix, le gain tombe à 8,2 Md€, puis à 7,6 Md€ avec les seuils de l’impôt sur le revenu (IPP) ; ces effets jouent surtout à partir de 2028.",
@@ -5927,6 +17291,2110 @@ export const budget: BudgetData = {
           "figure": "Un point sur tous les taux : 13 Md€ pour l’ensemble des administrations publiques (brut), dans la fourchette"
         }
       ]
+    },
+    {
+      "id": "tva-travaux-logement",
+      "family": "impots",
+      "label": "TVA des travaux de logement (10 %)",
+      "today": "10 % au PLF 2027 (coût du taux réduit : 2 470 M€)",
+      "kind": "options",
+      "direction": "recette",
+      "unit": {
+        "label": "réglage du taux de TVA des travaux dans les logements",
+        "short": "réglage"
+      },
+      "perUnit": {
+        "lo": 0,
+        "hi": 0
+      },
+      "base": {
+        "value": 2.47,
+        "label": "2 470 M€ : coût prévu en 2027 du taux de 10 % sur les travaux dans les logements qui ne sont pas neufs, hors rénovation énergétique, par rapport au taux normal (dépense fiscale n° 730502, 305 284 entreprises, PAP 2027 Cohésion des territoires, p. 92).",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : dépense fiscale n° 730502 (p. 92)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 1,
+      "step": 1,
+      "notches": [
+        -1,
+        0,
+        1
+      ],
+      "baseLabel": "10 %",
+      "options": [
+        {
+          "id": "taux-reduit-5-5",
+          "label": "5,5 %, le taux réduit",
+          "lo": -1.389,
+          "hi": -0.834,
+          "note": "Le taux le plus bas possible ici : le droit de l’UE n’admet que deux taux réduits d’au moins 5 %.",
+          "estimate": "Statique, à partir de la dépense fiscale 730502 (PAP 2027 Cohésion des territoires, p. 92) : 2 470 M€ en 2027 pour l’écart de 10 points entre 20 % et 10 %, soit une base hors taxe d’environ 24,7 Md€. À 5,5 %, 4,5 points de moins : 24,7 × 4,5 % = 1 112 M€ de recettes en moins. Fourchette de ±25 % (834 à 1 389 M€) : volume de travaux, travaux non déclarés qui reviennent et part de la baisse gardée par les entreprises non mesurés."
+        },
+        {
+          "id": "plf-10",
+          "label": "10 % (PLF 2027)",
+          "lo": 0,
+          "hi": 0,
+          "base": true,
+          "note": "Le réglage du PLF 2027."
+        },
+        {
+          "id": "taux-normal-20",
+          "label": "20 %, le taux normal",
+          "lo": 2.47,
+          "hi": 2.47,
+          "note": "Fin du taux réduit : son coût prévu en 2027 (dépense fiscale 730502, PAP 2027 Cohésion des territoires), à volume de travaux inchangé."
+        }
+      ],
+      "exclusiveWith": [
+        "tva-taux-intermediaire",
+        "tva-tous-taux"
+      ],
+      "overlapsWith": [
+        "tva-taux-normal",
+        "tva-taux-reduit"
+      ],
+      "operatorCaveat": false,
+      "limits": "Statique (dépense fiscale) : volume de travaux inchangé, report vers le travail non déclaré non compté. Le droit de l’UE n’admet que deux taux réduits, d’au moins 5 % : 5,5 %, 10 % ou 20 % seulement.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 135 : dépense fiscale n° 730502 (p. 92)",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "taux de 10 % sur les travaux dans les logements qui ne sont pas neufs, hors rénovation énergétique : 2 250 M€ en 2025, 2 300 M€ en 2026, 2 470 M€ en 2027 (305 284 entreprises, fiabilité bonne)"
+        },
+        {
+          "title": "Directive (UE) 2022/542 du Conseil du 5 avril 2022 modifiant la directive 2006/112/CE en ce qui concerne les taux de TVA, article 98, paragraphe 1",
+          "publisher": "Conseil de l’Union européenne (Journal officiel de l’Union européenne, EUR-Lex)",
+          "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32022L0542",
+          "date": "2022-04-05",
+          "accessedAt": "2026-10-18",
+          "figure": "Deux taux réduits au plus, chacun d’au moins 5 % : en France, 5,5 % et 10 % ; aucun autre taux possible pour un seul secteur"
+        }
+      ]
+    },
+    {
+      "id": "valeurs-locatives-industrielles",
+      "family": "impots",
+      "label": "Locaux industriels : base réduite",
+      "today": "Valeur locative réduite de moitié depuis 2021, inchangée au PLF 2027",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 point de réduction de la valeur locative (50 % → 51 %)",
+        "short": "pt"
+      },
+      "perUnit": {
+        "lo": 0.065,
+        "hi": 0.11
+      },
+      "base": {
+        "value": 4.064,
+        "label": "4,06 Md€ : compensation versée en 2027 aux communes et intercommunalités pour la réduction de moitié (PLF 2027, article 41, état A ligne 3145), après sa minoration de 19,3 % en 2026",
+        "source": {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 41 « Évaluation des prélèvements opérés sur les recettes de l’État au profit des collectivités territoriales », p. 126 (état A, ligne 3145)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "50 %",
+      "estimate": {
+        "method": "1. La compensation versée aux communes et intercommunalités vaut 4,5 Md€ en 2025 (foncier bâti 2,4 ; CFE 2,1) : l’impôt perdu par la réduction de moitié, aux taux de 2020. 2. Avec la hausse des bases, environ 4,7 Md€ en 2027, soit 0,094 Md€ par point de réduction, un peu plus aux taux actuels. 3. Moins l’impôt sur les sociétés en plus (0,4 Md€ pour 3,3 Md€ en 2021, 12 %). Bas pris sur la compensation 2027 (4,06 Md€). Fourchette élargie à ±25 %."
+      },
+      "stretch": {
+        "max": 50,
+        "perUnit": {
+          "lo": 0.05,
+          "hi": 0.11
+        },
+        "why": "Jusqu’aux deux bornes : 0 % (valeur entière, comme avant 2021) et 100 % (plus d’impôt foncier sur ces locaux). Au-delà de ±25 points, même calcul, bas abaissé : le plafonnement de la CFE à la valeur ajoutée joue davantage."
+      },
+      "exclusiveWith": [],
+      "operatorCaveat": false,
+      "laterNote": "La compensation aux communes et intercommunalités est un transfert entre administrations : la garder ou la supprimer ne change pas le total.",
+      "limits": "Bas : compensation de 2027 après sa baisse de 19,3 %, nette du surcroît d’impôt sur les sociétés ; haut : impôt perdu aux taux locaux actuels. Plafonnement de la CFE à la valeur ajoutée non compté.",
+      "sources": [
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 41 « Évaluation des prélèvements opérés sur les recettes de l’État au profit des collectivités territoriales », p. 126 (état A, ligne 3145)",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "Compensation de la réduction de 50 % des valeurs locatives industrielles : 4 064 136 619 € en 2027"
+        },
+        {
+          "title": "Projet de loi de finances pour 2027 (n° 3210), article 41, exposé des motifs, p. 127",
+          "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l’Assemblée nationale",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+          "date": "2026-10-01",
+          "accessedAt": "2026-10-18",
+          "figure": "+80 M€ en 2027 : la compensation suit les bases"
+        },
+        {
+          "title": "Rapport sur la situation des finances publiques locales, annexe au projet de loi de finances pour 2027, p. 67-68",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128183/file/Rapport%20sur%20la%20situation%20des%20finances%20publiques%20locales.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Compensation de 4,5 Md€ en 2025, avant la minoration de 2026 : foncier bâti 2,4 Md€, CFE 2,1 Md€ ; minoration de 19,3 % depuis la loi de finances pour 2026"
+        },
+        {
+          "title": "Rapport sur la situation des finances publiques locales, annexe au projet de loi de finances pour 2027, encadré « La baisse de moitié de la CFE et de la TFPB des établissements industriels », p. 68",
+          "publisher": "Gouvernement (annexe au PLF 2027)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128183/file/Rapport%20sur%20la%20situation%20des%20finances%20publiques%20locales.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Impôts fonciers réduits de moitié pour 32 000 entreprises et 86 000 établissements ; compensation calculée aux taux de 2020"
+        },
+        {
+          "title": "Rapport général n° 138 (2020-2021), tome II, fascicule 1, sur le projet de loi de finances pour 2021, article 4",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l20-138-21/l20-138-21_mono.html",
+          "date": "2020-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Gain brut de 3,3 Md€ en 2021 pour les entreprises ; impôt sur les sociétés en hausse d’environ 0,4 Md€ (12 %, calcul), d’après l’évaluation préalable"
+        },
+        {
+          "title": "Rapport général n° 138 (2020-2021), tome II, fascicule 1, sur le projet de loi de finances pour 2021, article 4 (compensation)",
+          "publisher": "Sénat, commission des finances",
+          "url": "https://www.senat.fr/rap/l20-138-21/l20-138-21_mono.html",
+          "date": "2020-11",
+          "accessedAt": "2026-10-18",
+          "figure": "Compensation : perte de bases multipliée par le taux local de 2020"
+        }
+      ]
+    },
+    {
+      "id": "zones-aidees-entreprises",
+      "family": "impots",
+      "label": "Zones aidées : exonérations",
+      "today": "652 M€ en 2027 : impôt sur les bénéfices 570 M€, cotisations 82 M€",
+      "kind": "linear",
+      "direction": "depense",
+      "unit": {
+        "label": "1 % du coût des exonérations",
+        "short": "%"
+      },
+      "perUnit": {
+        "lo": 0.003178,
+        "hi": 0.00652
+      },
+      "base": {
+        "value": 0.652,
+        "label": "652 M€ en 2027 : six exonérations d’impôt sur les bénéfices liées à une zone (570 M€, PAP Cohésion des territoires, dont ZRR 379 M€) et les exonérations de cotisations des mêmes zones (82 M€, CCSS)",
+        "source": {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépense fiscale 220104 (p. 151)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf"
+        }
+      },
+      "max": 25,
+      "step": 1,
+      "notches": [
+        -25,
+        -10,
+        0,
+        10,
+        25
+      ],
+      "baseLabel": "PLF",
+      "estimate": {
+        "method": "1. Coûts 2027 : impôt sur les bénéfices 570 M€ (PAP Cohésion des territoires : ZRR 379, FRR 50, zones d’aide régionale 37, BER 5, ZFU 86, quartiers prioritaires 13) ; cotisations 82 M€ (CCSS : ZRR et FRR 78, ZFU 1, BER 3). Haut : 1 % de 652 M€. 2. Bas : 50 % de l’impôt (droits acquis, gain en partie au solde de 2028) et 40 % des cotisations (la réduction générale pourrait en reprendre une part). 3. Soit 3,18 à 6,52 M€ par point."
+      },
+      "stretch": {
+        "max": 100,
+        "perUnit": {
+          "lo": 0.002526,
+          "hi": 0.00652
+        },
+        "why": "Jusqu’à −100 % : la suppression de ces exonérations ; +100 % : leur doublement. Au-delà de ±25 %, extrapolation, bas à 40 % de l’impôt et 30 % des cotisations : report à 2028 et réduction générale dans les deux sens ; en baisse, contentieux et départs."
+      },
+      "amount": {
+        "value": 0.652,
+        "label": "652 M€ en 2027 : impôt sur les bénéfices en ZRR, FRR, zones d’aide régionale, BER, ZFU et quartiers prioritaires (570 M€), cotisations en ZRR et FRR (entreprises et organismes d’intérêt général), ZFU et BER (82 M€)"
+      },
+      "exclusiveWith": [],
+      "overlapsWith": [
+        "allegements-generaux",
+        "impot-societes"
+      ],
+      "operatorCaveat": false,
+      "laterNote": "Fermer ces régimes aux nouvelles entreprises (zones d’aide régionale et BER ouverts jusqu’en 2027, FRR jusqu’en 2029, quartiers prioritaires jusqu’en 2030) jouerait à partir de 2028 : les premiers bénéfices d’une entreprise nouvelle sont imposés l’année suivante.",
+      "limits": "Régimes surtout fermés aux nouvelles entrées (ZRR en 2024, ZFU en 2025) : les réduire touche des entreprises déjà installées, qui peuvent invoquer leurs droits. Hors outre-mer, Corse et impôts locaux compensés par l’État.",
+      "sources": [
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépense fiscale 220104 (p. 151)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "ZRR : 379 M€ en 2027 (433 M€ en 2026), régime fermé aux nouvelles entreprises depuis 2024, incidence jusqu’en 2032"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépense fiscale 220109 (p. 151)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "France ruralités revitalisation : 50 M€ en 2027, ouvert jusqu’en 2029"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépense fiscale 230602 (p. 151)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Entreprises nouvelles en zones d’aide à finalité régionale (et anciennes ZRR-ZRU) : 37 M€ en 2027, ouvert aux créations jusqu’en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépense fiscale 230606 (p. 152)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Bassins d’emploi à redynamiser : 5 M€ en 2027, ouvert jusqu’en 2027"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 147, dépense fiscale 220102 (p. 192)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Zones franches urbaines (ZFU-TE) : 86 M€ en 2027, entrées closes fin 2025"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, programme 147, dépense fiscale 220110 (p. 192)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Commerces, artisanat et santé en quartiers prioritaires : 13 M€ en 2027 (régime créé en 2026, ouvert jusqu’en 2030)"
+        },
+        {
+          "title": "PAP 2027, mission Cohésion des territoires, évaluation des dépenses fiscales, avertissement (p. 151)",
+          "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Chiffrages statiques : coût, sans les changements de comportement ni les interactions"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 « Principales mesures d’exonérations ciblées entre 2024 et 2027 » (p. 69)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Cotisations des employeurs en ZRR et FRR : 78 M€ en 2027 (p)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d’exonération en faveur de l’emploi » (p. 68)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "La ligne ZRR et FRR couvre les entreprises et les organismes d’intérêt général de ces zones"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 « Principales mesures d’exonérations ciblées entre 2024 et 2027 » (p. 69)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Cotisations des employeurs en ZFU ou ZRU : 1 M€ en 2027 (p)"
+        },
+        {
+          "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6, tableau 4 « Principales mesures d’exonérations ciblées entre 2024 et 2027 » (p. 69)",
+          "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+          "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+          "date": "2026-10",
+          "accessedAt": "2026-10-18",
+          "figure": "Cotisations en bassins d’emploi à redynamiser : 3 M€ en 2027 (p)"
+        }
+      ]
     }
-  ]
+  ],
+  "links": [
+    {
+      "approach": "agriculture-3-a",
+      "question": "agriculture-3",
+      "lever": "credits-aides-agriculture",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "agriculture-x4-c",
+      "question": "agriculture-x4",
+      "lever": "cotisations-exploitants-agricoles",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "agriculture-x4-c",
+      "question": "agriculture-x4",
+      "lever": "exonerations-saisonniers-agricoles",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "agriculture-x4-e",
+      "question": "agriculture-x4",
+      "lever": "allocation-alimentaire",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "defense-2-a",
+      "question": "defense-2",
+      "lever": "defense",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "defense-2-c",
+      "question": "defense-2",
+      "lever": "defense",
+      "dir": -1,
+      "setting": -2,
+      "fit": "exact"
+    },
+    {
+      "approach": "defense-2-d",
+      "question": "defense-2",
+      "lever": "defense",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "defense-3-e",
+      "question": "defense-3",
+      "lever": "credits-dissuasion",
+      "dir": -1,
+      "setting": -100,
+      "fit": "partial"
+    },
+    {
+      "approach": "defense-4-c",
+      "question": "defense-4",
+      "lever": "defense",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "defense-4-d",
+      "question": "defense-4",
+      "lever": "defense",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "defense-5-a",
+      "question": "defense-5",
+      "lever": "service-national-appeles",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "defense-5-b",
+      "question": "defense-5",
+      "lever": "credits-service-civique",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "defense-5-b",
+      "question": "defense-5",
+      "lever": "service-national-appeles",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "defense-5-c",
+      "question": "defense-5",
+      "lever": "credits-service-civique",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "defense-5-d",
+      "question": "defense-5",
+      "lever": "service-national-appeles",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "defense-5-e",
+      "question": "defense-5",
+      "lever": "service-national-appeles",
+      "dir": -1,
+      "setting": -4,
+      "fit": "partial"
+    },
+    {
+      "approach": "ecologie_energie-1-a",
+      "question": "ecologie_energie-1",
+      "lever": "accise-carburants",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ecologie_energie-1-c",
+      "question": "ecologie_energie-1",
+      "lever": "aide-carburant-ciblee",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ecologie_energie-1-e",
+      "question": "ecologie_energie-1",
+      "lever": "credits-ferroviaires",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "ecologie_energie-2-e",
+      "question": "ecologie_energie-2",
+      "lever": "referendums-nationaux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ecologie_energie-3-d",
+      "question": "ecologie_energie-3",
+      "lever": "accise-electricite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ecologie_energie-3-d",
+      "question": "ecologie_energie-3",
+      "lever": "tva-electricite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ecologie_energie-5-a",
+      "question": "ecologie_energie-5",
+      "lever": "agences-eau-interventions",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "ecologie_energie-5-d",
+      "question": "ecologie_energie-5",
+      "lever": "agences-eau-interventions",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "ecologie_energie-6-d",
+      "question": "ecologie_energie-6",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "ecologie_energie-7-a",
+      "question": "ecologie_energie-7",
+      "lever": "gratuite-transports-urbains",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ecologie_energie-7-d",
+      "question": "ecologie_energie-7",
+      "lever": "credits-ferroviaires",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "education-1-b",
+      "question": "education-1",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "education-1-g",
+      "question": "education-1",
+      "lever": "credits-remunerations-enseignement-scolaire",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "education-4-c",
+      "question": "education-4",
+      "lever": "credits-universites-recherche",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "education-4-d",
+      "question": "education-4",
+      "lever": "droits-inscription-etudiants-etrangers",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "education-5-a",
+      "question": "education-5",
+      "lever": "allocation-autonomie-etudiants",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "education-5-b",
+      "question": "education-5",
+      "lever": "aides-logement-etudiants",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "education-5-b",
+      "question": "education-5",
+      "lever": "credits-aides-indirectes-etudiants",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "education-5-c",
+      "question": "education-5",
+      "lever": "credits-aides-directes-etudiants",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "education-x1-b",
+      "question": "education-x1",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "egalite-1-a",
+      "question": "egalite-1",
+      "lever": "credits-egalite-femmes-hommes",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "egalite-1-e",
+      "question": "egalite-1",
+      "lever": "credits-egalite-femmes-hommes",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "egalite-2-a",
+      "question": "egalite-2",
+      "lever": "conge-second-parent",
+      "dir": 1,
+      "setting": "aligne-maternite",
+      "fit": "exact"
+    },
+    {
+      "approach": "egalite-2-b",
+      "question": "egalite-2",
+      "lever": "depense-prepare",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "egalite-2-c",
+      "question": "egalite-2",
+      "lever": "depense-conge-naissance",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "egalite-2-f",
+      "question": "egalite-2",
+      "lever": "gratuite-creches",
+      "dir": 1,
+      "setting": 100,
+      "fit": "partial"
+    },
+    {
+      "approach": "egalite-2-f",
+      "question": "egalite-2",
+      "lever": "places-creche",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "egalite-4-c",
+      "question": "egalite-4",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-1-a",
+      "question": "finances_publiques-1",
+      "lever": "effectifs-publics",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-b",
+      "question": "finances_publiques-1",
+      "lever": "credits-aide-publique-developpement",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-b",
+      "question": "finances_publiques-1",
+      "lever": "credits-aide-ukraine",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-b",
+      "question": "finances_publiques-1",
+      "lever": "credits-ame",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-b",
+      "question": "finances_publiques-1",
+      "lever": "credits-asile",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-b",
+      "question": "finances_publiques-1",
+      "lever": "credits-integration",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-c",
+      "question": "finances_publiques-1",
+      "lever": "cehr-taux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-c",
+      "question": "finances_publiques-1",
+      "lever": "contribution-exceptionnelle-grandes-entreprises",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-d",
+      "question": "finances_publiques-1",
+      "lever": "credits-france-2030",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-e",
+      "question": "finances_publiques-1",
+      "lever": "impot-societes",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-1-f",
+      "question": "finances_publiques-1",
+      "lever": "contribution-differentielle-patrimoine",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-f",
+      "question": "finances_publiques-1",
+      "lever": "csg-capital",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-f",
+      "question": "finances_publiques-1",
+      "lever": "impot-plancher-tres-hauts-patrimoines",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-f",
+      "question": "finances_publiques-1",
+      "lever": "isf-retablissement",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-1-g",
+      "question": "finances_publiques-1",
+      "lever": "operateurs-fonctions-support",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-3-a",
+      "question": "finances_publiques-3",
+      "lever": "effectifs-publics",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-3-b",
+      "question": "finances_publiques-3",
+      "lever": "effectifs-publics",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-3-c",
+      "question": "finances_publiques-3",
+      "lever": "effectifs-publics",
+      "dir": -1,
+      "setting": 0.7,
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-3-d",
+      "question": "finances_publiques-3",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-3-d",
+      "question": "finances_publiques-3",
+      "lever": "point-indice",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "finances_publiques-3-f",
+      "question": "finances_publiques-3",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "finances_publiques-3-f",
+      "question": "finances_publiques-3",
+      "lever": "point-indice",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-1-a",
+      "question": "fiscalite-1",
+      "lever": "isf-retablissement",
+      "dir": 1,
+      "setting": "isf-2017",
+      "fit": "exact"
+    },
+    {
+      "approach": "fiscalite-1-b",
+      "question": "fiscalite-1",
+      "lever": "impot-plancher-tres-hauts-patrimoines",
+      "dir": 1,
+      "setting": "2-pct",
+      "fit": "exact"
+    },
+    {
+      "approach": "fiscalite-1-c",
+      "question": "fiscalite-1",
+      "lever": "ifi-assiette",
+      "dir": 1,
+      "setting": "placements-financiers",
+      "fit": "exact"
+    },
+    {
+      "approach": "fiscalite-1-d",
+      "question": "fiscalite-1",
+      "lever": "csg-capital",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-1-d",
+      "question": "fiscalite-1",
+      "lever": "pfu-taux-ir",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-1-e",
+      "question": "fiscalite-1",
+      "lever": "ifi-bareme",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-2-a",
+      "question": "fiscalite-2",
+      "lever": "dmtg-tranche-45",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-2-c",
+      "question": "fiscalite-2",
+      "lever": "dmtg-abattement-ligne-directe",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-2-c",
+      "question": "fiscalite-2",
+      "lever": "dmtg-tranche-20",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-2-d",
+      "question": "fiscalite-2",
+      "lever": "dmtg-abattement-ligne-directe",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-2-e",
+      "question": "fiscalite-2",
+      "lever": "dmtg-ensemble",
+      "dir": -1,
+      "setting": -100,
+      "fit": "exact"
+    },
+    {
+      "approach": "fiscalite-2-g",
+      "question": "fiscalite-2",
+      "lever": "assurance-vie-transmission",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-2-g",
+      "question": "fiscalite-2",
+      "lever": "dutreil-exoneration",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "fiscalite-x1-a",
+      "question": "fiscalite-x1",
+      "lever": "cotisations-retraite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-a",
+      "question": "fiscalite-x1",
+      "lever": "ir-taux-bareme",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-c",
+      "question": "fiscalite-x1",
+      "lever": "cotisations-retraite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-c",
+      "question": "fiscalite-x1",
+      "lever": "csg-capital",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-c",
+      "question": "fiscalite-x1",
+      "lever": "pfu-taux-ir",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-d",
+      "question": "fiscalite-x1",
+      "lever": "contribution-exceptionnelle-grandes-entreprises",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-d",
+      "question": "fiscalite-x1",
+      "lever": "ifi-bareme",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "fiscalite-x1-d",
+      "question": "fiscalite-x1",
+      "lever": "ir-taux-45",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-3-a",
+      "question": "immigration-3",
+      "lever": "credits-lutte-immigration-irreguliere",
+      "dir": -1,
+      "setting": -100,
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-3-c",
+      "question": "immigration-3",
+      "lever": "credits-lutte-immigration-irreguliere",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "immigration-3-d",
+      "question": "immigration-3",
+      "lever": "credits-lutte-immigration-irreguliere",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-3-e",
+      "question": "immigration-3",
+      "lever": "credits-lutte-immigration-irreguliere",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-5-c",
+      "question": "immigration-5",
+      "lever": "condition-residence-prestations",
+      "dir": -1,
+      "setting": "deux-ans",
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-5-d",
+      "question": "immigration-5",
+      "lever": "condition-residence-prestations",
+      "dir": 1,
+      "setting": "aucune-duree",
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-6-c",
+      "question": "immigration-6",
+      "lever": "credits-integration",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "immigration-x1-a",
+      "question": "immigration-x1",
+      "lever": "credits-ame",
+      "dir": -1,
+      "setting": -100,
+      "fit": "exact"
+    },
+    {
+      "approach": "immigration-x1-b",
+      "question": "immigration-x1",
+      "lever": "credits-ame",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "immigration-x1-c",
+      "question": "immigration-x1",
+      "lever": "credits-ame",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "immigration-x1-e",
+      "question": "immigration-x1",
+      "lever": "credits-ame",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-a",
+      "question": "industrie_economie-1",
+      "lever": "allegements-generaux",
+      "dir": -1,
+      "setting": 2,
+      "fit": "exact"
+    },
+    {
+      "approach": "industrie_economie-1-a",
+      "question": "industrie_economie-1",
+      "lever": "c3s-taux",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-a",
+      "question": "industrie_economie-1",
+      "lever": "cvae-taux",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-a",
+      "question": "industrie_economie-1",
+      "lever": "valeurs-locatives-industrielles",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-b",
+      "question": "industrie_economie-1",
+      "lever": "c3s-taux",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-b",
+      "question": "industrie_economie-1",
+      "lever": "cotisations-sociales",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-b",
+      "question": "industrie_economie-1",
+      "lever": "cvae-taux",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-b",
+      "question": "industrie_economie-1",
+      "lever": "valeurs-locatives-industrielles",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "industrie_economie-1-d",
+      "question": "industrie_economie-1",
+      "lever": "exonerations-jeunes-entreprises",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "industrie_economie-1-d",
+      "question": "industrie_economie-1",
+      "lever": "is-taux-reduit-pme",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "industrie_economie-1-e",
+      "question": "industrie_economie-1",
+      "lever": "credit-impot-recherche-innovation",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "industrie_economie-1-f",
+      "question": "industrie_economie-1",
+      "lever": "allegements-generaux",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "institutions-1-f",
+      "question": "institutions-1",
+      "lever": "referendums-nationaux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "institutions-3-e",
+      "question": "institutions-3",
+      "lever": "referendums-nationaux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "laicite_republique-1-g",
+      "question": "laicite_republique-1",
+      "lever": "cultes-alsace-moselle-emplois",
+      "dir": -1,
+      "setting": -100,
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-1-b",
+      "question": "logement-1",
+      "lever": "incitations-bailleurs-prives",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-1-e",
+      "question": "logement-1",
+      "lever": "credits-aides-a-la-pierre",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-1-e",
+      "question": "logement-1",
+      "lever": "credits-anah-renovation",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "logement-1-e",
+      "question": "logement-1",
+      "lever": "depense-fiscale-eco-ptz",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-1-g",
+      "question": "logement-1",
+      "lever": "depense-fiscale-ptz",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-3-c",
+      "question": "logement-3",
+      "lever": "credits-aides-a-la-pierre",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-3-c",
+      "question": "logement-3",
+      "lever": "credits-anah-renovation",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "logement-3-c",
+      "question": "logement-3",
+      "lever": "depense-fiscale-eco-ptz",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-3-e",
+      "question": "logement-3",
+      "lever": "credits-aides-a-la-pierre",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "logement-3-e",
+      "question": "logement-3",
+      "lever": "credits-anah-renovation",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "numerique-1-b",
+      "question": "numerique-1",
+      "lever": "credits-france-2030",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "numerique-1-c",
+      "question": "numerique-1",
+      "lever": "credit-impot-recherche-innovation",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "numerique-3-g",
+      "question": "numerique-3",
+      "lever": "tsn-taux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "proche_orient-1-e",
+      "question": "proche_orient-1",
+      "lever": "opex-surcouts",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "retraites-1-a",
+      "question": "retraites-1",
+      "lever": "age-legal-retraite",
+      "dir": 1,
+      "setting": "60-ans",
+      "fit": "exact"
+    },
+    {
+      "approach": "retraites-1-b",
+      "question": "retraites-1",
+      "lever": "age-legal-retraite",
+      "dir": 1,
+      "setting": "62-ans",
+      "fit": "exact"
+    },
+    {
+      "approach": "retraites-1-f",
+      "question": "retraites-1",
+      "lever": "age-legal-retraite",
+      "dir": -1,
+      "setting": "reprise-64",
+      "fit": "exact"
+    },
+    {
+      "approach": "retraites-2-c",
+      "question": "retraites-2",
+      "lever": "capital-naissance",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "retraites-2-e",
+      "question": "retraites-2",
+      "lever": "epargne-retraite-per",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "retraites-3-a",
+      "question": "retraites-3",
+      "lever": "pensions-revalorisation",
+      "dir": 1,
+      "setting": "inflation-toutes",
+      "fit": "exact"
+    },
+    {
+      "approach": "retraites-3-b",
+      "question": "retraites-3",
+      "lever": "csg-pensions-taux-plein",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "retraites-3-c",
+      "question": "retraites-3",
+      "lever": "minima-sociaux-revalorisation",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "retraites-3-d",
+      "question": "retraites-3",
+      "lever": "minimum-pension-carriere-complete",
+      "dir": 1,
+      "setting": 15,
+      "fit": "exact"
+    },
+    {
+      "approach": "retraites-3-d",
+      "question": "retraites-3",
+      "lever": "pensions-revalorisation",
+      "dir": 1,
+      "setting": "inflation-toutes",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-1-b",
+      "question": "sante-1",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-1-c",
+      "question": "sante-1",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-1-i",
+      "question": "sante-1",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-2-a",
+      "question": "sante-2",
+      "lever": "prise-en-charge-assurance-maladie",
+      "dir": 1,
+      "setting": "secu-100",
+      "fit": "exact"
+    },
+    {
+      "approach": "sante-2-c",
+      "question": "sante-2",
+      "lever": "prise-en-charge-assurance-maladie",
+      "dir": 1,
+      "setting": "maintien-2026",
+      "fit": "exact"
+    },
+    {
+      "approach": "sante-2-e",
+      "question": "sante-2",
+      "lever": "franchises-medicales",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "sante-2-e",
+      "question": "sante-2",
+      "lever": "indemnites-journalieres",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-2-f",
+      "question": "sante-2",
+      "lever": "ondam",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "sante-3-b",
+      "question": "sante-3",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-3-c",
+      "question": "sante-3",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-3-d",
+      "question": "sante-3",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-3-e",
+      "question": "sante-3",
+      "lever": "referendums-nationaux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "sante-4-c",
+      "question": "sante-4",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-4-d",
+      "question": "sante-4",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-5-b",
+      "question": "sante-5",
+      "lever": "allocation-proche-aidant",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "sante-5-b",
+      "question": "sante-5",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-5-c",
+      "question": "sante-5",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "sante-5-f",
+      "question": "sante-5",
+      "lever": "journee-solidarite-csa",
+      "dir": 1,
+      "setting": 1,
+      "fit": "exact"
+    },
+    {
+      "approach": "securite_justice-1-b",
+      "question": "securite_justice-1",
+      "lever": "credits-administration-penitentiaire",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-1-e",
+      "question": "securite_justice-1",
+      "lever": "credits-lutte-immigration-irreguliere",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-1-g",
+      "question": "securite_justice-1",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-2-a",
+      "question": "securite_justice-2",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-2-h",
+      "question": "securite_justice-2",
+      "lever": "polices-municipales",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-3-b",
+      "question": "securite_justice-3",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-3-c",
+      "question": "securite_justice-3",
+      "lever": "cannabis-legal-taxe",
+      "dir": 1,
+      "setting": "legalisation-2027",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-3-f",
+      "question": "securite_justice-3",
+      "lever": "credits-politique-de-la-ville",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-4-a",
+      "question": "securite_justice-4",
+      "lever": "referendums-nationaux",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-4-d",
+      "question": "securite_justice-4",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-4-e",
+      "question": "securite_justice-4",
+      "lever": "depense-aide-sociale-enfance",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-5-d",
+      "question": "securite_justice-5",
+      "lever": "credits-pjj",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-5-e",
+      "question": "securite_justice-5",
+      "lever": "credits-pjj",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-6-e",
+      "question": "securite_justice-6",
+      "lever": "credits-justice-judiciaire",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "securite_justice-x1-a",
+      "question": "securite_justice-x1",
+      "lever": "polices-municipales",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "securite_justice-x1-e",
+      "question": "securite_justice-x1",
+      "lever": "polices-municipales",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "societe-1-a",
+      "question": "societe-1",
+      "lever": "credits-audiovisuel-public",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "societe-1-b",
+      "question": "societe-1",
+      "lever": "credits-audiovisuel-public",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "societe-1-d",
+      "question": "societe-1",
+      "lever": "credits-audiovisuel-public",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "societe-1-e",
+      "question": "societe-1",
+      "lever": "credits-audiovisuel-public",
+      "dir": 1,
+      "setting": 1,
+      "fit": "partial"
+    },
+    {
+      "approach": "societe-2-a",
+      "question": "societe-2",
+      "lever": "credits-culture",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "societe-2-a",
+      "question": "societe-2",
+      "lever": "credits-impot-culture",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "societe-2-e",
+      "question": "societe-2",
+      "lever": "credits-aides-presse",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "societe-2-e",
+      "question": "societe-2",
+      "lever": "credits-impot-culture",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "societe-2-f",
+      "question": "societe-2",
+      "lever": "credits-impot-culture",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "societe-x1-c",
+      "question": "societe-x1",
+      "lever": "credits-aides-presse",
+      "dir": -1,
+      "setting": -100,
+      "fit": "exact"
+    },
+    {
+      "approach": "solidarites-1-a",
+      "question": "solidarites-1",
+      "lever": "depense-assurance-chomage-allocations",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "solidarites-1-c",
+      "question": "solidarites-1",
+      "lever": "depense-assurance-chomage-allocations",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "solidarites-1-d",
+      "question": "solidarites-1",
+      "lever": "aides-logement-revalorisation",
+      "dir": 1,
+      "setting": "revision-legale",
+      "fit": "exact"
+    },
+    {
+      "approach": "solidarites-1-d",
+      "question": "solidarites-1",
+      "lever": "prestations-familiales-revalorisation",
+      "dir": 1,
+      "setting": "legale",
+      "fit": "exact"
+    },
+    {
+      "approach": "solidarites-1-d",
+      "question": "solidarites-1",
+      "lever": "prime-activite-revalorisation",
+      "dir": 1,
+      "setting": 2.3,
+      "fit": "exact"
+    },
+    {
+      "approach": "solidarites-1-e",
+      "question": "solidarites-1",
+      "lever": "emplois-garantis",
+      "dir": 1,
+      "setting": "garantie-longue-duree",
+      "fit": "partial"
+    },
+    {
+      "approach": "solidarites-1-f",
+      "question": "solidarites-1",
+      "lever": "non-recours-versement-automatique",
+      "dir": 1,
+      "setting": "auto-100",
+      "fit": "partial"
+    },
+    {
+      "approach": "solidarites-1-g",
+      "question": "solidarites-1",
+      "lever": "minima-sociaux-revalorisation",
+      "dir": 1,
+      "setting": 25,
+      "fit": "partial"
+    },
+    {
+      "approach": "solidarites-1-g",
+      "question": "solidarites-1",
+      "lever": "rsa-18-24-ans",
+      "dir": 1,
+      "setting": "18-ans",
+      "fit": "exact"
+    },
+    {
+      "approach": "solidarites-2-a",
+      "question": "solidarites-2",
+      "lever": "depense-allocations-familiales",
+      "dir": 1,
+      "setting": 28,
+      "fit": "exact"
+    },
+    {
+      "approach": "solidarites-2-b",
+      "question": "solidarites-2",
+      "lever": "quotient-familial-plafond",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "solidarites-2-c",
+      "question": "solidarites-2",
+      "lever": "pensions-alimentaires-defiscalisation",
+      "dir": -1,
+      "setting": "exoneration-ir",
+      "fit": "partial"
+    },
+    {
+      "approach": "solidarites-2-d",
+      "question": "solidarites-2",
+      "lever": "places-creche",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "solidarites-2-e",
+      "question": "solidarites-2",
+      "lever": "gratuite-creches",
+      "dir": 1,
+      "setting": 100,
+      "fit": "partial"
+    },
+    {
+      "approach": "solidarites-3-c",
+      "question": "solidarites-3",
+      "lever": "depense-aide-sociale-enfance",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "territoires-1-b",
+      "question": "territoires-1",
+      "lever": "effectifs-publics",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "territoires-1-c",
+      "question": "territoires-1",
+      "lever": "effectifs-publics",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "territoires-1-f",
+      "question": "territoires-1",
+      "lever": "france-services-espaces",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "travail_salaires-1-a",
+      "question": "travail_salaires-1",
+      "lever": "smic-coup-de-pouce",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "travail_salaires-1-b",
+      "question": "travail_salaires-1",
+      "lever": "point-indice",
+      "dir": 1,
+      "setting": 1.8,
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-c",
+      "question": "travail_salaires-1",
+      "lever": "cotisations-retraite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-c",
+      "question": "travail_salaires-1",
+      "lever": "csg-activite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "travail_salaires-1-c",
+      "question": "travail_salaires-1",
+      "lever": "ir-taux-bareme",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-d",
+      "question": "travail_salaires-1",
+      "lever": "depense-fiscale-heures-supplementaires",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "travail_salaires-1-e",
+      "question": "travail_salaires-1",
+      "lever": "accise-carburants",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-e",
+      "question": "travail_salaires-1",
+      "lever": "accise-electricite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-e",
+      "question": "travail_salaires-1",
+      "lever": "tva-electricite",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-e",
+      "question": "travail_salaires-1",
+      "lever": "tva-taux-reduit",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-f",
+      "question": "travail_salaires-1",
+      "lever": "ondam",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-1-i",
+      "question": "travail_salaires-1",
+      "lever": "exoneration-hausses-salaire",
+      "dir": 1,
+      "setting": 100,
+      "fit": "exact"
+    },
+    {
+      "approach": "travail_salaires-2-d",
+      "question": "travail_salaires-2",
+      "lever": "depense-fiscale-heures-supplementaires",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "travail_salaires-4-d",
+      "question": "travail_salaires-4",
+      "lever": "aga-stock-options",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "partial"
+    },
+    {
+      "approach": "travail_salaires-4-d",
+      "question": "travail_salaires-4",
+      "lever": "forfait-social-taux",
+      "dir": -1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ukraine_russie-1-d",
+      "question": "ukraine_russie-1",
+      "lever": "credits-aide-ukraine",
+      "dir": -1,
+      "setting": -100,
+      "fit": "partial"
+    },
+    {
+      "approach": "ukraine_russie-1-e",
+      "question": "ukraine_russie-1",
+      "lever": "credits-aide-ukraine",
+      "dir": -1,
+      "setting": -100,
+      "fit": "partial"
+    },
+    {
+      "approach": "ukraine_russie-1-h",
+      "question": "ukraine_russie-1",
+      "lever": "opex-surcouts",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    },
+    {
+      "approach": "ukraine_russie-2-e",
+      "question": "ukraine_russie-2",
+      "lever": "credits-aide-ukraine",
+      "dir": -1,
+      "setting": -100,
+      "fit": "partial"
+    },
+    {
+      "approach": "ukraine_russie-x3-a",
+      "question": "ukraine_russie-x3",
+      "lever": "opex-surcouts",
+      "dir": 1,
+      "setting": "dir",
+      "fit": "direction"
+    }
+  ],
+  "gate": {
+    "threshold": 1.5,
+    "creuse": 1.17,
+    "reduit": 1.39,
+    "worstCreuse": 1.22,
+    "worstReduit": 1.61,
+    "reach": 1.55,
+    "pass": false,
+    "preset": {
+      "creuse": 1.17,
+      "reduit": 1.35,
+      "worstCreuse": 1.22,
+      "worstReduit": 1.53,
+      "pass": false
+    }
+  }
 }

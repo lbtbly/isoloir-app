@@ -1,4 +1,12 @@
-budget-build presidentielle-2027 : 76 leviers (impots 32, depenses 27, sociale 17), 2 écartés
+budget-build presidentielle-2027 : 163 leviers (impots 87, depenses 46, sociale 30), 5 écartés
+CORRECTION comprendre credits-aides-presse: down — Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : « Paient seuls la distribution » allait au-delà de la fiche : à −100 %, les 9,2 M€ compensés pour les vendeurs-colporteurs, hors du levier, restent.
+CORRECTION comprendre credits-asile: down, up — Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : La fiche compte tout l’effet (±0,14 Md€ à ±10 %) et ne retire aucune ADA ; la phrase qui disait l’effet net plus faible contredisait son chiffre.
+CORRECTION comprendre point-indice: down — Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : −1 % est dans la plage chiffrée par la source (le miroir ne joue qu’au-delà) : « estimation, miroir » retiré.
+CORRECTION comprendre exoneration-hausses-salaire: up — Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : 7,0 à 14,0 Md€ sur 21,3 Md€ de hausses font 33 à 66 € pour 100 €, pas « au moins 40 € ».
+CORRECTION comprendre exit-tax: up — Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : La fiche fait de 25 M€ par an un plafond, à partir de 2029 : « au plus », « dès 2029 ».
+CORRECTION comprendre plus-values-immobilieres-abattement: argsUp — Vérification finale des textes « Comprendre » (23/10/2026), constat confirmé par au moins deux vérificateurs sur trois : L’argument citait 1,9 à 3 Md€, au-dessus de la fiche (−0,2 à +1,9 Md€ pour l’inflation déduite au taux actuel).
+CORRECTION lien solidarites-1-f → non-recours-versement-automatique: setting — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : le levier est devenu un levier à réglages : « à toutes les personnes qui y ont droit », c’est le réglage « tous les droits ».
+CORRECTION lien industrie_economie-1-a → allegements-generaux: fit — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : l’approche échange une baisse des aides contre une baisse des impôts de production « d’autant » : les deux côtés sont pré-réglés ensemble, sinon le pré-réglage creusait le déficit seul.
 CORRECTION ir-indexation-bareme: baseLabel — Le cran central affichait « 2,1 % » (l'indexation du PLF) alors que +1 et +2,1 veulent dire 1 et 2,1 points d'indexation EN MOINS : la rangée se lisait à l'envers (revue de finition, constat correctness F4).
 CORRECTION effectifs-publics: exclusiveWith — Recoupement partiel seulement (la paie publique et les crédits d’une mission, de l’Ondam ou d’un service) : le rendre exclusif empêchait de régler ensemble, par exemple, la défense et les effectifs, et faisait tomber la défense et l’école des trois premiers du rayon. Exclusif seulement pour une même base (revue de finition, 18/10).
 CORRECTION point-indice: exclusiveWith — Recoupement partiel seulement (la paie publique et les crédits d’une mission, de l’Ondam ou d’un service) : le rendre exclusif empêchait de régler ensemble, par exemple, la défense et les effectifs, et faisait tomber la défense et l’école des trois premiers du rayon. Exclusif seulement pour une même base (revue de finition, 18/10).
@@ -43,6 +51,150 @@ CORRECTION places-creche: overlapsWith — Revue de finition (18/10, constat N3)
 CORRECTION point-indice: overlapsWith — Revue de finition (18/10, constat N3) : ces leviers ne sont plus exclusifs (recoupement partiel : la paie publique), mais réglés ensemble ils peuvent compter deux fois une même baisse ou une même hausse ; la fiche le dit quand l’autre est réglé.
 CORRECTION service-national-appeles: overlapsWith — Revue de finition (18/10, constat N3) : ces leviers ne sont plus exclusifs (recoupement partiel : la paie publique), mais réglés ensemble ils peuvent compter deux fois une même baisse ou une même hausse ; la fiche le dit quand l’autre est réglé.
 CORRECTION depense-conge-naissance: amount — Vérification de la seconde passe (18/10) : la source donne une fourchette, 300 à 400 M€ ; la fiche des rayons l'écrit en fourchette au lieu du seul haut (règle : une fourchette quand les sources divergent). Montants inchangés.
+CORRECTION tva-electricite: sources, base — Faux positif du contrôle des noms : le titre du rapport du Sénat n° 714 dit « aux horizons 2035 et 2050 » (le mot commun, pas un parti) ; titre raccourci à son objet, la source est inchangée.
+CORRECTION cotisations-sociales: stretch — La borne au-delà de la source (5,25 points) tombait hors du pas du curseur (0,1 point) : ramenée à 5,2, la raison dit le taux exact.
+CORRECTION isf-retablissement: options, limits — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : l’ISF (chiffre de 2022) et l’assiette « placements financiers » (portée à 2027) reposaient sur deux années ; le retour à l’ISF est mis sur la base 2027, la part au-delà du chiffre publié marquée comme estimation.
+CORRECTION credit-impot-recherche-innovation: stretch — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : au-delà de ±25 %, l’effet par point retombe au coût publié (7,73 Md€ pour 100 %) : supprimer les deux crédits ne peut pas rapporter plus que leur coût.
+CORRECTION credits-impot-culture: stretch — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à −100 %, la baisse ne dépasse plus la ligne (1,45 Md€).
+CORRECTION aide-fiscale-investissement-outre-mer: stretch — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à −100 %, la baisse ne dépasse plus le crédit d’impôt de 2027 (0,35 Md€).
+CORRECTION reduction-impot-mecenat-entreprises: stretch — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à la baisse, l’effet par point reste celui de la plage chiffrée.
+CORRECTION aides-employeurs-apprentis: stretch — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à −100 %, la baisse ne dépasse plus la ligne (2,0 Md€), comme le disent ses limites.
+CORRECTION journee-solidarite-csa: perUnitDown — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : supprimer la journée ne peut pas coûter plus que la CSA qu’elle finance (2,18 Md€ au plus, net des employeurs publics).
+CORRECTION non-recours-versement-automatique: kind, unit, perUnit, range, notches, baseLabel, stretch, estimate, options, limits — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : à la baisse, le levier ne correspondait à aucune mesure (doubler le non-recours) ; devenu un levier à réglages d’un seul côté, comme le capital de naissance.
+CORRECTION tva-electricite: exclusiveWith, overlapsWith — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : la TVA sur l’électricité fait partie de la base du taux normal : les régler ensemble compterait deux fois, comme pour les autres taux de TVA d’un secteur.
+CORRECTION minima-sociaux-revalorisation: perUnit, stretch, laterNote, limits — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : la Méthode compte les mois de 2027 quand la loi fixe une date : RSA et AAH sont revalorisés au 1er avril, l’année pleine passe en note.
+CORRECTION prime-activite-revalorisation: perUnit, stretch, laterNote, limits — Revue finale de la v2 (23/10/2026), constat confirmé par trois vérificateurs : revalorisée au 1er avril : neuf mois comptent en 2027 ; l’année pleine passe en note.
 WARN depense-fiscale-credit-impot-recherche: écarté : Horizon : un changement voté pour 2027 vaut pour les dépenses de recherche de 2027, dont le crédit s'impute au solde de l'impôt payé en 2028, ou plus tard. Son effet sur le déficit 2027 est quasi nul et non chiffré ; les 7 382 M€ de 2027 retracent des créances antérieures. Compter 1 % de ce coût en 2027 ferait entrer un effet de 2028 dans le total, comme si la part de 2028 de la surtaxe d'impôt sur les sociétés y était comptée.
 WARN duree-assurance: écarté : Aucun effet pour 2027 n'est publié sur une page officielle récupérée : la Cour des comptes (février 2025) ne chiffre une durée d'assurance de 42 ou 44 ans qu'en 2035 et 2045, et par rapport à la loi de 2023, pas au PLF 2027 (suspension jusqu'au 1er janvier 2028). Elle précise seulement que l'effet d'un an n'atteint le milliard d'euros qu'en 2030 à la hausse et en 2034 à la baisse. Sans chiffre de 2027, aucun réglage ne peut entrer dans le total ; l'effet à terme peut figurer en note.
+WARN plus-values-latentes-transmission: écarté : Non chiffré, pour deux raisons. D'abord, les deux réglages se heurteraient très probablement à la jurisprudence constitutionnelle (CPO, Sénat, Cour des comptes) : selon la note n° 14 du CPO (2026), l'effacement des plus-values latentes à la transmission résulte d'une obligation constitutionnelle ; le Conseil constitutionnel a censuré en 2012 (2012-661 DC) l'imposition du donataire sur l'enrichissement du donateur, pour une donation suivie d'une vente sous dix-huit mois, soit le principe du réglage « l'héritier garde le prix d'achat » ; selon le CPO (2025), imposer au décès irait contre le principe des capacités contributives ; la Cour des comptes (2024) n'analyse pas la mesure, qui pose « des questions complexes de constitutionnalité ». Le Sénat note que la décision 2019-775 QPC laisse ouvert un durcissement, et le CPO qu'une réévaluation pour une vente sous 18 mois pourrait être compatible : ces variantes étroites ne sont pas les réglages proposés. Ensuite, aucune donnée officielle ne mesure les plus-values latentes transmises chaque année : une estimation d'Isoloir n'aurait pas d'assiette citée. Chiffres publiés : 2 à 4 Md€ (un article de 2022, auteur seul, inéligible) ; environ 1,3 Md€ par an (CAE, 2021, transposition d'une estimation américaine, un ordre de grandeur et non un chiffrage). La partie admise, les plus-values déjà réalisées et mises en report (apport-cession, 2019-775 QPC), est réglée par apport-cession-report (article 5 du PLF).
+WARN dons-familiaux-exoneres: écarté : Aucune base publiée pour l’estimer : l’exonération de l’article 790 G n’a pas de chiffrage au Voies et moyens, celle de l’article 790 A bis y est « nc », le Gouvernement juge la hausse à 50 000 € du PLF 2027 « non chiffrable faute de données sur les transmissions ciblées », et la Cour des comptes note que la DGFiP ne connaît que le produit total et le nombre de donations taxées. Une estimation reposerait sur un nombre de dons inventé.
+WARN tenue-scolaire: écarté : Le nombre d'élèves est sourcé (PAP 2027 : près de 12 millions, dont un peu plus de 2 millions dans le privé ; 4 661 108 dans le second degré public), mais pas le prix d'une tenue ni la part publique : les pages du ministère de l'Éducation nationale et de la DEPP (cahier des charges de l'expérimentation, évaluation de mai 2026) répondent 403, et ni le PAP 2027, ni les rapports budgétaires du Sénat sur les PLF 2025 et 2026 (commission des finances, commission de la culture), ni la note d'exécution 2024 de la Cour des comptes n'en parlent. Sans ce prix, l'estimation reposerait sur un chiffre non cité ; la reprendre dès que le cahier des charges ou l'évaluation de la DEPP peut être lu.
 WARN age-legal-retraite: recoupe un levier absent : duree-assurance
+WARN ir-credits-reductions: recoupe aussi plafonnement-global-niches (réciproque ajoutée)
+WARN ifi-bareme: recoupe aussi isf-retablissement (réciproque ajoutée)
+WARN ifi-bareme: recoupe aussi ifi-assiette (réciproque ajoutée)
+WARN dmtg-ensemble: recoupe aussi dmtg-abattement-ligne-directe (réciproque ajoutée)
+WARN dmtg-tranche-20: recoupe aussi dmtg-ensemble (réciproque ajoutée)
+WARN dmtg-tranche-45: recoupe aussi dmtg-ensemble (réciproque ajoutée)
+WARN dutreil-exoneration: recoupe aussi grandes-transmissions-plancher (réciproque ajoutée)
+WARN tva-taux-intermediaire: recoupe aussi tva-restauration (réciproque ajoutée)
+WARN tva-tous-taux: recoupe aussi tva-restauration (réciproque ajoutée)
+WARN tva-taux-intermediaire: recoupe aussi tva-hebergement (réciproque ajoutée)
+WARN tva-tous-taux: recoupe aussi tva-hebergement (réciproque ajoutée)
+WARN tva-taux-intermediaire: recoupe aussi tva-travaux-logement (réciproque ajoutée)
+WARN tva-tous-taux: recoupe aussi tva-travaux-logement (réciproque ajoutée)
+WARN tva-taux-reduit: recoupe aussi tva-renovation-energetique (réciproque ajoutée)
+WARN tva-tous-taux: recoupe aussi tva-renovation-energetique (réciproque ajoutée)
+WARN ondam: recoupe aussi franchises-medicales (réciproque ajoutée)
+WARN ondam: recoupe aussi prise-en-charge-assurance-maladie (réciproque ajoutée)
+WARN credits-aides-personnelles-logement: recoupe aussi aides-logement-etudiants (réciproque ajoutée)
+WARN aides-logement-revalorisation: recoupe aussi aides-logement-etudiants (réciproque ajoutée)
+WARN tva-taux-normal: recoupe aussi tva-electricite (réciproque ajoutée)
+WARN tva-tous-taux: recoupe aussi tva-electricite (réciproque ajoutée)
+WARN defense: recoupe aussi opex-surcouts (réciproque ajoutée)
+WARN defense: recoupe aussi credits-dissuasion (réciproque ajoutée)
+WARN plus-values-immobilieres-abattement: recoupe en partie un levier absent ou écarté, ignoré : plus-values-latentes-transmission
+WARN dmtg-abattement-ligne-directe: recoupe en partie un levier absent ou écarté, ignoré : dons-familiaux-exoneres
+WARN plafonnement-global-niches: recoupe aussi en partie cdhr-taux-plancher (réciproque ajoutée)
+WARN csg-capital: recoupe aussi en partie pfu-taux-ir (réciproque ajoutée)
+WARN ifi-bareme: recoupe aussi en partie impot-plancher-tres-hauts-patrimoines (réciproque ajoutée)
+WARN cdhr-taux-plancher: recoupe aussi en partie impot-plancher-tres-hauts-patrimoines (réciproque ajoutée)
+WARN ifi-bareme: recoupe aussi en partie contribution-differentielle-patrimoine (réciproque ajoutée)
+WARN cdhr-taux-plancher: recoupe aussi en partie contribution-differentielle-patrimoine (réciproque ajoutée)
+WARN cehr-taux: recoupe aussi en partie contribution-differentielle-patrimoine (réciproque ajoutée)
+WARN impot-plancher-tres-hauts-patrimoines: recoupe aussi en partie ifi-assiette (réciproque ajoutée)
+WARN ifi-bareme: recoupe aussi en partie taxe-holdings-patrimoniales (réciproque ajoutée)
+WARN pfu-taux-ir: recoupe aussi en partie apport-cession-report (réciproque ajoutée)
+WARN cehr-taux: recoupe aussi en partie apport-cession-report (réciproque ajoutée)
+WARN csg-capital: recoupe aussi en partie plus-values-immobilieres-abattement (réciproque ajoutée)
+WARN dmtg-ensemble: recoupe aussi en partie assurance-vie-transmission (réciproque ajoutée)
+WARN dmtg-tranche-20: recoupe aussi en partie assurance-vie-transmission (réciproque ajoutée)
+WARN dmtg-tranche-45: recoupe aussi en partie assurance-vie-transmission (réciproque ajoutée)
+WARN dmtg-abattement-ligne-directe: recoupe aussi en partie assurance-vie-transmission (réciproque ajoutée)
+WARN grandes-transmissions-plancher: recoupe aussi en partie assurance-vie-transmission (réciproque ajoutée)
+WARN dmtg-tranche-20: recoupe aussi en partie dmtg-abattement-ligne-directe (réciproque ajoutée)
+WARN grandes-transmissions-plancher: recoupe aussi en partie dmtg-abattement-ligne-directe (réciproque ajoutée)
+WARN grandes-transmissions-plancher: recoupe aussi en partie dmtg-ligne-indirecte-taux (réciproque ajoutée)
+WARN dutreil-exoneration: recoupe aussi en partie dmtg-ensemble (réciproque ajoutée)
+WARN dutreil-exoneration: recoupe aussi en partie demembrement-propriete (réciproque ajoutée)
+WARN dmtg-tranche-20: recoupe aussi en partie demembrement-propriete (réciproque ajoutée)
+WARN dmtg-tranche-45: recoupe aussi en partie demembrement-propriete (réciproque ajoutée)
+WARN dmtg-tranche-45: recoupe aussi en partie grandes-transmissions-plancher (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie contribution-benefices-exceptionnels (réciproque ajoutée)
+WARN contribution-exceptionnelle-grandes-entreprises: recoupe aussi en partie contribution-benefices-exceptionnels (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie credit-impot-recherche-innovation (réciproque ajoutée)
+WARN tva-taux-normal: recoupe aussi en partie tva-restauration (réciproque ajoutée)
+WARN tva-taux-reduit: recoupe aussi en partie tva-restauration (réciproque ajoutée)
+WARN tva-taux-reduit: recoupe aussi en partie tva-hebergement (réciproque ajoutée)
+WARN tva-taux-normal: recoupe aussi en partie tva-hebergement (réciproque ajoutée)
+WARN tva-taux-reduit: recoupe aussi en partie tva-travaux-logement (réciproque ajoutée)
+WARN tva-taux-normal: recoupe aussi en partie tva-travaux-logement (réciproque ajoutée)
+WARN tva-taux-intermediaire: recoupe aussi en partie tva-renovation-energetique (réciproque ajoutée)
+WARN tva-taux-normal: recoupe aussi en partie tva-renovation-energetique (réciproque ajoutée)
+WARN accise-carburants: recoupe aussi en partie accise-gazole-transport-routier (réciproque ajoutée)
+WARN accise-carburants: recoupe aussi en partie accise-gazole-non-routier (réciproque ajoutée)
+WARN accise-electricite: recoupe aussi en partie accise-energie-industrie (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie is-taux-reduit-brevets (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie taxe-tonnage (réciproque ajoutée)
+WARN contribution-exceptionnelle-grandes-entreprises: recoupe aussi en partie taxe-tonnage (réciproque ajoutée)
+WARN contribution-benefices-exceptionnels: recoupe aussi en partie taxe-tonnage (réciproque ajoutée)
+WARN effectifs-publics: recoupe aussi en partie credits-impot-culture (réciproque ajoutée)
+WARN ir-credits-reductions: recoupe aussi en partie aide-fiscale-investissement-outre-mer (réciproque ajoutée)
+WARN cdhr-taux-plancher: recoupe aussi en partie aide-fiscale-investissement-outre-mer (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie exonerations-outre-mer (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie exonerations-saisonniers-agricoles (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie exonerations-jeunes-entreprises (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie zones-aidees-entreprises (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie zones-aidees-entreprises (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie is-taux-reduit-pme (réciproque ajoutée)
+WARN impot-societes: recoupe aussi en partie plus-values-titres-participation (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie smic-coup-de-pouce (réciproque ajoutée)
+WARN point-indice: recoupe aussi en partie smic-coup-de-pouce (réciproque ajoutée)
+WARN pensions-revalorisation: recoupe aussi en partie minimum-pension-carriere-complete (réciproque ajoutée)
+WARN smic-coup-de-pouce: recoupe aussi en partie minimum-pension-carriere-complete (réciproque ajoutée)
+WARN minima-sociaux-revalorisation: recoupe aussi en partie minimum-pension-carriere-complete (réciproque ajoutée)
+WARN forfait-social-taux: recoupe aussi en partie epargne-retraite-per (réciproque ajoutée)
+WARN pfu-taux-ir: recoupe aussi en partie epargne-retraite-per (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie journee-solidarite-csa (réciproque ajoutée)
+WARN depense-conge-naissance: recoupe aussi en partie conge-second-parent (réciproque ajoutée)
+WARN minima-sociaux-revalorisation: recoupe aussi en partie rsa-18-24-ans (réciproque ajoutée)
+WARN non-recours-versement-automatique: recoupe aussi en partie rsa-18-24-ans (réciproque ajoutée)
+WARN credits-prime-activite-rsa: recoupe aussi en partie rsa-18-24-ans (réciproque ajoutée)
+WARN credits-prime-activite-rsa: recoupe aussi en partie non-recours-versement-automatique (réciproque ajoutée)
+WARN prime-activite-revalorisation: recoupe aussi en partie non-recours-versement-automatique (réciproque ajoutée)
+WARN minima-sociaux-revalorisation: recoupe aussi en partie non-recours-versement-automatique (réciproque ajoutée)
+WARN depense-assurance-chomage-allocations: recoupe aussi en partie emplois-garantis (réciproque ajoutée)
+WARN credits-prime-activite-rsa: recoupe aussi en partie emplois-garantis (réciproque ajoutée)
+WARN credits-aides-personnelles-logement: recoupe aussi en partie pensions-alimentaires-defiscalisation (réciproque ajoutée)
+WARN credits-prime-activite-rsa: recoupe aussi en partie pensions-alimentaires-defiscalisation (réciproque ajoutée)
+WARN ir-taux-bareme: recoupe aussi en partie pensions-alimentaires-defiscalisation (réciproque ajoutée)
+WARN ir-indexation-bareme: recoupe aussi en partie pensions-alimentaires-defiscalisation (réciproque ajoutée)
+WARN quotient-familial-plafond: recoupe aussi en partie pensions-alimentaires-defiscalisation (réciproque ajoutée)
+WARN places-creche: recoupe aussi en partie gratuite-creches (réciproque ajoutée)
+WARN ir-credits-reductions: recoupe aussi en partie gratuite-creches (réciproque ajoutée)
+WARN ir-credits-reductions: recoupe aussi en partie incitations-bailleurs-prives (réciproque ajoutée)
+WARN point-indice: recoupe aussi en partie depense-aide-sociale-enfance (réciproque ajoutée)
+WARN credits-aides-directes-etudiants: recoupe aussi en partie allocation-autonomie-etudiants (réciproque ajoutée)
+WARN condition-residence-prestations: recoupe aussi en partie aides-logement-etudiants (réciproque ajoutée)
+WARN accise-electricite: recoupe aussi en partie tva-electricite (réciproque ajoutée)
+WARN tva-taux-intermediaire: recoupe aussi en partie gratuite-transports-urbains (réciproque ajoutée)
+WARN credits-aides-personnelles-logement: recoupe aussi en partie condition-residence-prestations (réciproque ajoutée)
+WARN aides-logement-revalorisation: recoupe aussi en partie condition-residence-prestations (réciproque ajoutée)
+WARN depense-allocations-familiales: recoupe aussi en partie condition-residence-prestations (réciproque ajoutée)
+WARN prestations-familiales-revalorisation: recoupe aussi en partie condition-residence-prestations (réciproque ajoutée)
+WARN effectifs-publics: recoupe aussi en partie polices-municipales (réciproque ajoutée)
+WARN point-indice: recoupe aussi en partie polices-municipales (réciproque ajoutée)
+WARN point-indice: recoupe aussi en partie opex-surcouts (réciproque ajoutée)
+WARN allegements-generaux: recoupe aussi en partie exoneration-hausses-salaire (réciproque ajoutée)
+WARN cotisations-retraite: recoupe aussi en partie exoneration-hausses-salaire (réciproque ajoutée)
+WARN cotisations-sociales: recoupe aussi en partie exoneration-hausses-salaire (réciproque ajoutée)
+WARN effectifs-publics: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-culture: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-aides-indirectes-etudiants: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-integration: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-asile: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-politique-de-la-ville: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-anah-renovation: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-administration-penitentiaire: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-justice-judiciaire: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)
+WARN credits-service-civique: recoupe aussi en partie operateurs-fonctions-support (réciproque ajoutée)

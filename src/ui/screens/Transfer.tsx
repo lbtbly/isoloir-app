@@ -13,7 +13,7 @@ import { downloadBlob } from '../../core/download'
 import { CTA_START } from '../../core/resultsCopy'
 import { appApart } from '../../core/installed'
 import { importNotes, type ImportResult } from '../../core/exportData'
-import type { SessionState } from '../../core/storage'
+import { withBudgetKept, type SessionState } from '../../core/storage'
 import { groupCode, normalizeCode } from '../../core/transfer/base32'
 import { encodeTransfer, extractCode, looksLikeCode, parseCode } from '../../core/transfer/codec'
 import { MAIL_SUBJECT, transferMailBody, transferMailto } from '../../core/transferMail'
@@ -485,7 +485,7 @@ function Receive({ pack, state, setState }: Props) {
     if (fromClip.current) navigator.clipboard?.writeText('').catch(() => undefined)
     fromClip.current = false
     setPending(null)
-    setState(next)
+    setState(withBudgetKept(next, state))
     go('/resultats')
   }
 

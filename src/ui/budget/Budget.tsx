@@ -1,17 +1,18 @@
 // « Faire les comptes » (#/comptes) : un budget 2027 à régler, levier par levier, décisions du propriétaire des 17 et
-// 18 octobre 2026 (research/presidentielle-2027/budget-decisions.json). Le jeu ne lit pas la feuille de réponses ; ses
-// réglages vivent en mémoire le temps de la page, rien n'est gardé ni envoyé. Les écrans :
+// 18 octobre 2026 (research/presidentielle-2027/budget-decisions.json). Ses réglages sont gardés sur l'appareil avec
+// les réponses, par l'application (onSave), et repris dans le double ; rien n'est envoyé. Les écrans :
 // - #/comptes/objectif : l'objectif (ou aucun), au premier passage ;
 // - #/comptes : les rayons, une rangée par famille ;
 // - #/comptes/<levier> : la fiche d'un levier, à la place des rayons au téléphone, à côté sur grand écran ;
 // - #/comptes/<famille> : tous les leviers d'une famille ;
 // - #/comptes/budget : « Votre budget 2027 » ;
 // - #/comptes/methode : comment c'est calculé.
-import { useEffect, useRef, useState } from 'preact/hooks'
-import { COPY, GOALS, goalLine, md, pct, verdict, type GoalId } from '../../core/budget/copy'
-import { applySetting, deficitRange, familyOrder, goalGap, isBase, totals, type Baseline, type Setting } from '../../core/budget/ledger'
-import type { BudgetData, Family, Lever } from '../../core/budget/types'
-import type { ElectionInfo } from '../../core/types'
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
+import { COPY, deficitDecimals, GOALS, goalLine, md, pct, verdict, type GoalId } from '../../core/budget/copy'
+import { applySetting, clampValue, deficitRange, estimatedShare, familyOrder, goalGap, isBase, totals, type Baseline, type Setting } from '../../core/budget/ledger'
+import { presets, readLevers } from '../../core/budget/links'
+import type { BudgetData, BudgetSave, Family, Lever, LeverExplainer } from '../../core/budget/types'
+import type { Answers, ElectionInfo } from '../../core/types'
 import '../../styles/budget.css'
 import { AiLabel } from '../components/AiLabel'
 import { FormHeader } from '../components/FormHeader'
@@ -22,10 +23,16 @@ import { Band } from './Band'
 import { LeverCard } from './LeverCard'
 import { FAMILIES, familyTotal, FamilyGrid, Rails, tintOf, valueText } from './Rails'
 import { Method } from './Method'
+import { Waterfall } from './Waterfall'
 
 /** Les leviers d'une élection : un fichier à part, chargé avec l'écran (src/elections/<id>/budget.ts, généré) */
 const DATA: Record<string, () => Promise<BudgetData>> = {
   'presidentielle-2027': () => import('../../elections/presidentielle-2027/budget').then(m => m.budget),
+}
+
+/** « Comprendre » chaque levier : un troisième fichier, chargé à l'ouverture de la première fiche */
+const EXPLAIN: Record<string, () => Promise<Record<string, LeverExplainer>>> = {
+  'presidentielle-2027': () => import('../../elections/presidentielle-2027/budget-explain').then(m => m.explain),
 }
 
 interface Game {
@@ -35,28 +42,94 @@ interface Game {
   touched: string[]
   /** Un levier remis au PLF par un autre sur la même base : le nom de l'autre */
   resetBy: Record<string, string>
+  /** Les leviers pré-réglés d'après les réponses et pas touchés depuis ; null : le point de départ n'est pas encore choisi */
+  preset: string[] | null
+  /** Parti du PLF plutôt que des réponses */
+  fromPlf: boolean
 }
 
-// En mémoire, le temps de la page : les écrans du jeu se succèdent sans rien perdre ; recharger la page efface tout
-let memory: Game = { goalId: null, settings: {}, touched: [], resetBy: {} }
+const EMPTY: Game = { goalId: null, settings: {}, touched: [], resetBy: {}, preset: null, fromPlf: false }
+
+/** Les réglages gardés, relus : un levier inconnu ou une valeur hors plage (données mises à jour depuis) sont écartés */
+function fromSave(saved: BudgetSave | null, levers?: readonly Lever[]): Game {
+  if (!saved) return EMPTY
+  const goalId = (GOALS.find(g => g.id === saved.goalId)?.id ?? null) as GoalId | null
+  const start = { preset: saved.preset ? [...saved.preset] : saved.fromPlf ? [] : null, fromPlf: !!saved.fromPlf }
+  if (!levers) return { goalId, settings: { ...saved.settings }, touched: [...saved.touched], resetBy: {}, ...start }
+  const settings: Record<string, Setting> = {}
+  for (const [id, v] of Object.entries(saved.settings)) {
+    const l = levers.find(x => x.id === id)
+    if (!l) continue
+    if (l.kind === 'options') {
+      if (typeof v === 'string' && l.options?.some(o => o.id === v)) settings[id] = v
+    } else if (typeof v === 'number') settings[id] = clampValue(l, v)
+  }
+  const touched = saved.touched.filter(id => levers.some(l => l.id === id))
+  return { goalId, settings, touched, resetBy: {}, ...start, preset: start.preset?.filter(id => id in settings) ?? null }
+}
+
+const toSave = (g: Game): BudgetSave | null =>
+  g.goalId === null && !Object.keys(g.settings).length && !g.touched.length && g.preset === null && !g.fromPlf
+    ? null
+    : {
+        goalId: g.goalId,
+        settings: g.settings as Record<string, number | string>,
+        touched: g.touched,
+        ...(g.preset ? { preset: g.preset } : {}),
+        ...(g.fromPlf ? { fromPlf: true } : {}),
+      }
 
 /** Un écran où la fiche s'ouvre à côté des rayons sur grand écran (les rayons, ou un levier) */
 const besideRails = (arg: string | undefined, levers: readonly Lever[]) => !arg || levers.some(l => l.id === arg)
 
-export function Budget({ election, arg, focusOnArrival }: { election: ElectionInfo; arg?: string; focusOnArrival: boolean }) {
+interface Props {
+  election: ElectionInfo
+  arg?: string
+  focusOnArrival: boolean
+  /** Les réglages gardés sur l'appareil (avec les réponses), ou rien */
+  saved: BudgetSave | null
+  /** Garder les réglages (null : plus rien à garder) ; appelé à chaque réglage arrêté, pas pendant le glissé */
+  onSave: (save: BudgetSave | null) => void
+  /** Les réponses aux questions (à jour des révisions), lues sur l'appareil pour relier les leviers */
+  answers: Answers
+  /** Le texte d'une approche, pour citer la réponse sur la fiche */
+  approachText: (id: string) => string | undefined
+}
+
+export function Budget({ election, arg, focusOnArrival, saved, onSave, answers, approachText }: Props) {
   const [data, setData] = useState<BudgetData | null>(null)
   const [failed, setFailed] = useState(false)
-  const [game, setGameState] = useState<Game>(memory)
+  const [game, setGameState] = useState<Game>(() => fromSave(saved))
   const [status, setStatus] = useState('')
-  const setGame = (g: Game) => {
-    memory = g
+  const [explain, setExplain] = useState<Record<string, LeverExplainer> | null>(null)
+  const [startFrom, setStartFrom] = useState<'answers' | 'plf'>('answers')
+  // Ce que les réponses disent des leviers, et les réglages qu'elles donnent
+  const readings = useMemo(() => (data ? readLevers(data.levers, data.links ?? [], answers) : {}), [data, answers])
+  const fromAnswers = useMemo(() => presets(readings), [readings])
+  // Ce que le jeu a gardé en dernier : une autre valeur reçue vient d'ailleurs (un autre onglet, un import) et la remplace
+  const lastSent = useRef(JSON.stringify(saved ?? null))
+  const setGame = (g: Game, keep = true) => {
     setGameState(g)
+    if (!keep) return
+    const s = toSave(g)
+    lastSent.current = JSON.stringify(s)
+    onSave(s)
   }
+  useEffect(() => {
+    const now = JSON.stringify(saved ?? null)
+    if (now === lastSent.current) return
+    lastSent.current = now
+    setGameState(fromSave(saved, data?.levers))
+  }, [saved, data])
 
   useEffect(() => {
     const load = DATA[election.id]
     if (!load) return setFailed(true)
-    load().then(setData, () => setFailed(true))
+    load().then(d => {
+      // Les réglages gardés, relus contre les leviers de cette version des données
+      setGameState(g => fromSave(toSave(g), d.levers))
+      setData(d)
+    }, () => setFailed(true))
   }, [election.id])
 
   // Premier passage sans objectif : l'écran de l'objectif d'abord, à la place de l'adresse demandée (sans entrée
@@ -82,6 +155,14 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
     document.querySelector<HTMLElement>('main h1')?.focus({ preventScroll: true })
   }, [arg, data])
 
+  // « Comprendre » : chargé à l'ouverture de la première fiche, puis gardé le temps de la page
+  useEffect(() => {
+    if (explain || !data || !arg || !data.levers.some(l => l.id === arg)) return
+    const load = EXPLAIN[election.id]
+    if (!load) return setExplain({})
+    load().then(setExplain, () => setExplain({}))
+  }, [arg, data, explain, election.id])
+
   if (failed) return <Shell bar={null}>{<p class="cpt-start">Les leviers de cette élection ne se chargent pas.</p>}</Shell>
   if (!data) return <Shell bar={null}>{<p class="cpt-start">{COPY.loading}…</p>}</Shell>
 
@@ -97,17 +178,67 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
     const lever = levers.find(l => l.id === id)!
     for (const other of r.reset) resetBy[other] = lever.label
     const touched = game.touched.includes(id) || isBase(lever, r.settings[id]) ? game.touched : [...game.touched, id]
-    setGame({ ...game, settings: r.settings, touched: [...touched, ...r.reset.filter(x => !touched.includes(x))], resetBy })
+    // Réglé à la main : il n'est plus « d'après vos réponses » (ni ceux qu'il remet au PLF)
+    const preset = game.preset?.filter(x => x !== id && !r.reset.includes(x)) ?? game.preset
+    // Gardé quand le réglage s'arrête (le curseur lâché, un cran touché), pas à chaque pas du glissé
+    setGame({ ...game, settings: r.settings, touched: [...touched, ...r.reset.filter(x => !touched.includes(x))], resetBy, preset }, commit)
     if (commit) {
-      const d = deficitRange(base, totals(levers, r.settings).all)
-      setStatus(`${lever.label}\u202f: ${valueText(lever, r.settings[id])}. Déficit 2027\u202f: ${pct(d)} du PIB.`)
+      const all = totals(levers, r.settings).all
+      setStatus(`${lever.label}\u202f: ${valueText(lever, r.settings[id])}. Déficit 2027\u202f: ${pct(deficitRange(base, all), deficitDecimals(base, all))} du PIB.`)
     }
+  }
+
+  /**
+   * Un levier encore réglé d'après les réponses : pré-réglé au départ, pas touché depuis, et toujours à la valeur que
+   * les réponses d'aujourd'hui donnent (une réponse changée depuis ne le laisse pas marqué)
+   */
+  const presetNow = (id: string) => {
+    const want = fromAnswers[id]
+    const have = game.settings[id]
+    return !!game.preset?.includes(id) && want !== undefined && (typeof want === 'number' && typeof have === 'number' ? Math.abs(want - have) < 1e-9 : want === have)
+  }
+  const presetIds = (game.preset ?? []).filter(presetNow)
+
+  /** Les marques d'une fiche : d'après vos réponses, vous avez répondu, réponses partagées, estimation */
+  function tagsOf(l: Lever): string[] {
+    const r = readings[l.id]
+    const tags: string[] = []
+    if (presetNow(l.id)) tags.push(COPY.tagPreset)
+    else if (r?.split) tags.push(COPY.tagSplit)
+    else if (r) tags.push(COPY.tagAnswered)
+    if (l.estimate) tags.push(COPY.tagEstimate)
+    return tags
+  }
+
+  /** Remet au PLF les leviers encore pré-réglés d'après les réponses ; l'annonce le dit, le focus va au titre */
+  function clearPresets() {
+    const settings = { ...game.settings }
+    for (const id of presetIds) delete settings[id]
+    setGame({ ...game, settings, preset: [] })
+    const all = totals(levers, settings).all
+    setStatus(`${COPY.presetCleared(presetIds.length)} Déficit 2027\u202f: ${pct(deficitRange(base, all), deficitDecimals(base, all))} du PIB.`)
+    requestAnimationFrame(() => document.querySelector<HTMLElement>('main h1')?.focus())
+  }
+
+  // Le point de départ : proposé une fois, quand des réponses se rapportent à des leviers
+  const presetCount = Object.keys(fromAnswers).length
+  // Proposé une fois, et seulement tant que rien n'est réglé : un départ d'après les réponses n'écrase jamais un réglage
+  // fait à la main
+  const askStart = game.preset === null && presetCount > 0 && !game.touched.length && !Object.keys(game.settings).length
+  function start() {
+    if (!askStart) return
+    if (startFrom === 'plf') return setGame({ ...game, preset: [], fromPlf: true })
+    let settings: Record<string, Setting> = { ...game.settings }
+    // Les leviers sur une même base ne sont jamais pré-réglés ensemble (readLevers) : aucun n'en remet un autre au PLF
+    for (const l of levers) if (l.id in fromAnswers) settings = applySetting(levers, settings, l.id, fromAnswers[l.id]!).settings
+    const set = levers.filter(l => !isBase(l, settings[l.id]) && l.id in fromAnswers).map(l => l.id)
+    setGame({ ...game, settings, preset: set, touched: [...game.touched, ...set.filter(id => !game.touched.includes(id))] })
   }
 
   // ——— L'objectif ———
   if (arg === 'objectif')
     return (
-      <Shell bar={<Bar left={{ href: link('/'), label: 'Accueil', icon: 'arrow-left' }} primary={game.goalId ? { href: link('/comptes'), label: COPY.start } : null} disabled={COPY.start} />}>
+      <Shell bar={<Bar left={{ href: link('/'), label: 'Accueil', icon: 'arrow-left' }} primary={game.goalId ? { href: link('/comptes'), label: COPY.start, onClick: start } : null} disabled={COPY.start} />}>
         <div class="cpt-start">
           <h1 class="display is-medium" tabIndex={-1}>
             {COPY.title}
@@ -125,6 +256,21 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
               </label>
             ))}
           </fieldset>
+          {askStart ? (
+            <fieldset class="cpt-goals cpt-start-from">
+              <legend>{COPY.startLegend}</legend>
+              <label class="cpt-goal-row">
+                <input type="radio" name="depart" checked={startFrom === 'answers'} onChange={() => setStartFrom('answers')} />
+                <b>{COPY.startAnswers(presetCount)}</b>
+                <span>{COPY.startAnswersLine}</span>
+              </label>
+              <label class="cpt-goal-row">
+                <input type="radio" name="depart" checked={startFrom === 'plf'} onChange={() => setStartFrom('plf')} />
+                <b>{COPY.startPlf}</b>
+                <span>{COPY.startPlfLine}</span>
+              </label>
+            </fieldset>
+          ) : null}
           <ul class="cpt-notes">
             {COPY.notes.map(n => (
               <li key={n}>{n}</li>
@@ -144,7 +290,8 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
       </Shell>
     )
 
-  const band = <Band base={base} effect={t.all} goal={goal} count={t.count} />
+  const estimatedNow = t.estimated.lo !== 0 || t.estimated.hi !== 0
+  const band = <Band base={base} effect={t.all} goal={goal} count={t.count} estimated={estimatedNow} />
   const mainBar = <Bar left={{ href: link('/comptes/objectif'), label: COPY.objective, icon: 'chevron-left' }} note={COPY.setCount(t.count)} primary={{ href: link('/comptes/budget'), label: COPY.myBudget }} />
 
   // ——— Votre budget 2027 ———
@@ -152,12 +299,17 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
     const d = deficitRange(base, t.all)
     const gap = goalGap(base, t.all, goal)
     return (
-      <Shell band={band} bar={<Bar left={{ href: link('/comptes/objectif'), label: COPY.restart, icon: 'chevron-left', onClick: () => setGame({ goalId: null, settings: {}, touched: [], resetBy: {} }) }} primary={{ href: link('/comptes'), label: COPY.backToLevers }} />}>
+      <Shell band={band} bar={<Bar left={{ href: link('/comptes/objectif'), label: COPY.restart, icon: 'chevron-left', onClick: () => setGame(EMPTY) }} primary={{ href: link('/comptes'), label: COPY.backToLevers }} />}>
         <div class="cpt-recap">
           <h1 class="display is-medium" tabIndex={-1}>
             {COPY.recapTitle}
           </h1>
-          <p class="cpt-verdict">{verdict(base, d, gap.state, gap.missing, goal)}</p>
+          <p class="cpt-verdict">{verdict(base, d, gap.state, gap.missing, goal, t.all, estimatedNow)}</p>
+          {(() => {
+            const share = estimatedShare(levers, game.settings)
+            return share.hi > 0 ? <p class="cpt-limits">{COPY.estimatedPart(md(t.all, { sign: true }), md(share))}</p> : null
+          })()}
+          <Waterfall base={base} levers={levers} settings={game.settings} goal={goal} />
           <AiLabel kind="chiffrages" more="lien" />
           <h2>{COPY.yourSettings}</h2>
           <Recap levers={levers} game={game} />
@@ -179,7 +331,7 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
   if (arg && (FAMILIES as string[]).includes(arg))
     return (
       <Shell band={band} bar={<Bar left={{ href: link('/comptes'), label: COPY.rails, icon: 'chevron-left' }} primary={{ href: link('/comptes/budget'), label: COPY.myBudget }} />}>
-        <FamilyGrid levers={levers} settings={game.settings} family={arg as Family} />
+        <FamilyGrid levers={levers} settings={game.settings} family={arg as Family} tagsOf={tagsOf} />
       </Shell>
     )
 
@@ -208,7 +360,15 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
             </h1>
           )}
           <AiLabel kind="chiffrages" class="cpt-rails-ai" />
-          <Rails levers={levers} settings={game.settings} open={open?.id} />
+          {presetIds.length ? (
+            <p class="cpt-preset-note">
+              {COPY.presetNote(presetIds.length)} ·{' '}
+              <button type="button" class="btn-text" onClick={clearPresets}>
+                {COPY.presetClear}
+              </button>
+            </p>
+          ) : null}
+          <Rails levers={levers} settings={game.settings} open={open?.id} tagsOf={tagsOf} />
         </div>
         <aside class="cpt-panel" aria-label={open ? 'Le levier ouvert' : 'Vos réglages et ce que le calcul ne compte pas'}>
           {open ? (
@@ -230,6 +390,11 @@ export function Budget({ election, arg, focusOnArrival }: { election: ElectionIn
                 resetBy={isBase(open, game.settings[open.id]) ? game.resetBy[open.id] : undefined}
                 onSet={(v, commit) => set(open.id, v, commit)}
                 tint={tintOf(levers, open)}
+                reading={readings[open.id]}
+                fromAnswers={presetNow(open.id)}
+                sameBase={(readings[open.id]?.sameBase ?? []).map(id => levers.find(l => l.id === id)?.label ?? id)}
+                approachText={approachText}
+                explainer={explain ? (explain[open.id] ?? null) : undefined}
               />
             </>
           ) : (
