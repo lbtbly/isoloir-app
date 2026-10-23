@@ -32,7 +32,31 @@ export function leverChange(lever: Lever, value: Setting | undefined): Range {
   }
   const v = value as number
   const pu = v < 0 && lever.perUnitDown ? lever.perUnitDown : lever.perUnit
-  return sorted(v * pu.lo, v * pu.hi)
+  // Dans la plage chiffrée, l'effet publié ; au-delà (stretch), chaque unité en plus à l'effet estimé
+  const inside = Math.sign(v) * Math.min(Math.abs(v), lever.max)
+  const beyond = v - inside
+  if (!beyond || !lever.stretch) return sorted(inside * pu.lo, inside * pu.hi)
+  const st = v < 0 && lever.stretch.perUnitDown ? lever.stretch.perUnitDown : lever.stretch.perUnit
+  return sorted(inside * pu.lo + beyond * st.lo, inside * pu.hi + beyond * st.hi)
+}
+
+/** Le réglage va-t-il au-delà de la plage chiffrée par la source ? */
+export const beyondSource = (lever: Lever, value: Setting | undefined): boolean =>
+  lever.kind === 'linear' && typeof value === 'number' && Math.abs(value) > lever.max + 1e-9
+
+/**
+ * La part estimée par Isoloir de l'effet sur le solde (décision du 18 octobre 2026) : tout l'effet d'un levier ou d'un
+ * réglage estimé, ou ce qui dépasse la plage chiffrée par la source
+ */
+export function estimatedEffect(lever: Lever, value: Setting | undefined): Range {
+  if (isBase(lever, value)) return ZERO
+  if (lever.estimate) return balanceEffect(lever, value)
+  if (lever.kind === 'options') return lever.options?.find(o => o.id === value)?.estimate ? balanceEffect(lever, value) : ZERO
+  if (!beyondSource(lever, value)) return ZERO
+  const v = value as number
+  const all = balanceEffect(lever, v)
+  const sourced = balanceEffect(lever, Math.sign(v) * lever.max)
+  return sorted(all.lo - sourced.lo, all.hi - sourced.hi)
 }
 
 /** L'effet sur le solde public (Md€) : positif, le déficit baisse */
@@ -41,9 +65,28 @@ export function balanceEffect(lever: Lever, value: Setting | undefined): Range {
   return lever.direction === 'recette' ? c : sorted(-c.hi, -c.lo)
 }
 
+/**
+ * La part des réglages qui repose sur des estimations d'Isoloir, en Md€, sans signe : par levier, la taille de sa part
+ * estimée (de 0 quand sa fourchette va dans les deux sens), additionnée
+ */
+export function estimatedShare(levers: readonly Lever[], settings: Settings): Range {
+  const out = { ...ZERO }
+  for (const l of levers) {
+    const e = estimatedEffect(l, settings[l.id])
+    if (e.lo === 0 && e.hi === 0) continue
+    const a = Math.abs(e.lo)
+    const b = Math.abs(e.hi)
+    out.lo += e.lo < 0 && e.hi > 0 ? 0 : Math.min(a, b)
+    out.hi += Math.max(a, b)
+  }
+  return out
+}
+
 export interface Totals {
   /** Effet sur le solde, toutes familles */
   all: Range
+  /** Dont la part estimée par Isoloir (leviers ou réglages sans chiffrage éligible, au-delà de la plage chiffrée) */
+  estimated: Range
   byFamily: Record<Family, Range>
   /** Leviers réglés (hors PLF) */
   count: number
@@ -52,18 +95,22 @@ export interface Totals {
 export function totals(levers: readonly Lever[], settings: Settings): Totals {
   const byFamily: Record<Family, Range> = { impots: { ...ZERO }, depenses: { ...ZERO }, sociale: { ...ZERO } }
   const all = { ...ZERO }
+  const estimated = { ...ZERO }
   let count = 0
   for (const l of levers) {
     const v = settings[l.id]
     if (isBase(l, v)) continue
     const e = balanceEffect(l, v)
+    const est = estimatedEffect(l, v)
+    estimated.lo += est.lo
+    estimated.hi += est.hi
     count++
     all.lo += e.lo
     all.hi += e.hi
     byFamily[l.family].lo += e.lo
     byFamily[l.family].hi += e.hi
   }
-  return { all, byFamily, count }
+  return { all, estimated, byFamily, count }
 }
 
 /** Le changement par famille, dans le sens des recettes (impôts) ou des dépenses (les deux autres familles) */
@@ -78,6 +125,39 @@ export function familyChange(levers: readonly Lever[], settings: Settings, famil
   }
   // Les impôts se disent en recettes (même signe que le solde) ; les dépenses en dépenses (signe contraire)
   return family === 'impots' ? { lo, hi } : sorted(-hi, -lo)
+}
+
+/** Un pas de la cascade de « Votre budget 2027 » : une famille, ce qui y baisse le déficit ou ce qui l'augmente */
+export interface FallStep {
+  family: Family
+  /** Ces réglages baissent le déficit (plus de recettes, moins de dépenses) */
+  lowers: boolean
+  /** Leur effet sur le solde (Md€) : positif, le déficit baisse */
+  effect: Range
+}
+
+const FAMILY_ORDER: Family[] = ['impots', 'depenses', 'sociale']
+
+/**
+ * La cascade du PLF à votre budget : par famille, ce qui baisse le déficit puis ce qui l'augmente, chacun en fourchette
+ * (un levier dont la fourchette va dans les deux sens est rangé selon son milieu)
+ */
+export function fallSteps(levers: readonly Lever[], settings: Settings): FallStep[] {
+  const out: FallStep[] = []
+  for (const family of FAMILY_ORDER) {
+    const down = { ...ZERO }
+    const up = { ...ZERO }
+    for (const l of levers) {
+      if (l.family !== family || isBase(l, settings[l.id])) continue
+      const e = balanceEffect(l, settings[l.id])
+      const into = e.lo + e.hi >= 0 ? down : up
+      into.lo += e.lo
+      into.hi += e.hi
+    }
+    if (down.lo !== 0 || down.hi !== 0) out.push({ family, lowers: true, effect: down })
+    if (up.lo !== 0 || up.hi !== 0) out.push({ family, lowers: false, effect: up })
+  }
+  return out
 }
 
 export interface Baseline {
@@ -107,9 +187,13 @@ export function goalGap(base: Baseline, effect: Range, goal: Goal): { state: Goa
   return { state, missing }
 }
 
-/** Ramène une valeur dans la plage du levier, au pas du curseur */
+/** La borne du curseur : la plage chiffrée, ou plus loin en estimation */
+export const outerMax = (lever: Lever) => Math.max(lever.max, lever.stretch?.max ?? 0)
+
+/** Ramène une valeur dans la plage du levier (jusqu'à la borne estimée), au pas du curseur */
 export function clampValue(lever: Lever, value: number): number {
-  const v = Math.max(-lever.max, Math.min(lever.max, value))
+  const bound = outerMax(lever)
+  const v = Math.max(-bound, Math.min(bound, value))
   const steps = Math.round(v / lever.step)
   // Arrondi au pas, sans laisser de queue flottante (0,30000000000000004)
   return Number((steps * lever.step).toFixed(6))

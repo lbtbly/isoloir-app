@@ -49,14 +49,24 @@ export function mdPublished(r: Range): string {
   return lo === hi ? `${fr(lo, d)}${NB}Md€` : `${fr(lo, d)} à ${fr(hi, d)}${NB}Md€`
 }
 
+/**
+ * Les décimales du déficit : une, sauf quand les réglages le bougent de moins de 0,1 point de PIB (un levier sur une
+ * petite ligne), où une seule décimale ne montrerait aucun mouvement : deux
+ */
+export const deficitDecimals = (b: Baseline, effect: Range) =>
+  Math.max(Math.abs(effect.lo), Math.abs(effect.hi)) > 0 && (Math.max(Math.abs(effect.lo), Math.abs(effect.hi)) / b.gdp) * 100 < 0.1 ? 2 : 1
+
 /** Une fourchette de déficit en % du PIB : « 4,2 à 4,4 % » */
+// Un pourcentage négatif (un excédent) prend le vrai signe moins, comme les montants
+const frSigned = (x: number, d: number) => fr(x, d).replace(/^[-\u2212]/, MINUS)
+
 export function pct(r: Range, d = 1): string {
   const lo = down(r.lo, d)
   const hi = up(r.hi, d)
-  return lo === hi ? `${fr(lo, d)}${NB}%` : `${fr(lo, d)} à ${fr(hi, d)}${NB}%`
+  return lo === hi ? `${frSigned(lo, d)}${NB}%` : `${frSigned(lo, d)} à ${frSigned(hi, d)}${NB}%`
 }
 
-export const pctOne = (x: number, d = 1) => `${fr(x, d)}${NB}%`
+export const pctOne = (x: number, d = 1) => `${frSigned(x, d)}${NB}%`
 
 /** Le réglage d'un levier linéaire en clair, avec la forme courte de l'unité : « +0,6 point », « −30 000 emplois », « +10 % » ;
  *  le nombre de l'unité (« 10 000 emplois », « 0,1 point de PIB ») multiplie le réglage, l'explication reste sur la fiche */
@@ -115,14 +125,20 @@ export function goalLine(id: GoalId, b: Baseline): string {
 export const goalShort = (goal: number | null) => (goal === null ? 'Pas d’objectif' : `sous ${pctOne(goal, goal % 1 ? 1 : 0)}`)
 
 /** La phrase de la bande, sous l'axe, en morceaux : le montant (« strong ») s'imprime au bleu bille */
-export function bandSentence(state: GoalState, missing: Range, moved: boolean, effect: Range): { before: string; strong?: string; after?: string } {
+export function bandSentence(state: GoalState, missing: Range, moved: boolean, effect: Range, estimated = false): { before: string; strong?: string; after?: string } {
+  // Une part estimée par Isoloir : ce ne sont plus seulement des chiffrages publiés
+  const all = estimated ? ' selon toutes les fourchettes, estimations d’Isoloir comprises.' : ' selon tous les chiffrages publiés.'
+  const some = estimated ? 'une partie des fourchettes' : 'une partie des chiffrages'
   switch (state) {
     case 'reached':
-      return { before: '', strong: 'Objectif atteint', after: ' selon tous les chiffrages publiés.' }
+      return { before: '', strong: 'Objectif atteint', after: all }
     case 'partly':
-      return { before: `Objectif atteint selon une partie des chiffrages${NB}; selon les autres, il manque jusqu’à `, strong: md({ lo: missing.hi, hi: missing.hi }), after: '.' }
+      return { before: `Objectif atteint selon ${some}${NB}; selon les autres, il manque jusqu’à `, strong: md({ lo: missing.hi, hi: missing.hi }), after: '.' }
     case 'missing':
-      return { before: 'Pour votre objectif, encore ', strong: md(missing), after: '.' }
+      // Les réglages en Md€ d'abord : un levier sur une petite ligne bouge à peine le pourcentage, pas le montant
+      return moved
+        ? { before: `Vos réglages${NB}: ${md(effect, { sign: true })}${NB}; pour votre objectif, encore `, strong: md(missing), after: '.' }
+        : { before: 'Pour votre objectif, encore ', strong: md(missing), after: '.' }
     default:
       return moved ? { before: `Vos réglages${NB}: `, strong: md(effect, { sign: true }), after: ' sur le solde.' } : { before: 'Le déficit prévu par le projet de loi de finances, non voté.' }
   }
@@ -136,9 +152,9 @@ export const COPY = {
     `Au départ, le déficit prévu par le projet de loi de finances pour 2027${NB}: ${pctOne(b.deficitPct)} du PIB, soit environ ${fr(Math.round((b.deficitPct * b.gdp) / 100), 0)}${NB}Md€. Ce projet n’est pas encore voté.`,
   goalLegend: 'Votre objectif',
   notes: [
-    'Vos réglages restent sur cet appareil le temps de la page\u202f; rien n’est envoyé, rien n’est gardé.',
-    'Vos réponses aux questions ne sont pas lues\u202f: ce jeu ne dit rien de vos idées.',
-    'Chaque montant vient d’une source citée, en fourchette quand les sources divergent.',
+    'Vos réglages sont gardés sur cet appareil, avec vos réponses, et repris dans le double que vous exportez\u202f; rien n’est envoyé.',
+    'Vos réponses aux questions, si vous en avez donné, peuvent pré-régler les leviers qui s’y rapportent\u202f: chaque fiche le dit, et tout se change.',
+    'Chaque montant vient d’une source citée, en fourchette quand les sources divergent, ou d’une estimation d’Isoloir, dite comme telle.',
   ],
   start: 'Commencer',
   bandLabel: 'Votre déficit 2027, en % du PIB',
@@ -169,12 +185,13 @@ export const COPY = {
   later: 'Après 2027',
   line: 'La ligne du budget',
   sources: 'Sources',
+  moreSources: (n: number) => (n > 1 ? `Les ${n} autres sources` : 'L’autre source'),
   consulted: (d: string) => `consulté le ${d.split('-').reverse().join('/')}`,
   resetBy: (other: string) => `remis au PLF\u202f: «\u202f${other}\u202f» porte sur la même base`,
   partly: (names: string[]) => {
     const q = names.map(n => `«${NB}${n}${NB}»`)
     const list = q.length > 1 ? `${q.slice(0, -1).join(', ')} et ${q[q.length - 1]}` : q[0]
-    return `Vous avez aussi réglé ${list}, qui recoupe${q.length > 1 ? 'nt' : ''} en partie ce levier (la paie des agents publics)${NB}: une même baisse ou une même hausse peut y compter deux fois.`
+    return `Vous avez aussi réglé ${list}, qui porte${q.length > 1 ? 'nt' : ''} en partie sur la même base que ce levier${NB}: une même baisse ou une même hausse peut y compter deux fois.`
   },
   myBudget: 'Mon budget',
   objective: 'Objectif',
@@ -193,21 +210,70 @@ export const COPY = {
     'Les réactions des ménages et des entreprises\u202f: chaque montant est un effet mécanique sur l’année 2027.',
     'Les effets sur la croissance et l’emploi, ni dans un sens ni dans l’autre.',
     'Ce qui ne joue qu’après 2027\u202f: une réforme des retraites, par exemple, monte en charge sur plusieurs années.',
-    'Les mesures qu’aucune source éligible ne chiffre\u202f: elles ne sont pas dans le jeu.',
+    'Les mesures qu’on ne peut ni chiffrer ni estimer honnêtement\u202f: elles ne sont pas dans le jeu.',
   ],
   howTitle: 'Comment c’est calculé',
+  // Le point de départ, quand des réponses se rapportent à des leviers
+  startLegend: 'Votre point de départ',
+  startAnswers: (n: number) => `D’après mes réponses (${n} levier${n > 1 ? 's' : ''} pré-réglé${n > 1 ? 's' : ''})`,
+  startAnswersLine: 'Les leviers que vos réponses approuvent partent dans leur sens\u202f; vous les réglez ensuite comme vous voulez.',
+  startPlf: 'Le PLF, sans rien régler',
+  startPlfLine: 'Tous les leviers au réglage du projet de loi de finances.',
+  presetNote: (n: number) => `${n} levier${n > 1 ? 's' : ''} pré-réglé${n > 1 ? 's' : ''} d’après vos réponses`,
+  presetClear: 'Les remettre au PLF',
+  // Les marques des fiches
+  tagPreset: 'd’après vos réponses',
+  tagAnswered: 'vous avez répondu',
+  tagSplit: 'réponses partagées',
+  tagEstimate: 'estimation',
+  answersTitle: 'Vos réponses',
+  stance: { agree: 'D’accord', disagree: 'Pas d’accord', red: 'Ligne rouge' } as const,
+  towards: (dir: 1 | -1, lever: Lever) =>
+    dir > 0 ? (lever.direction === 'recette' ? 'plus de recettes' : 'plus de dépenses') : lever.direction === 'recette' ? 'moins de recettes' : 'moins de dépenses',
+  presetIs: (v: string) => `Pré-réglé d’après vos réponses\u202f: ${v}.`,
+  splitIs: 'Vos réponses tirent ce levier dans les deux sens (ou une ligne rouge contredit un accord)\u202f: rien n’est pré-réglé.',
+  // Les estimations d'Isoloir et la plage au-delà de la source (décisions du 18 octobre 2026)
+  estimateTitle: 'Estimation d’Isoloir',
+  estimateLine: 'Aucune source éligible ne chiffre ce levier\u202f: l’effet est estimé par Isoloir, en fourchette large, à partir de chiffres officiels cités.',
+  estimateHow: 'Comment c’est estimé',
+  beyondLine: (max: string) => `Hachuré, au-delà de ${max}\u202f: la source ne chiffre plus, l’effet est une estimation, en fourchette élargie.`,
+  beyondEstimate: (max: string) => `Hachuré, au-delà de ${max}\u202f: l’estimation d’Isoloir s’élargit encore.`,
+  beyondNow: 'Ce réglage va au-delà de la plage chiffrée par la source\u202f: une partie de l’effet est estimée.',
+  estimatedPart: (all: string, share: string) =>
+    `Vos réglages font ${all} sur le solde, dont ${share} d’effets estimés par Isoloir (sans chiffrage éligible, ou au-delà de la plage chiffrée).`,
+  sameBaseIs: (others: string) => `Vos réponses régleraient aussi ${others}, sur la même base\u202f: rien n’est pré-réglé, à vous de choisir lequel régler.`,
+  noPresetIs: 'Votre accord ne dit pas de réglage lisible pour ce levier\u202f: rien n’est pré-réglé.',
+  partialIs: 'Ces approches ne portent qu’en partie sur ce levier (une façon parmi d’autres de les faire)\u202f: il n’est pas pré-réglé.',
+  mainIs: 'Votre réponse porte sur plusieurs leviers à la fois\u202f: celui de la plus grosse ligne la représente, d’un cran.',
+  presetCleared: (n: number) => `${n} levier${n > 1 ? 's' : ''} remis au PLF.`,
+  // « Comprendre » un levier
+  understand: 'Comprendre',
+  understandMore: 'Qui paie, ce qui change, les arguments',
+  who: 'Qui est concerné',
+  ifUp: 'S’il monte',
+  ifDown: 'S’il baisse',
+  argsUp: 'Pour le monter, on avance',
+  argsDown: 'Pour le baisser, on avance',
+  fallTitle: 'Du PLF à votre budget',
+  fallStart: 'Déficit prévu (PLF 2027)',
+  fallEnd: 'Votre déficit 2027',
+  fallStep: (family: 'impots' | 'depenses' | 'sociale', lowers: boolean) =>
+    family === 'impots'
+      ? `Impôts et cotisations${NB}: ${lowers ? 'recettes en plus' : 'recettes en moins'}`
+      : `${family === 'depenses' ? 'Dépenses de l’État' : 'Protection sociale'}${NB}: ${lowers ? 'dépenses en moins' : 'dépenses en plus'}`,
+  fallNote: 'Chaque pas regroupe vos réglages d’une famille dans un sens\u202f; la barre suit le milieu de chaque fourchette.',
   setCount: (n: number) => (n === 0 ? 'Aucun levier réglé' : n === 1 ? '1 levier réglé' : `${n} leviers réglés`),
   loading: 'Chargement des leviers',
 } as const
 
 /** La phrase de « Votre budget 2027 » */
-export function verdict(b: Baseline, deficit: Range, state: GoalState, missing: Range, goal: number | null): string {
-  const now = `Avec vos réglages, le déficit passerait de ${pctOne(b.deficitPct)} à ${pct(deficit)} du PIB.`
+export function verdict(b: Baseline, deficit: Range, state: GoalState, missing: Range, goal: number | null, effect: Range = { lo: 0, hi: 0 }, estimated = false): string {
+  const now = `Avec vos réglages, le déficit passerait de ${pctOne(b.deficitPct)} à ${pct(deficit, deficitDecimals(b, effect))} du PIB.`
   switch (state) {
     case 'reached':
-      return `${now} Votre objectif (${goalShort(goal)}) est atteint selon tous les chiffrages publiés.`
+      return `${now} Votre objectif (${goalShort(goal)}) est atteint ${estimated ? 'selon toutes les fourchettes, estimations d’Isoloir comprises' : 'selon tous les chiffrages publiés'}.`
     case 'partly':
-      return `${now} Votre objectif (${goalShort(goal)}) est atteint selon une partie des chiffrages\u202f; selon les autres, il manque jusqu’à ${md({ lo: missing.hi, hi: missing.hi })}.`
+      return `${now} Votre objectif (${goalShort(goal)}) est atteint selon une partie des ${estimated ? 'fourchettes' : 'chiffrages'}\u202f; selon les autres, il manque jusqu’à ${md({ lo: missing.hi, hi: missing.hi })}.`
     case 'missing':
       return `${now} Pour votre objectif (${goalShort(goal)}), il manque encore ${md(missing)}.`
     default:

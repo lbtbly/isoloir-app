@@ -1,0 +1,18 @@
+{
+  "_note": "Mesure du mode relié (node tools/budget-pregate.mjs --links research/presidentielle-2027/budget-links.json --write-gate research/presidentielle-2027/budget-gate.json, puis la même avec --presettable) : couverture par bloc des approches que portent ses candidats, à part pour celles qui creusent et celles qui réduisent le déficit ; d'abord toutes les approches reliées (marquées sur une fiche), puis « preset » : seulement celles qui pré-règlent un levier (liens exacts ou de sens, pas les liens partiels).",
+  "threshold": 1.5,
+  "creuse": 1.17,
+  "reduit": 1.39,
+  "worstCreuse": 1.22,
+  "worstReduit": 1.61,
+  "reach": 1.55,
+  "pass": false,
+  "preset": {
+    "creuse": 1.17,
+    "reduit": 1.35,
+    "worstCreuse": 1.22,
+    "worstReduit": 1.53,
+    "reach": 1.61,
+    "pass": false
+  }
+}

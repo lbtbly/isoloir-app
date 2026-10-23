@@ -2,6 +2,7 @@
 // avec effacement complet à la demande. Chaque accès est protégé (navigation privée,
 // stockage bloqué) : l'application fonctionne aussi sans stockage.
 
+import type { BudgetSave } from './budget/types'
 import { newSeed } from './rng'
 import { type Answer, type Answers, type CandidateId, type ElectionPack, type Question, type QuestionBank, type Rating, type TopicId, type TopicWeights } from './types'
 
@@ -47,6 +48,8 @@ export interface SessionState {
    * y est ajoutée ensuite : c'est ce qui permet de signaler « nouvelle question depuis le … ».
    */
   essentialDoneAt: string | null
+  /** Les réglages de « Faire les comptes », s'il y en a (core/budget/types.ts) */
+  budget?: BudgetSave | null
   updatedAt: string
 }
 
@@ -71,6 +74,7 @@ export function freshState(electionId: string, dataVersion: string): SessionStat
     dataUpdatedFrom: null,
     beforeUpdate: null,
     essentialDoneAt: null,
+    budget: null,
     updatedAt: new Date().toISOString(),
   }
 }
@@ -164,6 +168,35 @@ function readAnswer(raw: Record<string, unknown>, q: Question): Answer | null {
   return { ratings, redLines, ...(rated ? {} : { skipped: true }), ...(rev ? { rev } : {}) }
 }
 
+const LEVER_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/
+const GOAL_IDS = new Set(['garder', 'moitie', 'trois', 'aucun'])
+const MAX_LEVERS = 400
+
+/**
+ * Lit les réglages du jeu : des identifiants de levier bien formés, des valeurs bornées ; leur sens (levier connu,
+ * valeur dans sa plage, option existante) est vérifié par le jeu, qui seul charge les leviers
+ */
+export function sanitizeBudget(raw: unknown): BudgetSave | null {
+  if (!isRecord(raw)) return null
+  const goalId = typeof raw.goalId === 'string' && GOAL_IDS.has(raw.goalId) ? raw.goalId : null
+  const settings: Record<string, number | string> = {}
+  if (isRecord(raw.settings))
+    for (const [id, v] of Object.entries(raw.settings).slice(0, MAX_LEVERS)) {
+      if (!LEVER_ID.test(id) || id.length > 80) continue
+      if (typeof v === 'number' && Number.isFinite(v) && Math.abs(v) <= 1e4) settings[id] = v
+      else if (typeof v === 'string' && LEVER_ID.test(v) && v.length <= 80) settings[id] = v
+    }
+  const touched = Array.isArray(raw.touched)
+    ? [...new Set(raw.touched.filter((t): t is string => typeof t === 'string' && LEVER_ID.test(t) && t.length <= 80))].slice(0, MAX_LEVERS)
+    : []
+  const preset = Array.isArray(raw.preset)
+    ? [...new Set(raw.preset.filter((t): t is string => typeof t === 'string' && LEVER_ID.test(t) && t.length <= 80))].slice(0, MAX_LEVERS)
+    : undefined
+  const fromPlf = raw.fromPlf === true ? true : undefined
+  if (goalId === null && !Object.keys(settings).length && !touched.length && !preset && !fromPlf) return null
+  return { goalId, settings, touched, ...(preset ? { preset } : {}), ...(fromPlf ? { fromPlf } : {}) }
+}
+
 /** Lit les réponses enregistrées et retire celles qui ne correspondent plus à la banque de questions */
 export function migrateAnswers(raw: unknown, bank: QuestionBank): Answers {
   const out: Answers = {}
@@ -252,6 +285,7 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
     beforeUpdate,
     // Sauvegarde antérieure à ce champ : la dernière modification en tient lieu, si la feuille est complète
     essentialDoneAt: isoOrNull(raw.essentialDoneAt) ?? (essentialComplete(bank, answers) ? updatedAt : null),
+    budget: sanitizeBudget(raw.budget),
     updatedAt: updatedAt ?? new Date().toISOString(),
   }
 }
@@ -273,6 +307,8 @@ export function loadState(pack: ElectionPack): SessionState {
     if (raw) {
       const parsed = sanitizeState(JSON.parse(raw), pack)
       if (parsed) return parsed
+      // Lisible mais refusé (une autre élection sous cette clé…) : mis de côté aussi, jamais perdu
+      s?.setItem(`${storageKey(electionId)}:illisible`, raw)
     }
   } catch {
     // Stockage illisible : on le met de côté plutôt que de l'écraser, puis on repart d'une feuille vierge
@@ -285,12 +321,20 @@ export function loadState(pack: ElectionPack): SessionState {
   return freshState(electionId, dataVersion)
 }
 
+/**
+ * Un état importé remplace la feuille ; s'il ne porte pas de réglages de « Faire les comptes » (un code de transfert,
+ * un double d'avant le 18 octobre 2026), ceux de cet appareil sont gardés plutôt qu'effacés
+ */
+export const withBudgetKept = (next: SessionState, current: SessionState): SessionState =>
+  next.budget ? next : { ...next, budget: current.budget ?? null }
+
 /** Une feuille vierge n'est pas enregistrée : rien n'est écrit tant que l'utilisateur n'a rien fait */
 export function isBlank(state: SessionState): boolean {
   return (
     Object.keys(state.answers).length === 0 &&
     Object.keys(state.weights).length === 0 &&
-    state.deepTopics.length === 0
+    state.deepTopics.length === 0 &&
+    !state.budget
   )
 }
 

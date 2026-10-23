@@ -164,6 +164,11 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             comme toute adresse visitée.
           </p>
           <p>
+            Les réglages de «&nbsp;Faire les comptes&nbsp;» (l’objectif choisi et la valeur de chaque levier réglé) sont gardés
+            avec la progression, sous la même clé, et repris dans le double&nbsp;; ils ne sont pas dans le code de transfert.
+            Comme le reste, ils ne quittent pas l’appareil et partent avec «&nbsp;Tout effacer&nbsp;».
+          </p>
+          <p>
             La page «&nbsp;Mon profil politique&nbsp;» est calculée sur cet appareil, à partir de votre progression&nbsp;: elle
             reste seulement en mémoire le temps de la visite (un rechargement l’oublie) et ne figure ni sur l’affiche, ni
             dans le PDF, ni dans le double, ni dans le code de transfert&nbsp;: un autre appareil la recalcule à partir de

@@ -14,7 +14,12 @@
 // - G4, leviers atteignables dans le sens de chaque bloc ; G5, idées à trancher par bloc.
 // Puis les règles d'arrêt du plan, avec leur verdict.
 //
-// Usage : node tools/budget-pregate.mjs [--map <fichier>] [--noisy 60] [--profiles 400] [--json]
+// Mode relié (décision du propriétaire du 18 octobre 2026 : le jeu marque et pré-règle les leviers d'après les réponses) :
+// --links research/presidentielle-2027/budget-links.json mesure la couverture sur les liens vérifiés approche → levier du
+// jeu tel qu'il est construit (src/elections/<id>/budget.ts) ; une approche est couverte si elle est reliée à un levier
+// gardé, chiffré ou estimé ; son sens (creuse ou réduit le déficit) se lit du levier et du sens du lien.
+//
+// Usage : node tools/budget-pregate.mjs [--map <fichier>] [--links <fichier>] [--noisy 60] [--profiles 400] [--json]
 // Il faut Node 22.18+ (TypeScript sans compilation).
 
 import { readFileSync } from 'node:fs'
@@ -42,8 +47,33 @@ const { hashString, mulberry32 } = await importSite('src/core/rng.ts')
 
 const decisions = JSON.parse(readFileSync(join(ROOT, 'research/presidentielle-2027/budget-decisions.json'), 'utf8'))
 const draft = JSON.parse(readFileSync(resolve(ROOT, MAP_FILE), 'utf8'))
-const map = draft.entries
-const catalogue = draft.catalogue
+const LINKS_FILE = opt('--links', null)
+// --presettable : seulement les liens qui peuvent pré-régler (pas les liens partiels, qui ne font que marquer la fiche)
+const PRESETTABLE = argv.includes('--presettable')
+let map = draft.entries
+let catalogue = draft.catalogue
+if (LINKS_FILE) {
+  const links = JSON.parse(readFileSync(resolve(ROOT, LINKS_FILE), 'utf8')).links
+  const { budget } = await importSite('src/elections/presidentielle-2027/budget.ts')
+  const byId = new Map(budget.levers.map(l => [l.id, l]))
+  // Le sens d'un lien sur le déficit : plus de recettes ou moins de dépenses le réduisent
+  const signOf = k => ((byId.get(k.lever).direction === 'recette') === (k.dir > 0) ? 'reduit' : 'creuse')
+  const derived = {}
+  for (const [id, e] of Object.entries(draft.entries)) {
+    // Pré-réglables : un lien exact ou de sens, ou, pour une approche dont tous les liens sont partiels, le levier de la
+    // plus grosse ligne (src/core/budget/links.ts, mainLinks)
+    const all = links.filter(k => k.approach === id && byId.has(k.lever))
+    const lineOf = k => byId.get(k.lever).base?.value ?? 0
+    const main = all.length && all.every(k => k.fit === 'partial') ? [all.reduce((a, b) => (lineOf(b) > lineOf(a) ? b : a))] : []
+    const ls = PRESETTABLE ? [...all.filter(k => k.fit !== 'partial'), ...main] : all
+    if (ls.length) {
+      const signs = new Set(ls.map(signOf))
+      derived[id] = { ...e, status: 'a-regler', lever: ls[0].lever, deficit: signs.size === 1 ? [...signs][0] : 'les-deux' }
+    } else derived[id] = { ...e, status: e.status === 'sans-effet' ? 'sans-effet' : 'non-chiffre', lever: null }
+  }
+  map = derived
+  catalogue = { groups: [], levers: budget.levers.map(l => ({ id: l.id, eligible: true })) }
+}
 const Q = pack.bank.questions
 const P = profilesFor(pack)
 const SH = pack.election.spectrum.axis.map(a => a.short)
@@ -75,7 +105,11 @@ const fmtRatio = x => (x === null ? 'n/a' : x === Infinity ? '∞' : x.toFixed(2
 const allIds = Q.flatMap(q => q.approaches.map(a => a.id))
 const missing = allIds.filter(id => !map[id])
 const extra = Object.keys(map).filter(id => !allIds.includes(id))
-console.log(`« Faire les comptes » : vérification de l'étape 0 sur ${MAP_FILE}, version ${DIRECTIONS_ONLY ? '« À régler » (directions seulement)' : 'complète'}`)
+console.log(
+  LINKS_FILE
+    ? `« Faire les comptes » : mesure du mode relié sur ${LINKS_FILE} et les leviers construits`
+    : `« Faire les comptes » : vérification de l'étape 0 sur ${MAP_FILE}, version ${DIRECTIONS_ONLY ? '« À régler » (directions seulement)' : 'complète'}`,
+)
 console.log(`Carte : ${Object.keys(map).length} entrées pour ${allIds.length} approches${missing.length ? ` ; MANQUANTES ${missing.length} (${missing.slice(0, 8).join(', ')}…)` : ''}${extra.length ? ` ; inconnues ${extra.length}` : ''}`)
 
 const byStatus = {}
@@ -255,6 +289,33 @@ console.log('\nRègles d\'arrêt (budget-decisions.json, fixées le 17/10 avant 
 for (const r of rules) console.log(`  ${r.pass ? 'passe     ' : 'NE PASSE PAS'}  ${r.rule} : ${r.value}`)
 const go = rules.every(r => r.pass)
 console.log(`\nVerdict : ${go ? (DIRECTIONS_ONLY ? 'ALLER — la version « À régler » peut passer aux maquettes' : 'ALLER — le jeu complet peut passer à la recherche des chiffrages') : DIRECTIONS_ONLY ? 'NE PASSE PAS — retirer la composante en cause, ne jamais retoucher les bornes ni les seuils' : `REPLI — ${STOP.fallback}`}`)
+
+// Mode relié : la mesure publiée par la Méthode du jeu (lue par tools/build-budget.mjs), avec et sans chaque candidat
+const GATE_OUT = opt('--write-gate', null)
+if (LINKS_FILE && GATE_OUT) {
+  const round = x => (x === null || x === Infinity ? null : Math.round(x * 100) / 100)
+  const measured = {
+    creuse: round(ratio(g1.creuse)),
+    reduit: round(ratio(g1.reduit)),
+    worstCreuse: round(worst.creuse),
+    worstReduit: round(worst.reduit),
+    reach: round(g4Ratio),
+    pass: g1Pass,
+  }
+  const { writeFileSync, existsSync: exists, readFileSync: read } = await import('node:fs')
+  const prev = exists(resolve(ROOT, GATE_OUT)) ? JSON.parse(read(resolve(ROOT, GATE_OUT), 'utf8')) : {}
+  // Deux mesures dans le même fichier : les approches représentées (marquées sur une fiche), et celles qui pré-règlent
+  const gate = PRESETTABLE
+    ? { ...prev, preset: measured }
+    : {
+        _note: `Mesure du mode relié (node tools/budget-pregate.mjs --links ${LINKS_FILE} --write-gate ${GATE_OUT}, puis la même avec --presettable) : couverture par bloc des approches que portent ses candidats, à part pour celles qui creusent et celles qui réduisent le déficit ; d'abord toutes les approches reliées (marquées sur une fiche), puis « preset » : seulement celles qui pré-règlent un levier (liens exacts ou de sens, pas les liens partiels).`,
+        threshold: RATIO,
+        ...measured,
+        ...(prev.preset ? { preset: prev.preset } : {}),
+      }
+  writeFileSync(resolve(ROOT, GATE_OUT), JSON.stringify(gate, null, 2) + '\n')
+  console.log(`\nécrit : ${GATE_OUT}`)
+}
 
 if (JSON_OUT)
   process.stdout.write(

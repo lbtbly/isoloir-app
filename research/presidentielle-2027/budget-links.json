@@ -1,0 +1,2535 @@
+{
+ "_note": "Liens vérifiés des approches des questions vers les leviers (décision du 18/10/2026 : marques et pré-réglage) : workflow budget-expansion-finish (relieur par lot, vérificateur indépendant, arbitre), le 23/10/2026. Remplace la version provisoire tirée de la carte. « none » : les approches qu’aucun levier ne représente, et pourquoi.",
+ "links": [
+  {
+   "approach": "retraites-1-a",
+   "lever": "age-legal-retraite",
+   "dir": 1,
+   "setting": "60-ans",
+   "fit": "exact",
+   "note": "L'option « 60 ans dès 2027, durée requise inchangée » correspond à l'approche : 60 ans sans allonger la durée de cotisation. C'est une estimation, sur les régimes alignés seulement. Si « à taux plein » voulait dire sans condition de durée, le coût serait plus élevé, et il n'est pas chiffré."
+  },
+  {
+   "approach": "retraites-1-b",
+   "lever": "age-legal-retraite",
+   "dir": 1,
+   "setting": "62-ans",
+   "fit": "exact",
+   "note": "L'option « 62 ans » revient aux règles d'avant la réforme de 2023. Le départ anticipé pour carrière longue existe déjà dans la loi et reste en place. Le chiffre ne couvre que les régimes alignés."
+  },
+  {
+   "approach": "retraites-1-f",
+   "lever": "age-legal-retraite",
+   "dir": -1,
+   "setting": "reprise-64",
+   "fit": "exact",
+   "note": "L'option « reprise du calendrier vers 64 ans dès 2027 » correspond à l'approche. Aller vers 65 ans (option « 65 ans ») a le même effet en 2027 : l'écart ne commence qu'en 2033. Un âge lié à l'espérance de vie n'a pas de réglage."
+  },
+  {
+   "approach": "retraites-2-c",
+   "lever": "capital-naissance",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le levier verse un capital à chaque enfant né en 2027, bloqué jusqu'à sa retraite. Le montant n'est pas précisé : la personne le choisit. C'est une estimation, comptée comme un versement à l'enfant : placé dans un fonds public qui reste aux administrations, ce capital ne pèserait pas sur le déficit."
+  },
+  {
+   "approach": "retraites-2-e",
+   "lever": "epargne-retraite-per",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le levier couvre la déduction des versements individuels et les avantages de l'épargne retraite d'entreprise. Le texte ne dit ni quel avantage ni de combien : la personne choisit la taille. C'est une estimation, et une hausse jouerait surtout sur l'impôt de 2028. « Sans la rendre obligatoire » n'appelle aucun réglage."
+  },
+  {
+   "approach": "retraites-3-a",
+   "lever": "pensions-revalorisation",
+   "dir": 1,
+   "setting": "inflation-toutes",
+   "fit": "exact",
+   "note": "L'option « inflation pour toutes les pensions » correspond à l'approche. Elle ne porte que sur les retraites de base : la revalorisation des complémentaires est fixée par les partenaires sociaux."
+  },
+  {
+   "approach": "retraites-3-b",
+   "lever": "csg-pensions-taux-plein",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le taux de 8,3 % s'applique aux retraités dont le revenu fiscal de référence dépasse 26 472 € pour une part (taux de 2026). C'est le plus haut des quatre taux (0 %, 3,8 %, 6,6 % et 8,3 %) : le levier touche plus large que les seuls retraités aisés, d'où un lien partiel. La taille de la hausse n'est pas donnée : la personne la choisit. Le second volet, des pensions revalorisées moins vite que l'inflation, est déjà au point de départ : le PLFSS 2027 gèle, sauf décret, les pensions au-dessus de 1 260 € par mois. Rien à y ajouter."
+  },
+  {
+   "approach": "retraites-3-c",
+   "lever": "minima-sociaux-revalorisation",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le point de départ gèle déjà les pensions de base au-dessus de 1 260 € par mois, les prestations familiales, les aides au logement et la prime d'activité. Ces gels ne sont pas comptés une seconde fois. Restent le RSA et l'AAH, revalorisés au PLF. Ce levier les gèle, mais il baisse aussi le minimum vieillesse, une petite retraite que l'approche épargne. La personne choisit la taille."
+  },
+  {
+   "approach": "retraites-3-d",
+   "lever": "pensions-revalorisation",
+   "dir": 1,
+   "setting": "inflation-toutes",
+   "fit": "partial",
+   "note": "Aucun réglage n'indexe les pensions sur les salaires. Le plus proche est l'inflation pour toutes les pensions, retenu comme minimum. Dans les prévisions, les salaires progressent plus vite que les prix (salaire moyen par tête +2,7 % en 2027, HCFP) : l'approche va donc au-delà, et cet écart n'est pas chiffré."
+  },
+  {
+   "approach": "retraites-3-d",
+   "lever": "minimum-pension-carriere-complete",
+   "dir": 1,
+   "setting": "15",
+   "fit": "exact",
+   "note": "Passer de 85 % à 100 % du Smic net, soit +15 points, la borne du levier. Le Smic est lu en net, comme le repère légal actuel ; un Smic brut irait au-delà de la borne. C'est une estimation, sur le privé seulement : le minimum garanti des fonctionnaires n'est pas compris."
+  },
+  {
+   "approach": "finances_publiques-1-a",
+   "lever": "effectifs-publics",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "L'approche nomme les effectifs publics ; « fortement » n'a pas de taille, et la personne la choisit. Les prestations sociales n'ont pas de levier d'ensemble et le texte ne dit pas lesquelles réduire : aucune n'est reliée, la personne règle celles qu'elle veut. « Sans hausse d'impôts » n'appelle aucun réglage."
+  },
+  {
+   "approach": "finances_publiques-1-b",
+   "lever": "credits-aide-publique-developpement",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« L'aide internationale » est lue comme les crédits d'aide aux autres pays : la mission Aide publique au développement, dont ce levier compte les programmes 110, 209 et 384. Aucune taille n'est donnée : la personne la choisit. La contribution au budget de l'Union européenne n'a pas de levier : son montant découle de règles adoptées à l'unanimité des États membres (cadre financier pluriannuel, ressources propres). « Sans hausse d'impôts » n'appelle aucun réglage."
+  },
+  {
+   "approach": "finances_publiques-1-b",
+   "lever": "credits-aide-ukraine",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le fonds de soutien aux infrastructures civiles ukrainiennes (28 M€) est sur la même mission Aide publique au développement, avec son propre levier : il entre dans la même lecture de « l'aide internationale ». Aucune taille n'est donnée : le pré-réglage est le premier cran du levier, −50 %, et la personne le change."
+  },
+  {
+   "approach": "finances_publiques-1-b",
+   "lever": "credits-asile",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« L'immigration » est lue par thème : les dépenses d'accueil et d'aide réservées aux étrangers, soit l'asile, l'intégration et l'AME. Aucune taille n'est donnée : la personne la choisit. La rétention et les éloignements, sur la même mission, ne sont pas reliés : c'est une dépense de contrôle des départs, pas d'accueil ni d'aide, et l'approche ne dit pas dans quel sens la régler."
+  },
+  {
+   "approach": "finances_publiques-1-b",
+   "lever": "credits-integration",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le programme Intégration et accès à la nationalité française, sur la même mission que l'asile, entre dans la même lecture. Aucune taille n'est donnée : la personne la choisit."
+  },
+  {
+   "approach": "finances_publiques-1-b",
+   "lever": "credits-ame",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "L'AME est sur la mission Santé, mais elle est réservée aux étrangers sans titre de séjour : elle entre dans la même lecture. Aucune taille n'est donnée : le pré-réglage est le premier cran du levier, −50 %, et la personne le change. La durée de séjour exigée des étrangers pour les aides au logement n'est pas reliée : c'est une règle d'accès à des aides générales, pas une dépense réservée aux étrangers, et l'approche ne la nomme pas."
+  },
+  {
+   "approach": "finances_publiques-1-c",
+   "lever": "cehr-taux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le texte ne dit pas quel impôt. La contribution sur les hauts revenus est celle qui vise en propre les plus hauts revenus. D'autres leviers (taux plancher, impôts sur le patrimoine) se règlent aussi. Les « économies ciblées » n'ont pas de cible nommée : rien n'est relié."
+  },
+  {
+   "approach": "finances_publiques-1-c",
+   "lever": "contribution-exceptionnelle-grandes-entreprises",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Les grandes entreprises » : la contribution sur l'impôt sur les sociétés des entreprises d'au moins 1,5 Md€ de chiffre d'affaires. Aucune taille n'est donnée : la personne la choisit."
+  },
+  {
+   "approach": "finances_publiques-1-d",
+   "lever": "credits-france-2030",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "L'investissement public dans l'industrie et la transition écologique a sa ligne : la mission France 2030. « Massivement » n'a pas de taille. L'emprunt n'est pas un levier : il se lit dans le déficit. Les autres crédits d'investissement ne sont pas reliés, et l'effet attendu sur la croissance n'est pas compté, comme partout dans le jeu."
+  },
+  {
+   "approach": "finances_publiques-1-e",
+   "lever": "impot-societes",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le prélèvement sur les profits des entreprises est lu comme l'impôt sur les sociétés, qui porte sur leurs bénéfices. Ni le taux ni la forme ne sont donnés : la personne choisit. Les dépenses de services publics n'ont pas de levier d'ensemble : la personne règle les lignes qu'elle veut (Ondam, crédits des missions, effectifs). Le lien ne porte donc que sur le financement, d'où « partiel ». Les autres leviers sur les entreprises (bénéfices exceptionnels, contribution des grandes entreprises, rachats d'actions, taxe au tonnage, plus-values sur participations) ne sont pas reliés : le texte n'en vise aucun en particulier, et en relier plusieurs compterait le même prélèvement plusieurs fois."
+  },
+  {
+   "approach": "finances_publiques-1-f",
+   "lever": "csg-capital",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Le capital » : la CSG sur les revenus du capital, le prélèvement de base le plus large sur ces revenus. Aucune taille n'est donnée : la personne la choisit."
+  },
+  {
+   "approach": "finances_publiques-1-f",
+   "lever": "isf-retablissement",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Trois impôts sur les plus hauts patrimoines sont reliés, et ils s'excluent entre eux. Le texte ne dit pas lequel : aucun n'est pré-réglé, la personne choisit."
+  },
+  {
+   "approach": "finances_publiques-1-f",
+   "lever": "impot-plancher-tres-hauts-patrimoines",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Cet impôt minimum vise les patrimoines de plus de 100 M€. Il exclut l'ISF et l'impôt différentiel : la personne choisit l'un des trois."
+  },
+  {
+   "approach": "finances_publiques-1-f",
+   "lever": "contribution-differentielle-patrimoine",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Cet impôt différentiel vise les patrimoines de plus de 2 à 10 M€. Il exclut l'ISF et l'impôt plancher : la personne choisit l'un des trois."
+  },
+  {
+   "approach": "finances_publiques-1-g",
+   "lever": "operateurs-fonctions-support",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Supprimer ou fusionner des agences et des doublons : ce levier règle les frais de gestion des agences de l'État (gestion, ressources humaines, informatique, immobilier, achats), à missions inchangées. Il ne couvre qu'une part de l'approche : supprimer une agence peut aussi toucher ses missions, et le fonctionnement des ministères n'a pas de levier propre. La liste et la taille ne sont pas données : le pré-réglage est le premier cran, −10 %, dans la plage chiffrée par le Sénat (jusqu'à −20 %) ; au-delà, jusqu'à −25 %, l'effet est une estimation. Le levier des effectifs publics n'est pas relié : l'approche ne les nomme pas, et ce serait compter deux fois la même économie. « Sans hausse d'impôts » n'appelle aucun réglage."
+  },
+  {
+   "approach": "finances_publiques-3-a",
+   "lever": "effectifs-publics",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Fortement » ne donne pas de taille : la personne la choisit, jusqu'à 140 000 emplois. L'approche épargne les agents de terrain et ne vise donc qu'une part des effectifs. Un non-remplacement des départs s'étale sur plusieurs années, et seule l'année 2027 entre dans le total."
+  },
+  {
+   "approach": "finances_publiques-3-b",
+   "lever": "effectifs-publics",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Une petite baisse nette (« un peu »), sans taille, sur les seuls effectifs administratifs. Redéployer des postes vers les services en tension ne change pas le nombre total. La personne choisit la taille."
+  },
+  {
+   "approach": "finances_publiques-3-c",
+   "lever": "effectifs-publics",
+   "dir": -1,
+   "setting": "0.7",
+   "fit": "partial",
+   "note": "Le schéma d'emplois du PLF 2027 ajoute 6 816 emplois nets à l'État et à ses opérateurs (+8 025 et −1 209 ETP). Stabiliser revient à y renoncer : soit environ 7 000 emplois (6 816), 0,7 tranche de 10 000. Les collectivités et les hôpitaux, hors de ce schéma, ne sont pas chiffrés. Recruter là où sont les besoins est un redéploiement, sans effet sur le total."
+  },
+  {
+   "approach": "finances_publiques-3-d",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Massivement » ne donne pas de taille : la personne la choisit. La titularisation des contractuels n'a pas de levier : son effet dépend des grilles de salaire et des cotisations."
+  },
+  {
+   "approach": "finances_publiques-3-d",
+   "lever": "point-indice",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Fortement » ne donne pas de taille : la personne choisit la hausse du point d'indice, gelé au PLF 2027."
+  },
+  {
+   "approach": "finances_publiques-3-f",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Une hausse sans taille, ciblée sur les soins, l'école et la justice : une part seulement des effectifs publics, comptée au salaire brut d'un emploi public, de celui d'un entrant à la moyenne. La personne choisit la taille."
+  },
+  {
+   "approach": "finances_publiques-3-f",
+   "lever": "point-indice",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Une hausse des salaires publics sans taille : la personne choisit la hausse du point d'indice, gelé au PLF 2027."
+  },
+  {
+   "approach": "industrie_economie-1-a",
+   "lever": "allegements-generaux",
+   "dir": -1,
+   "setting": "2",
+   "fit": "partial",
+   "note": "« Une large part » des aides, sans dire lesquelles ni combien : les allègements généraux de cotisations (72,8 Md€ prévus en 2027) sont la plus grosse ligne, citée dans la question. L'échange se veut à somme nulle : au départ, 2 % des allègements (1,4 Md€) contre le premier cran des trois impôts de production reliés (1,4 à 2,1 Md€) ; la personne fait grandir les deux côtés ensemble. Pour une large part des allègements, « d'autant » ne peut pas être atteint dans le jeu : même au plus loin, ces trois leviers valent 10 à 15 Md€, et la CFE et la taxe foncière des autres locaux d'entreprise, le versement mobilité et la taxe sur les salaires n'ont pas de levier. D'autres aides ont leur propre levier : la personne peut les régler aussi."
+  },
+  {
+   "approach": "industrie_economie-1-a",
+   "lever": "cvae-taux",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La CVAE est un impôt de production. « D'autant » : la baisse se règle au montant des aides retirées. Supprimée, elle vaut 3,0 à 4,1 Md€ en 2027."
+  },
+  {
+   "approach": "industrie_economie-1-a",
+   "lever": "c3s-taux",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La C3S, assise sur le chiffre d'affaires, est un impôt de production. « D'autant » : la baisse se règle au montant des aides retirées. Supprimée, elle vaut 4,4 à 5,5 Md€ en 2027."
+  },
+  {
+   "approach": "industrie_economie-1-a",
+   "lever": "valeurs-locatives-industrielles",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Augmenter la réduction de la valeur locative des locaux industriels baisse leurs impôts fonciers (CFE et taxe foncière), eux aussi des impôts de production. « D'autant » : la baisse se règle au montant des aides retirées. Portée à 100 %, elle vaut 2,9 à 5,5 Md€ en 2027 (estimation d'Isoloir)."
+  },
+  {
+   "approach": "industrie_economie-1-b",
+   "lever": "cvae-taux",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La CVAE est un impôt de production. « Fortement » ne donne pas de taille : la personne la choisit."
+  },
+  {
+   "approach": "industrie_economie-1-b",
+   "lever": "c3s-taux",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La C3S, assise sur le chiffre d'affaires, est un impôt de production. « Fortement » ne donne pas de taille : la personne la choisit."
+  },
+  {
+   "approach": "industrie_economie-1-b",
+   "lever": "valeurs-locatives-industrielles",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Augmenter la réduction de la valeur locative des locaux industriels baisse leurs impôts fonciers, eux aussi des impôts de production. La personne choisit la taille."
+  },
+  {
+   "approach": "industrie_economie-1-b",
+   "lever": "cotisations-sociales",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Les cotisations patronales, par le levier maladie et famille, qui ne porte que sur les employeurs (la part salariale est nulle). La personne choisit la taille. Garder des aides ciblées ne change rien au point de départ."
+  },
+  {
+   "approach": "industrie_economie-1-d",
+   "lever": "is-taux-reduit-pme",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Une baisse d'impôt ciblée sur les petites entreprises : le taux réduit d'impôt sur les sociétés, réservé aux PME, en est une, sans taille. L'autre moitié du recentrage, moins d'aides aux grandes entreprises, ne se règle pas ici : aucun levier ne porte sur les seules aides aux grandes entreprises. Les artisans imposés à l'impôt sur le revenu n'en bénéficient pas."
+  },
+  {
+   "approach": "industrie_economie-1-d",
+   "lever": "exonerations-jeunes-entreprises",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Les exonérations de cotisations des jeunes entreprises innovantes ou de croissance (des PME) et l'aide aux créateurs et repreneurs d'entreprise (Acre, artisans compris) sont des baisses de prélèvements ciblées sur de petites entreprises : 411 M€ prévus en 2027. La personne choisit la taille."
+  },
+  {
+   "approach": "industrie_economie-1-e",
+   "lever": "credit-impot-recherche-innovation",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Les grandes entreprises recevaient 45 % du crédit d'impôt recherche en 2019 (CPO) : l'approche ne vise que leur part. Aucune ligne ne regroupe les autres aides aux grands groupes. Interdire les licenciements sous peine de réquisition n'a pas de levier, et cela supposerait sans doute une révision de la Constitution (liberté d'entreprendre)."
+  },
+  {
+   "approach": "industrie_economie-1-f",
+   "lever": "allegements-generaux",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Les allègements généraux, accordés sans contrepartie, sont la plus grosse de ces aides (72,8 Md€ prévus en 2027). « Nettement » ne donne pas de taille : la personne la choisit. D'autres aides ont leur propre levier : la personne juge lesquelles sont sans contrepartie et peut les régler aussi."
+  },
+  {
+   "approach": "travail_salaires-1-a",
+   "lever": "smic-coup-de-pouce",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Nettement » ne donne pas de taille : la personne choisit le coup de pouce au-delà de la revalorisation légale. Chiffrage statique, sans effet sur l'emploi."
+  },
+  {
+   "approach": "travail_salaires-1-b",
+   "lever": "point-indice",
+   "dir": 1,
+   "setting": "1.8",
+   "fit": "partial",
+   "note": "Seule la paie publique a un levier direct ; le Smic suit déjà les prix par la loi. Indexer sur les prix le point d'indice, gelé au PLF 2027, donne au moins l'inflation prévue pour 2027 : +1,8 %, prévision du PLF 2027, que le HCFP juge conforme au consensus. Au-delà de +1 %, l'effet est une estimation d'Isoloir. « Augmenter tous les salaires » peut aller au-delà. Aucune source éligible ne chiffre l'effet sur les comptes publics d'une indexation des salaires privés."
+  },
+  {
+   "approach": "travail_salaires-1-c",
+   "lever": "csg-activite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La CSG sur les salaires (9,2 %) est l'un des trois prélèvements cités, sans taille. « Ou » laisse le choix : la personne garde le ou les leviers qu'elle veut."
+  },
+  {
+   "approach": "travail_salaires-1-c",
+   "lever": "ir-taux-bareme",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "L'impôt sur le revenu porte aussi sur les pensions et les revenus du capital : l'approche n'en vise que la part des salariés. Pas de taille."
+  },
+  {
+   "approach": "travail_salaires-1-c",
+   "lever": "cotisations-retraite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Seule la part salariale des cotisations retraite est visée (6,90 % sous le plafond, 0,40 % au-delà). Les cotisations maladie et famille n'ont plus de part salariale. Pas de taille."
+  },
+  {
+   "approach": "travail_salaires-1-d",
+   "lever": "depense-fiscale-heures-supplementaires",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le PLF exonère déjà les heures supplémentaires d'impôt sur le revenu (jusqu'à 7 500 € par an) et de cotisations salariales. L'approche se lit donc comme une extension (CSG et CRDS, part patronale, au-delà du plafond), sans taille : la personne la choisit."
+  },
+  {
+   "approach": "travail_salaires-1-e",
+   "lever": "tva-taux-reduit",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet produits de première nécessité (alimentation, eau…), taxés au taux réduit de 5,5 % : baisse de ce taux, sans taille. Un blocage des prix imposé aux vendeurs n'a pas d'effet direct sur les comptes publics."
+  },
+  {
+   "approach": "travail_salaires-1-e",
+   "lever": "tva-electricite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet énergie, électricité : baisse de la TVA sur la facture des ménages, sans taux précisé. Un gel des tarifs de l'énergie compensé aux fournisseurs, comme l'a fait en partie le bouclier tarifaire de 2022-2023, coûterait, mais l'approche ne le précise pas et aucun levier ne le porte."
+  },
+  {
+   "approach": "travail_salaires-1-e",
+   "lever": "accise-electricite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet énergie, électricité : baisse de l'accise, sans taille."
+  },
+  {
+   "approach": "travail_salaires-1-e",
+   "lever": "accise-carburants",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet énergie, carburants : baisse de l'accise, sans taille. Le gaz des ménages n'a pas de levier."
+  },
+  {
+   "approach": "travail_salaires-1-f",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet soin seulement : les salaires des soignants des hôpitaux et des établissements pour personnes âgées sont payés sur l'Ondam, hausse sans taille. Dans les services et l'industrie, la décision revient aux employeurs, sans effet direct sur les comptes publics."
+  },
+  {
+   "approach": "travail_salaires-1-i",
+   "lever": "exoneration-hausses-salaire",
+   "dir": 1,
+   "setting": "100",
+   "fit": "exact",
+   "note": "Le texte vise les hausses de salaire accordées, sans plafond ni restriction : 100 % des hausses de 2027 exonérées de cotisations patronales, soit la mesure entière du levier (estimation d'Isoloir)."
+  },
+  {
+   "approach": "travail_salaires-2-d",
+   "lever": "depense-fiscale-heures-supplementaires",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Sans plafond et exonérées de prélèvements » étend l'exonération actuelle (plafond d'impôt de 7 500 €, CSG, part patronale), sans taille. Lever le contingent annuel d'heures n'aurait pas d'effet direct."
+  },
+  {
+   "approach": "travail_salaires-4-d",
+   "lever": "forfait-social-taux",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le forfait social porte surtout sur l'intéressement, la participation et l'abondement de l'épargne salariale : le baisser est l'avantage fiscal visé. La taille n'est pas précisée."
+  },
+  {
+   "approach": "travail_salaires-4-d",
+   "lever": "aga-stock-options",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet actionnariat salarié : baisse des contributions sur les actions gratuites et les stock-options, sans taille. Ce levier touche aussi la rémunération en actions des dirigeants."
+  },
+  {
+   "approach": "fiscalite-1-a",
+   "lever": "isf-retablissement",
+   "dir": 1,
+   "setting": "isf-2017",
+   "fit": "exact",
+   "note": "L'ISF de 2017 à la place de l'IFI, placements financiers compris : c'est la mesure de l'approche."
+  },
+  {
+   "approach": "fiscalite-1-b",
+   "lever": "impot-plancher-tres-hauts-patrimoines",
+   "dir": 1,
+   "setting": "2-pct",
+   "fit": "exact",
+   "note": "2 % par an des patrimoines de plus de 100 M€, comme dans le texte adopté par l'Assemblée en février 2025 (chiffrage de la DG Trésor). La variante où l'impôt sur les sociétés serait déduit est un autre réglage, que l'approche ne mentionne pas."
+  },
+  {
+   "approach": "fiscalite-1-c",
+   "lever": "ifi-assiette",
+   "dir": 1,
+   "setting": "placements-financiers",
+   "fit": "exact",
+   "note": "Les placements financiers remplacent l'immobilier dans l'assiette. Taux et seuil ne sont pas précisés : le réglage garde ceux de l'IFI (estimation d'Isoloir)."
+  },
+  {
+   "approach": "fiscalite-1-d",
+   "lever": "csg-capital",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Taxer davantage les revenus du capital », sans instrument ni taille : ici, la CSG sur ces revenus. « Freiner l'évasion fiscale » ne nomme aucun instrument : les leviers qui portent sur des montages ou des départs à l'étranger (holdings patrimoniales, apport-cession, exit tax) ne sont pas reliés, pour ne pas choisir à la place de la personne."
+  },
+  {
+   "approach": "fiscalite-1-d",
+   "lever": "pfu-taux-ir",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Une autre part de l'imposition des revenus du capital : le taux d'impôt sur le revenu du prélèvement forfaitaire (12,8 %), en hausse, sans taille."
+  },
+  {
+   "approach": "fiscalite-1-e",
+   "lever": "ifi-bareme",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Ne pas alourdir » correspond au point de départ ; « voire alléger » donne le sens, une baisse de l'IFI, sans taille. Relever le seuil d'entrée (levier « Ce que taxe l'IFI ») est une autre façon d'alléger, sur la même base : un seul des deux leviers est relié."
+  },
+  {
+   "approach": "fiscalite-2-a",
+   "lever": "dmtg-tranche-45",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La tranche de 45 % en ligne directe commence vers 1,9 M€ reçus par enfant, soit le seuil d'environ 2 M€ de l'approche : hausse sans taille. L'impôt minimum sur les très grosses transmissions n'est pas relié : son seuil (5 ou 10 M€) n'est pas celui de l'approche, et il vise surtout les exonérations, objet d'une autre approche."
+  },
+  {
+   "approach": "fiscalite-2-c",
+   "lever": "dmtg-tranche-20",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "En ligne directe, les héritages moyens sont surtout taxés à 20 % : baisse sans taille, qui allège aussi les gros héritages passant par cette tranche. La résidence principale, citée en exemple, n'a pas de levier."
+  },
+  {
+   "approach": "fiscalite-2-c",
+   "lever": "dmtg-abattement-ligne-directe",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Relever l'abattement entre parent et enfant (100 000 €) fait sortir de l'impôt des héritages modestes et allège tous les autres, d'autant plus en euros que l'héritage est gros (200 € par 1 000 € d'abattement au taux de 20 %, 450 € au taux de 45 %) : hausse sans taille."
+  },
+  {
+   "approach": "fiscalite-2-d",
+   "lever": "dmtg-abattement-ligne-directe",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "L'abattement de 100 000 € vaut pour les donations comme pour les successions : le relever allège aussi les successions, ce que l'approche ne demande pas. « Fortement » n'a pas de taille. Les autres franchises de dons (sommes d'argent, petits-enfants) n'ont pas de levier."
+  },
+  {
+   "approach": "fiscalite-2-e",
+   "lever": "dmtg-ensemble",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "exact",
+   "note": "Suppression entière : −100 % du produit des droits de succession et de donation (22,0 Md€ au PLF 2027), soit toute la ligne."
+  },
+  {
+   "approach": "fiscalite-2-g",
+   "lever": "dutreil-exoneration",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Baisser le taux d'exonération du pacte Dutreil (75 % au PLF), sans taille. Le ciblage « surtout pour les plus gros héritages » n'est pas un réglage à part, mais l'avantage va surtout aux grosses transmissions (65 % à environ 110 bénéficiaires par an, CPO). L'impôt minimum sur les très grosses transmissions est exclusif avec ce levier : il n'est pas relié."
+  },
+  {
+   "approach": "fiscalite-2-g",
+   "lever": "assurance-vie-transmission",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Taxer davantage les capitaux d'assurance-vie transmis au décès, sans taille. Le premier cran au-dessus du PLF (barème en ligne directe au-delà de la tranche à 20 %, recommandation n° 6 du CPO) ne touche que les plus grosses transmissions (environ 2 000 défunts), comme le dit le texte."
+  },
+  {
+   "approach": "fiscalite-x1-a",
+   "lever": "ir-taux-bareme",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « impôts » : le texte ne dit ni quel impôt ni combien. Un seul levier par mot du texte (« impôts », « cotisations »), pour que le nombre de leviers reliés ne fixe pas une taille. Parmi les quatre grands impôts réglables en entier (impôt sur le revenu, TVA, CSG, impôt sur les sociétés), c'est le plus modéré au premier cran (−0,5 point, 3,2 Md€), selon la règle « au plus modéré » des pré-réglages. La personne règle les trois autres si elle le veut."
+  },
+  {
+   "approach": "fiscalite-x1-a",
+   "lever": "cotisations-retraite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « cotisations » : des deux leviers de taux de cotisation sur les salaires (retraite de base ; maladie et famille), le plus modéré au premier cran (−0,5 point, 2,4 à 3,1 Md€). Le texte finance la baisse par des économies sans dire lesquelles : aucun levier de dépense n'est pré-réglé, la personne les choisit. Tant qu'elle ne les règle pas, ce pré-réglage creuse le déficit d'environ 5,6 à 6,3 Md€ (0,2 point de PIB), alors que le texte prévoit de financer la baisse."
+  },
+  {
+   "approach": "fiscalite-x1-c",
+   "lever": "cotisations-retraite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « travail » : le texte ne dit ni quel prélèvement ni combien. Un seul levier, comme pour les autres approches de la question : parmi les prélèvements réglables sur les salaires (cotisations retraite de base, cotisations maladie et famille, CSG sur les revenus d'activité), le plus modéré au premier cran (−0,5 point, 2,4 à 3,1 Md€). La CSG sur les revenus d'activité n'est pas reliée."
+  },
+  {
+   "approach": "fiscalite-x1-c",
+   "lever": "csg-capital",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « capital » : la CSG sur les revenus du capital, l'un des deux prélèvements généraux sur ces revenus (premier cran +0,5 point, 0,65 à 0,95 Md€). Sans taille."
+  },
+  {
+   "approach": "fiscalite-x1-c",
+   "lever": "pfu-taux-ir",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « capital » : la part impôt sur le revenu (12,8 %) du prélèvement forfaitaire sur les dividendes, les intérêts et les plus-values ; effet estimé par Isoloir. Les deux prélèvements généraux sur le capital sont reliés parce que le texte garde le même niveau global : ils rapprochent le pré-réglage de l'équilibre sans l'atteindre (environ 1,0 à 2,3 Md€ de recettes en moins). La personne règle la hausse sur le capital pour compenser. Les leviers sur une part du capital (plus-values de participations, rachats d'actions, taxe sur les achats d'actions, actions gratuites) ne sont pas pré-réglés."
+  },
+  {
+   "approach": "fiscalite-x1-d",
+   "lever": "ir-taux-45",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « plus hauts revenus » : le taux de la dernière tranche de l'impôt sur le revenu. Un seul levier par mot du texte, comme pour les autres approches de la question : parmi les leviers sur les plus hauts revenus (taux de 45 %, taux de 41 et 45 %, contribution sur les hauts revenus, taux plancher), c'est le plus modéré au premier cran (+0,5 point, 75 M€). Les autres, dont la contribution sur les hauts revenus, ne sont pas pré-réglés."
+  },
+  {
+   "approach": "fiscalite-x1-d",
+   "lever": "ifi-bareme",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « grandes fortunes » : l'impôt sur la fortune immobilière, le principal impôt annuel sur la fortune en vigueur (premier cran +10 %, 0,31 Md€). Le texte ne choisit pas d'autre dessin (rétablir l'ISF, impôt plancher au-delà de 100 M€, impôt différentiel sur le patrimoine) : ces réglages, exclusifs entre eux, ne sont pas pré-réglés."
+  },
+  {
+   "approach": "fiscalite-x1-d",
+   "lever": "contribution-exceptionnelle-grandes-entreprises",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet « grandes entreprises » : la contribution exceptionnelle sur l'IS des entreprises d'au moins 1,5 Md€ de chiffre d'affaires (15,7 % au PLF 2027, 20,6 % en 2026), le prélèvement propre à ces entreprises (premier cran +2,5 points, 0,8 à 0,85 Md€). L'IS de toutes les entreprises n'est pas relié. Pré-réglage de l'approche : environ 1,2 Md€ de recettes en plus."
+  },
+  {
+   "approach": "sante-1-b",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Ouvrir des centres de santé et rouvrir des hôpitaux et des maternités, sans nombre ni coût : leur fonctionnement est payé par l'assurance maladie (Ondam). L'investissement et la part des collectivités ne sont pas dans le levier."
+  },
+  {
+   "approach": "sante-1-c",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "L'approche ne vise que l'hôpital public, une part du sous-objectif « établissements de santé » de l'Ondam (116,0 Md€ sur 278,7 Md€ au PLFSS 2027), qui paie le budget des hôpitaux et la paie de leurs soignants. Hausse sans taille. Le levier des effectifs publics n'est pas relié en plus : il compte aussi les agents des hôpitaux et recoupe la même paie."
+  },
+  {
+   "approach": "sante-1-i",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Aides à l'installation des médecins sans montant : les aides prévues par la convention médicale sont payées par l'assurance maladie (Ondam), dont elles ne sont qu'une petite part. Les exonérations fiscales et sociales liées aux zones ne sont pas dans ce levier."
+  },
+  {
+   "approach": "sante-2-a",
+   "lever": "prise-en-charge-assurance-maladie",
+   "dir": 1,
+   "setting": "secu-100",
+   "fit": "exact",
+   "note": "Le réglage « Sécurité sociale à 100 % » correspond à ce scénario : la « grande Sécu » du HCAAM, portée en 2027. Tous les soins remboursables sont pris en charge, franchises comprises, et les complémentaires ne couvrent plus que le reste. Le levier des franchises n'est pas relié en plus, puisqu'il est déjà compris. Le financement par de nouveaux prélèvements n'est pas compté."
+  },
+  {
+   "approach": "sante-2-c",
+   "lever": "prise-en-charge-assurance-maladie",
+   "dir": 1,
+   "setting": "maintien-2026",
+   "fit": "exact",
+   "note": "Le réglage « Garder les remboursements de 2026 » : renoncer à la hausse du ticket modérateur au 1er janvier 2027 (1,2 Md€) et aux transferts vers les complémentaires (0,7 Md€), chiffres du HCFP. Pour « sans hausse des franchises » : le PLFSS 2027 ne les relève pas, donc le levier des franchises reste au PLFSS et n'est pas relié."
+  },
+  {
+   "approach": "sante-2-e",
+   "lever": "indemnites-journalieres",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Moins indemniser les arrêts courts : le levier baisse le taux d'indemnisation de tous les arrêts maladie (50 %), pas des seuls arrêts courts. Ajouter des jours de carence n'a pas de levier. Le PLFSS compte déjà 1 Md€ d'économies à négocier sur ces indemnités."
+  },
+  {
+   "approach": "sante-2-e",
+   "lever": "franchises-medicales",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Augmenter les franchises et les participations forfaitaires, sans taille : le levier relève les montants et les plafonds."
+  },
+  {
+   "approach": "sante-2-f",
+   "lever": "ondam",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Ralentir l'Ondam (+2,0 % au PLFSS). Le texte ne précise pas « stabiliser » : stable en euros, c'est −2 points, la borne du levier ; stable en volume, environ −0,2 point (inflation prévue à 1,8 %, HCFP). Les gains attendus de l'organisation et de la prévention ne sont pas comptés à part."
+  },
+  {
+   "approach": "sante-3-b",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Développer les soins palliatifs, sans taille. La loi du 26 mai 2026 prévoit déjà 192 M€ de crédits nouveaux en 2027, compris dans le point de départ. Au-delà, c'est l'Ondam, dont les soins palliatifs ne sont qu'une petite part (1 point d'Ondam vaut environ 2,7 Md€). L'aide à mourir n'a pas d'effet chiffré."
+  },
+  {
+   "approach": "sante-3-c",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Priorité aux soins palliatifs, sans taille. La loi du 26 mai 2026 prévoit déjà 192 M€ de crédits nouveaux en 2027, compris dans le point de départ. Au-delà, c'est l'Ondam, dont les soins palliatifs ne sont qu'une petite part (1 point d'Ondam vaut environ 2,7 Md€). Le contrôle de la loi n'a pas d'effet direct."
+  },
+  {
+   "approach": "sante-3-d",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Développer les soins palliatifs et le traitement de la douleur, sans taille. La loi du 26 mai 2026 prévoit déjà 192 M€ de crédits nouveaux en 2027, compris dans le point de départ. Au-delà, c'est l'Ondam, dont ces soins ne sont qu'une petite part (1 point d'Ondam vaut environ 2,7 Md€)."
+  },
+  {
+   "approach": "sante-3-e",
+   "lever": "referendums-nationaux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Un référendum national sur l'aide à mourir. Le texte ne dit pas s'il aurait lieu le même jour qu'un scrutin prévu (réglage « 1, le même jour qu'un scrutin prévu ») ou à une date à part (« 1 date de vote à part »). L'effet est estimé par Isoloir."
+  },
+  {
+   "approach": "sante-4-c",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Beaucoup plus », sans taille. La prévention payée par l'assurance maladie passe par l'Ondam ; l'État et les collectivités en paient 41 %, sans levier propre. Un budget voté pour plusieurs années est une règle de procédure, sans effet direct."
+  },
+  {
+   "approach": "sante-4-d",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Un plan pour la psychiatrie, sans montant : la psychiatrie est payée par l'assurance maladie (Ondam). « Grande cause nationale » n'a pas d'effet direct."
+  },
+  {
+   "approach": "sante-5-b",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Plus de soins à domicile, sans taille : les soins infirmiers et les services de soins à domicile sont dans l'Ondam. L'allocation personnalisée d'autonomie, payée par les départements, n'a pas de levier."
+  },
+  {
+   "approach": "sante-5-b",
+   "lever": "allocation-proche-aidant",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Congé rémunéré des aidants : il existe déjà (allocation journalière du proche aidant, 22 M€ en 2027). L'approche demande de le développer, sans dire comment (durée ou montant)."
+  },
+  {
+   "approach": "sante-5-c",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Les soins en EHPAD (forfait soins) sont payés sur l'Ondam, au sous-objectif des personnes âgées. Depuis 2021, ce sous-objectif est financé par la branche autonomie, mais il reste compté dans l'Ondam. Imposer un nombre minimal de soignants augmente cette dépense. Le texte ne précise pas le ratio : la personne choisit la taille. Le levier couvre l'Ondam entier, dont ce sous-objectif n'est qu'une petite part."
+  },
+  {
+   "approach": "sante-5-f",
+   "lever": "journee-solidarite-csa",
+   "dir": 1,
+   "setting": "1",
+   "fit": "exact",
+   "note": "Une seconde journée de solidarité correspond à une journée de plus sur le levier (CSA portée de 0,3 à 0,6 %). Le texte la donne en exemple (« comme ») : une autre ressource dédiée ne serait pas représentée. Le levier ne compte que la recette, pas une nouvelle dépense d'autonomie qu'elle financerait."
+  },
+  {
+   "approach": "solidarites-1-a",
+   "lever": "depense-assurance-chomage-allocations",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Économies sur les allocations chômage, sans montant : la personne choisit la taille. Le levier se règle en pourcentage de la dépense, pas en mois. Une durée plus courte ne joue que sur les nouveaux droits : l'effet en 2027 est donc plus faible que le cran statique."
+  },
+  {
+   "approach": "solidarites-1-c",
+   "lever": "depense-assurance-chomage-allocations",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Revenir sur les réformes qui ont réduit la durée et le montant augmente la dépense d'allocations, sans montant : la personne choisit la taille. Une règle changée ne joue que sur les nouveaux droits : l'effet en 2027 est plus faible que le cran statique. C'est le miroir de 1-a."
+  },
+  {
+   "approach": "solidarites-1-d",
+   "lever": "aides-logement-revalorisation",
+   "dir": 1,
+   "setting": "revision-legale",
+   "fit": "exact",
+   "note": "Le PLF gèle les aides au logement en 2027 (article 74). Sans gel, elles sont révisées au 1er octobre selon l'indice de référence des loyers, qui suit les prix."
+  },
+  {
+   "approach": "solidarites-1-d",
+   "lever": "prestations-familiales-revalorisation",
+   "dir": 1,
+   "setting": "legale",
+   "fit": "exact",
+   "note": "Le PLFSS gèle les prestations familiales au 1er avril 2027. Sans gel, elles augmentent de 2,3 % selon la règle légale, allocation de soutien familial comprise."
+  },
+  {
+   "approach": "solidarites-1-d",
+   "lever": "prime-activite-revalorisation",
+   "dir": 1,
+   "setting": "2.3",
+   "fit": "exact",
+   "note": "Le PLF gèle la prime d'activité en 2027 (article 74). Sans gel, elle augmente de 2,3 points au 1er avril. Le RSA, l'AAH et le minimum vieillesse sont déjà revalorisés au PLF : le levier des minima reste à 0. Les pensions de retraite ne sont pas des allocations et ne sont pas reliées. L'allocation chômage est fixée par l'Unédic et n'a pas de levier d'indexation."
+  },
+  {
+   "approach": "solidarites-1-e",
+   "lever": "emplois-garantis",
+   "dir": 1,
+   "setting": "garantie-longue-duree",
+   "fit": "partial",
+   "note": "« Chaque personne sans emploi » va plus loin que le plus haut réglage du levier (un emploi pour les 566 000 chômeurs de longue durée). On retient ce réglage, le plus proche, au sens de « au moins autant » (règle du voisin plus modéré). Le volet formation et les autres chômeurs ne sont pas chiffrés."
+  },
+  {
+   "approach": "solidarites-1-f",
+   "lever": "non-recours-versement-automatique",
+   "dir": 1,
+   "setting": "100",
+   "fit": "partial",
+   "note": "« À toutes les personnes qui y ont droit » : tout le non-recours estimé est versé (100 %), au-delà de la plage chiffrée, donc en estimation. Le levier ne couvre que le RSA et la prime d'activité. La simplification et les autres aides (logement, minimum vieillesse…) n'y figurent pas."
+  },
+  {
+   "approach": "solidarites-1-g",
+   "lever": "rsa-18-24-ans",
+   "dir": 1,
+   "setting": "18-ans",
+   "fit": "exact",
+   "note": "Ouvrir les minima sociaux dès 18 ans revient à ouvrir le RSA dès 18 ans. C'est une estimation d'Isoloir, étudiants exclus."
+  },
+  {
+   "approach": "solidarites-1-g",
+   "lever": "minima-sociaux-revalorisation",
+   "dir": 1,
+   "setting": "25",
+   "fit": "partial",
+   "note": "« Jusqu'au seuil de pauvreté » : la borne du levier (+25 points) amène l'AAH et le minimum vieillesse près du seuil (1 337 € par mois en 2024, Insee). Le RSA, lui, en resterait loin. On retient le plus haut réglage, au sens de « au moins autant ». Au-delà de ±1 point, l'effet est une estimation."
+  },
+  {
+   "approach": "solidarites-2-a",
+   "lever": "depense-allocations-familiales",
+   "dir": 1,
+   "setting": "28",
+   "fit": "exact",
+   "note": "La DSS chiffre les deux volets : dès le premier enfant (2,8 Md€ bruts) et sans modulation selon les revenus (environ 1 Md€). Cela fait environ +28 % des 13,4 Md€, au-delà de la plage de ±25 %. C'est donc une estimation, et le RSA et la prime d'activité compensent une partie de l'effet."
+  },
+  {
+   "approach": "solidarites-2-b",
+   "lever": "quotient-familial-plafond",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le levier augmente l'avantage du quotient familial par son plafond par demi-part, sans montant : la personne choisit la taille. Ce plafond ne joue que pour les foyers déjà plafonnés. Donner plus de parts dès le deuxième enfant serait un autre dessin, qui n'a pas de levier."
+  },
+  {
+   "approach": "solidarites-2-c",
+   "lever": "pensions-alimentaires-defiscalisation",
+   "dir": -1,
+   "setting": "exoneration-ir",
+   "fit": "partial",
+   "note": "« Défiscalisées » correspond à l'exonération d'impôt chez le parent qui reçoit la pension (estimation fruste). Le versement sans délai est une procédure (intermédiation des caisses), sans levier. Le texte ne nomme pas l'allocation de soutien familial, qui n'est donc pas reliée."
+  },
+  {
+   "approach": "solidarites-2-d",
+   "lever": "places-creche",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Beaucoup plus de places », sans nombre : la personne choisit. Le levier compte le coût de fonctionnement en année pleine. La formation des professionnels et l'investissement ne sont pas comptés."
+  },
+  {
+   "approach": "solidarites-2-e",
+   "lever": "gratuite-creches",
+   "dir": 1,
+   "setting": "100",
+   "fit": "partial",
+   "note": "« Gratuit » : l'argent public paie toute la participation des familles (100 %), au-delà de la plage chiffrée, donc en estimation. Le levier ne couvre que les crèches PSU. Réserver l'argent public aux crèches non lucratives (part micro-crèches du complément mode de garde) n'a ni dessin chiffré ni levier."
+  },
+  {
+   "approach": "solidarites-3-c",
+   "lever": "depense-aide-sociale-enfance",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Faire de la protection de l'enfance la première priorité donne un sens à la hausse, sans taille : la personne choisit. Le levier porte sur la dépense des départements (estimation d'Isoloir) et suppose qu'ils dépensent d'autant."
+  },
+  {
+   "approach": "logement-1-b",
+   "lever": "incitations-bailleurs-prives",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Alléger la fiscalité des bailleurs augmente le coût des avantages fiscaux qui leur sont ouverts (57 M€ en 2027), sans taille : la personne choisit. Le levier ne couvre ni l'imposition générale des loyers ni les dispositifs fermés (Pinel). Renforcer les droits des bailleurs relève de la loi et n'a pas de coût."
+  },
+  {
+   "approach": "logement-1-e",
+   "lever": "credits-anah-renovation",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Faire de la rénovation la priorité : hausse de la subvention de l'État à l'Anah (surtout MaPrimeRénov'), sans taille : la personne choisit."
+  },
+  {
+   "approach": "logement-1-e",
+   "lever": "credits-aides-a-la-pierre",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le levier finance surtout la rénovation énergétique du parc social (84,6 des 109,8 M€) : même sens, sans taille."
+  },
+  {
+   "approach": "logement-1-e",
+   "lever": "depense-fiscale-eco-ptz",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "L'éco-prêt à taux zéro finance aussi la rénovation énergétique : même sens, sans taille. La TVA de la rénovation énergétique est déjà au plus bas permis par le droit de l'Union (5,5 %) : pas de lien."
+  },
+  {
+   "approach": "logement-1-g",
+   "lever": "depense-fiscale-ptz",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Prêt à taux zéro élargi : la ligne monte, sans taille, la personne choisit. La vente de logements sociaux à leurs occupants n'a pas de levier : elle passe par les bailleurs sociaux, qui ne font pas partie des administrations publiques."
+  },
+  {
+   "approach": "logement-3-c",
+   "lever": "credits-anah-renovation",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Baisse de la subvention de l'État à l'Anah (MaPrimeRénov' surtout), sans montant : la personne choisit la taille."
+  },
+  {
+   "approach": "logement-3-c",
+   "lever": "credits-aides-a-la-pierre",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Cette ligne finance surtout la rénovation énergétique du parc social (84,6 M€ sur 109,8 M€) : c'est une subvention publique à la rénovation, mais elle ne paie pas que cela."
+  },
+  {
+   "approach": "logement-3-c",
+   "lever": "depense-fiscale-eco-ptz",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Les prêts à taux zéro ne remplacent les subventions qu'« au besoin », sans taille : l'éco-prêt à taux zéro est le levier de ces prêts. À régler avec la subvention à l'Anah."
+  },
+  {
+   "approach": "logement-3-e",
+   "lever": "credits-anah-renovation",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Plan massif sans montant : la subvention de l'État à l'Anah (MaPrimeRénov' surtout) monte, la personne choisit la taille. Garder les interdictions de louer n'a pas d'effet direct sur les comptes."
+  },
+  {
+   "approach": "logement-3-e",
+   "lever": "credits-aides-a-la-pierre",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Un plan public de rénovation comprend le parc social : la rénovation énergétique en fait la plus grande part de cette ligne (84,6 M€ sur 109,8 M€). Les certificats d'économies d'énergie ne font pas partie des administrations publiques et n'ont pas de levier."
+  },
+  {
+   "approach": "egalite-1-a",
+   "lever": "credits-egalite-femmes-hommes",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le programme 137 (106,3 M€) finance surtout la prévention et l'aide aux victimes. Le niveau réclamé par les associations couvre plusieurs programmes et ne peut pas être lu sur cette ligne : la personne choisit la hausse. Le volet hébergement des victimes (environ 11 600 places sur les 203 000 du programme 177) n'a pas de levier propre : régler toute la ligne de l'hébergement ne représenterait pas cette mesure. La formation n'a pas de levier."
+  },
+  {
+   "approach": "egalite-1-e",
+   "lever": "credits-egalite-femmes-hommes",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet revenus des victimes : l'aide universelle d'urgence aux victimes de violences conjugales (33,3 M€) est payée sur le programme 137, avec les aides aux associations ; le levier règle tout le programme (106,3 M€). Le volet logement des victimes (environ 11 600 places sur les 203 000 du programme 177) n'a pas de levier propre : régler toute la ligne de l'hébergement ne représenterait pas cette mesure. Les commissions indépendantes n'ont pas de ligne, et la moindre place donnée aux réponses pénales n'a pas de levier."
+  },
+  {
+   "approach": "egalite-2-a",
+   "lever": "conge-second-parent",
+   "dir": 1,
+   "setting": "aligne-maternite",
+   "fit": "exact",
+   "note": "Le réglage « Aligné sur le congé de la mère » : 10 semaines après la naissance, en partie obligatoires, chiffrées par l'Assemblée nationale (majorant) et la CAE."
+  },
+  {
+   "approach": "egalite-2-b",
+   "lever": "depense-prepare",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Allonger et mieux rémunérer le congé parental fait monter la dépense de PreParE, sans taille : la personne choisit. La part réservée à chaque parent n'a pas d'effet chiffré propre."
+  },
+  {
+   "approach": "egalite-2-c",
+   "lever": "depense-conge-naissance",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Prolonger le congé de naissance fait monter ses indemnités, sans taille : la personne choisit. Laisser les parents choisir lequel des deux le prend n'a pas d'effet chiffré."
+  },
+  {
+   "approach": "egalite-2-f",
+   "lever": "gratuite-creches",
+   "dir": 1,
+   "setting": "100",
+   "fit": "partial",
+   "note": "« Services publics gratuits » : 100 % de la participation des familles pris en charge dans les crèches PSU, la borne du levier. Les autres modes de garde et les tâches domestiques n'ont pas de levier."
+  },
+  {
+   "approach": "egalite-2-f",
+   "lever": "places-creche",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Confier la garde des enfants à des services publics suppose plus de places d'accueil, sans nombre : la personne choisit."
+  },
+  {
+   "approach": "egalite-4-c",
+   "lever": "ondam",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Garder partout des maternités et des lieux pratiquant l'IVG est une dépense hospitalière comprise dans l'Ondam, sans nombre de sites : la personne choisit la hausse. L'Ondam couvre bien plus que cette mesure."
+  },
+  {
+   "approach": "education-1-b",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Hausse sans taille (« baisser nettement », « recruter ») : la personne choisit le nombre d'emplois. Le levier compte tous les emplois publics, dont ceux de l'Éducation nationale. Il recoupe le levier des rémunérations de l'enseignement scolaire (même paie) : un seul lien, jamais les deux additionnés."
+  },
+  {
+   "approach": "education-1-g",
+   "lever": "credits-remunerations-enseignement-scolaire",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Salaires revalorisés » sans taille : la personne choisit le pourcentage. Le levier couvre toute la paie de la mission Enseignement scolaire, celle des enseignants pour l'essentiel, mais aussi des autres personnels. La formation et le concours dès la licence figurent déjà au PLF 2027, sans coût en plus."
+  },
+  {
+   "approach": "education-4-c",
+   "lever": "credits-universites-recherche",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Augmenter fortement » sans taille : la personne choisit le pourcentage des crédits des universités et de la recherche (programmes 150 et 172). Ce sont surtout des subventions aux universités et aux organismes : l'effet suppose qu'ils dépensent d'autant plus."
+  },
+  {
+   "approach": "education-4-d",
+   "lever": "droits-inscription-etudiants-etrangers",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le levier règle la hausse des droits des étudiants venus hors de l'Union (licence et master), sans taille donnée (« davantage »). La limitation du nombre d'étudiants étrangers n'a pas de levier. Droits payés aux universités : ils ne réduisent le déficit que si l'État baisse d'autant leur subvention ou si elles ne les dépensent pas."
+  },
+  {
+   "approach": "education-5-a",
+   "lever": "allocation-autonomie-etudiants",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le levier est cette allocation, versée à chaque étudiant sans condition de ressources. Le montant n'est pas dit : la personne choisit l'un des crans (de 100 à 1 000 € par mois). Le levier garde les bourses ; l'approche ne dit pas ce que l'allocation remplacerait."
+  },
+  {
+   "approach": "education-5-b",
+   "lever": "aides-logement-etudiants",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet logement : hausse sans taille des aides au logement versées aux étudiants."
+  },
+  {
+   "approach": "education-5-b",
+   "lever": "credits-aides-indirectes-etudiants",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet alimentation (repas des Crous) et logement en résidence : hausse sans taille des crédits versés aux Crous. Les transports n'ont pas de levier (ils relèvent surtout des collectivités)."
+  },
+  {
+   "approach": "education-5-c",
+   "lever": "credits-aides-directes-etudiants",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Augmenter nettement » sans taille, et sur une part seulement de la ligne : le levier règle toutes les aides directes aux étudiants (bourses de toutes les années, aides au mérite et à la mobilité, 2 458,7 M€ au PLF 2027). La hausse réservée aux étudiants modestes des premières années n'est pas chiffrée à part : la personne en tient compte dans le pourcentage appliqué à l'ensemble."
+  },
+  {
+   "approach": "education-x1-b",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Davantage » sans taille : la personne choisit le nombre d'emplois. Les surveillants, contractuels, coûtent moins que le coût moyen d'un emploi public du levier."
+  },
+  {
+   "approach": "societe-1-a",
+   "lever": "credits-audiovisuel-public",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Baisse des avances de l'État à l'audiovisuel public. « L'essentiel » ne donne pas de chiffre : la personne choisit la baisse, jusqu'au cran −100 %. Ni le produit d'une vente (opération financière) ni les charges reprises (personnels, dettes) ne sont comptés."
+  },
+  {
+   "approach": "societe-1-b",
+   "lever": "credits-audiovisuel-public",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Baisse des avances de l'État à l'audiovisuel public, sans taille : l'économie dépend des chaînes vendues et du coût des deux chaînes gardées, et la personne choisit la baisse. Le produit d'une vente n'est pas compté."
+  },
+  {
+   "approach": "societe-1-d",
+   "lever": "credits-audiovisuel-public",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Réduire les coûts de l'audiovisuel public, c'est baisser les avances qui le financent (3 816,5 M€ au PLF 2027). Le texte donne le sens, pas la taille. La réforme des structures n'a pas d'effet chiffré à part."
+  },
+  {
+   "approach": "societe-1-e",
+   "lever": "credits-audiovisuel-public",
+   "dir": 1,
+   "setting": "1",
+   "fit": "partial",
+   "note": "Garantir le financement, c'est au moins annuler la baisse du PLF 2027 : 3 816,5 M€ d'avances contre 3 863,3 M€ en 2026, soit 46,8 M€ (+1,2 %). Le levier avance par pas de 1 % : annuler la baisse, c'est +1,2 %, ramené à +1 % (38,2 M€) par le pas du levier, un peu moins que la baisse. Garder les effectifs, renoncer aux fusions et renforcer l'indépendance n'ont pas d'effet chiffré à part."
+  },
+  {
+   "approach": "societe-2-a",
+   "lever": "credits-culture",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Augmenter nettement » donne le sens, pas la taille, sur les crédits de la mission Culture. « Sécuriser les revenus des artistes » dépend du dispositif (régime des intermittents, géré par l'Unédic) et n'a pas de levier."
+  },
+  {
+   "approach": "societe-2-a",
+   "lever": "credits-impot-culture",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le soutien au cinéma et à la création (crédits d'impôt, dépense du CNC) fait aussi partie de l'argent public de la culture, hors mission Culture. Ce n'est qu'une part de l'approche, et le texte ne donne pas de taille."
+  },
+  {
+   "approach": "societe-2-e",
+   "lever": "credits-aides-presse",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Volet presse : baisse des aides directes à la presse écrite, sans taille. « Certaines associations » n'a ni périmètre défini ni levier."
+  },
+  {
+   "approach": "societe-2-e",
+   "lever": "credits-impot-culture",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet cinéma : baisse du soutien au cinéma, sans taille. Le levier va au-delà du seul cinéma : il couvre aussi l'audiovisuel, les jeux vidéo, la musique enregistrée et le spectacle vivant."
+  },
+  {
+   "approach": "societe-2-f",
+   "lever": "credits-impot-culture",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Renforcer le soutien au cinéma : hausse, sans taille, des crédits d'impôt et de la dépense du CNC. Le levier couvre aussi d'autres secteurs (audiovisuel, jeux vidéo, musique, spectacle vivant). Les quotas de diffusion n'ont pas d'effet budgétaire."
+  },
+  {
+   "approach": "societe-x1-c",
+   "lever": "credits-aides-presse",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "exact",
+   "note": "Supprimer les aides versées à la presse, c'est le levier à -100 % : toutes les aides directes à la presse écrite (166,8 M€ comptés). Les taux réduits de TVA ne sont pas des aides versées. Le droit de l'Union impose un régulateur de l'audiovisuel (directive SMA, DSA) : ses missions seraient transférées, sans effet chiffré."
+  },
+  {
+   "approach": "numerique-1-b",
+   "lever": "credits-france-2030",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Investir « massivement » donne le sens, pas la taille. France 2030 finance l'innovation, IA et calcul compris, mais pas seulement. Les prises de participation au prix du marché sont des opérations financières, sans effet sur le déficit, et le levier les exclut."
+  },
+  {
+   "approach": "numerique-1-c",
+   "lever": "credit-impot-recherche-innovation",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Avantage fiscal nouveau, sans dessin ni taille. Au-dessus du PLF, le levier compte une extension de même coût que les crédits d'impôt recherche et innovation. Ces crédits couvrent les dépenses de recherche et d'innovation (IA et numérique compris), pas l'achat de robots ou d'équipements. Le taux réduit d'IS sur les brevets et logiciels n'est pas relié : il porte sur des revenus, pas sur l'investissement."
+  },
+  {
+   "approach": "numerique-3-g",
+   "lever": "tsn-taux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Taxer davantage les grandes plateformes » : hausse, sans taille, de la taxe sur les services numériques, qui vise ces entreprises. Le démantèlement relève du droit de la concurrence et n'a pas d'effet budgétaire."
+  },
+  {
+   "approach": "ecologie_energie-1-a",
+   "lever": "accise-carburants",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Baisse, sans taille, des taxes sur l'essence et le gazole : l'accise est la taxe propre aux carburants (part de l'État). La TVA sur les seuls carburants n'a pas de levier, puisque le levier TVA porte sur tous les biens. L'accise réduite des transporteurs n'est pas reliée : elle ne vise pas les automobilistes."
+  },
+  {
+   "approach": "ecologie_energie-1-c",
+   "lever": "aide-carburant-ciblee",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Une aide réservée aux ménages modestes qui prennent leur voiture pour travailler : c'est le dessin du levier, absent du PLF 2027. Le texte ne donne pas de montant, seulement le sens (au plus près du PLF : 100 € aux conditions de 2026)."
+  },
+  {
+   "approach": "ecologie_energie-1-e",
+   "lever": "credits-ferroviaires",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet transports collectifs : hausse sans taille, que seuls les crédits ferroviaires de l'État représentent en partie (bus, trams et métros dépendent des collectivités et n'ont pas de levier). Volet électricité : le moyen de baisser le prix n'est pas dit (taxes, tarif réglementé, prix d'EDF, hors administrations publiques). L'accise et la TVA sur l'électricité ne sont donc pas reliées."
+  },
+  {
+   "approach": "ecologie_energie-2-e",
+   "lever": "referendums-nationaux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Le texte prévoit un référendum national, sans en dire la date. Le réglage le plus modéré est le même jour qu'un scrutin prévu ; à une date à part, il coûte 0,10 à 0,19 Md€. Seul le coût d'organisation pour l'État est compté, pas l'effet du résultat sur le nucléaire."
+  },
+  {
+   "approach": "ecologie_energie-3-d",
+   "lever": "accise-electricite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La baisse n'a pas de taille. Le réglage de départ est le premier cran (-10 %), puis la personne choisit l'ampleur. L'accise est la principale taxe propre à l'électricité, et le levier ne porte que sur la part de l'État. La contribution tarifaire d'acheminement, aussi prélevée sur la facture, n'a pas de levier."
+  },
+  {
+   "approach": "ecologie_energie-3-d",
+   "lever": "tva-electricite",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La TVA est nommée, mais sans taux. Le lien ne donne que le sens : le réglage de départ est le plus modéré dans ce sens (5,5 % sur une consommation de base, 20 % au-delà). La personne peut choisir 10 % ou 5,5 % sur toute la facture."
+  },
+  {
+   "approach": "ecologie_energie-5-a",
+   "lever": "agences-eau-interventions",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Davantage de retenues, sans nombre ni montant. Les agences de l'eau en financent une partie, à côté des agriculteurs et des collectivités. Le levier porte sur toutes leurs aides ; comme leurs redevances sont plafonnées, une partie peut aussi venir de crédits redéployés."
+  },
+  {
+   "approach": "ecologie_energie-5-d",
+   "lever": "agences-eau-interventions",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Réparer les réseaux et réutiliser davantage les eaux usées, sans montant. Ces travaux sont surtout ceux des collectivités, aidées par les agences de l'eau. Le levier porte sur toutes leurs aides ; une priorité peut aussi se financer par des crédits redéployés."
+  },
+  {
+   "approach": "ecologie_energie-6-d",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Renforcer fortement » ne donne pas de nombre : la personne choisit les emplois. Le levier compte tous les emplois publics. Les pompiers professionnels y entrent, comme agents des services départementaux ; les volontaires et les équipements n'y sont pas."
+  },
+  {
+   "approach": "ecologie_energie-7-a",
+   "lever": "gratuite-transports-urbains",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Gratuité, au moins dans les grandes agglomérations : le texte ne fixe pas la part des recettes de billets concernée. 100 voudrait dire la gratuité partout ; l'Île-de-France fait la plus grande part de ces recettes (chiffres du Sénat). D'où un réglage donné dans le sens seulement."
+  },
+  {
+   "approach": "ecologie_energie-7-d",
+   "lever": "credits-ferroviaires",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Plan d'investissement sans montant : les crédits ferroviaires de l'État augmentent, versés surtout à SNCF Réseau. Les fonds de concours (AFITF, dividendes de la SNCF) et la part des régions dans les petites lignes ne sont pas dans le levier."
+  },
+  {
+   "approach": "territoires-1-b",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Investir massivement » donne le sens sans la taille : la personne règle la hausse des effectifs publics. L'investissement en équipements et le retour sur l'ouverture au privé et à la concurrence ne sont pas représentés."
+  },
+  {
+   "approach": "territoires-1-c",
+   "lever": "effectifs-publics",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Baisse des effectifs sans taille : la personne choisit le nombre d'emplois. Le levier ne porte que sur cette baisse : le coût des outils numériques et d'intelligence artificielle, qui doivent aussi renforcer l'accueil, n'est pas compté."
+  },
+  {
+   "approach": "territoires-1-f",
+   "lever": "france-services-espaces",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Plus de guichets, sans en donner le nombre : la personne choisit combien d'espaces France services ouvrir, par tranche de 100."
+  },
+  {
+   "approach": "agriculture-3-a",
+   "lever": "credits-aides-agriculture",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Financer la reconversion des éleveurs, sans montant : la personne peut régler à la hausse les aides nationales à l'agriculture. Le levier règle la ligne existante, pas un dispositif de reconversion dédié ; les effets d'une interdiction de la chasse (redevances perdues, régulation de la faune payée par le public) ne sont pas comptés."
+  },
+  {
+   "approach": "agriculture-x4-c",
+   "lever": "cotisations-exploitants-agricoles",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Baisse sans taille : la personne règle la baisse des cotisations retraite de base des exploitants agricoles. Le levier ne couvre que cette partie des cotisations ; les impôts de production, peu payés par les exploitations, et les normes ne sont pas représentés."
+  },
+  {
+   "approach": "agriculture-x4-c",
+   "lever": "exonerations-saisonniers-agricoles",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Volet des cotisations dues par les exploitations qui emploient : la personne peut renforcer l'exonération des travailleurs saisonniers agricoles (TO-DE). Sens seul, sans taille. L'accise réduite sur le gazole non routier n'est pas reliée : c'est une taxe sur l'énergie, ni une cotisation ni un impôt de production."
+  },
+  {
+   "approach": "agriculture-x4-e",
+   "lever": "allocation-alimentaire",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Allocation versée à chacun, sans montant : la personne choisit le montant mensuel par habitant. Le conventionnement des aliments et la préférence pour les productions locales ne changent pas le coût statique et ne sont pas représentés."
+  },
+  {
+   "approach": "securite_justice-1-b",
+   "lever": "credits-administration-penitentiaire",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Construire plus de places revient à hausser les crédits de l'administration pénitentiaire (programme 107). Le sens est donné sans taille : la personne règle les crédits de 2027, pas un nombre de places, et le PLF 2027 livre déjà 326 places en 2027."
+  },
+  {
+   "approach": "securite_justice-1-e",
+   "lever": "credits-lutte-immigration-irreguliere",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Expulser systématiquement les étrangers condamnés donne le sens « hausse » aux crédits de rétention et d'éloignement (programme 303, action 03), sans taille. C'est la même règle que pour immigration-3-d et 3-e. L'idée ne vise que les condamnés : le premier cran (+50 %) peut dépasser sa portée. Le levier ne compte ni les escortes de police ni les jours de prison évités pour les détenus éloignés avant la fin de leur peine. L'effet net reste incertain."
+  },
+  {
+   "approach": "securite_justice-1-g",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Recrutement « massif » sans nombre : la personne choisit le nombre d'emplois. Le levier compte le salaire moyen d'un agent public, pas celui d'un magistrat, d'un greffier ou d'un conseiller d'insertion. Les buts (juger plus vite, préparer la sortie de prison) n'ont pas d'autre effet chiffré."
+  },
+  {
+   "approach": "securite_justice-2-a",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Recrutement sans nombre de policiers, de gendarmes, de douaniers et d'enquêteurs : la personne choisit le nombre d'emplois sur le levier des effectifs publics, au salaire moyen d'un agent public."
+  },
+  {
+   "approach": "securite_justice-2-h",
+   "lever": "polices-municipales",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Multiplier les caméras donne le sens « hausse » à la dépense des communes pour leur police municipale, sans taille. Le levier ne compte la vidéoprotection que si elle est inscrite à ce service. Il ne compte pas les caméras des autres services ou de l'État, et les aides de l'État aux communes sont des transferts. Étendre les pouvoirs des polices municipales n'a pas d'effet direct."
+  },
+  {
+   "approach": "securite_justice-3-b",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Renfort d'enquêteurs spécialisés sans nombre : la personne choisit le nombre d'emplois, ou garde 0 si le renfort se fait par redéploiement. Le produit des saisies et de la lutte contre le blanchiment dépend de l'efficacité des enquêtes. Aucun levier ne le compte."
+  },
+  {
+   "approach": "securite_justice-3-c",
+   "lever": "cannabis-legal-taxe",
+   "dir": 1,
+   "setting": "legalisation-2027",
+   "fit": "partial",
+   "note": "Légaliser et encadrer la vente correspond au réglage « vente légale » du levier. Le texte ne dit ni la taxation ni la date. Le levier suppose une accise et la TVA (schéma du Conseil d'analyse économique), avec une vente dès janvier 2027. Il ne compte ni les économies de police et de justice, ni le coût de la régulation."
+  },
+  {
+   "approach": "securite_justice-3-f",
+   "lever": "credits-politique-de-la-ville",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Investir durablement dans les quartiers touchés donne le sens « hausse » aux crédits de la politique de la ville (programme 147), sans taille : la personne choisit. Restent hors de ce levier la rénovation urbaine, financée surtout par Action Logement, ainsi que les services publics de droit commun et l'emploi des jeunes."
+  },
+  {
+   "approach": "securite_justice-4-a",
+   "lever": "referendums-nationaux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Soumettre une question à référendum donne le sens « hausse » au levier des référendums : la personne choisit un vote couplé à un autre scrutin ou à une date à part. Le texte ne dit pas l'année du vote. Le levier ne compte que l'organisation du vote, comme pour institutions-1-f et sante-3-e. Le rétablissement de la peine de mort supposerait une révision de la Constitution (article 66-1) et la sortie de traités qui l'interdisent. Il n'est pas chiffré."
+  },
+  {
+   "approach": "securite_justice-4-d",
+   "lever": "effectifs-publics",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Enquêteurs et magistrats spécialisés « supplémentaires », sans nombre : la personne choisit le nombre d'emplois. Le levier compte le salaire moyen d'un agent public, pas celui d'un magistrat."
+  },
+  {
+   "approach": "securite_justice-4-e",
+   "lever": "depense-aide-sociale-enfance",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Donner la priorité à la protection de l'enfance donne le sens « hausse » à la dépense d'aide sociale à l'enfance, sans taille : la personne choisit. Le levier suppose que les départements dépensent d'autant. Ne pas alourdir les peines n'a pas d'effet direct en 2027."
+  },
+  {
+   "approach": "securite_justice-5-d",
+   "lever": "credits-pjj",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Placer les jeunes délinquants en internat ou en centre fermé donne le sens « hausse » aux crédits de la protection judiciaire de la jeunesse (programme 182), qui financent les centres éducatifs fermés. Le nombre de places n'est pas dit : la personne choisit la hausse des crédits de 2027."
+  },
+  {
+   "approach": "securite_justice-5-e",
+   "lever": "credits-pjj",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "L'éducation, la prévention et l'insertion des jeunes suivis par la justice donnent le sens « hausse » aux crédits de la protection judiciaire de la jeunesse (programme 182), sans taille. Restent hors de ce levier les dispositifs de seconde chance de la mission Travail (EPIDE, écoles de la deuxième chance) et la prévention menée par les départements."
+  },
+  {
+   "approach": "securite_justice-6-e",
+   "lever": "credits-justice-judiciaire",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Garantir les moyens de la justice » est lu comme une hausse des crédits des tribunaux (programme 166), sans taille : la personne choisit, et peut garder 0 si elle y lit un maintien. L'indépendance et la protection des magistrats n'ont pas d'effet budgétaire. L'aide juridictionnelle et les autres programmes de la mission Justice restent hors du levier."
+  },
+  {
+   "approach": "securite_justice-x1-a",
+   "lever": "polices-municipales",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Faire des polices municipales armées la règle dans les villes moyennes et grandes donne le sens « hausse » à leur dépense (créations, recrutements, armement). Le nombre de villes n'est pas dit : la personne choisit. Le levier suppose que les communes dépensent d'autant. Les contrôles d'identité et l'accès aux fichiers n'ont pas d'effet direct."
+  },
+  {
+   "approach": "securite_justice-x1-e",
+   "lever": "polices-municipales",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Désarmer les polices existantes et ne plus en créer donne le sens « baisse » à leur dépense par rapport à la tendance, sans taille. L'idée garde les polices existantes : l'économie porte sur l'armement et les créations évitées, sans doute une petite part de la dépense. Le premier cran (−10 %) peut dépasser sa portée : la personne choisit la taille."
+  },
+  {
+   "approach": "immigration-3-a",
+   "lever": "credits-lutte-immigration-irreguliere",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "partial",
+   "note": "Renoncer aux expulsions retire leur objet aux centres de rétention et aux vols d'éloignement : la lettre correspond au bas de la plage (−100 %, la borne ouverte pour cette idée). La ligne paie aussi les zones d'attente aux frontières, que l'idée ne vise pas : à −100 %, le levier compte un peu plus qu'elle. La régularisation de tous n'a pas de levier (prestations ouvertes, cotisations en plus, passage de l'AME à l'assurance maladie) : le lien est partiel. La conformité à la directive « retour » dépend de la rédaction."
+  },
+  {
+   "approach": "immigration-3-c",
+   "lever": "credits-lutte-immigration-irreguliere",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La régularisation au cas par cas de ceux qui travaillent est le droit actuel. Reconduire les autres à la frontière donne le sens « hausse » aux crédits de rétention et d'éloignement, sans taille : la personne choisit. Chaque éloignement fait aussi sortir de l'AME et de l'hébergement d'urgence, une économie de sens contraire qui n'est pas comptée. C'est le même levier, en sens inverse, que immigration-3-a."
+  },
+  {
+   "approach": "immigration-3-d",
+   "lever": "credits-lutte-immigration-irreguliere",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Faire exécuter davantage d'OQTF donne le sens « hausse » aux crédits de rétention et d'éloignement, sans taille : la personne choisit. Limiter les régularisations n'a que des effets indirects, sans levier : le lien est partiel. Les sorties de l'AME et de l'hébergement d'urgence qui suivent les éloignements ne sont pas comptées."
+  },
+  {
+   "approach": "immigration-3-e",
+   "lever": "credits-lutte-immigration-irreguliere",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Expulser sans délai les étrangers sans titre donne le sens « hausse » aux crédits de rétention et d'éloignement. Le texte ne donne pas de taille en crédits : la personne choisit. Le délit est puni d'une amende dans les textes récents (vote de 2023, proposition de loi de 2025) et pèserait donc peu sur les tribunaux. La Cour de justice de l'Union exclut la prison pour le seul séjour irrégulier tant que l'éloignement n'est pas mené à son terme (2011). Ni le levier de la justice judiciaire ni celui des prisons ne représente ce délit sans lui prêter une taille : le lien est donc partiel. Les sorties de l'AME qui suivent les éloignements ne sont pas comptées. La conformité à la directive « retour » dépend de la rédaction."
+  },
+  {
+   "approach": "immigration-5-c",
+   "lever": "condition-residence-prestations",
+   "dir": -1,
+   "setting": "deux-ans",
+   "fit": "partial",
+   "note": "« Plusieurs années » de séjour veut dire au moins deux ans, le réglage le plus long du levier. Au-delà, rien n'est chiffré, et le Conseil constitutionnel a censuré cinq ans de séjour ou trente mois d'activité en 2024 (décision n° 2024-6 RIP). Le levier ne porte que les aides au logement et les prestations familiales. Le RSA et la prime d'activité exigent déjà cinq ans, et la condition d'activité n'a pas de levier. Même levier, en sens inverse, que immigration-5-d."
+  },
+  {
+   "approach": "immigration-5-d",
+   "lever": "condition-residence-prestations",
+   "dir": 1,
+   "setting": "aucune-duree",
+   "fit": "partial",
+   "note": "Le même accès que les Français, c'est aucune durée de séjour exigée : on retire la condition d'un an prévue par l'article 37 du PLFSS 2027. Le levier ne porte que les aides au logement et les prestations familiales. Lever les cinq ans du RSA et de la prime d'activité, et les dix ans de l'ASPA, n'a ni chiffrage éligible ni levier. Même levier, en sens inverse, que immigration-5-c."
+  },
+  {
+   "approach": "immigration-6-c",
+   "lever": "credits-integration",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Garantir à tous les arrivants des cours de français et un accompagnement donne le sens « hausse » aux crédits d'intégration (programme 104), sans taille : la personne choisit. La lutte contre les discriminations n'est pas sur cette ligne et n'a pas de levier : le lien est partiel."
+  },
+  {
+   "approach": "immigration-x1-a",
+   "lever": "credits-ame",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "exact",
+   "note": "Supprimer l'AME en gardant les soins urgents : les 1 138,3 M€ de l'AME hors soins urgents, sur lesquels porte le levier, disparaissent, soit −100 %. La dotation de 70 M€ que l'État verse à l'Assurance maladie pour les soins urgents reste. C'est un transfert entre administrations publiques, hors du levier. L'effet est statique, donc l'économie est un maximum : le report des soins vers les soins urgents et l'hôpital public n'est pas compté. La mission sur l'AME (2023) jugeait d'ailleurs non acquise l'économie d'une aide limitée à l'urgence."
+  },
+  {
+   "approach": "immigration-x1-b",
+   "lever": "credits-ame",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Réduire les soins couverts et le nombre de bénéficiaires donne le sens « baisse » aux crédits de l'AME (programme 183, action 02), sans taille : la personne choisit. Le report vers les soins urgents et l'hôpital n'est pas compté. C'est le même levier, en sens inverse, que immigration-x1-e."
+  },
+  {
+   "approach": "immigration-x1-c",
+   "lever": "credits-ame",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Soumettre davantage de soins à un accord préalable et renforcer les contrôles donne le sens « baisse » aux crédits de l'AME, sans taille : la personne choisit. C'est la même règle que pour « verser automatiquement les aides sociales à toutes les personnes qui y ont droit », de l'autre côté, relié à son propre levier. L'idée garde l'AME : seule une baisse limitée de ces crédits lui correspond. Aucune source lue ne chiffre l'économie. Le Sénat (rapport n° 736 sur les comptes 2025, annexe « Santé », juin 2026) recommande l'accord préalable pour les soins non urgents. La mission sur l'AME (décembre 2023) en fait une piste, sans la chiffrer. Le décret du 6 février 2026 (n° 2026-67), qui resserre les pièces à fournir, est déjà dans le point de départ."
+  },
+  {
+   "approach": "immigration-x1-e",
+   "lever": "credits-ame",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Fondre l'AME dans l'assurance maladie élargit les soins couverts (panier commun, fin du délai de neuf mois) et l'accès. Le sens est une hausse de la dépense de soins des personnes aujourd'hui couvertes par l'AME, sans taille : la personne choisit. Le transfert des crédits de l'État vers la Sécurité sociale reste interne aux administrations publiques : seul le surcoût compte, et aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "ukraine_russie-1-d",
+   "lever": "credits-aide-ukraine",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "partial",
+   "note": "« Arrêter l'aide financière » veut dire supprimer toute la ligne du fonds de soutien aux infrastructures civiles ukrainiennes, des dons versés à la demande du gouvernement ukrainien (28 M€ de crédits de paiement, programme 110) : −100 %. Le levier ne couvre qu'une partie de l'aide financière : la contribution aux intérêts des prêts européens (98 M€) et l'aide qui passe par le budget de l'Union n'y sont pas. La formation et le matériel sont gardés : rien à régler."
+  },
+  {
+   "approach": "ukraine_russie-1-e",
+   "lever": "credits-aide-ukraine",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "partial",
+   "note": "« Toute aide financière » : −100 % du fonds de soutien aux infrastructures civiles ukrainiennes (28 M€). Le volet militaire n'a pas de ligne réglable au PLF 2027 (action 13 du programme 146 à 0 €, cessions prises sur les stocks sans crédit propre). La contribution aux intérêts des prêts européens (98 M€) et la Facilité européenne pour la paix restent hors du levier. Le mandat commence en mai 2027, mais le jeu compte l'année 2027 entière."
+  },
+  {
+   "approach": "ukraine_russie-1-h",
+   "lever": "opex-surcouts",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Une force européenne déployée en Ukraine ferait monter les surcoûts des opérations extérieures si des soldats français y participent, ce que le texte ne précise pas. Il n'en donne pas non plus la taille : la personne la règle. Elle suppose un cessez-le-feu : en 2027, elle ne coûte que si celui-ci intervient dans l'année. Le PAP envisage des forces de stabilisation à partir de 2028, hors du total."
+  },
+  {
+   "approach": "ukraine_russie-2-e",
+   "lever": "credits-aide-ukraine",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "partial",
+   "note": "Ne soutenir aucun des deux gouvernements vise aussi ce fonds, qui finance en dons des projets demandés par le gouvernement ukrainien : −100 % (28 M€). Le soutien militaire n'a pas de ligne réglable, et la contribution aux intérêts des prêts européens est hors du levier. L'appel aux travailleurs n'a pas d'effet sur les comptes."
+  },
+  {
+   "approach": "ukraine_russie-x3-a",
+   "lever": "opex-surcouts",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Des soldats français déployés en Ukraine, et peut-être une protection de son ciel, font monter les surcoûts des opérations extérieures. Le texte ne donne aucune taille, et le déploiement suppose un cessez-le-feu : en 2027, il ne coûte que si celui-ci intervient dans l'année. Le PAP prévoit des forces de stabilisation à partir de 2028, hors du total. Ce levier exclut le levier défense : ne pas cumuler les deux."
+  },
+  {
+   "approach": "proche_orient-1-e",
+   "lever": "opex-surcouts",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Retirer les forces de la région baisse les surcoûts des opérations extérieures. La provision ne détaille pas le Proche-Orient, donc la personne choisit la taille. Un retrait coûte aussi du transport la même année. Le soutien économique à Israël ne correspond à aucune ligne budgétaire identifiée. Les forces de présence hors opérations extérieures ne sont pas dans le levier."
+  },
+  {
+   "approach": "defense-2-a",
+   "lever": "defense",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "La cible (au moins 3 % du PIB, environ 100 Md€) vaut pour la fin du quinquennat, pas pour 2027. Le texte ne dit pas quelle part de la hausse tombe en 2027 : la personne la règle. Le levier compte la mission Défense hors pensions (63,4 Md€ au PLF, environ 2 % du PIB). Le texte ne dit pas ce que couvre le « budget des armées » qu'il vise."
+  },
+  {
+   "approach": "defense-2-c",
+   "lever": "defense",
+   "dir": -1,
+   "setting": "-2",
+   "fit": "exact",
+   "note": "Renoncer à la hausse votée en 2026 ramène la mission Défense de 2027 à la trajectoire de 2023 : 56,9 Md€ contre 63,4 Md€ au PLF, soit −6,5 Md€ (Sénat, rapport n° 666). Cela fait environ −0,21 point de PIB. Le levier avance par crans de 0,1 point : le plus proche est −2 crans (−6,3 Md€). Lecture retenue : les crédits restants vont au territoire, à l'espace et au numérique, sans effet net. Les 36 Md€ sont un cumul jusqu'en 2030 : seule la part de 2027 compte."
+  },
+  {
+   "approach": "defense-2-d",
+   "lever": "defense",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le texte donne un sens sans taille (« fortement », « voire le supprimer ») : la personne règle la baisse. La suppression complète (63,4 Md€, environ −20 crans) dépasse la borne du levier (−1 point de PIB). L'argent irait aux services publics, sans ligne unique pour le recevoir. Si tout est redépensé, l'effet net sur le déficit est nul, ce que ce levier seul ne montre pas."
+  },
+  {
+   "approach": "defense-3-e",
+   "lever": "credits-dissuasion",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "partial",
+   "note": "Renoncer à la dissuasion correspond au cran −100 % du levier : l'abandon de toute la ligne (7,92 Md€ au PLF). Au-delà de −25 %, l'effet de 2027 est une estimation, car les contrats déjà signés restent dus. Le démantèlement de l'arsenal ouvre des dépenses sur plusieurs années, non chiffrées et hors du total. Le personnel des forces nucléaires n'est pas dans le levier."
+  },
+  {
+   "approach": "defense-4-c",
+   "lever": "defense",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "« Renforcer en priorité l'armée française » se règle à la hausse sur le levier défense, sans taille énoncée. Refuser les programmes européens ne change pas la contribution française au budget de l'Union, fixée au niveau européen (cadre financier pluriannuel et décision sur les ressources propres)."
+  },
+  {
+   "approach": "defense-4-d",
+   "lever": "defense",
+   "dir": -1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Refuser le réarmement se règle à la baisse sur le levier défense, sans taille énoncée. Repère : renoncer à la part de 2027 de la hausse votée en 2026 ferait −6,5 Md€, soit environ −2 crans (−6,3 Md€). La reconversion de l'industrie d'armement n'est pas chiffrée."
+  },
+  {
+   "approach": "defense-5-a",
+   "lever": "service-national-appeles",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Un service obligatoire augmente le nombre d'appelés : la personne règle la taille dans la plage du levier (jusqu'à +4 000). Le levier chiffre le service volontaire de dix mois lancé en 2026, pas un service court en caserne. Une classe d'âge entière (environ 850 000 jeunes) dépasse de loin sa borne, et la montée en charge prendrait plusieurs années."
+  },
+  {
+   "approach": "defense-5-b",
+   "lever": "service-national-appeles",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le volet militaire d'un service obligatoire augmente le nombre d'appelés : la personne règle la taille (jusqu'à +4 000). Une classe d'âge entière dépasse de loin la borne du levier. Le texte ne fixe ni la durée, ni la rémunération, ni le partage entre les deux volets."
+  },
+  {
+   "approach": "defense-5-b",
+   "lever": "credits-service-civique",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "Le volet des missions civiles rémunérées est représenté par la ligne la plus proche, les indemnités du service civique. C'est une lecture : le texte ne nomme pas ce dispositif. La taille n'est pas énoncée."
+  },
+  {
+   "approach": "defense-5-c",
+   "lever": "credits-service-civique",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Rendre le service civique obligatoire augmente la ligne qui paie les missions. Le texte ne donne pas la taille pour 2027. Une classe d'âge entière (800 000 à 850 000 jeunes) dépasse la borne du levier (+100 %, environ 270 000 missions). Son coût à terme (2,2 à 4,0 Md€ de plus par an) reste hors du total. Le service militaire qui reste volontaire correspond au point de départ."
+  },
+  {
+   "approach": "defense-5-d",
+   "lever": "service-national-appeles",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "partial",
+   "note": "« Développer fortement » le service militaire volontaire veut dire plus d'appelés : la personne choisit la taille (jusqu'à +4 000). La réserve n'a pas de levier, car aucune source éligible lue ne publie de coût par réserviste."
+  },
+  {
+   "approach": "defense-5-e",
+   "lever": "service-national-appeles",
+   "dir": -1,
+   "setting": "-4",
+   "fit": "partial",
+   "note": "Refuser toute forme de service militaire volontaire revient à supprimer le service national lancé en 2026 : c'est le cran −4 000 appelés (plus aucun appelé en 2027, année pleine). « Toute forme » vise aussi le service militaire adapté outre-mer (environ 6 000 jeunes par an) et l'ancien service militaire volontaire (environ 1 000), qui n'ont pas de levier."
+  },
+  {
+   "approach": "institutions-1-f",
+   "lever": "referendums-nationaux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Recourir davantage au référendum ajoute des dates de vote, alors que le PLF n'en prévoit aucune. Le texte ne dit pas combien en 2027 : la personne choisit le nombre."
+  },
+  {
+   "approach": "institutions-3-e",
+   "lever": "referendums-nationaux",
+   "dir": 1,
+   "setting": "dir",
+   "fit": "direction",
+   "note": "Des référendums réguliers ajoutent des dates de vote. Le texte ne donne pas le rythme : la personne choisit le nombre en 2027. Plusieurs questions posées le même jour comptent pour une seule date."
+  },
+  {
+   "approach": "laicite_republique-1-g",
+   "lever": "cultes-alsace-moselle-emplois",
+   "dir": -1,
+   "setting": "-100",
+   "fit": "partial",
+   "note": "Avec la fin du régime concordataire, l'État cesse alors de payer les 1 141 emplois des cultes : c'est le cran −100 % (27 à 30 M€ de moins). Ce cran suppose une fin au 1er janvier 2027 sans garder les agents en place, une transition que le texte ne précise pas. Restent hors du levier : les pensions et les cotisations des employeurs, l'enseignement religieux à l'école publique, les facultés de théologie et, en Guyane, où la loi de 1905 ne s'applique pas non plus, le clergé catholique payé par la collectivité territoriale (ordonnance de 1828)."
+  }
+ ],
+ "none": [
+  {
+   "approach": "retraites-1-c",
+   "why": "Aucun levier ne fait de la durée cotisée le critère de départ. L'effet dépend des durées exigées, de la modulation selon la pénibilité et d'un éventuel âge plancher. Le texte ne fixe rien de tout cela : ni le sens ni la taille ne sont connus."
+  },
+  {
+   "approach": "retraites-1-d",
+   "why": "Aucun levier ne fixe des âges de départ selon la pénibilité ou l'espérance de vie en bonne santé. Certains partiraient plus tôt, d'autres peut-être plus tard. Le texte ne donne ni les métiers, ni les âges, ni le sens de l'effet."
+  },
+  {
+   "approach": "retraites-1-e",
+   "why": "Supprimer l'âge légal n'est pas un cran sur l'échelle des âges. L'effet dépend des taux de décote et de surcote et des choix de départ de chacun. Le texte ne les fixe pas, et l'effet peut aller dans les deux sens."
+  },
+  {
+   "approach": "retraites-2-b",
+   "why": "Aucun levier ne porte sur un étage obligatoire de retraite par capitalisation. Le taux de cotisation n'est pas donné. L'effet sur le déficit dépend du montage : fonds public compté dans les administrations ou fonds privé, cotisation nouvelle ou prise sur l'existante."
+  },
+  {
+   "approach": "retraites-2-d",
+   "why": "Aucun levier ne porte sur le passage de la répartition à la capitalisation. Le rythme et le montage ne sont pas donnés : la part de 2027 d'une transition étalée sur plusieurs décennies n'a pas de taille. Pendant la transition, il faudrait payer les pensions en cours tout en épargnant pour les futures."
+  },
+  {
+   "approach": "finances_publiques-1-h",
+   "why": "C'est un pari sur la croissance, sans mesure précise. Le jeu est statique : il ne compte les effets de croissance d'aucune mesure, dans un sens comme dans l'autre."
+  },
+  {
+   "approach": "finances_publiques-2-a",
+   "why": "Une règle budgétaire ne vise aucune ligne. Son effet dépend des mesures qu'elle imposerait, sur les impôts ou les dépenses, et le texte ne les fixe pas. Elle suppose aussi une révision de la Constitution."
+  },
+  {
+   "approach": "finances_publiques-2-b",
+   "why": "Une règle d'équilibre ne vise aucune ligne. L'effet dépend des mesures retenues pour l'atteindre sur cinq ans, en dépenses ou en recettes de la Sécurité sociale, et le texte ne les fixe pas."
+  },
+  {
+   "approach": "finances_publiques-2-c",
+   "why": "Il s'agit de changer la façon de calculer le déficit, ce qui se décide au niveau européen. Cette règle ne modifie pas les comptes en soi, et les investissements qu'elle permettrait n'ont ni taille ni ligne désignée. Le jeu mesure le déficit selon les règles actuelles."
+  },
+  {
+   "approach": "finances_publiques-2-d",
+   "why": "Il faudrait changer les traités : l'article 123 du traité sur le fonctionnement de l'UE interdit à la BCE de financer les États. L'effet sur les intérêts dépend du taux de cette dette, que le texte ne fixe pas. Aucun levier ne porte sur la charge de la dette."
+  },
+  {
+   "approach": "finances_publiques-2-e",
+   "why": "Suppose une sortie de l'euro et la fin de l'interdiction du financement monétaire des États (traités européens, article 123 du TFUE). Le jeu n'a aucun levier pour cela. L'effet sur la charge d'intérêts dépendrait des conditions fixées à la Banque de France, et aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "finances_publiques-2-f",
+   "why": "C'est un refinancement de la dette : racheter des titres avec un nouvel emprunt ne change pas le déficit, sauf par l'écart de taux, qui dépend du taux offert aux épargnants et du prix de rachat. Le jeu n'a pas de levier sur la charge d'intérêts, et aucune source éligible ne chiffre la mesure."
+  },
+  {
+   "approach": "finances_publiques-3-e",
+   "why": "Le jeu n'a pas de levier sur le statut des agents. L'effet dépend de la façon de faire : salaires des contractuels, chômage en fin de contrat, droits à retraite. Il joue surtout à terme ; en 2027, les cotisations de retraite des employeurs publics restent des flux internes aux administrations publiques. Aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "industrie_economie-1-c",
+   "why": "Conditionner les aides ne fixe ni montant ni sens : l'effet dépend du dispositif retenu et du respect des engagements par les entreprises (remboursements éventuels). Aucun levier ne représente cette mesure."
+  },
+  {
+   "approach": "industrie_economie-2-a",
+   "why": "La politique commerciale relève de l'Union européenne, et les droits de douane vont au budget européen. Aucune source éligible ne chiffre l'effet d'une préférence européenne sur le prix des achats publics. Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-2-b",
+   "why": "La décision revient à l'Union européenne. Les droits de douane sont des ressources propres de l'Union : l'effet sur la contribution française est indirect, et l'effet sur l'activité est incertain. Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-2-c",
+   "why": "Suppose une rupture des traités européens : l'union douanière et la politique commerciale relèvent de la compétence exclusive de l'Union. Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-2-e",
+   "why": "Refuser le protectionnisme ne change rien au point de départ. Imposer le maintien des emplois revient à interdire les licenciements économiques, ce qui supposerait sans doute une révision de la Constitution (liberté d'entreprendre). Aucun levier, et l'effet sur l'assurance chômage dépend des comportements."
+  },
+  {
+   "approach": "industrie_economie-2-f",
+   "why": "Poursuivre les accords de libre-échange, c'est le point de départ. Leur négociation relève de l'Union, et les droits de douane vont au budget européen. Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-3-a",
+   "why": "Le coût dépend du périmètre et de l'indemnisation, et aucune source éligible ne le chiffre. Acheter des actions est une opération financière, qui pèse sur la dette et non sur le déficit ; les dividendes futurs sont incertains. Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-3-b",
+   "why": "Suppose une révision de la Constitution : l'article 17 de la Déclaration de 1789 exige une « juste et préalable indemnité ». Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-3-c",
+   "why": "Contrôler les rachats étrangers n'a pas d'effet direct sur les comptes publics. Les prises de participation « si besoin » sont des opérations financières au cas par cas, sans taille, qui pèsent sur la dette et non sur le déficit. Aucun levier."
+  },
+  {
+   "approach": "industrie_economie-3-d",
+   "why": "Vendre des participations est une opération financière : cela réduit la dette, pas le déficit. La perte de dividendes dépend du périmètre, qui n'est pas défini. Aucun levier."
+  },
+  {
+   "approach": "travail_salaires-1-g",
+   "why": "Conditionnalité sans montant : l'effet sur les allègements dépend du nombre de branches qui négocieraient des hausses. On ne peut lire ni le sens ni la taille. Régler le levier des allègements généraux ne serait qu'un substitut, refusé."
+  },
+  {
+   "approach": "travail_salaires-1-h",
+   "why": "Refonte de la pente des allègements au-dessus du Smic : elle coûte ou rapporte selon le barème retenu, qui n'est pas précisé. Aucun levier ne règle la forme de ce barème."
+  },
+  {
+   "approach": "travail_salaires-2-a",
+   "why": "Aucun levier ne porte la durée du travail. L'effet sur les comptes publics dépend des compensations (embauches publiques, aides aux entreprises), qui ne sont pas précisées, et d'un pari sur l'emploi."
+  },
+  {
+   "approach": "travail_salaires-2-b",
+   "why": "Règles du droit du travail payées d'abord par les employeurs. L'effet public (paie des agents, exonérations des heures supplémentaires, congés) dépend de la majoration et des congés retenus, qui ne sont pas précisés, et aucun levier ne les porte."
+  },
+  {
+   "approach": "travail_salaires-2-f",
+   "why": "Aides à l'embauche sans montant ni forme (subvention ou baisse de cotisations) : aucun levier ne les porte, et celui des allègements généraux n'en serait qu'un substitut. Le passage négocié aux 32 heures n'a pas d'effet direct chiffrable."
+  },
+  {
+   "approach": "travail_salaires-3-d",
+   "why": "Aucun levier : c'est une règle du droit du travail. Les indemnités de réquisition, les pertes d'exploitation à combler et l'effet sur l'assurance chômage dépendent des comportements, et aucune source ne les chiffre."
+  },
+  {
+   "approach": "travail_salaires-3-f",
+   "why": "Reconnaître l'épuisement professionnel déplace des dépenses de l'assurance maladie vers la branche accidents du travail, financée par les employeurs. L'effet net n'est pas chiffré et aucun levier ne porte cette branche."
+  },
+  {
+   "approach": "travail_salaires-4-a",
+   "why": "Obligation faite aux entreprises, dont l'effet public (impôt sur les sociétés, forfait social, CSG) dépend du dispositif, qui n'est pas précisé. Aucun levier ne la porte."
+  },
+  {
+   "approach": "fiscalite-1-f",
+   "why": "Taux, seuil et assiette ne sont pas précisés, et aucun levier ne porte la « fortune improductive » (logements vacants, biens de luxe, liquidités) détenue par les personnes : la taxe sur les holdings ne vise que des sociétés. Remplacer l'IFI peut rapporter plus ou moins selon le dessin : on ne peut pas lire le sens de l'effet."
+  },
+  {
+   "approach": "fiscalite-2-b",
+   "why": "Le montant du plafond et le sort de l'excédent ne sont pas précisés. Aucun levier ne porte un plafond sur toute une vie (le levier des très grosses transmissions ne le chiffre pas), et la tranche de 45 % n'en serait qu'un substitut."
+  },
+  {
+   "approach": "fiscalite-2-f",
+   "why": "Critère d'éligibilité, pas un taux : l'effet dépend de la part des transmissions qui seraient écartées, qu'aucune source citée ne chiffre. Le levier du pacte Dutreil ne règle que le taux d'exonération : le relier mettrait une autre mesure à la place de celle-ci."
+  },
+  {
+   "approach": "fiscalite-x1-b",
+   "why": "Approche de stabilité : elle écarte la hausse comme la forte baisse. Le PLF 2027 ajoute 17,2 Md€ nets de mesures nouvelles et fait passer les prélèvements de 43,9 % à 44,2 % du PIB (HCFP, avis n° 2026-5). « Sans hausse » pourrait donc vouloir dire renoncer à une partie de ces mesures, mais le texte ne dit ni lesquelles ni combien, et aucun levier ne les regroupe. Des règles « stables et simplifiées » n'ont pas d'effet direct. Pré-régler un levier reviendrait à inventer un choix."
+  },
+  {
+   "approach": "fiscalite-x1-e",
+   "why": "Une expropriation n'est ni un impôt ni une dépense courante. L'article 17 de la Déclaration de 1789 exige une « juste et préalable indemnité », dont le coût dépend du périmètre et de l'évaluation et pèserait surtout sur la dette (achat d'actifs). Sans indemnité, il faudrait réviser la Constitution. Aucun levier, aucun chiffrage éligible."
+  },
+  {
+   "approach": "sante-1-e",
+   "why": "L'accès direct aux pharmaciens, infirmiers et kinésithérapeutes ajoute des actes remboursés d'un côté et évite des consultations de médecin de l'autre. On ne connaît pas le sens de l'effet sur les comptes, et aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "sante-1-f",
+   "why": "Recourir à l'intelligence artificielle est une réforme dont l'effet dépend de sa conception, et le temps médical gagné n'est pas chiffré. On ne connaît ni le sens ni la taille de l'effet ; aucun levier."
+  },
+  {
+   "approach": "sante-1-g",
+   "why": "Ouvrir des places en études de santé est une réforme dont le coût dépend du dessin (nombre de places, durée, encadrement), et le coût d'une place n'est pas publié. Le levier des universités et de la recherche est une enveloppe (programmes 150 et 172, 24,2 Md€) : l'idée ne vise pas cette ligne elle-même (troisième condition des enveloppes), le programme 172 finance la recherche, et le premier cran (+10 %, environ 2,3 Md€) dépasserait de loin toute ouverture de places. Les instituts de soins infirmiers (régions) et la paie des internes (Ondam) n'ont pas de levier pour ces places. Pas de lien, comme dans la classification d'origine (« non chiffré »)."
+  },
+  {
+   "approach": "sante-2-b",
+   "why": "Une complémentaire santé publique et obligatoire : l'effet dépend de la cotisation, du panier de soins et de ce que deviennent les complémentaires privées. Le réglage « Sécurité sociale à 100 % » est un autre scénario, et aucune source éligible ne chiffre celui-ci."
+  },
+  {
+   "approach": "sante-2-d",
+   "why": "Moduler le reste à payer selon le revenu répartit autrement la charge entre les patients. L'effet sur les comptes publics dépend du barème, que le texte ne fixe pas : il peut être nul, positif ou négatif. Aucune source éligible, aucun levier."
+  },
+  {
+   "approach": "sante-5-a",
+   "why": "Créer un service public de la dépendance et placer sous gestion publique les EHPAD à but lucratif (137 690 places) sont des réformes dont le coût dépend de leur conception : rachat ou indemnisation, reprise du fonctionnement en partie payée par les tarifs des résidents. Un rachat serait surtout une opération financière. Aucun levier, aucun chiffrage éligible."
+  },
+  {
+   "approach": "sante-5-d",
+   "why": "Le coût des caméras est porté par les EHPAD eux-mêmes. Il n'est sur aucune ligne ni aucun levier, et aucune source éligible ne publie de coût unitaire."
+  },
+  {
+   "approach": "sante-5-e",
+   "why": "Automatiser les tâches en EHPAD : les investissements et les effets sur l'emploi dépendent du dessin, sans ligne ni levier. Le texte ne dit pas dans quel sens jouent les comptes publics : le coût d'équipement s'oppose au moindre besoin de personnel."
+  },
+  {
+   "approach": "solidarites-1-b",
+   "why": "Le texte fixe des conditions aux aides (total plafonné sous le Smic, activité exigée, durée limitée), pas le montant d'une ligne. Aucun levier ne règle un plafond global des aides ni une durée de versement. L'activité exigée est déjà en principe la règle du RSA (15 heures par semaine d'activités d'insertion). Le levier « Prime d'activité et RSA de l'État » ne compte pas le RSA payé par les départements, et l'effet dépend du dessin : il toucherait plusieurs lignes à la fois (RSA des départements, aides au logement, prestations familiales)."
+  },
+  {
+   "approach": "solidarites-2-f",
+   "why": "Une consultation remboursée pour une classe d'âge coûte bien moins que le plus petit pas du levier Ondam (0,1 point, environ 0,27 Md€). Les maisons des parents sont une structure nouvelle, sans ligne budgétaire ni chiffrage."
+  },
+  {
+   "approach": "solidarites-3-a",
+   "why": "La compétence passe des départements à l'État : c'est un flux interne aux administrations publiques, sans effet propre sur le solde. L'effet net dépend de la compensation et du niveau de prise en charge. Les inspections inopinées ont un coût non chiffré. Le texte ne donne pas de sens au levier de l'aide sociale à l'enfance."
+  },
+  {
+   "approach": "solidarites-3-d",
+   "why": "Moins de placements et un meilleur encadrement des services sociaux : l'effet sur la dépense dépend de ce qui remplace le placement (suivi dans la famille, prévention), que le texte ne dit pas. Il ne donne pas de sens budgétaire au levier de l'aide sociale à l'enfance : y lire une baisse serait une interprétation."
+  },
+  {
+   "approach": "solidarites-3-e",
+   "why": "Inscrire la protection de l'enfance dans la Constitution suppose une révision constitutionnelle. Passer à un service entièrement public (reprise des établissements associatifs, déjà financés par les départements) change leur statut, avec un effet sur la dépense qui dépend du dessin. Aucun levier."
+  },
+  {
+   "approach": "logement-1-c",
+   "why": "Aucun levier ne porte l'aide publique à la construction de logements sociaux. La ligne de l'État la plus proche, « Rénovation du parc social » (109,8 M€), paie en 2027 surtout la rénovation énergétique du parc social, les cités minières et le système national d'enregistrement de la demande, pour des opérations déjà engagées ; ses engagements nouveaux de 2027 ne sont que de 8,25 M€. L'augmenter ne financerait pas de construction neuve en 2027. L'essentiel de l'aide à la construction (subventions du fonds national des aides à la pierre, TVA réduite, prêts du fonds d'épargne, exonérations de taxe foncière) n'a pas de levier."
+  },
+  {
+   "approach": "logement-1-d",
+   "why": "Aucun levier ne règle l'encadrement ou le gel des loyers : le levier « encadrement des loyers » prévu au brouillon n'a pas été créé. L'effet sur les comptes passerait, selon le dessin et surtout à terme, par les recettes sur les loyers et par les aides au logement. Le coût de la réquisition dépend du nombre de logements et de leur indemnisation, et n'est pas chiffré."
+  },
+  {
+   "approach": "logement-1-f",
+   "why": "Préférence nationale : réserver aux Français les logements sociaux et les aides au logement suppose une révision de la Constitution (principe d'égalité) et heurte le droit de l'Union. L'idée reste non chiffrée, quel que soit le camp. Le levier de la durée de séjour des étrangers règle une autre mesure : il n'est pas relié, comme pour immigration-5-a."
+  },
+  {
+   "approach": "logement-2-b",
+   "why": "Dispositif nouveau, sans ligne au PLF 2027 ni levier dans le jeu : son coût net (sinistres et gestion, moins d'éventuelles primes) dépend de son dessin, et aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "logement-2-c",
+   "why": "Aucun levier pour l'encadrement des loyers : son effet sur les comptes (un peu moins d'impôt sur les loyers) vient avec les nouveaux baux, surtout après 2027."
+  },
+  {
+   "approach": "logement-2-d",
+   "why": "Aucun levier pour l'encadrement des loyers, dont l'effet sur les comptes vient avec les nouveaux baux, surtout après 2027. L'interdiction des expulsions sans relogement dépend du dessin (relogement, indemnisation des propriétaires) et n'a pas de levier."
+  },
+  {
+   "approach": "logement-2-e",
+   "why": "Aucun levier pour le gel ou la baisse des loyers. L'annulation des dettes de loyer dépend de qui la paie, et l'interdiction des expulsions dépend des compensations prévues pour les propriétaires : rien de cela n'a de levier."
+  },
+  {
+   "approach": "logement-2-f",
+   "why": "Prolonger l'encadrement dans les villes volontaires n'a pas de levier : l'effet (un peu moins d'impôt sur les loyers) vient avec les nouveaux baux, surtout après 2027."
+  },
+  {
+   "approach": "logement-3-d",
+   "why": "Stabiliser les aides ne dit ni à quel niveau par rapport au PLF 2027, ni dans quel sens les régler. Une loi de programmation n'a pas d'effet direct sur les comptes."
+  },
+  {
+   "approach": "egalite-1-b",
+   "why": "Réforme d'organisation : son coût dépend du dessin (redéploiements, ou postes nouveaux de policiers, de magistrats et de greffiers), et le texte ne demande pas de hausser une ligne. Les crédits des tribunaux ne seraient qu'un levier approché."
+  },
+  {
+   "approach": "egalite-1-c",
+   "why": "Des peines plus lourdes occupent plus de places de prison au fil des années : effet indirect, faible en 2027, qui dépend des peines prononcées. Le contrôle des antécédents a un coût de gestion qui dépend du dispositif. Aucun levier ne règle cela."
+  },
+  {
+   "approach": "egalite-2-d",
+   "why": "Un temps partiel payé à taux plein après le congé parental serait une prestation nouvelle, sans ligne ni levier. Son coût dépend du dessin (durée, publics, complément versé), et aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "egalite-2-e",
+   "why": "L'aide à la garde ne viserait que les parents seuls, une part du complément de mode de garde (7,6 Md€) qui n'est pas publiée à part : une hausse réservée à une partie du public d'une ligne n'est pas la ligne elle-même. Le versement automatique des pensions alimentaires est une procédure des CAF, qui existe déjà en partie, sans levier."
+  },
+  {
+   "approach": "egalite-3-a",
+   "why": "Les pénalités seraient une recette, mais leur produit dépend du barème et du nombre d'employeurs qui restent en défaut : ni levier, ni chiffrage éligible. L'exclusion des marchés publics n'a pas d'effet direct sur les comptes."
+  },
+  {
+   "approach": "egalite-3-b",
+   "why": "Réserver les aides publiques aux entreprises qui respectent l'égalité ne fixe pas le niveau d'une ligne : l'économie dépend des aides visées et du nombre d'entreprises qui restent en défaut. Publier les écarts n'a pas d'effet sur les comptes."
+  },
+  {
+   "approach": "egalite-3-c",
+   "why": "Le texte ne dit ni quels métiers, ni quelle hausse, ni qui la paie (employeurs privés, État, hôpitaux, collectivités). Le point d'indice, le même pour tous les agents, ne serait qu'un levier approché. Limiter le temps partiel imposé n'a pas d'effet direct chiffrable."
+  },
+  {
+   "approach": "egalite-3-d",
+   "why": "Avantage fiscal nouveau, lié à un label à créer : son coût dépend de son dessin, aucune ligne ni aucun levier ne le porte, et aucune source éligible ne le chiffre."
+  },
+  {
+   "approach": "egalite-3-e",
+   "why": "Les droits familiaux de retraite (trimestres pour enfants, majorations) n'ont pas de levier, et les règles de calcul ne sont pas précisées. La revalorisation des pensions, qui ne tient pas compte de la carrière, et le minimum de pension, qui exige le taux plein et dont le levier vise une carrière complète, ne représentent pas cette mesure."
+  },
+  {
+   "approach": "droits_lgbtqia-2-b",
+   "why": "Ces soins sont déjà en partie pris en charge (affection de longue durée). Aucune source ne chiffre le reste à charge qui serait supprimé, et il serait sans doute bien plus petit que le plus petit réglage de l'Ondam (0,1 point, environ 0,27 Md€) : une hausse réservée à un petit public dans une ligne n'est pas la ligne elle-même."
+  },
+  {
+   "approach": "education-1-a",
+   "why": "Mesures surtout réglementaires (notes chiffrées, examens de passage, fin du collège unique). Le coût des groupes de niveau dépend de leur organisation, et l'approche ne dit pas qu'il faut recruter : aucun levier ne la représente."
+  },
+  {
+   "approach": "education-1-d",
+   "why": "Le coût dépend du dessin : montant qui suit l'élève, écoles concernées, nombre d'élèves qui changent d'école. Aucun levier ne règle à part le financement du privé sous contrat."
+  },
+  {
+   "approach": "education-1-e",
+   "why": "Objectif sans mesure précise : l'effet dépend des outils retenus (affectation, moyens modulés, conditions faites au privé, transports), il peut être nul ou coûteux. Aucun levier."
+  },
+  {
+   "approach": "education-1-h",
+   "why": "Mesures surtout disciplinaires et réglementaires. Seul l'uniforme a un coût, qui dépend de qui le paie (État, collectivités ou familles) : aucun levier."
+  },
+  {
+   "approach": "education-2-a",
+   "why": "Effet net de sens inconnu, et « à terme » : les crédits du privé sous contrat baisseraient, mais le public accueillerait une partie de ses élèves. Aucun levier ne règle le privé sous contrat seul (le levier des rémunérations couvre toute la mission)."
+  },
+  {
+   "approach": "education-2-b",
+   "why": "Le barème de modulation peut être neutre, à la hausse ou à la baisse : l'approche n'implique aucune direction."
+  },
+  {
+   "approach": "education-2-d",
+   "why": "Le coût dépend du dessin : montant par élève, écoles éligibles, élèves qui passent du public au privé. Aucun levier."
+  },
+  {
+   "approach": "education-2-e",
+   "why": "Les moyens se déplaceraient du public vers le privé plus qu'ils ne s'ajouteraient : aucune direction claire sur le total, et aucun levier pour le privé sous contrat seul."
+  },
+  {
+   "approach": "education-3-a",
+   "why": "Réforme d'organisation qui ne vise aucune ligne : le coût des groupes de niveau dépend des niveaux couverts et de la taille des groupes (des groupes existent déjà en 6e et 5e), et l'approche ne dit pas qu'il faut recruter."
+  },
+  {
+   "approach": "education-3-b",
+   "why": "Le coût dépend de l'organisation des filières et de l'apprentissage dès 14 ans comparé à celui d'un collégien : aucune direction claire. L'approche ne vise pas les aides à l'embauche d'apprentis."
+  },
+  {
+   "approach": "education-3-c",
+   "why": "Les emplois des groupes de niveau pourraient être supprimés ou redéployés ; l'approche ne dit pas lequel, donc aucune direction."
+  },
+  {
+   "approach": "education-3-d",
+   "why": "Réforme de l'obligation scolaire, qui ne vise aucune ligne : l'obligation de formation existe déjà jusqu'à 18 ans, et le coût dépend du nombre de jeunes ramenés en formation et de la forme retenue (lycée, apprentissage)."
+  },
+  {
+   "approach": "education-4-b",
+   "why": "Réforme d'accès : son coût dépend du nombre de places ouvertes, que l'approche ne dit pas, et elle ne vise pas les crédits des universités eux-mêmes (le levier couvre aussi la recherche)."
+  },
+  {
+   "approach": "education-5-d",
+   "why": "Un prêt étudiant garanti par l'État existe déjà (Bpifrance). Une garantie n'est pas une ligne de dépense : son coût dépend du volume de prêts et des défauts de remboursement. Aucun levier."
+  },
+  {
+   "approach": "education-x1-a",
+   "why": "Le coût dépend du nombre de places en établissements spécialisés, qu'aucune ligne n'isole. Le levier de la protection judiciaire de la jeunesse ne couvre que les placements décidés par un juge, pas les exclusions scolaires."
+  },
+  {
+   "approach": "education-x1-c",
+   "why": "L'effet dépend du nombre de familles sanctionnées. Les amendes et les réparations n'ont pas de levier, et la suspension d'allocations ne baisse pas une ligne elle-même."
+  },
+  {
+   "approach": "societe-1-c",
+   "why": "Le chèque remplace les avances par une autre dépense publique, dont le montant n'est pas dit : l'effet net dépend de ce montant, comparé aux 3 816,5 M€ d'avances du PLF 2027. Baisser le levier de l'audiovisuel public compterait la fin des avances sans le coût du chèque. Aucun levier ne représente ce chèque."
+  },
+  {
+   "approach": "societe-2-b",
+   "why": "La part individuelle du pass Culture (mission Culture) disparaît, mais elle est remplacée par des interventions d'artistes dont le coût n'est pas dit. Le sens de l'effet net n'est donc pas donné, et régler la mission Culture dans un sens supposerait ce solde."
+  },
+  {
+   "approach": "societe-2-c",
+   "why": "C'est une priorité de répartition à l'intérieur du budget de la culture. Le texte ne dit pas si le total monte ou reste stable (un redéploiement est possible), donc aucun sens n'est à donner au levier de la mission Culture."
+  },
+  {
+   "approach": "numerique-1-e",
+   "why": "Le contrôle public peut passer par une régulation, des prises de participation (opérations financières) ou une dépense nouvelle. Le texte ne dit ni le moyen ni le montant, et aucun levier ne le représente."
+  },
+  {
+   "approach": "numerique-3-c",
+   "why": "Le dispositif n'est pas dit. Une obligation d'investir ou des droits voisins se paient entre entreprises, hors des comptes publics. Une taxe affectée à la création ou à la presse ferait une recette et une dépense du même montant. La taxe sur les services numériques va au budget de l'État et ne finance pas la création."
+  },
+  {
+   "approach": "numerique-4-b",
+   "why": "Dépense nouvelle (développement, licences, hébergement, formation) dont le coût dépend du dessin. Aucune ligne au menu ne la porte, ni la paie des enseignants ni France 2030, et le texte ne donne pas de montant."
+  },
+  {
+   "approach": "numerique-4-c",
+   "why": "Formation généralisée, à l'école et en dehors, dont les moyens (heures, encadrement) ne sont pas dits ; elle peut aussi se faire dans les horaires existants. Aucun levier ne la représente."
+  },
+  {
+   "approach": "numerique-4-d",
+   "why": "Créer un service public et former tous les enseignants sont des dépenses nouvelles, sans montant. Le levier des rémunérations de l'enseignement scolaire porte sur la paie, pas sur la formation ni sur un nouveau service."
+  },
+  {
+   "approach": "ecologie_energie-1-b",
+   "why": "Le texte offre un choix d'instruments qui ne vont pas dans le même sens. Bloquer les prix ou plafonner les marges réduit la TVA et l'impôt sur les sociétés perçus sur le secteur ; taxer ses profits rapporte. Le levier de la taxe sur les bénéfices exceptionnels vise tous les groupes de plus de 1,5 Md€ de chiffre d'affaires : le régler prêterait à l'approche une taxe bien plus large que le seul secteur pétrolier."
+  },
+  {
+   "approach": "ecologie_energie-1-d",
+   "why": "Nationalisation : l'achat des parts est une opération financière, qui pèse sur la dette plutôt que sur le déficit. L'effet dépend ensuite des prix fixés, des dividendes et de l'indemnisation. Le texte ne donne ni périmètre ni montant, et aucun levier ne le représente."
+  },
+  {
+   "approach": "ecologie_energie-2-a",
+   "why": "Cesser de soutenir les nouvelles éoliennes ne touche pas les contrats déjà signés. En 2027, le levier du soutien aux renouvelables porte sur ces contrats en cours ; les nouveaux contrats pèsent surtout après 2027. « Miser sur le nucléaire » passe par EDF, hors des administrations publiques, et par des prêts de l'État (opérations financières). Même règle que pour la sortie du nucléaire (2-d)."
+  },
+  {
+   "approach": "ecologie_energie-2-c",
+   "why": "Priorité sans moyens précisés (aides à la rénovation ou à la sobriété, soutien aux renouvelables locales, règles), et sans dire si la dépense monte. En 2027, le soutien aux renouvelables porte sur les contrats en cours. Aucun levier ne se règle sans supposer un moyen."
+  },
+  {
+   "approach": "ecologie_energie-2-d",
+   "why": "Sortie sans calendrier, qui joue surtout après 2027 : les nouveaux contrats de renouvelables pèsent à leur mise en service, alors qu'en 2027 le levier du soutien porte sur les contrats en cours. Fermer des réacteurs avant terme peut obliger à indemniser EDF, pour un montant non chiffré. Même règle que pour l'arrêt du soutien à l'éolien (2-a)."
+  },
+  {
+   "approach": "ecologie_energie-2-f",
+   "why": "Exproprier coûte une indemnité fixée selon le périmètre. C'est une opération financière, qui pèse sur la dette plus que sur le déficit de 2027. La planification de la production n'a pas de mesure chiffrable. Aucun levier ne représente une prise de contrôle d'entreprises."
+  },
+  {
+   "approach": "ecologie_energie-3-a",
+   "why": "Sortir du marché européen de l'électricité suppose de rompre avec le droit de l'Union. L'effet sur les comptes publics ne serait qu'indirect (prix, TVA, résultats d'EDF), et aucun levier ne le représente."
+  },
+  {
+   "approach": "ecologie_energie-3-b",
+   "why": "Changer le calcul d'une partie de la facture n'a pas de levier. L'effet sur la TVA et sur les recettes tirées d'EDF dépend de l'écart entre les coûts de production et le prix de marché, dont le sens n'est pas connu d'avance."
+  },
+  {
+   "approach": "ecologie_energie-3-c",
+   "why": "Le coût d'un contrôle public unique dépend des entreprises à racheter et de leur indemnisation (opération financière). Aucun levier ne représente une prise de contrôle."
+  },
+  {
+   "approach": "ecologie_energie-4-a",
+   "why": "L'objectif d'émissions et de sortie des énergies fossiles ne précise aucun moyen : normes, taxes, aides, ou fin des tarifs réduits sur le gazole ou l'énergie de l'industrie. Rattacher un levier reviendrait à choisir l'instrument à la place du texte."
+  },
+  {
+   "approach": "ecologie_energie-4-b",
+   "why": "Orientation sans moyen ni montant. L'effet sur les comptes repose sur un pari de relance et d'emploi, que le jeu ne chiffre pas."
+  },
+  {
+   "approach": "ecologie_energie-4-c",
+   "why": "« Miser sur l'innovation et la production » ne nomme aucun instrument public (crédit d'impôt, aides, investissement). « Plutôt que de nouvelles taxes » écarte une hausse sans désigner de levier existant à baisser. Le crédit d'impôt recherche ou France 2030 seraient un instrument choisi à la place du texte."
+  },
+  {
+   "approach": "ecologie_energie-4-e",
+   "why": "Le texte cible des secteurs sans dire si l'effort passe par des aides (fret, rénovation) ou par des charges (industrie lourde) : il ne donne de sens pour aucun levier. Le prix du carbone aux frontières relève de l'Union (un mécanisme est en vigueur) et n'a pas de levier national."
+  },
+  {
+   "approach": "ecologie_energie-4-f",
+   "why": "Le coût d'une expropriation dépend du périmètre et de l'indemnisation (opération financière). Les effets de la planification ne sont pas mesurables. Aucun levier."
+  },
+  {
+   "approach": "ecologie_energie-4-g",
+   "why": "Le texte désigne des cibles, pas un instrument : l'effort peut passer par une taxe, une interdiction ou une norme. Le seul levier sur l'aviation, le tarif de solidarité sur les billets d'avion, relève tous les tarifs ensemble, vols commerciaux compris, car la part de l'aviation d'affaires n'est pas isolée. Le régler ferait donc porter l'effort surtout sur les passagers des vols commerciaux. Pour les grandes entreprises, rattacher les accises réduites de l'industrie ou la compensation carbone serait aussi un choix d'instrument fait à la place du texte. Aucun levier ne vise les émissions des ménages les plus aisés."
+  },
+  {
+   "approach": "ecologie_energie-5-b",
+   "why": "Les deux volets vont en sens contraire sur la même ligne des agences de l'eau : moins d'aides aux retenues, plus de dépense pour restaurer les milieux. Sans montant ni rythme, le sens net n'est pas donné."
+  },
+  {
+   "approach": "ecologie_energie-5-c",
+   "why": "Le service de l'eau est financé par le prix de l'eau, dans un budget à part des communes. Le passage en régie coûte surtout les indemnités de fin de contrat, qui varient selon les contrats. Aucun levier."
+  },
+  {
+   "approach": "ecologie_energie-5-e",
+   "why": "Ni le barème ni le financement ne sont précisés. Payée par le prix de l'eau des autres usagers, l'aide est neutre pour les comptes publics ; payée par un budget public, elle creuse le déficit. Aucun levier ne porte sur une aide à l'eau."
+  },
+  {
+   "approach": "ecologie_energie-6-a",
+   "why": "Équiper des bâtiments publics (écoles des communes, hôpitaux, établissements pour personnes âgées) et aider les ménages, sans montant. Aucun levier ne porte sur ces achats, et les rattacher à l'Ondam ou à l'Anah serait un rapprochement abusif."
+  },
+  {
+   "approach": "ecologie_energie-6-b",
+   "why": "Investissement des collectivités dans leurs écoles, sans montant. Aucun levier ne porte sur l'investissement des communes, et les dotations de l'État sont des transferts entre administrations publiques."
+  },
+  {
+   "approach": "ecologie_energie-6-c",
+   "why": "Obligation imposée aux communes, dont le coût dépend d'une part minimale non précisée. C'est une norme, sans ligne budgétaire à régler."
+  },
+  {
+   "approach": "ecologie_energie-6-e",
+   "why": "Réforme d'organisation. Le budget garanti n'a pas de montant et peut regrouper des crédits existants. Aucun levier."
+  },
+  {
+   "approach": "ecologie_energie-7-b",
+   "why": "Reprendre les autoroutes avant la fin des concessions suppose d'indemniser les sociétés selon les contrats (opération qui pèse surtout sur la dette), puis de percevoir les péages. Un opérateur ferroviaire unique se heurte à l'ouverture à la concurrence prévue par le droit européen. Aucun levier ne représente ces opérations."
+  },
+  {
+   "approach": "ecologie_energie-7-c",
+   "why": "Ni le nombre de voitures ni l'aide par voiture ne sont précisés. Aucun levier ne porte sur une aide à la location de voitures électriques. Le dispositif relancé en 2025 est financé par les certificats d'économies d'énergie, hors des comptes publics."
+  },
+  {
+   "approach": "ecologie_energie-x9-a",
+   "why": "Orientation générale qui ne nomme aucun instrument. L'effet sur les comptes repose sur un pari de croissance, que le jeu ne chiffre pas."
+  },
+  {
+   "approach": "ecologie_energie-x9-b",
+   "why": "Orientation sans instrument : le texte ne dit pas par quel moyen public soutenir l'innovation (crédit d'impôt, France 2030, aides aux renouvelables, normes), et son effet repose sur un pari sur la croissance, que la règle laisse non chiffré. Relier le crédit d'impôt recherche supposerait un instrument que le texte ne nomme pas."
+  },
+  {
+   "approach": "ecologie_energie-x9-c",
+   "why": "Orientation générale : aucune mesure n'est nommée (impôt, dépense ou norme) pour réduire les consommations d'énergie et de matières, et abandonner un objectif de croissance est un pari sur la croissance, que la règle laisse non chiffré."
+  },
+  {
+   "approach": "ecologie_energie-x9-d",
+   "why": "Changement du mode d'organisation de l'économie, sans mesure budgétaire précise : aucun levier ne le représente."
+  },
+  {
+   "approach": "territoires-1-a",
+   "why": "Norme légale d'accès sans seuil ni liste de services : son coût dépend des temps retenus et des services à garder ouverts, et elle ne vise aucune ligne budgétaire. Aucun levier ne la représente."
+  },
+  {
+   "approach": "territoires-1-d",
+   "why": "Les dotations aux collectivités sont un transfert entre administrations publiques : leur baisse ne change le solde des APU que si les collectivités réduisent leurs dépenses, ce qui dépend de leur réaction (dépenses, impôts locaux, emprunt). « Supprimer des doublons » ne vise aucune ligne. Aucun levier ne les représente, et la même règle vaudrait pour une hausse."
+  },
+  {
+   "approach": "territoires-1-e",
+   "why": "Le transfert de services aux collectivités est compensé (article 72-2 de la Constitution), donc interne aux administrations publiques, et l'autonomie financière dépend de sa conception. Aucun levier ne le représente."
+  },
+  {
+   "approach": "territoires-2-a",
+   "why": "Supprimer les régions exige une révision de la Constitution (article 72), que la règle laisse non chiffrée ; ni les économies ni les coûts de transition ne sont chiffrés par une source éligible."
+  },
+  {
+   "approach": "territoires-2-b",
+   "why": "L'effet dépend de l'échelon visé et de la conception (économies de fonctionnement, coûts de transition, alignement des rémunérations) ; aucune source éligible ne le chiffre et aucun levier ne le représente. Donner plus de pouvoirs aux élus locaux n'a pas d'effet direct sur les comptes."
+  },
+  {
+   "approach": "territoires-2-d",
+   "why": "Réorganisation territoriale : coûts de transition et économies éventuelles dépendent de la mise en œuvre, aucune source éligible ne les chiffre et aucun levier ne la représente."
+  },
+  {
+   "approach": "territoires-x4-a",
+   "why": "Suppose une révision de la Constitution, et l'effet viendrait après 2027, selon le calendrier des transferts et l'aide maintenue : les dépenses de l'État en Nouvelle-Calédonie ne s'arrêteraient pas en 2027. Aucun levier ne le représente."
+  },
+  {
+   "approach": "territoires-x4-b",
+   "why": "Suppose une révision de la Constitution, rejetée par l'Assemblée nationale en avril 2026 ; le coût des transferts de compétences dépend d'une loi organique pas encore écrite. Aucun levier ne le représente."
+  },
+  {
+   "approach": "territoires-x4-d",
+   "why": "Priorité économique sans mesure : le soutien de l'État au redressement n'est ni décrit ni chiffré, et aucun levier ne le représente."
+  },
+  {
+   "approach": "agriculture-1-a",
+   "why": "Sortir de la politique agricole commune et rétablir des droits de douane nationaux suppose de sortir des traités (PAC, union douanière) ; la règle laisse ces ruptures non chiffrées, quel que soit le sens. Le levier des aides nationales à l'agriculture ne représente pas ce remplacement des aides européennes."
+  },
+  {
+   "approach": "agriculture-1-e",
+   "why": "Direction sans instrument : « soutenir » ne dit pas si c'est par des aides publiques (une dépense), par une autre répartition des aides européennes (neutre pour les comptes) ou par des règles dans les négociations avec l'industrie et la distribution (sans effet sur les comptes). Les aides nationales du programme 149 ne visent pas les petites exploitations : les hausser irait au-delà du texte."
+  },
+  {
+   "approach": "agriculture-3-c",
+   "why": "Des sanctions plus lourdes rapportent un peu d'amendes et coûtent un peu en procès et en détention : effet faible, de sens incertain, qu'aucune source éligible ne chiffre et qu'aucun levier ne représente."
+  },
+  {
+   "approach": "agriculture-x4-a",
+   "why": "Tout dépend du mécanisme : un prix minimal imposé aux acheteurs n'a pas d'effet direct sur les comptes publics, alors qu'une garantie dont l'État paierait l'écart serait une dépense. Le texte ne tranche pas, et aucun levier ne représente ces prix planchers."
+  },
+  {
+   "approach": "securite_justice-1-a",
+   "why": "Réforme du droit des peines à l'effet indirect : le nombre de détenus monterait selon les peines retenues et les décisions des juges. L'idée ne vise pas la ligne de l'administration pénitentiaire, pas plus que 1-d dans l'autre sens ; aucune source éligible ne la chiffre et aucun levier ne la représente."
+  },
+  {
+   "approach": "securite_justice-1-c",
+   "why": "Réforme de procédure à l'effet indirect et de sens incertain : peines plus courtes mais exécutées plus souvent. Le texte ne parle pas de moyens supplémentaires ; aucun levier ne la représente."
+  },
+  {
+   "approach": "securite_justice-1-d",
+   "why": "Effet indirect, par les peines : moins de jours de détention, mais des peines alternatives suivies par les services d'insertion et de probation, payés sur la même ligne (programme 107). Le sens sur cette ligne n'est donc pas sûr et le plafond n'est pas fixé ; non reliée, comme 1-a dans l'autre sens."
+  },
+  {
+   "approach": "securite_justice-1-f",
+   "why": "Réforme du droit pénal dont l'effet sur le nombre de détenus est indirect et dépend des lois abrogées, qui ne sont pas nommées. Elle n'est pas rattachée aux crédits de l'administration pénitentiaire, comme les peines minimales (1-a) et la baisse du recours à la prison (1-d). L'amnistie n'a pas d'effet budgétaire direct."
+  },
+  {
+   "approach": "securite_justice-2-c",
+   "why": "Le texte ne dit pas si la police de proximité se ferait à effectifs constants (redéploiement, sans effet direct) ou avec des recrutements en plus. L'approche ne donne donc de sens à aucun levier."
+  },
+  {
+   "approach": "securite_justice-2-e",
+   "why": "Revoir les règles d'usage de la force n'a pas d'effet budgétaire. La nouvelle autorité de contrôle aurait un coût de fonctionnement dont la taille n'est pas dite. Ce coût serait nul si elle reprenait les moyens de l'IGPN et de l'IGGN. Aucun levier ne porte sur cette dépense."
+  },
+  {
+   "approach": "securite_justice-3-e",
+   "why": "Le texte ne donne ni taux de recouvrement des amendes ni nombre de contrôles, et aucun levier ne porte sur le produit des amendes ou sur le coût des contrôles. Accroître la pression sur les consommateurs suppose de garder l'interdiction, qui est déjà le réglage du PLF sur le levier du cannabis : l'approche ne lui donne pas de sens."
+  },
+  {
+   "approach": "securite_justice-4-b",
+   "why": "Réforme des peines à l'effet lointain : la perpétuité réelle allonge des détentions sur plusieurs décennies. L'imprescriptibilité ajoute quelques procès et le traitement imposé a un coût médical, sans nombre dit. Comme les peines minimales (1-a), cette réforme n'est pas rattachée aux crédits de l'administration pénitentiaire."
+  },
+  {
+   "approach": "securite_justice-4-c",
+   "why": "Contrôler les antécédents de tous les adultes au contact d'enfants a un coût de gestion faible et sans ligne propre. Aucun levier ne le porte : c'est la même règle que pour egalite-1-c. Le fichage n'a pas d'effet budgétaire direct."
+  },
+  {
+   "approach": "securite_justice-4-f",
+   "why": "Les caméras dans les écoles, les crèches et les lieux périscolaires seraient payées par les communes et les gestionnaires. Le nombre d'établissements équipés n'est pas dit. Ce n'est pas une dépense de police municipale, et aucun levier ne la porte."
+  },
+  {
+   "approach": "securite_justice-5-a",
+   "why": "Effet indirect et de sens incertain : une partie des mineurs passerait de la protection judiciaire de la jeunesse à la justice des majeurs. C'est une réforme du droit pénal, qui touche aussi un principe constitutionnel, celui d'une justice propre aux mineurs."
+  },
+  {
+   "approach": "securite_justice-5-b",
+   "why": "Effet indirect, selon les décisions des juges : plus de mineurs détenus ou placés, sans nombre. C'est une réforme de la procédure et des peines, pas d'une ligne budgétaire. Le levier de la protection judiciaire de la jeunesse n'est pas rattaché, comme pour les peines minimales (1-a)."
+  },
+  {
+   "approach": "securite_justice-5-c",
+   "why": "Les aides à suspendre ne sont pas nommées, et l'économie dépend du nombre de familles visées, que ni la proposition ni aucune source ne donne. Ces familles seraient une petite part des allocataires : relier le levier des allocations familiales, qui touche toutes les familles, en grossirait l'effet. C'est la même règle que pour education-x1-c, qui propose aussi de suspendre des allocations aux parents et n'est pas reliée non plus. Les dégâts payés par les parents sont un flux privé, sans effet sur le déficit public."
+  },
+  {
+   "approach": "securite_justice-x1-d",
+   "why": "Ne pas étendre les pouvoirs ni généraliser l'armement laisse la dépense des polices municipales sur sa tendance, qui est le réglage de départ. Miser sur la médiation et la prévention n'a ni mesure ni taille, et peut se faire à moyens constants. L'approche ne donne donc de sens à aucun levier."
+  },
+  {
+   "approach": "immigration-1-a",
+   "why": "Le dispositif n'est pas précisé (aide au retour, retrait de titres de séjour) et l'idée vise surtout des étrangers en séjour régulier. Aucune ligne du jeu ne la porte : les crédits de rétention et d'éloignement concernent les étrangers en situation irrégulière, et l'aide au retour volontaire (17,9 M€) est mêlée aux crédits d'intégration. Retirer le séjour à des étrangers en règle se heurte aussi à la Convention européenne des droits de l'homme et à la Constitution."
+  },
+  {
+   "approach": "immigration-1-b",
+   "why": "L'idée fixe le nombre d'admissions au séjour, pas le montant d'une ligne. Ses effets (emploi, cotisations, prestations, dépenses d'accueil) sont indirects, et aucun levier ne les porte. L'asile a sa propre ligne, mais un demandeur d'asile n'est pas encore admis à s'installer."
+  },
+  {
+   "approach": "immigration-1-c",
+   "why": "L'idée change le volume et le choix des entrées, pas une ligne du budget. Exiger la langue à l'entrée peut alléger les cours de français du contrat d'intégration comme les déplacer : aucun sens clair sur le levier des crédits d'intégration, et aucune taille."
+  },
+  {
+   "approach": "immigration-1-e",
+   "why": "Faciliter les visas et allonger les titres change des procédures. Les effets directs sont faibles et de sens contraires (moins de droits de visa et de timbre, moins de travail en préfecture), et aucun levier du jeu ne les porte."
+  },
+  {
+   "approach": "immigration-1-f",
+   "why": "L'idée est contraire au droit de l'Union (politique commune des visas, code frontières Schengen). C'est une rupture des traités, donc non chiffrée, avec la même règle que pour la sortie de Schengen (immigration-2-a). Ses effets sont indirects et aucun levier ne les porte."
+  },
+  {
+   "approach": "immigration-2-a",
+   "why": "C'est une rupture des traités, car l'acquis de Schengen fait partie du droit de l'Union : non chiffrée, avec la même règle que pour la liberté de circulation (immigration-1-f). Les contrôles aux frontières (police aux frontières, mission Sécurités) n'ont pas de levier dans le jeu."
+  },
+  {
+   "approach": "immigration-2-d",
+   "why": "L'idée dépend d'une réforme du droit de l'Union et de la clé de répartition. On ne sait pas si la France accueillerait plus ou moins de demandeurs : le sens sur les crédits de l'asile est inconnu."
+  },
+  {
+   "approach": "immigration-2-e",
+   "why": "Le pacte est fait de règlements de l'Union d'application directe. L'abandonner seul est une rupture du droit de l'Union, non chiffrée, avec la même règle que pour la sortie de Schengen. L'idée vise des règles, pas une ligne : le levier de la rétention et des éloignements ne la représente pas."
+  },
+  {
+   "approach": "immigration-3-b",
+   "why": "Régulariser à grande échelle a des effets dans les deux sens (cotisations et impôts en plus, prestations ouvertes, passage de l'AME à l'assurance maladie). Ils dépendent de l'emploi déclaré : aucun levier ne les porte, et aucune source éligible ne les chiffre."
+  },
+  {
+   "approach": "immigration-5-a",
+   "why": "Préférence nationale : réserver aux Français les aides au logement, et leur donner la priorité pour l'emploi et le logement social, demande une révision de la Constitution (égalité, Préambule de 1946) et heurte le droit de l'Union. L'idée reste non chiffrée, avec la même règle que logement-1-f et les autres ruptures, quel que soit le camp. Le levier des aides au logement les baisse pour tous les ménages, pas pour les seuls étrangers. Celui de la durée de séjour s'arrête à deux ans et n'exclut personne."
+  },
+  {
+   "approach": "immigration-5-b",
+   "why": "Exclure les étrangers en règle des aides non financées par des cotisations demande une révision de la Constitution (égalité, Préambule de 1946) et heurte le droit de l'Union : non chiffrée, avec la même règle des deux côtés. Les leviers de ces aides (RSA et prime d'activité, aides au logement, allocations familiales) les baissent pour tous, et celui de la durée de séjour s'arrête à deux ans."
+  },
+  {
+   "approach": "immigration-6-d",
+   "why": "Des titres de séjour plus longs et une naturalisation simplifiée changent des procédures. Les effets directs sont faibles et de sens contraires (droits de timbre et de naturalisation, travail des préfectures), et aucun levier ne les porte."
+  },
+  {
+   "approach": "immigration-x2-a",
+   "why": "Le statut des Algériens n'a pas de ligne budgétaire propre. Ses effets (titres de séjour, prestations, droits de visa perdus) seraient progressifs et dépendraient de la réaction de l'Algérie. Le rapport d'information n° 1963 de l'Assemblée (octobre 2025) estime le surcoût du statut à 1,5 à 2 Md€ par an, sans évaluation précise : ce n'est pas l'effet en 2027 de la fin de l'accord."
+  },
+  {
+   "approach": "immigration-x2-b",
+   "why": "Dénoncer l'accord change des règles de séjour sans viser de ligne budgétaire, et son effet serait progressif. Le surcoût du statut estimé par l'Assemblée (rapport d'information n° 1963, octobre 2025) n'est pas évalué précisément et compte aussi des personnes devenues françaises. Le même rapport relève des points où le droit commun est plus ouvert (étudiants). Aucun levier."
+  },
+  {
+   "approach": "immigration-x2-c",
+   "why": "L'effet dépend du résultat d'une négociation avec l'Algérie. Aucune ligne budgétaire n'est visée et aucun chiffrage éligible d'un accord révisé n'existe : aucun levier."
+  },
+  {
+   "approach": "europe-1-a",
+   "why": "Réforme des institutions de l'Union (révision des traités, à l'unanimité) : aucune ligne du budget 2027 ne la représente. L'effet d'une Europe fédérale sur les comptes français dépend de sa conception (budget, ressources propres) ; le texte ne la donne pas."
+  },
+  {
+   "approach": "europe-1-b",
+   "why": "Le texte vise l'Union, pas le budget français : il ne parle ni d'une hausse de l'effort de défense national ni d'une contribution plus élevée. Le levier défense mesure la dépense française ; y relier l'approche serait une interprétation. La contribution au budget de l'Union est fixée par les traités et n'est pas un levier."
+  },
+  {
+   "approach": "europe-1-d",
+   "why": "Renégocier les traités est une procédure prévue (article 48 du traité sur l'Union européenne) : il faut l'accord des 27 États, puis la ratification de chacun. Cesser d'en appliquer les règles romprait les traités, et le jeu ne chiffre pas une rupture. Dans les deux cas, l'effet sur les comptes dépend de ce qui serait fait une fois les règles changées ou levées, et le texte ne le dit pas. Quant au déficit, le jeu laisse déjà chacun choisir son objectif."
+  },
+  {
+   "approach": "europe-1-e",
+   "why": "Quitter l'Union passe par l'article 50 du traité sur l'Union européenne : la sortie prend effet à l'entrée en vigueur d'un accord de retrait, ou à défaut deux ans après la notification, sauf prolongation décidée à l'unanimité. Jusque-là, la France reste membre et verse sa contribution. Même notifiée tout de suite, une sortie ne jouerait sur 2027 que si un accord de retrait entrait en vigueur dans l'année, et le texte n'en fixe pas les conditions. Une sortie sans cette procédure romprait les traités, et le jeu ne chiffre pas une rupture. La contribution au budget de l'Union (30,9 Md€ au PLF 2027) n'est pas un levier : son montant découle des règles et du budget de l'Union, que la France ne fixe pas seule. Après la sortie, les financements européens en France (aides agricoles, fonds régionaux…) cesseraient aussi, sauf à les remplacer sur le budget national."
+  },
+  {
+   "approach": "europe-1-g",
+   "why": "Mesures à décider à l'échelle de l'Union (directive, unanimité en fiscalité). À lui seul, un salaire minimum européen ne fixe aucune hausse du Smic français. Selon sa conception, l'harmonisation fiscale peut relever ou baisser les impôts français : aucun levier ni aucune direction."
+  },
+  {
+   "approach": "europe-2-a",
+   "why": "Décision des 27 (ressources propres, emprunt commun), ratifiée par chaque État. L'effet sur la contribution française dépend des impôts et des emprunts choisis. Cette contribution est fixée par les traités et n'est pas un levier du jeu."
+  },
+  {
+   "approach": "europe-2-b",
+   "why": "Changer les règles européennes de déficit se décide à 27. Le texte ne désigne ni ligne ni montant d'investissement : le relier au levier France 2030 ou à une autre dépense serait une interprétation."
+  },
+  {
+   "approach": "europe-2-c",
+   "why": "La contribution de la France au budget de l'Union (30,9 Md€ au PLF 2027) est fixée par le cadre financier 2021-2027 et par la décision sur les ressources propres. D'après la règle des enveloppes, ce n'est pas un levier. La renégocier demande l'accord des 27, et le texte ne donne aucune taille."
+  },
+  {
+   "approach": "europe-2-d",
+   "why": "Suspendre la contribution serait contraire aux traités et aux règles européennes qui la fixent, et le jeu ne chiffre pas une rupture. Quitter l'Union passe par l'article 50 du traité sur l'Union européenne : la contribution reste due jusqu'à l'entrée en vigueur d'un accord de retrait, ou à défaut deux ans après la notification (sauf prolongation), et un tel accord peut régler les engagements déjà pris. La contribution (30,9 Md€ au PLF 2027) n'est pas un levier : son montant découle des règles et du budget de l'Union, que la France ne fixe pas seule. Après la sortie, les dépenses de l'Union en France cesseraient aussi, sauf à les remplacer sur le budget national."
+  },
+  {
+   "approach": "europe-2-f",
+   "why": "La Banque centrale européenne est indépendante (article 130 du traité sur le fonctionnement de l'UE) : un gouvernement ne peut pas lui donner d'instruction. L'article 123 interdit aux banques centrales de la zone euro de prêter aux États ou d'acheter leur dette directement à l'émission, et la BCE juge qu'annuler la dette publique qu'elles détiennent y serait contraire. Le jeu n'a pas de levier sur la charge de la dette : ce que la BCE déciderait, et l'effet sur les taux, n'y figure pas."
+  },
+  {
+   "approach": "europe-3-b",
+   "why": "Rétablir des monopoles nationaux dans les secteurs ouverts à la concurrence (électricité, gaz, rail…) irait contre les directives européennes en vigueur, sauf à les modifier au niveau de l'Union. Dans les comptes publics, racheter des parts d'entreprise au prix du marché est une opération financière : cela pèse sur la dette, pas sur le déficit. Le solde dépend surtout des prix fixés : sous les coûts, compenser l'écart coûte ; au-dessus, les bénéfices peuvent revenir à l'État en dividendes. Le texte ne fixe ni le périmètre ni les prix, et aucun levier ne représente cette mesure."
+  },
+  {
+   "approach": "europe-3-f",
+   "why": "Déroge au droit européen des marchés publics et aux engagements pris à l'OMC. L'effet sur le prix des achats publics n'a ni ligne ni chiffrage, et aucun levier ne le représente."
+  },
+  {
+   "approach": "europe-x4-a",
+   "why": "Aucune adhésion n'est possible en 2027 : pas d'effet sur les comptes de l'année. L'effet à terme sur la contribution française dépend du futur budget de l'Union et des conditions d'adhésion."
+  },
+  {
+   "approach": "europe-x4-b",
+   "why": "Aucune adhésion n'est possible en 2027 : pas d'effet sur les comptes de l'année. L'effet à terme sur la contribution française dépend du futur budget de l'Union et des conditions d'adhésion."
+  },
+  {
+   "approach": "europe-x4-c",
+   "why": "Élargissement à terme seulement : aucun effet en 2027. L'effet à terme dépend des conditions d'adhésion et du futur budget de l'Union."
+  },
+  {
+   "approach": "europe-x5-c",
+   "why": "Le texte vise l'autonomie de l'Europe, pas un montant français : il ne parle ni d'une hausse de l'effort de défense national ni d'un achat précis. Le levier défense n'est pas visé ; y relier l'approche serait une interprétation."
+  },
+  {
+   "approach": "europe-x5-e",
+   "why": "Rester à l'écart de tous les blocs peut vouloir dire sortir de l'OTAN, mais le texte ne le dit pas, ni quel effort de défense suivrait (moins de contributions à l'OTAN, peut-être plus de dépense nationale). Le jeu n'a pas de levier sur la contribution à l'OTAN, et le sens net est incertain."
+  },
+  {
+   "approach": "ukraine_russie-1-a",
+   "why": "Cette hausse de l'aide militaire serait financée par les avoirs russes gelés, donc hors du budget français. L'aide militaire n'a pas de ligne réglable au PLF 2027 (action 13 du programme 146 à 0 €, cessions prises sur les stocks des armées sans crédit propre). Le levier « Infrastructures civiles ukrainiennes » porte sur l'aide civile, que le texte ne vise pas."
+  },
+  {
+   "approach": "ukraine_russie-1-c",
+   "why": "C'est une priorité diplomatique. « Plutôt qu'à l'effort militaire » ne dit ni si l'aide baisse ni de combien, et l'aide militaire n'a pas de ligne réglable. L'aide civile (fonds pour les infrastructures) n'est pas visée."
+  },
+  {
+   "approach": "ukraine_russie-1-f",
+   "why": "Le texte ne vise que le soutien militaire, qui n'a pas de ligne réglable au PLF 2027 (action 13 du programme 146 à 0 €, cessions prises sur les stocks sans crédit propre). La quote-part française de la Facilité européenne pour la paix se décide à 27. L'aide civile, la seule qui ait un levier, n'est pas visée."
+  },
+  {
+   "approach": "ukraine_russie-2-d",
+   "why": "La neutralité suppose d'arrêter l'aide militaire, qui n'a pas de ligne réglable. Le texte ne dit pas d'arrêter l'aide civile. Lever les sanctions et renouer un partenariat pour l'énergie n'agit qu'indirectement (prix de l'énergie, échanges) : effet incertain, aucun levier."
+  },
+  {
+   "approach": "defense-1-b",
+   "why": "Le texte ne fixe ni la taille, ni la part de la France, ni le montage (budget national, budget de l'Union ou emprunt commun). Le relier au levier défense serait une interprétation. La contribution française au budget de l'Union pour 2027 est fixée par le cadre financier pluriannuel. Le sens est incertain, comme pour defense-4-a."
+  },
+  {
+   "approach": "defense-1-c",
+   "why": "Aucun levier ne porte sur les contributions de la France aux budgets communs de l'OTAN, ni sur ses postes dans les états-majors intégrés. Aucune source éligible lue ne chiffre l'effet en 2027, sans doute faible, et son sens n'est pas établi."
+  },
+  {
+   "approach": "defense-1-d",
+   "why": "Aucun levier ne porte sur les contributions aux budgets communs de l'OTAN. Une diplomatie non alignée ou une sécurité collective européenne peut demander d'autres dépenses, et le calendrier reste ouvert (« par étapes ») : le sens n'est pas établi."
+  },
+  {
+   "approach": "defense-1-e",
+   "why": "Le refus des alliances ne fixe aucune dépense nationale. Aucun levier ne porte sur les contributions à l'OTAN. La contribution française au budget de l'Union est fixée au niveau européen (cadre financier pluriannuel et décision sur les ressources propres), pas par la France seule."
+  },
+  {
+   "approach": "defense-4-a",
+   "why": "Les achats et les financements seraient partagés au niveau de l'Union (emprunt commun, budget européen), sans taille ni part française énoncée. La contribution française au budget de l'Union est fixée au niveau européen (cadre financier pluriannuel et décision sur les ressources propres), pas par la France seule. Le sens de l'effet est incertain."
+  },
+  {
+   "approach": "institutions-1-a",
+   "why": "C'est une révision complète de la Constitution, dont les effets sur les comptes publics sont inconnus. Élire ou tirer au sort une assemblée constituante a un coût ponctuel. Mais le levier des référendums ne compte que des référendums, et le texte ne fixe ni le mode de désignation ni la date."
+  },
+  {
+   "approach": "institutions-1-b",
+   "why": "C'est une rupture complète avec la Constitution. L'effet dépend de ce qui remplacerait la présidence et le Sénat (dotations supprimées, coût des nouvelles instances), et rien n'en est défini."
+  },
+  {
+   "approach": "institutions-1-g",
+   "why": "Aucun levier ne porte sur la mission « Pouvoirs publics » (dotations des assemblées, qu'elles fixent elles-mêmes), et le levier des effectifs publics ne couvre pas les parlementaires. Moins de sièges ne compterait qu'au prochain renouvellement, donc pas en année pleine en 2027. Limiter les mandats successifs est sans effet sur les comptes."
+  },
+  {
+   "approach": "institutions-x1-a",
+   "why": "C'est une rupture avec la Constitution. Aucun levier ne porte sur la dotation du Conseil constitutionnel (mission « Pouvoirs publics », montant faible), et l'effet dépend des institutions qui le remplaceraient."
+  },
+  {
+   "approach": "laicite_republique-1-a",
+   "why": "Aucun levier ne porte sur le produit des amendes ni sur le coût des contrôles. Ces deux effets vont en sens contraires et dépendent du nombre de personnes verbalisées."
+  },
+  {
+   "approach": "laicite_republique-1-b",
+   "why": "De nouveaux délits ou interdictions ont un coût indirect (enquêtes, procès, détention) qui dépend des peines prononcées. Une idée dont l'effet passe par les peines ne règle pas les crédits de la justice : la même règle s'applique dans les deux sens. Aucune source éligible ne chiffre la mesure."
+  }
+ ]
+}

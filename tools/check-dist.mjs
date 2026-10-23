@@ -352,18 +352,36 @@ for (const f of tableChunks) {
 }
 // « Faire les comptes » (src/ui/budget/Budget.tsx : l'objectif, les rayons, la fiche d'un levier, le budget, la
 // méthode) : un fichier à part, chargé à la demande (src/ui/budget/load.ts), et ses leviers un second fichier, chargé par
-// l'écran seulement (src/elections/<id>/budget.ts) ; ni l'un ni l'autre dans le JS initial ni préchargés. Le jeu ne lit
-// pas la feuille de réponses et ne garde rien : son code n'appelle aucun stockage du navigateur ni aucun envoi.
-// Plafonds : l'écran, 29,1 ko le 18 octobre 2026, plus de quoi grandir ; les leviers vérifiés (76 fiches, 3,7 sources en
+// l'écran seulement (src/elections/<id>/budget.ts) ; ni l'un ni l'autre dans le JS initial ni préchargés. Ses réglages
+// sont gardés par l'application (app.tsx, avec les réponses) : son code n'appelle lui-même aucun stockage du navigateur
+// ni aucun envoi.
+// Plafonds : l'écran, 29,1 ko le 18 octobre 2026, 38,0 ko le soir avec la cascade de « Votre budget » ; 48 ko pour la
+// version demandée le même soir (réponses reliées, « Comprendre », crans au-delà de la source), 46,7 ko construite,
+// d'où 52 ko ; les leviers vérifiés (76 fiches, 3,7 sources en
 // moyenne, et la ligne du budget de chacune, sourcée, qui range les « 3 plus gros »), 233,7 ko après la revue du même
 // jour, plus de quoi en ajouter quelques-uns : ils ne se chargent qu'à l'ouverture du jeu
-const BUDGET_SCREEN_BUDGET = 36_000
-const BUDGET_DATA_BUDGET = 260_000
+// « Comprendre » chaque levier (src/elections/<id>/budget-explain.ts) : un troisième fichier, chargé à l'ouverture de la
+// première fiche. Plafonds de la version du 18 octobre 2026 (163 leviers, dont 87 ajoutés : sous-options demandées par
+// le propriétaire, estimations, plages au-delà de la source) : les leviers 833,6 ko mesurés (160 ko compressés) avant
+// les liens vérifiés vers les approches, d'où 960 ko ; « Comprendre » 192,4 ko pour 76 textes (sources sans doublon ni
+// chiffre), d'où 450 ko pour les 163. Le service worker les garde comme le reste (hors ligne) : c'est le poids d'un
+// jeu complet, à mettre en regard des 2,35 Mo des questions de l'élection
+// L'écran : 53,9 ko après la revue finale de la v2 (cascade sur une échelle, sept crans, sources repliées, réponses
+// partagées, « Comprendre »), d'où 60 ko
+const BUDGET_SCREEN_BUDGET = 60_000
+const BUDGET_DATA_BUDGET = 960_000
+const BUDGET_EXPLAIN_BUDGET = 450_000
 const budgetChunks = readdirSync(join(dist, 'assets')).filter(f => /^Budget-[\w-]+\.js$/.test(f))
-const budgetDataChunks = readdirSync(join(dist, 'assets')).filter(f => /^budget-[\w-]+\.js$/.test(f))
+const budgetDataChunks = readdirSync(join(dist, 'assets')).filter(f => /^budget-[\w-]+\.js$/.test(f) && !/^budget-explain-/.test(f))
+const budgetExplainChunks = readdirSync(join(dist, 'assets')).filter(f => /^budget-explain-[\w-]+\.js$/.test(f))
 if (budgetChunks.length !== 1) fail(`« Faire les comptes » : ${budgetChunks.length} fichier(s) assets/Budget-*.js, un attendu`)
 if (budgetDataChunks.length !== 1) fail(`« Faire les comptes » : ${budgetDataChunks.length} fichier(s) de leviers assets/budget-*.js, un attendu`)
-for (const [f, cap, what] of [...budgetChunks.map(f => [f, BUDGET_SCREEN_BUDGET, 'l’écran']), ...budgetDataChunks.map(f => [f, BUDGET_DATA_BUDGET, 'les leviers'])]) {
+if (budgetExplainChunks.length !== 1) fail(`« Faire les comptes » : ${budgetExplainChunks.length} fichier(s) assets/budget-explain-*.js, un attendu`)
+for (const [f, cap, what] of [
+  ...budgetChunks.map(f => [f, BUDGET_SCREEN_BUDGET, 'l’écran']),
+  ...budgetDataChunks.map(f => [f, BUDGET_DATA_BUDGET, 'les leviers']),
+  ...budgetExplainChunks.map(f => [f, BUDGET_EXPLAIN_BUDGET, '« Comprendre »']),
+]) {
   if (initial.includes(join('assets', f))) fail(`« Faire les comptes », ${what} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
   if (modulePreloads.includes(`assets/${f}`)) fail(`« Faire les comptes », ${what} : assets/${f} est préchargé par dist/index.html`)
   const size = statSync(join(dist, 'assets', f)).size
@@ -606,6 +624,7 @@ for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(sta
 for (const f of journalChunks) console.log(`  journal des données : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${JOURNAL_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of budgetChunks) console.log(`  « Faire les comptes » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${BUDGET_SCREEN_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of budgetDataChunks) console.log(`  « Faire les comptes », les leviers : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${BUDGET_DATA_BUDGET / 1000} ko permis, chargés par l'écran`)
+for (const f of budgetExplainChunks) console.log(`  « Faire les comptes », « Comprendre » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${BUDGET_EXPLAIN_BUDGET / 1000} ko permis, chargé à l'ouverture d'une fiche`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f} et ce qu’il charge en plus du JS initial, ${(bytesOf(ownOf(f)) / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of methodSectionChunks) console.log(`  rubrique « Mon profil politique » de la Méthode : assets/${f} et ce qu’elle ajoute à la Méthode, ${(bytesOf(methodAdded(f)) / 1000).toFixed(1)} ko sur ${PROFILE_METHOD_BUDGET / 1000} ko permis, chargée à la demande`)
 for (const f of weighChunks) {

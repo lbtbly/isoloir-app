@@ -4697,7 +4697,8 @@ try {
     await tc.close()
   }
   // 10 bis. « Faire les comptes » (#/comptes), hors ligne : l'objectif, une fiche, un cran, le curseur ; le déficit de la
-  // bande suit, rien n'est écrit sur l'appareil, rien ne part ; « Votre budget 2027 » garde le levier réglé
+  // bande suit, rien ne part ; « Votre budget 2027 » garde le levier réglé ; les réglages sont gardés avec les réponses
+  // (décision du 18 octobre 2026) et reviennent après un rechargement, hors ligne
   if (COMPTES) {
     const cc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
     const cp = await cc.newPage()
@@ -4713,7 +4714,6 @@ try {
     await cp.evaluate(() => navigator.serviceWorker.ready)
     await cp.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
     await cc.setOffline(true)
-    const keysBefore = await cp.evaluate(() => JSON.stringify(Object.entries(localStorage).sort()))
     await cp.goto(U('/comptes'))
     await cp.locator('.cpt-goals').waitFor({ timeout: 8000 })
     const firstGoal = hashOf(cp) === L('/comptes/objectif')
@@ -4743,12 +4743,85 @@ try {
     await cp.goto(U('/comptes/budget'))
     await cp.locator('.cpt-lines').waitFor()
     const recapRows = await cp.locator('.cpt-lines li:not(.fam)').count()
-    const keysAfter = await cp.evaluate(() => JSON.stringify(Object.entries(localStorage).sort()))
+    const figSet = (await cp.locator('.cpt-fig').innerText()).replace(/\s+/g, ' ')
+    // Gardé sous la clé de l'élection, avec les réponses ; puis la page rechargée, hors ligne, le reprend tel quel
+    const kept = await cp.evaluate(k => {
+      try {
+        const b = JSON.parse(localStorage.getItem(k) ?? 'null')?.budget
+        return b && b.goalId === 'trois' && Object.keys(b.settings).length > 0
+      } catch {
+        return false
+      }
+    }, STORAGE)
+    await cp.reload()
+    await cp.locator('.cpt-lines').waitFor({ timeout: 8000 })
+    const back = (await cp.locator('.cpt-lines li:not(.fam)').count()) === recapRows && (await cp.locator('.cpt-fig').innerText()).replace(/\s+/g, ' ') === figSet
+    // Un autre onglet efface tout : le jeu ouvert ici suit (retour à l'objectif) et ne réécrit pas ce qui a été effacé
+    const other = await cc.newPage()
+    await other.goto(HOME)
+    await other.evaluate(k => localStorage.removeItem(k), STORAGE)
+    await cp.waitForFunction(() => /comptes\/objectif/.test(location.hash), null, { timeout: 5000 }).catch(() => null)
+    const followed = hashOf(cp) === L('/comptes/objectif') && (await cp.evaluate(k => localStorage.getItem(k), STORAGE)) === null
+    await other.close()
     check(
-      firstGoal && backOut && before !== afterNotch && slid && recapRows >= 1 && keysBefore === keysAfter && foreign.length === 0 && errors.length === 0,
-      `« Faire les comptes » hors ligne : objectif d’abord ${firstGoal}, le retour arrière en sort ${backOut}, la bande suit le cran (${before} → ${afterNotch}), curseur au clavier ${slid}, levier au récapitulatif ${recapRows}, rien d’écrit ${keysBefore === keysAfter}, rien d’envoyé ${foreign.length === 0 ? 'oui' : foreign.join(', ')}${errors.length ? `, erreurs : ${errors.join(' ; ')}` : ''}`,
+      firstGoal && backOut && before !== afterNotch && slid && recapRows >= 1 && kept && back && followed && foreign.length === 0 && errors.length === 0,
+      `« Faire les comptes » hors ligne : objectif d’abord ${firstGoal}, le retour arrière en sort ${backOut}, la bande suit le cran (${before} → ${afterNotch}), curseur au clavier ${slid}, levier au récapitulatif ${recapRows}, gardé sur l’appareil ${kept}, repris après rechargement ${back}, effacé dans un autre onglet suivi ici ${followed}, rien d’envoyé ${foreign.length === 0 ? 'oui' : foreign.join(', ')}${errors.length ? `, erreurs : ${errors.join(' ; ')}` : ''}`,
     )
     await cc.close()
+  }
+
+  // 10 ter. « Faire les comptes » relié aux réponses (décisions du 18 octobre 2026), hors ligne : des réponses d'accord avec
+  // des approches reliées proposent de partir d'elles ; les leviers sont pré-réglés, marqués, la fiche cite la réponse,
+  // « Votre budget 2027 » montre la cascade ; « Les remettre au PLF » les remet tous
+  if (COMPTES && existsSync(new URL(`../research/${pack.election.id}/budget-links.json`, import.meta.url))) {
+    const links = JSON.parse(readFileSync(new URL(`../research/${pack.election.id}/budget-links.json`, import.meta.url), 'utf8')).links
+    const questionOf = new Map(pack.bank.questions.flatMap(q => q.approaches.map(a => [a.id, q.id])))
+    const answers = {}
+    const used = new Set()
+    for (const k of links) {
+      if (used.has(k.lever) || used.size >= 6 || !questionOf.has(k.approach)) continue
+      used.add(k.lever)
+      const q = questionOf.get(k.approach)
+      ;(answers[q] ??= { ratings: {}, redLines: [] }).ratings[k.approach] = 1
+    }
+    const seeded = { format: 3, electionId: pack.election.id, dataVersion: pack.election.dataVersion, seed: 'e2ecompt', answers, weights: {}, deepTopics: [], lastSeenRanking: null, lastSeenBasis: null, dataUpdatedFrom: null, beforeUpdate: null, essentialDoneAt: null, updatedAt: new Date().toISOString() }
+    const rc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+    await rc.addInitScript(([k, v]) => { if (!localStorage.getItem(k)) localStorage.setItem(k, v) }, [STORAGE, JSON.stringify(seeded)])
+    const rp = await rc.newPage()
+    const errors = []
+    rp.on('pageerror', e => errors.push(e.message))
+    await rp.goto(HOME)
+    await rp.evaluate(() => navigator.serviceWorker.ready)
+    await rp.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+    await rc.setOffline(true)
+    await rp.goto(U('/comptes/objectif'))
+    await rp.locator('.cpt-goals').first().waitFor({ timeout: 8000 })
+    const offered = (await rp.locator('.cpt-start-from').count()) === 1
+    await rp.locator('.cpt-goals').first().locator('.cpt-goal-row').nth(2).click()
+    await rp.locator('.action-bar .btn-primary').click()
+    await rp.locator('.cpt-rail').first().waitFor()
+    const note = (await rp.locator('.cpt-preset-note').innerText().catch(() => '')).replace(/\s+/g, ' ')
+    const kept = await rp.evaluate(k => JSON.parse(localStorage.getItem(k) ?? 'null')?.budget ?? null, STORAGE)
+    const presetIds = kept?.preset ?? []
+    let quoted = false
+    if (presetIds.length) {
+      await rp.goto(U(`/comptes/${presetIds[0]}`))
+      await rp.locator('.cpt-card').waitFor()
+      quoted = /D’accord/.test(await rp.locator('.cpt-answers').innerText().catch(() => ''))
+    }
+    await rp.goto(U('/comptes/budget'))
+    await rp.locator('.cpt-verdict').waitFor()
+    const fall = await rp.locator('.cpt-fall-row').count()
+    await rp.goto(U('/comptes'))
+    await rp.locator('.cpt-rail').first().waitFor()
+    await rp.locator('.cpt-preset-note button').click().catch(() => null)
+    await rp.waitForTimeout(200)
+    const cleared = (await rp.locator('.cpt-preset-note').count()) === 0 && (await rp.evaluate(k => Object.keys(JSON.parse(localStorage.getItem(k) ?? 'null')?.budget?.settings ?? {}).length, STORAGE)) === 0
+    check(
+      offered && presetIds.length > 0 && /pré-réglé/.test(note) && quoted && fall >= 3 && cleared && errors.length === 0,
+      `« Faire les comptes » relié aux réponses : départ proposé ${offered}, ${presetIds.length} levier(s) pré-réglé(s) (« ${note} »), la fiche cite la réponse ${quoted}, cascade de ${fall} rangées, remis au PLF ${cleared}${errors.length ? `, erreurs : ${errors.join(' ; ')}` : ''}`,
+    )
+    await rc.close()
   }
 
   // 11. « Installer l'application » (#/installer), hors ligne, en imitant chaque appareil (navigateur, système, mode

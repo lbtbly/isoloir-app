@@ -1,6 +1,6 @@
 {
   "_note": "Conventions du jeu « Faire les comptes » (#/comptes), fixées le 17 octobre 2026 AVANT toute mesure : plan approuvé par le propriétaire le même jour (~/.claude/plans/i-m-wondering-if-there-hazy-lagoon.md). Choix du propriétaire : le jeu complet amorcé par les réponses, assez ludique, lancé au plus tôt sur le PLF 2027 déposé. Les seuils de la porte ne se retouchent jamais pour faire passer une mesure ; les changer est une décision du propriétaire, datée ici.",
-  "version": 5,
+  "version": 6,
   "decidedAt": "2026-10-17",
   "baseline": {
     "text": "Projet de loi de finances pour 2027 tel que déposé le 1er octobre 2026 (n° 3210) et projet de loi de financement de la sécurité sociale pour 2027 déposé, projets non votés",
@@ -155,12 +155,23 @@
       "version": 5,
       "at": "2026-10-18",
       "what": "Après la revue de finition (32 constats confirmés) : la règle des « 3 plus gros » devient la taille publiée de la ligne du budget sur laquelle joue le levier (au sens propre), au lieu de l’effet atteignable, qui dépendait de plages choisies par le site et mettait en tête l’audiovisuel et la culture. Plages des lignes de crédits : ±25 %, ou ±100 % quand une idée du débat supprime la ligne. Registre des sources appliqué par l’outil de construction."
+    },
+    {
+      "version": 6,
+      "at": "2026-10-18",
+      "what": "Après un essai en production, le propriétaire demande (18/10 au soir) : garder les réglages sur l’appareil et les inclure dans l’export ; une explication « Comprendre » par levier ; des leviers plus détaillés (hauts revenus et patrimoines, aides aux entreprises, et le reste du débat) ; aller au-delà des crans chiffrés ; une cascade par catégorie dans « Votre budget » ; relier les réponses aux leviers, avec marques ET pré-réglage, même si la porte de neutralité ne passe pas (l’écart mesuré est publié dans la Méthode) ; les mesures sans chiffrage éligible sont estimées par Isoloir, en fourchette, marquées « estimation », la méthode étant dite dans le détail."
     }
   ],
   "variant": {
-    "id": "etabli",
-    "decidedAt": "2026-10-17",
-    "rule": "Aucune amorce par les réponses : le jeu ne lit pas la feuille. Les portes G1 et G4 (qui mesurent l’amorce) ne s’appliquent plus ; le menu reste symétrique par construction (chaque levier se règle dans les deux sens, crans symétriques autour du PLF)."
+    "id": "etabli-relie",
+    "decidedAt": "2026-10-18",
+    "decidedBy": "propriétaire",
+    "rule": "Le jeu lit les réponses aux questions (sur l’appareil, rien n’est envoyé) : sur chaque levier relié, la réponse de la personne (d’accord, pas d’accord, ligne rouge) ; les leviers reliés à une approche approuvée (et sans ligne rouge contraire) sont pré-réglés dans son sens et marqués « d’après vos réponses ». Deux réponses contraires sur un même levier : marque « réponses partagées », pas de pré-réglage. La porte G0–G6 est remesurée sur ce mode et publiée dans la Méthode, qu’elle passe ou non.",
+    "previous": {
+      "id": "etabli",
+      "decidedAt": "2026-10-17",
+      "rule": "Aucune amorce par les réponses : le jeu ne lit pas la feuille. Les portes G1 et G4 (qui mesurent l’amorce) ne s’appliquent plus ; le menu reste symétrique par construction (chaque levier se règle dans les deux sens, crans symétriques autour du PLF)."
+    }
   },
   "envelopes": {
     "decidedAt": "2026-10-17",
@@ -183,7 +194,11 @@
       "le réduire de moitié",
       "revenir sous 3 %",
       "pas d'objectif"
-    ]
+    ],
+    "persistence": {
+      "decidedAt": "2026-10-18",
+      "rule": "Les réglages du jeu restent sur l’appareil (comme les réponses) et sont inclus dans l’export et le transfert ; rien n’est envoyé."
+    }
   },
   "build": {
     "decidedAt": "2026-10-18",
@@ -193,5 +208,15 @@
     "operators": "La chaîne État → organisme public (opérateurs, ODAC : audiovisuel public, Anah, universités, France 2030, Crous, CNC…) est admise pour toutes les lignes, la même règle partout : l’enveloppe entière, avec la mention « si l’organisme réduit d’autant sa dépense ».",
     "notches": "Pas de cran au-delà de ce que chiffre la source : la plage s’arrête là, symétrique autour du PLF (le plus petit des deux côtés publiés) ; le curseur avance au dixième d’unité dans cette plage.",
     "envelopes": "Lignes de crédits : plage de −25 % à +25 % ; de −100 % à +100 % seulement quand une idée de la banque supprime ou privatise cette ligne (18/10, après la revue)."
+  },
+  "estimates": {
+    "decidedAt": "2026-10-18",
+    "decidedBy": "propriétaire",
+    "rule": "Une mesure débattue sans chiffrage par une source éligible est estimée par Isoloir : méthode statique et mécanique, à partir de bases officielles citées (assiette, produit, effectifs), en fourchette large (au moins ±25 % autour du calcul central, plus large quand la méthode est fruste), jamais à partir d’un chiffre de candidat, de parti, de syndicat ou d’organisation patronale. Chaque estimation porte le champ estimate.method (comment, pas à pas, avec les chiffres) ; l’interface la marque « estimation » et la Méthode compte la part estimée du total."
+  },
+  "stretch": {
+    "decidedAt": "2026-10-18",
+    "decidedBy": "propriétaire",
+    "rule": "Au-delà de la plage chiffrée par la source, un levier peut aller plus loin jusqu’à une borne justifiée (limite légale, la ligne entière, un taux plancher européen…) ; au-delà de la plage chiffrée, l’effet est une estimation (extrapolation marquée, fourchette élargie pour les effets de comportement que la méthode statique ignore)."
   }
 }

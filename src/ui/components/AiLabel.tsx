@@ -74,7 +74,7 @@ const WHAT: Record<AiKind, string> = {
   journal:
     'Les titres et les textes de ce journal ont été rédigés par une IA (Claude, d’Anthropic), d’après les décisions de l’éditeur. Le reste de chaque entrée est tiré des données, sans rédaction\u00a0: ses candidats, ses thèmes, ses questions et son effet sur le classement.',
   chiffrages:
-    'Les fiches des leviers (nom, réglage du PLF, ce que le chiffre ne compte pas) ont été rédigées par une IA (Claude, d’Anthropic), qui a aussi choisi les sources, relevé leurs montants ou les a calculés à partir des chiffres publiés, et fixé les plages et les crans\u00a0; elles ont été vérifiées automatiquement contre ces sources, par une IA elle aussi, sans relecture humaine. Le calcul du déficit se fait sur votre appareil, sans IA.',
+    'Les fiches des leviers (nom, réglage du PLF, ce que le chiffre ne compte pas, «\u00a0Comprendre\u00a0») ont été rédigées par une IA (Claude, d’Anthropic), qui a aussi choisi les sources, relevé leurs montants ou les a calculés à partir des chiffres publiés (dont les estimations d’Isoloir, quand aucune source ne chiffre une mesure), fixé les plages et les crans, et relié les approches des questions aux leviers\u00a0; tout cela a été vérifié automatiquement, contre les sources, par une IA elle aussi, sans relecture humaine. Le calcul du déficit et la lecture de vos réponses se font sur votre appareil, sans IA.',
 }
 
 interface Props {

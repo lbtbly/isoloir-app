@@ -62,7 +62,7 @@ describe('leviers', () => {
     for (const l of L) {
       const options = (l.options ?? []).map(o => `${o.label} ${o.note ?? ''}`).join(' ')
       expect(names(`${l.label} ${l.today} ${l.limits} ${l.laterNote ?? ''} ${l.unit.label} ${l.amount?.label ?? ''} ${options}`), l.id).toEqual([])
-      for (const s of [...l.sources, ...(l.base ? [l.base.source] : [])]) expect(names(`${s.title} ${s.url} ${s.publisher} ${s.figure}`), `${l.id} ${s.url}`).toEqual([])
+      for (const s of [...l.sources, ...(l.base ? [l.base.source] : [])]) expect(names(`${s.title} ${s.url} ${s.publisher} ${'figure' in s ? s.figure : ''}`), `${l.id} ${s.url}`).toEqual([])
       if (l.base) expect(names(l.base.label), l.id).toEqual([])
     }
   })
@@ -86,8 +86,12 @@ describe('leviers', () => {
       }
   })
 
-  it('chaque levier a la taille de sa ligne, sauf ceux que leurs sources ne chiffrent que par emploi', () => {
-    for (const l of L) if (!l.base) expect(l.unit.label, l.id).toMatch(/emplois|appelés/)
+  it('un levier sans ligne publiée (une mesure qui n’existe pas encore, ou chiffrée par emploi) vient après ceux qui en ont une', () => {
+    for (const f of ['impots', 'depenses', 'sociale'] as const) {
+      const order = familyOrder(L, f)
+      const firstWithout = order.findIndex(l => !l.base)
+      if (firstWithout >= 0) expect(order.slice(firstWithout).every(l => !l.base), f).toBe(true)
+    }
   })
 
   it('les rayons : trois premiers par famille, trois lignes distinctes, de la plus grosse ligne à la plus petite', () => {
